@@ -9,13 +9,17 @@
 <style>
 body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;line-height:1.7}
 a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
+@media(max-width:860px){
+.bar{padding:12px 16px!important}
+.spec{padding:150px 16px 32px!important}
+}
 </style>
 </head>
 <body>
-<div style="width:1280px;height:420px;box-sizing:border-box;background:#f3f3f1;position:relative">
-<div style="height:80px;box-sizing:border-box;padding:0 40px;display:flex;align-items:center;justify-content:space-between;background:#fff;border-bottom:2px solid #1a1a1a">
+<div class="hd" style="width:100%;max-width:1280px;min-height:420px;box-sizing:border-box;background:#f3f3f1;position:relative">
+<div class="bar" style="min-height:80px;box-sizing:border-box;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;background:#fff;border-bottom:2px solid #1a1a1a">
 <div style="display:flex;align-items:center;gap:12px;font-weight:900;font-size:22px"><img src="images/reboot-logo.png" alt="reboot ロゴ" style="width:48px;height:48px;border-radius:50%;object-fit:cover">reboot</div>
-<div style="display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500">
+<div style="display:flex;gap:8px 28px;align-items:center;font-size:14px;font-weight:500;flex-wrap:wrap">
 <a href="top-a.html" style="min-height:44px;display:inline-flex;align-items:center">トップ</a>
 <a href="contact.html" style="min-height:44px;display:inline-flex;align-items:center">受注窓口</a>
 <a href="works.html" style="min-height:44px;display:inline-flex;align-items:center">作品履歴</a>
@@ -30,7 +34,7 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 <a href="contact.html" style="min-height:44px;padding:0 20px;display:inline-flex;align-items:center;background:#a6f03c;font-weight:700;border:2px solid #1a1a1a;border-radius:4px;box-sizing:border-box">お問い合わせ</a>
 </div>
 </div>
-<div style="position:absolute;left:40px;top:128px;width:560px;display:flex;flex-direction:column;gap:12px">
+<div class="spec" style="box-sizing:border-box;padding:48px 40px 40px;max-width:640px;display:flex;flex-direction:column;gap:12px">
 <div style="font-size:20px;font-weight:700">ヘッダーメニューの仕様</div>
 <div style="font-size:14px">・メニュー項目：トップ／受注窓口／作品履歴／スタジオ／プラン</div>
 <div style="font-size:14px">・「スタジオ」にカーソルを合わせると、下に「国内スタジオ」「海外スタジオ」の2項目を表示</div>
