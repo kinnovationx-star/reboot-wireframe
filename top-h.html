@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>H 受注導線特化（LP）型｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;line-height:1.7}
+a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
+.ph{background:#e4e4e1 linear-gradient(to top right,transparent calc(50% - 1px),#c4c4c0 50%,transparent calc(50% + 1px));display:flex;align-items:center;justify-content:center;color:#444;font-size:13px;text-align:center}
+.tx{height:10px;background:#d6d6d2;border-radius:5px}
+.bt{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 32px;background:#a6f03c;color:#1a1a1a;font-weight:700;border-radius:6px;border:2px solid #1a1a1a;font-size:16px;font-family:inherit}
+.bo{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:#fff;color:#1a1a1a;font-weight:700;border-radius:6px;border:2px solid #1a1a1a}
+.nv{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500;flex-wrap:wrap}
+.nv a{min-height:44px;display:inline-flex;align-items:center}
+.dd{position:relative}
+.ddm{display:none;position:absolute;top:100%;left:-16px;background:#fff;border:2px solid #1a1a1a;min-width:190px;z-index:9;flex-direction:column}
+.ddm a{padding:0 16px;border-bottom:1px solid #d6d6d2}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.in{max-width:1120px;margin:0 auto}
+.en{font-size:12px;letter-spacing:.15em;color:#555;font-weight:700;margin:0}
+.h2{font-size:28px;font-weight:700;margin:0}
+.fl{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:700}
+.fl input,.fl textarea{min-height:44px;border:2px solid #1a1a1a;border-radius:4px;padding:8px 12px;font:inherit;font-weight:400;box-sizing:border-box;width:100%}
+.td{padding:16px;border:1px solid #1a1a1a;font-size:14px;text-align:center}
+.fq{min-height:68px;box-sizing:border-box;border:2px solid #1a1a1a;border-radius:6px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;font-weight:700}
+</style>
+</head>
+<body>
+<div style="background:#fff">
+
+<header style="min-height:80px;box-sizing:border-box;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid #1a1a1a">
+<a href="#top" style="display:flex;align-items:center;gap:12px;font-weight:900;font-size:22px"><img src="images/reboot-logo.png" alt="reboot ロゴ" style="width:48px;height:48px;border-radius:50%;object-fit:cover">reboot</a>
+<nav class="nv" aria-label="メインメニュー">
+<a href="#top">トップ</a>
+<a href="contact.html">受注窓口</a>
+<a href="works.html">作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ ▾</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html">プラン</a>
+<a class="bt" href="contact.html" style="min-height:48px">ご依頼・ご相談はこちら</a>
+</nav>
+</header>
+
+<section id="top" style="min-height:720px;box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+<div style="flex:1 1 440px;min-width:0;display:flex;flex-direction:column;gap:20px">
+<p class="en">動画・仕上げの依頼はrebootへ</p>
+<h1 style="margin:0;font-size:48px;font-weight:900;line-height:1.3">アニメを<br>もっと楽しく！</h1>
+<ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-weight:700"><li>✓ 国内スタジオ＋直営海外スタジオの体制</li><li>✓ 国内作業者の正社員化・常駐化</li><li>✓ [訴求ポイント 3]</li></ul>
+<div class="ph" style="height:260px;border-radius:8px">メインビジュアル（作業風景 or 作品カット）</div>
+</div>
+<form style="flex:1 1 380px;min-width:0;background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:32px;display:flex;flex-direction:column;gap:14px">
+<div style="font-size:20px;font-weight:700">かんたんお問い合わせ</div>
+<div style="font-size:12px;color:#555">※ファーストビューに受注フォームを配置</div>
+<label class="fl">氏名<input type="text" name="name"></label>
+<label class="fl">メールアドレス<input type="email" name="email"></label>
+<label class="fl">題名<input type="text" name="subject"></label>
+<label class="fl">メッセージ本文<textarea name="message" rows="4"></textarea></label>
+<button type="button" class="bt">送信する</button>
+</form>
+</div>
+</section>
+
+<section style="min-height:340px;box-sizing:border-box;padding:64px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div style="text-align:center"><p class="en">REASON</p><h2 class="h2">rebootが選ばれる理由</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px">
+<div style="border:2px solid #1a1a1a;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-size:28px;font-weight:900">01</div><div style="font-weight:700">[理由 1]</div><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div></div>
+<div style="border:2px solid #1a1a1a;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-size:28px;font-weight:900">02</div><div style="font-weight:700">[理由 2]</div><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div></div>
+<div style="border:2px solid #1a1a1a;border-radius:6px;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-size:28px;font-weight:900">03</div><div style="font-weight:700">[理由 3]</div><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div></div>
+</div>
+</div>
+</section>
+
+<section style="min-height:380px;box-sizing:border-box;padding:64px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div style="text-align:center"><p class="en">FLOW</p><h2 class="h2">ご依頼の流れ</h2></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+<div style="background:#fff;border:2px solid #1a1a1a;border-radius:6px;padding:24px;text-align:center"><div class="en">STEP 1</div><div style="font-size:18px;font-weight:700">お問い合わせ</div><div class="tx" style="width:80%;margin:12px auto 0"></div></div>
+<div style="background:#fff;border:2px solid #1a1a1a;border-radius:6px;padding:24px;text-align:center"><div class="en">STEP 2</div><div style="font-size:18px;font-weight:700">お打ち合わせ・お見積り</div><div class="tx" style="width:80%;margin:12px auto 0"></div></div>
+<div style="background:#fff;border:2px solid #1a1a1a;border-radius:6px;padding:24px;text-align:center"><div class="en">STEP 3</div><div style="font-size:18px;font-weight:700">作業</div><div class="tx" style="width:80%;margin:12px auto 0"></div></div>
+<div style="background:#fff;border:2px solid #1a1a1a;border-radius:6px;padding:24px;text-align:center"><div class="en">STEP 4</div><div style="font-size:18px;font-weight:700">納品</div><div class="tx" style="width:80%;margin:12px auto 0"></div></div>
+</div>
+</div>
+</section>
+
+<section style="min-height:560px;box-sizing:border-box;padding:64px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div style="text-align:center"><p class="en">PLAN</p><h2 class="h2">作業プラン比較</h2></div>
+<div style="overflow-x:auto"><table style="width:100%;min-width:640px;border-collapse:collapse">
+<tr><th class="td" style="background:#f3f3f1"></th><th class="td" style="background:#f3f3f1">[プラン名 1]</th><th class="td" style="background:#a6f03c">[プラン名 2]</th><th class="td" style="background:#f3f3f1">[プラン名 3]</th></tr>
+<tr><th class="td">対応作業</th><td class="td">[内容]</td><td class="td">[内容]</td><td class="td">[内容]</td></tr>
+<tr><th class="td">作業拠点</th><td class="td">[国内／海外]</td><td class="td">[国内／海外]</td><td class="td">[国内／海外]</td></tr>
+<tr><th class="td">納期の目安</th><td class="td">[納期]</td><td class="td">[納期]</td><td class="td">[納期]</td></tr>
+<tr><th class="td">料金</th><td class="td">[料金]</td><td class="td">[料金]</td><td class="td">[料金]</td></tr>
+</table></div>
+<div style="text-align:center"><a class="bo" href="plan.html">プランの詳細を見る</a></div>
+</div>
+</section>
+
+<section id="studio" style="min-height:400px;box-sizing:border-box;padding:64px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><p class="en">WORKS / STUDIO</p><h2 class="h2">実績と制作体制</h2></div><a class="bo" href="works.html">作品履歴を見る</a></div>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px"><div class="ph" style="height:110px">作品</div><div class="ph" style="height:110px">作品</div><div class="ph" style="height:110px">作品</div><div class="ph" style="height:110px">作品</div><div class="ph" style="height:110px">作品</div><div class="ph" style="height:110px">作品</div></div>
+<div style="display:flex;gap:16px;flex-wrap:wrap"><a class="bo" href="studio-japan.html" style="flex:1 1 240px">国内スタジオ →</a><a class="bo" href="studio-overseas.html" style="flex:1 1 240px">海外スタジオ →</a></div>
+</div>
+</section>
+
+<section style="min-height:480px;box-sizing:border-box;padding:64px 40px">
+<div class="in" style="max-width:800px;display:flex;flex-direction:column;gap:12px">
+<div style="text-align:center;margin-bottom:16px"><p class="en">FAQ</p><h2 class="h2">よくあるご質問</h2></div>
+<div class="fq"><span>Q. [質問 1]</span><span>＋</span></div>
+<div class="fq"><span>Q. [質問 2]</span><span>＋</span></div>
+<div class="fq"><span>Q. [質問 3]</span><span>＋</span></div>
+<div class="fq"><span>Q. [質問 4]</span><span>＋</span></div>
+</div>
+</section>
+
+<section style="min-height:300px;box-sizing:border-box;padding:64px 40px;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;text-align:center">
+<h2 style="margin:0;font-size:30px;font-weight:700;color:#fff">まずはお気軽にご相談ください</h2>
+<a class="bt" href="contact.html">受注窓口（お問い合わせフォーム）へ</a>
+</section>
+
+<footer style="min-height:240px;box-sizing:border-box;padding:48px 40px">
+<div class="in" style="display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#555"><div style="font-weight:900;font-size:20px;color:#1a1a1a">reboot</div><div>株式会社reboot</div><div>東京都杉並区上荻1-5-8 直長ビル6F</div></div>
+<nav class="nv" aria-label="フッターメニュー" style="align-items:flex-start"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+</div>
+<div class="in" style="margin-top:32px;font-size:12px;color:#555">© reboot Inc.</div>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;right:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>

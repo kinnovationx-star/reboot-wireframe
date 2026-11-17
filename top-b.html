@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>B 左右スプリット・ジグザグ型｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;line-height:1.7}
+a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
+.ph{background:#e4e4e1 linear-gradient(to top right,transparent calc(50% - 1px),#c4c4c0 50%,transparent calc(50% + 1px));display:flex;align-items:center;justify-content:center;color:#444;font-size:13px;text-align:center}
+.tx{height:10px;background:#d6d6d2;border-radius:5px}
+.bt{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:#a6f03c;color:#1a1a1a;font-weight:700;border-radius:999px;border:2px solid #1a1a1a}
+.bo{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;background:#fff;color:#1a1a1a;font-weight:700;border-radius:999px;border:2px solid #1a1a1a}
+.nv{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500;flex-wrap:wrap}
+.nv a{min-height:44px;display:inline-flex;align-items:center}
+.dd{position:relative}
+.ddm{display:none;position:absolute;top:100%;left:-16px;background:#fff;border:2px solid #1a1a1a;min-width:190px;z-index:9;flex-direction:column}
+.ddm a{padding:0 16px;border-bottom:1px solid #d6d6d2}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.in{max-width:1120px;margin:0 auto}
+.en{font-size:12px;letter-spacing:.15em;color:#555;font-weight:700;margin:0}
+.h2{font-size:32px;font-weight:700;margin:0;line-height:1.4}
+.row{display:flex;gap:64px;align-items:center;flex-wrap:wrap}
+.col{flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+</style>
+</head>
+<body>
+<div style="background:#fff">
+
+<header style="min-height:80px;box-sizing:border-box;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap">
+<a href="#top" style="display:flex;align-items:center;gap:12px;font-weight:900;font-size:22px"><img src="images/reboot-logo.png" alt="reboot ロゴ" style="width:48px;height:48px;border-radius:50%;object-fit:cover">reboot</a>
+<nav class="nv" aria-label="メインメニュー">
+<a href="#top">トップ</a>
+<a href="contact.html">受注窓口</a>
+<a href="works.html">作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ ▾</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html">プラン</a>
+</nav>
+<a class="bt" href="contact.html" style="min-height:44px;padding:0 20px">お問い合わせ</a>
+</header>
+
+<section id="top" style="min-height:600px;box-sizing:border-box;padding:56px 40px">
+<div class="in row">
+<div class="col" style="gap:24px">
+<p class="en">ANIMATION STUDIO reboot</p>
+<h1 style="margin:0;font-size:52px;font-weight:900;line-height:1.3">アニメを<br>もっと楽しく！</h1>
+<p style="margin:0;font-size:16px">動画・仕上げの依頼はrebootへ</p>
+<div style="display:flex;gap:16px;flex-wrap:wrap"><a class="bt" href="contact.html">受注窓口へ</a><a class="bo" href="works.html">作品履歴を見る</a></div>
+</div>
+<div class="ph" style="flex:1 1 420px;height:480px;border-radius:24px">メインビジュアル（縦長・角丸）</div>
+</div>
+</section>
+
+<section style="min-height:520px;box-sizing:border-box;padding:72px 40px;background:#f3f3f1">
+<div class="in row">
+<div class="ph" style="flex:1 1 380px;height:360px;border-radius:24px">取り組みイメージ</div>
+<div class="col"><p class="en">ABOUT</p><h2 class="h2">1つ1つの作業を大切に。</h2><p style="margin:0;font-size:15px">アニメの魅力を最大限引き出すためには、地道な作業が必要です。rebootは1つ1つの作業を大切にし、アニメーションをより良くしていきます。</p><div class="tx" style="width:90%"></div><div class="tx" style="width:70%"></div></div>
+</div>
+</section>
+
+<section style="min-height:520px;box-sizing:border-box;padding:72px 40px">
+<div class="in row">
+<div class="col"><p class="en">WORKS</p><h2 class="h2">作品履歴</h2><div class="tx" style="width:100%"></div><div class="tx" style="width:80%"></div><a class="bo" href="works.html">作品履歴をすべて見る</a></div>
+<div style="flex:1 1 420px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+<div class="ph" style="height:170px;border-radius:16px">作品ビジュアル</div><div class="ph" style="height:170px;border-radius:16px">作品ビジュアル</div><div class="ph" style="height:170px;border-radius:16px">作品ビジュアル</div><div class="ph" style="height:170px;border-radius:16px">作品ビジュアル</div>
+</div>
+</div>
+</section>
+
+<section id="studio" style="min-height:520px;box-sizing:border-box;padding:72px 40px;background:#f3f3f1">
+<div class="in row">
+<div style="flex:1 1 420px;min-width:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px">
+<a href="studio-japan.html" style="display:flex;flex-direction:column;gap:8px;font-weight:700"><div class="ph" style="height:300px;border-radius:16px;font-weight:400">国内スタジオ写真</div>国内スタジオ →</a>
+<a href="studio-overseas.html" style="display:flex;flex-direction:column;gap:8px;font-weight:700"><div class="ph" style="height:300px;border-radius:16px;font-weight:400">海外スタジオ写真</div>海外スタジオ →</a>
+</div>
+<div class="col"><p class="en">STUDIO</p><h2 class="h2">国内と海外、<br>2つのスタジオ</h2><p style="margin:0;font-size:15px">国内作画スタジオ lolroute（ルート）と、直営海外スタジオ reboot China が連携して制作します。</p><div class="tx" style="width:80%"></div></div>
+</div>
+</section>
+
+<section style="min-height:520px;box-sizing:border-box;padding:72px 40px">
+<div class="in row">
+<div class="col"><p class="en">PLAN</p><h2 class="h2">作業プラン</h2><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div><a class="bo" href="plan.html">プランの詳細を見る</a></div>
+<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="border:2px solid #1a1a1a;border-radius:16px;padding:20px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span style="font-weight:700">[プラン名 1]</span><span style="font-size:13px;color:#555">対応作業：動画／仕上げ ほか</span></div>
+<div style="border:2px solid #1a1a1a;border-radius:16px;padding:20px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span style="font-weight:700">[プラン名 2]</span><span style="font-size:13px;color:#555">対応作業：動画／仕上げ ほか</span></div>
+<div style="border:2px solid #1a1a1a;border-radius:16px;padding:20px 24px;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap"><span style="font-weight:700">[プラン名 3]</span><span style="font-size:13px;color:#555">対応作業：動画／仕上げ ほか</span></div>
+</div>
+</div>
+</section>
+
+<section style="min-height:300px;box-sizing:border-box;padding:40px">
+<div class="in" style="box-sizing:border-box;min-height:220px;border-radius:24px;background:#1a1a1a;padding:40px 56px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap">
+<h2 style="margin:0;font-size:28px;font-weight:700;color:#fff">ご依頼・ご相談は受注窓口へ</h2>
+<a class="bt" href="contact.html">お問い合わせフォームへ</a>
+</div>
+</section>
+
+<footer style="min-height:240px;box-sizing:border-box;padding:48px 40px">
+<div class="in" style="display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap">
+<div style="display:flex;flex-direction:column;gap:8px;font-size:13px;color:#555"><div style="font-weight:900;font-size:20px;color:#1a1a1a">reboot</div><div>株式会社reboot</div><div>東京都杉並区上荻1-5-8 直長ビル6F</div></div>
+<nav class="nv" aria-label="フッターメニュー" style="align-items:flex-start"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+<div style="font-size:13px;color:#555">SNS：X ／ Instagram ／ Facebook</div>
+</div>
+<div class="in" style="margin-top:32px;font-size:12px;color:#555">© reboot Inc.</div>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;right:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>
