@@ -26,6 +26,18 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 .fl input,.fl textarea{min-height:44px;border:2px solid #1a1a1a;border-radius:4px;padding:8px 12px;font:inherit;font-weight:400;box-sizing:border-box;width:100%}
 .td{padding:16px;border:1px solid #1a1a1a;font-size:14px;text-align:center}
 .fq{min-height:68px;box-sizing:border-box;border:2px solid #1a1a1a;border-radius:6px;padding:0 24px;display:flex;align-items:center;justify-content:space-between;font-weight:700}
+.mt{position:absolute;opacity:0;width:1px;height:1px}
+.hb,a.fab{display:none}
+@media(max-width:860px){
+.hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:48px;height:48px;padding:0 10px;box-sizing:border-box;border:2px solid #1a1a1a;border-radius:4px;background:#fff;cursor:pointer}
+.hb span{display:block;height:2px;background:#1a1a1a}
+.mt:focus-visible+.hb{outline:3px solid #3d6b00}
+.mt~nav,header a.bt{display:none}
+.mt:checked~nav{display:flex;flex-direction:column;align-items:stretch;gap:0;flex:1 1 100%;width:100%;background:#fff;border-top:2px solid #1a1a1a;padding:8px 16px 16px;box-sizing:border-box}
+.mt:checked~nav a{min-height:52px;color:#1a1a1a;border-bottom:1px solid #d6d6d2}
+.mt:checked~nav .ddm{display:flex;position:static;border:0;min-width:0;padding-left:20px}
+a.fab{display:inline-flex;align-items:center;position:fixed;right:16px;bottom:16px;z-index:50;min-height:56px;padding:0 24px;background:#a6f03c;color:#1a1a1a;font-weight:700;border:2px solid #1a1a1a;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.3)}
+}
 </style>
 </head>
 <body>
@@ -33,6 +45,7 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 
 <header style="min-height:80px;box-sizing:border-box;padding:0 40px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-bottom:2px solid #1a1a1a">
 <a href="#top" style="display:flex;align-items:center;gap:12px;font-weight:900;font-size:22px"><img src="images/reboot-logo.png" alt="reboot ロゴ" style="width:48px;height:48px;border-radius:50%;object-fit:cover">reboot</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label><a class="fab" href="contact.html">ご依頼・ご相談</a>
 <nav class="nv" aria-label="メインメニュー">
 <a href="#top">トップ</a>
 <a href="contact.html">受注窓口</a>
@@ -132,6 +145,6 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 </footer>
 
 </div>
-<a href="index.html" style="position:fixed;right:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
 </body>
 </html>
