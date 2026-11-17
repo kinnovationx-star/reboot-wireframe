@@ -56,8 +56,8 @@ header>a img{width:44px!important;height:44px!important}
 #top>div{padding:24px 16px!important}
 #top>div img{width:56px!important;height:56px!important}
 #top>div h1{font-size:28px!important}
-div[style*="minmax(320px"]:has(>.ph[style*="height:340px"]){grid-template-columns:minmax(0,1fr)!important}
-.ph[style*="height:340px"]{height:200px!important}
+div.wkj{grid-template-columns:minmax(0,1fr)!important;gap:12px!important}
+div.wkj>.ph{height:200px!important}
 div[style*="repeat(2,minmax(0,1fr))"]>.ph[style*="height:160px"]{height:100px!important}
 }
 </style>
@@ -100,7 +100,7 @@ div[style*="repeat(2,minmax(0,1fr))"]>.ph[style*="height:160px"]{height:100px!im
 <section style="min-height:600px;box-sizing:border-box;padding:72px 40px;background:#f3f3f1">
 <div class="in" style="display:flex;flex-direction:column;gap:28px">
 <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap"><div><p class="en">WORKS</p><h2 class="h2">作品履歴</h2></div><a class="bo" href="works.html">すべて見る</a></div>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
+<div class="wkj" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px">
 <div class="ph" style="height:340px;align-items:flex-end;justify-content:flex-start;padding:16px;box-sizing:border-box"><span style="background:#fff;padding:4px 12px;font-weight:700;color:#1a1a1a">注目作品タイトル（大）</span></div>
 <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px">
 <div class="ph" style="height:160px">作品</div><div class="ph" style="height:160px">作品</div><div class="ph" style="height:160px">作品</div><div class="ph" style="height:160px">作品</div>
