@@ -281,10 +281,6 @@ a.fab{display:inline-flex;align-items:center;justify-content:center;position:fix
 .fl[data-line="1"],.fl[data-line="2"],.fl[data-line="4"]{padding-left:0}
 .ptop{width:60px;height:60px;right:5%}
 }
-@supports (animation-timeline: view()){
-.sc .im:after{animation:wipe linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
-@keyframes wipe{from{height:100%}to{height:0} }
-}
 @media (prefers-reduced-motion:reduce){
 .pg *,.pg *:before,.pg *:after{animation:none !important;transition:none !important}
 .sc .im:after{height:0}
