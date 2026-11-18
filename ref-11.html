@@ -9,7 +9,7 @@
 <style>
 body{margin:0}
 .pg *{box-sizing:border-box}
-.pg{--or:#487f0a;--bg:#497f0a;--ink:#282828;--ot:#497f0a;font-family:'Noto Sans JP','Hiragino Kaku Gothic Pro',Meiryo,sans-serif;color:#fff;background:var(--bg);background-image:radial-gradient(ellipse 70% 40% at 85% 0%,rgba(72,127,10,.9),rgba(72,127,10,0) 70%);line-height:1.8;overflow:hidden;position:relative}
+.pg{--or:#94e818;--bg:#8ddc16;--ink:#282828;--ot:#87d415;font-family:'Noto Sans JP','Hiragino Kaku Gothic Pro',Meiryo,sans-serif;color:#fff;background:var(--bg);background-image:radial-gradient(ellipse 70% 40% at 85% 0%,rgba(148,232,24,.9),rgba(148,232,24,0) 70%);line-height:1.8;overflow:hidden;position:relative}
 :where(.pg) a{color:inherit;text-decoration:none}
 .pg img{display:block;max-width:100%}
 .en{font-family:Inter,'Noto Sans JP',sans-serif}
@@ -92,8 +92,8 @@ body{margin:0}
 .st b{font-family:Inter,sans-serif;font-size:64px;letter-spacing:-.04em;font-weight:900}
 .st i{font-style:normal;font-size:22px}
 .map{width:100%;height:auto;margin-top:24px}
-.map .pin{fill:#8aee2b;stroke:#282828;stroke-width:2}
-.map .pin2{fill:#2e6e1c;stroke:#282828;stroke-width:2}
+.map .pin{fill:#9deb38;stroke:#282828;stroke-width:2}
+.map .pin2{fill:#78eb35;stroke:#282828;stroke-width:2}
 .mlb{font-family:Inter,sans-serif;font-weight:900;font-size:13px;fill:#fff;letter-spacing:.06em}
 
 /* service */
@@ -218,7 +218,7 @@ body{margin:0}
 .mt~.nv{display:none}
 .mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:16px;background:#fff;color:var(--ink);padding:20px 16px 28px;box-shadow:0 12px 24px rgba(0,0,0,.15)}
 .mt:checked~.nv .nl{flex-direction:column;align-items:stretch;gap:0;font-size:16px;font-weight:700}
-.nl>a,.dd>a{min-height:52px;width:100%;border-bottom:1px solid #e2f3cf;background:none}
+.nl>a,.dd>a{min-height:52px;width:100%;border-bottom:1px solid #e5f8ca;background:none}
 .nl>a.on:before{display:none}
 .nl>a.on{color:var(--ot)}
 .mt:checked~.nv .ddm{display:flex;position:static;box-shadow:none;padding:0 0 0 18px;min-width:0}
@@ -297,6 +297,122 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .pg *{animation:none!important;transition:none!important}
 }
 </style>
+<style data-fix>
+/* 緑の背景・白地で読みにくい文字の色補正 */
+div.pg>header.hd>a.lg:nth-of-type(1):not(:hover)>b{color:#163300}
+div.pg>section.hero:nth-of-type(1)>div.hc:nth-of-type(3)>div.hm>p{color:#163300}
+div.pg>section.hero:nth-of-type(1)>div.hc:nth-of-type(3)>div.hm>div.hbtn>a.cb:nth-of-type(1):not(:hover){color:#163300}
+div.pg>section.hero:nth-of-type(1)>div.hc:nth-of-type(3)>div.hm>div.hbtn>a.cb:nth-of-type(2):not(:hover){color:#163300}
+div.pg>section.hero:nth-of-type(1)>div.hc:nth-of-type(3)>div.hm>a.hlk:not(:hover){color:#163300}
+div.pg>section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>h2.h2{color:#163300}
+div.pg>section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>p.tag{color:#163300}
+div.pg>section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div.abt:nth-of-type(1)>p{color:#163300}
+div.pg>section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div.abt:nth-of-type(1)>a.lb:nth-of-type(1):not(:hover){color:#163300}
+div.pg>section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div.abt:nth-of-type(1)>a.lb:nth-of-type(2):not(:hover){color:#163300}
+div.pg>section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div.abt:nth-of-type(1)>a.lb:nth-of-type(3):not(:hover){color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(1)>small{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(1)>b{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(2)>small{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(2)>b{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(2)>i{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(3)>small{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(3)>b{color:#163300}
+section.sec.ab:nth-of-type(2)>div.w:nth-of-type(2)>div.abg>div:nth-of-type(2)>div.sts>p.st:nth-of-type(3)>i{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>h2.h2{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>p.tag{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(1):not(:hover)>b{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(1):not(:hover)>span{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(2):not(:hover)>b{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(2):not(:hover)>span{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(3):not(:hover)>b{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(3):not(:hover)>span{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(4):not(:hover)>b{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(4):not(:hover)>span{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(5):not(:hover)>b{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(5):not(:hover)>span{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(6):not(:hover)>b{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.g3:nth-of-type(1)>a.sv:nth-of-type(6):not(:hover)>span{color:#163300}
+div.pg>section.sec:nth-of-type(3)>div.w>div.more:nth-of-type(2)>a.lb:not(:hover){color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>h2.h2{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>p.tag:nth-of-type(1){color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(1):not(:hover)>small{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(1):not(:hover)>b{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(1):not(:hover)>em{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(1):not(:hover)>em>i{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(2):not(:hover)>small{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(2):not(:hover)>b{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(2):not(:hover)>em{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(2):not(:hover)>em>i{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(3):not(:hover)>small{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(3):not(:hover)>b{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(3):not(:hover)>em{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(3):not(:hover)>em>i{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(4):not(:hover)>small{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(4):not(:hover)>b{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(4):not(:hover)>em{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(4):not(:hover)>em>i{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(5):not(:hover)>small{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(5):not(:hover)>b{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(5):not(:hover)>em{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(5):not(:hover)>em>i{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(6):not(:hover)>small{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(6):not(:hover)>b{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(6):not(:hover)>em{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.g3:nth-of-type(1)>a.wc:nth-of-type(6):not(:hover)>em>i{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>div.more:nth-of-type(2)>a.lb:not(:hover){color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>h3.h3{color:#163300}
+div.pg>section.sec.wk:nth-of-type(4)>div.w:nth-of-type(2)>p.tag:nth-of-type(2){color:#163300}
+div.pg>section.sec.env:nth-of-type(5)>div.w.envh:nth-of-type(1)>div:nth-of-type(1)>h2.h2{color:#163300}
+div.pg>section.sec.env:nth-of-type(5)>div.w.envh:nth-of-type(1)>div:nth-of-type(1)>p.tag{color:#163300}
+div.pg>section.sec.env:nth-of-type(5)>div.w.envh:nth-of-type(1)>div.lbs:nth-of-type(2)>a.lb:nth-of-type(1):not(:hover){color:#163300}
+div.pg>section.sec.env:nth-of-type(5)>div.w.envh:nth-of-type(1)>div.lbs:nth-of-type(2)>a.lb:nth-of-type(2):not(:hover){color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>h2.fh>small{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>h2.fh>span>span.n:nth-of-type(1){color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>h2.fh>span>span.no:nth-of-type(2){color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>h2.fh>span>span.ti:nth-of-type(3){color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>p{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(1)>b{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(1)>strong{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(1)>span{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(2)>b{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(2)>strong{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(2)>span{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(3)>b{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(3)>strong{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(3)>span{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(4)>b{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(4)>strong{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(4)>span{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(5)>b{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(5)>strong{color:#163300}
+div.pg>section.sec.fv:nth-of-type(6)>div.w:nth-of-type(2)>ol.fl>li:nth-of-type(5)>span{color:#163300}
+div.pg>section.sec.pl:nth-of-type(7)>div.w>h2.h2{color:#163300}
+div.pg>section.sec.pl:nth-of-type(7)>div.w>p.tag{color:#163300}
+div.pg>section.jn:nth-of-type(8)>div.w.jg:nth-of-type(2)>div:nth-of-type(1)>h2.h2{color:#163300}
+div.pg>section.jn:nth-of-type(8)>div.w.jg:nth-of-type(2)>div:nth-of-type(1)>p.tag.p:nth-of-type(1){color:#163300}
+div.pg>section.jn:nth-of-type(8)>div.w.jg:nth-of-type(2)>div:nth-of-type(1)>div.jb:nth-of-type(1)>a.f:nth-of-type(1):not(:hover){color:#163300}
+div.pg>section.jn:nth-of-type(8)>div.w.jg:nth-of-type(2)>div:nth-of-type(1)>div.jb:nth-of-type(1)>a.o:nth-of-type(2):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>div>p.fb:nth-of-type(1){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>div>p.fa:nth-of-type(2){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(1)>a.t:nth-of-type(1):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(1)>a.t:nth-of-type(2):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(2)>a.t:nth-of-type(1):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(2)>a.s:nth-of-type(2):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(2)>a.s:nth-of-type(3):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(3)>a.t:nth-of-type(1):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.fg:nth-of-type(1)>nav.fn>div:nth-of-type(3)>a.t:nth-of-type(2):not(:hover){color:#163300}
+div.pg>footer.ft>div.w>div.cr:nth-of-type(2)>span{color:#163300}
+div.pg>footer.ft>div.w>div.cr:nth-of-type(2)>small.en{color:#163300}
+@media (min-width:1025px){div.pg>header.hd>a.lg:nth-of-type(1):not(:hover)>small{color:#163300}
+div.pg>header.hd>nav.nv>div.nl:nth-of-type(1)>a.on:nth-of-type(1):not(:hover){color:#163300}
+div.pg>header.hd>nav.nv>div.nl:nth-of-type(1)>a:nth-of-type(2):not(:hover){color:#163300}
+div.pg>header.hd>nav.nv>div.nl:nth-of-type(1)>a:nth-of-type(3):not(:hover){color:#163300}
+div.pg>header.hd>nav.nv>div.nl:nth-of-type(1)>div.dd>a:not(:hover){color:#163300}
+div.pg>header.hd>nav.nv>div.nl:nth-of-type(1)>a:nth-of-type(4):not(:hover){color:#163300}
+div.pg>header.hd>nav.nv>div.cta:nth-of-type(2)>a.cb:nth-of-type(1):not(:hover){color:#163300}
+div.pg>header.hd>nav.nv>div.cta:nth-of-type(2)>a.cb:nth-of-type(2):not(:hover){color:#163300}
+div.pg>section.sec.env:nth-of-type(5)>p.w.gcap{color:#163300}}
+</style>
 </head>
 <body>
 <div class="pg" id="top">
@@ -318,10 +434,10 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 
 <section class="hero" aria-label="メインビジュアル">
 <div class="hph"><img src="images/gen/p04-team-walk.jpg" alt="日本と中国のスタッフ4人がオフィスビルの前を並んで歩く">
-<div class="gl g1" aria-hidden="true"><span style="width:82%;height:12px;background:#aae599;margin-left:14%"></span><span style="width:90%;height:12px;background:#2b7218;margin-left:5%"></span><span style="width:90%;height:10px;background:#bfef6a;margin-left:3%"></span><span style="width:82%;height:8px;background:#bfef6a;margin-left:2%"></span><span style="width:93%;height:16px;background:#2a7514;margin-left:19%"></span><span style="width:75%;height:10px;background:#bfef6a;margin-left:19%"></span><span style="width:26%;height:12px;background:#88ee2b;margin-left:1%"></span><span style="width:29%;height:6px;background:#2b7218;margin-left:19%"></span><span style="width:28%;height:10px;background:#ffffff;margin-left:14%"></span><span style="width:100%;height:6px;background:#467f0a;margin-left:7%"></span><span style="width:62%;height:10px;background:#2a7514;margin-left:21%"></span><span style="width:35%;height:10px;background:#2e6e1c;margin-left:13%"></span><span style="width:95%;height:4px;background:#2e6e1c;margin-left:10%"></span><span style="width:54%;height:12px;background:#2e6e1c;margin-left:0%"></span><span style="width:33%;height:12px;background:#88ee2b;margin-left:12%"></span><span style="width:38%;height:8px;background:#2c2c2c;margin-left:2%"></span></div>
-<div class="gl g2" aria-hidden="true"><span style="width:27%;height:16px;background:#2a7514;margin-left:6%"></span><span style="width:51%;height:4px;background:#aae599;margin-left:12%"></span><span style="width:75%;height:10px;background:#88ee2b;margin-left:18%"></span><span style="width:50%;height:16px;background:#2e6e1c;margin-left:10%"></span><span style="width:36%;height:8px;background:#ffffff;margin-left:0%"></span><span style="width:77%;height:4px;background:#bfef6a;margin-left:7%"></span><span style="width:37%;height:4px;background:#2a7514;margin-left:14%"></span><span style="width:87%;height:6px;background:#467f0a;margin-left:6%"></span><span style="width:82%;height:12px;background:#2b7218;margin-left:23%"></span><span style="width:41%;height:10px;background:#2c2c2c;margin-left:3%"></span><span style="width:75%;height:10px;background:#2b7218;margin-left:0%"></span><span style="width:59%;height:12px;background:#2e6e1c;margin-left:28%"></span><span style="width:27%;height:6px;background:#bfef6a;margin-left:12%"></span><span style="width:98%;height:4px;background:#2a7514;margin-left:4%"></span></div>
+<div class="gl g1" aria-hidden="true"><span style="width:82%;height:12px;background:#8dee54;margin-left:14%"></span><span style="width:90%;height:12px;background:#4fba12;margin-left:5%"></span><span style="width:90%;height:10px;background:#b7ed45;margin-left:3%"></span><span style="width:82%;height:8px;background:#b7ed45;margin-left:2%"></span><span style="width:93%;height:16px;background:#5fdf16;margin-left:19%"></span><span style="width:75%;height:10px;background:#b7ed45;margin-left:19%"></span><span style="width:26%;height:12px;background:#97ea2d;margin-left:1%"></span><span style="width:29%;height:6px;background:#4fba12;margin-left:19%"></span><span style="width:28%;height:10px;background:#ffffff;margin-left:14%"></span><span style="width:100%;height:6px;background:#9cea2e;margin-left:7%"></span><span style="width:62%;height:10px;background:#5fdf16;margin-left:21%"></span><span style="width:35%;height:10px;background:#78eb35;margin-left:13%"></span><span style="width:95%;height:4px;background:#78eb35;margin-left:10%"></span><span style="width:54%;height:12px;background:#78eb35;margin-left:0%"></span><span style="width:33%;height:12px;background:#97ea2d;margin-left:12%"></span><span style="width:38%;height:8px;background:#2c2c2c;margin-left:2%"></span></div>
+<div class="gl g2" aria-hidden="true"><span style="width:27%;height:16px;background:#5fdf16;margin-left:6%"></span><span style="width:51%;height:4px;background:#8dee54;margin-left:12%"></span><span style="width:75%;height:10px;background:#97ea2d;margin-left:18%"></span><span style="width:50%;height:16px;background:#78eb35;margin-left:10%"></span><span style="width:36%;height:8px;background:#ffffff;margin-left:0%"></span><span style="width:77%;height:4px;background:#b7ed45;margin-left:7%"></span><span style="width:37%;height:4px;background:#5fdf16;margin-left:14%"></span><span style="width:87%;height:6px;background:#9cea2e;margin-left:6%"></span><span style="width:82%;height:12px;background:#4fba12;margin-left:23%"></span><span style="width:41%;height:10px;background:#2c2c2c;margin-left:3%"></span><span style="width:75%;height:10px;background:#4fba12;margin-left:0%"></span><span style="width:59%;height:12px;background:#78eb35;margin-left:28%"></span><span style="width:27%;height:6px;background:#b7ed45;margin-left:12%"></span><span style="width:98%;height:4px;background:#5fdf16;margin-left:4%"></span></div>
 </div>
-<div class="gl g3" aria-hidden="true"><span style="width:52%;height:10px;background:#2e6e1c;margin-left:0%"></span><span style="width:67%;height:8px;background:#2c2c2c;margin-left:2%"></span><span style="width:34%;height:4px;background:#2b7218;margin-left:18%"></span><span style="width:56%;height:4px;background:#ffffff;margin-left:11%"></span><span style="width:83%;height:6px;background:#aae599;margin-left:26%"></span><span style="width:98%;height:6px;background:#2c2c2c;margin-left:5%"></span><span style="width:44%;height:8px;background:#2b7218;margin-left:26%"></span><span style="width:56%;height:16px;background:#2b7218;margin-left:5%"></span><span style="width:95%;height:6px;background:#2c2c2c;margin-left:28%"></span><span style="width:86%;height:12px;background:#88ee2b;margin-left:13%"></span><span style="width:31%;height:4px;background:#88ee2b;margin-left:1%"></span><span style="width:90%;height:8px;background:#2b7218;margin-left:23%"></span><span style="width:75%;height:8px;background:#2c2c2c;margin-left:26%"></span><span style="width:87%;height:8px;background:#467f0a;margin-left:5%"></span><span style="width:33%;height:6px;background:#2b7218;margin-left:15%"></span><span style="width:96%;height:16px;background:#88ee2b;margin-left:8%"></span><span style="width:52%;height:6px;background:#2a7514;margin-left:2%"></span><span style="width:59%;height:10px;background:#aae599;margin-left:7%"></span></div>
+<div class="gl g3" aria-hidden="true"><span style="width:52%;height:10px;background:#78eb35;margin-left:0%"></span><span style="width:67%;height:8px;background:#2c2c2c;margin-left:2%"></span><span style="width:34%;height:4px;background:#4fba12;margin-left:18%"></span><span style="width:56%;height:4px;background:#ffffff;margin-left:11%"></span><span style="width:83%;height:6px;background:#8dee54;margin-left:26%"></span><span style="width:98%;height:6px;background:#2c2c2c;margin-left:5%"></span><span style="width:44%;height:8px;background:#4fba12;margin-left:26%"></span><span style="width:56%;height:16px;background:#4fba12;margin-left:5%"></span><span style="width:95%;height:6px;background:#2c2c2c;margin-left:28%"></span><span style="width:86%;height:12px;background:#97ea2d;margin-left:13%"></span><span style="width:31%;height:4px;background:#97ea2d;margin-left:1%"></span><span style="width:90%;height:8px;background:#4fba12;margin-left:23%"></span><span style="width:75%;height:8px;background:#2c2c2c;margin-left:26%"></span><span style="width:87%;height:8px;background:#9cea2e;margin-left:5%"></span><span style="width:33%;height:6px;background:#4fba12;margin-left:15%"></span><span style="width:96%;height:16px;background:#97ea2d;margin-left:8%"></span><span style="width:52%;height:6px;background:#5fdf16;margin-left:2%"></span><span style="width:59%;height:10px;background:#8dee54;margin-left:7%"></span></div>
 <div class="hc">
 <h1 class="cp"><span>アニメを、</span><span>もっと</span><span>楽しく。</span></h1>
 <div class="hm">
@@ -333,7 +449,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </section>
 
 <section class="sec ab" aria-labelledby="ab-h">
-<div class="gl g4" aria-hidden="true"><span style="width:32%;height:4px;background:#bfef6a;margin-left:9%"></span><span style="width:72%;height:12px;background:#bfef6a;margin-left:2%"></span><span style="width:71%;height:6px;background:#aae599;margin-left:10%"></span><span style="width:91%;height:12px;background:#bfef6a;margin-left:18%"></span><span style="width:29%;height:4px;background:#aae599;margin-left:29%"></span><span style="width:70%;height:16px;background:#2e6e1c;margin-left:30%"></span><span style="width:29%;height:4px;background:#88ee2b;margin-left:15%"></span><span style="width:33%;height:16px;background:#2e6e1c;margin-left:10%"></span><span style="width:42%;height:4px;background:#88ee2b;margin-left:14%"></span><span style="width:94%;height:8px;background:#2a7514;margin-left:28%"></span><span style="width:41%;height:8px;background:#ffffff;margin-left:2%"></span><span style="width:85%;height:4px;background:#2c2c2c;margin-left:30%"></span></div>
+<div class="gl g4" aria-hidden="true"><span style="width:32%;height:4px;background:#b7ed45;margin-left:9%"></span><span style="width:72%;height:12px;background:#b7ed45;margin-left:2%"></span><span style="width:71%;height:6px;background:#8dee54;margin-left:10%"></span><span style="width:91%;height:12px;background:#b7ed45;margin-left:18%"></span><span style="width:29%;height:4px;background:#8dee54;margin-left:29%"></span><span style="width:70%;height:16px;background:#78eb35;margin-left:30%"></span><span style="width:29%;height:4px;background:#97ea2d;margin-left:15%"></span><span style="width:33%;height:16px;background:#78eb35;margin-left:10%"></span><span style="width:42%;height:4px;background:#97ea2d;margin-left:14%"></span><span style="width:94%;height:8px;background:#5fdf16;margin-left:28%"></span><span style="width:41%;height:8px;background:#ffffff;margin-left:2%"></span><span style="width:85%;height:4px;background:#2c2c2c;margin-left:30%"></span></div>
 <div class="w">
 <h2 class="h2" id="ab-h">国内と海外をつなぐ、<br>動画・仕上げのスタジオ</h2>
 <p class="tag">ABOUT REBOOT</p>
@@ -373,7 +489,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </section>
 
 <section class="sec wk" aria-labelledby="wk-h">
-<div class="gl g5" aria-hidden="true"><span style="width:28%;height:10px;background:#2a7514;margin-left:19%"></span><span style="width:73%;height:10px;background:#2a7514;margin-left:19%"></span><span style="width:34%;height:4px;background:#88ee2b;margin-left:20%"></span><span style="width:39%;height:8px;background:#2c2c2c;margin-left:23%"></span><span style="width:67%;height:10px;background:#aae599;margin-left:14%"></span><span style="width:84%;height:12px;background:#88ee2b;margin-left:16%"></span><span style="width:90%;height:4px;background:#2e6e1c;margin-left:19%"></span><span style="width:36%;height:10px;background:#2a7514;margin-left:7%"></span><span style="width:39%;height:10px;background:#aae599;margin-left:8%"></span><span style="width:26%;height:8px;background:#2e6e1c;margin-left:4%"></span><span style="width:50%;height:12px;background:#bfef6a;margin-left:24%"></span><span style="width:68%;height:16px;background:#aae599;margin-left:15%"></span></div>
+<div class="gl g5" aria-hidden="true"><span style="width:28%;height:10px;background:#5fdf16;margin-left:19%"></span><span style="width:73%;height:10px;background:#5fdf16;margin-left:19%"></span><span style="width:34%;height:4px;background:#97ea2d;margin-left:20%"></span><span style="width:39%;height:8px;background:#2c2c2c;margin-left:23%"></span><span style="width:67%;height:10px;background:#8dee54;margin-left:14%"></span><span style="width:84%;height:12px;background:#97ea2d;margin-left:16%"></span><span style="width:90%;height:4px;background:#78eb35;margin-left:19%"></span><span style="width:36%;height:10px;background:#5fdf16;margin-left:7%"></span><span style="width:39%;height:10px;background:#8dee54;margin-left:8%"></span><span style="width:26%;height:8px;background:#78eb35;margin-left:4%"></span><span style="width:50%;height:12px;background:#b7ed45;margin-left:24%"></span><span style="width:68%;height:16px;background:#8dee54;margin-left:15%"></span></div>
 <div class="w">
 <h2 class="h2" id="wk-h">作品履歴</h2>
 <p class="tag">WORKS</p>
@@ -420,7 +536,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </section>
 
 <section class="sec fv" aria-labelledby="fv-h">
-<div class="gl g4" aria-hidden="true"><span style="width:32%;height:4px;background:#bfef6a;margin-left:9%"></span><span style="width:72%;height:12px;background:#bfef6a;margin-left:2%"></span><span style="width:71%;height:6px;background:#aae599;margin-left:10%"></span><span style="width:91%;height:12px;background:#bfef6a;margin-left:18%"></span><span style="width:29%;height:4px;background:#aae599;margin-left:29%"></span><span style="width:70%;height:16px;background:#2e6e1c;margin-left:30%"></span><span style="width:29%;height:4px;background:#88ee2b;margin-left:15%"></span><span style="width:33%;height:16px;background:#2e6e1c;margin-left:10%"></span><span style="width:42%;height:4px;background:#88ee2b;margin-left:14%"></span><span style="width:94%;height:8px;background:#2a7514;margin-left:28%"></span><span style="width:41%;height:8px;background:#ffffff;margin-left:2%"></span><span style="width:85%;height:4px;background:#2c2c2c;margin-left:30%"></span></div>
+<div class="gl g4" aria-hidden="true"><span style="width:32%;height:4px;background:#b7ed45;margin-left:9%"></span><span style="width:72%;height:12px;background:#b7ed45;margin-left:2%"></span><span style="width:71%;height:6px;background:#8dee54;margin-left:10%"></span><span style="width:91%;height:12px;background:#b7ed45;margin-left:18%"></span><span style="width:29%;height:4px;background:#8dee54;margin-left:29%"></span><span style="width:70%;height:16px;background:#78eb35;margin-left:30%"></span><span style="width:29%;height:4px;background:#97ea2d;margin-left:15%"></span><span style="width:33%;height:16px;background:#78eb35;margin-left:10%"></span><span style="width:42%;height:4px;background:#97ea2d;margin-left:14%"></span><span style="width:94%;height:8px;background:#5fdf16;margin-left:28%"></span><span style="width:41%;height:8px;background:#ffffff;margin-left:2%"></span><span style="width:85%;height:4px;background:#2c2c2c;margin-left:30%"></span></div>
 <div class="w">
 <h2 class="fh" id="fv-h"><small>rebootをもっとよく知る</small><span><span class="n">5</span><span class="no">つの</span><span class="ti">取り組み</span></span></h2>
 <p>つくる人が、長く安心して描ける場所へ。会社の枠をこえて、アニメの現場を少しずつ良くしていくための取り組みです。</p>
@@ -439,15 +555,15 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <h2 class="h2" id="pl-h">作業プラン</h2>
 <p class="tag">PLAN</p>
 <div class="g3">
-<a class="pc" href="plan.html"><div class="im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並んだカット袋"></div><div class="tx"><div>動画プラン<small>中割り・動画検査まで</small></div><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#497f0a"></circle><path d="M11 9l5 5-5 5" fill="none" stroke="#fff" stroke-width="2.2"></path></svg></div></a>
-<a class="pc" href="plan.html"><div class="im"><img src="images/gen/p23-color-chips.jpg" alt="色指定表のカラーチップ"></div><div class="tx"><div>仕上げプラン<small>彩色・仕上げ検査まで</small></div><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#497f0a"></circle><path d="M11 9l5 5-5 5" fill="none" stroke="#fff" stroke-width="2.2"></path></svg></div></a>
-<a class="pc" href="plan.html"><div class="im"><img src="images/gen/p01-desk-lighttable.jpg" alt="朝日が差し込むトレス台と動画用紙の机"></div><div class="tx"><div>動画＋仕上げ 一括プラン<small>国内外2拠点でまとめて対応</small></div><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#497f0a"></circle><path d="M11 9l5 5-5 5" fill="none" stroke="#fff" stroke-width="2.2"></path></svg></div></a>
+<a class="pc" href="plan.html"><div class="im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並んだカット袋"></div><div class="tx"><div>動画プラン<small>中割り・動画検査まで</small></div><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#8ddc16"></circle><path d="M11 9l5 5-5 5" fill="none" stroke="#fff" stroke-width="2.2"></path></svg></div></a>
+<a class="pc" href="plan.html"><div class="im"><img src="images/gen/p23-color-chips.jpg" alt="色指定表のカラーチップ"></div><div class="tx"><div>仕上げプラン<small>彩色・仕上げ検査まで</small></div><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#8ddc16"></circle><path d="M11 9l5 5-5 5" fill="none" stroke="#fff" stroke-width="2.2"></path></svg></div></a>
+<a class="pc" href="plan.html"><div class="im"><img src="images/gen/p01-desk-lighttable.jpg" alt="朝日が差し込むトレス台と動画用紙の机"></div><div class="tx"><div>動画＋仕上げ 一括プラン<small>国内外2拠点でまとめて対応</small></div><svg viewBox="0 0 28 28" aria-hidden="true"><circle cx="14" cy="14" r="13" fill="#8ddc16"></circle><path d="M11 9l5 5-5 5" fill="none" stroke="#fff" stroke-width="2.2"></path></svg></div></a>
 </div>
 </div>
 </section>
 
 <section class="jn" aria-labelledby="jn-h">
-<div class="gl g5" aria-hidden="true"><span style="width:28%;height:10px;background:#2a7514;margin-left:19%"></span><span style="width:73%;height:10px;background:#2a7514;margin-left:19%"></span><span style="width:34%;height:4px;background:#88ee2b;margin-left:20%"></span><span style="width:39%;height:8px;background:#2c2c2c;margin-left:23%"></span><span style="width:67%;height:10px;background:#aae599;margin-left:14%"></span><span style="width:84%;height:12px;background:#88ee2b;margin-left:16%"></span><span style="width:90%;height:4px;background:#2e6e1c;margin-left:19%"></span><span style="width:36%;height:10px;background:#2a7514;margin-left:7%"></span><span style="width:39%;height:10px;background:#aae599;margin-left:8%"></span><span style="width:26%;height:8px;background:#2e6e1c;margin-left:4%"></span><span style="width:50%;height:12px;background:#bfef6a;margin-left:24%"></span><span style="width:68%;height:16px;background:#aae599;margin-left:15%"></span></div>
+<div class="gl g5" aria-hidden="true"><span style="width:28%;height:10px;background:#5fdf16;margin-left:19%"></span><span style="width:73%;height:10px;background:#5fdf16;margin-left:19%"></span><span style="width:34%;height:4px;background:#97ea2d;margin-left:20%"></span><span style="width:39%;height:8px;background:#2c2c2c;margin-left:23%"></span><span style="width:67%;height:10px;background:#8dee54;margin-left:14%"></span><span style="width:84%;height:12px;background:#97ea2d;margin-left:16%"></span><span style="width:90%;height:4px;background:#78eb35;margin-left:19%"></span><span style="width:36%;height:10px;background:#5fdf16;margin-left:7%"></span><span style="width:39%;height:10px;background:#8dee54;margin-left:8%"></span><span style="width:26%;height:8px;background:#78eb35;margin-left:4%"></span><span style="width:50%;height:12px;background:#b7ed45;margin-left:24%"></span><span style="width:68%;height:16px;background:#8dee54;margin-left:15%"></span></div>
 <div class="w jg">
 <div>
 <h2 class="h2" id="jn-h">動画・仕上げの<br>ご依頼は、<br>rebootへ。</h2>
