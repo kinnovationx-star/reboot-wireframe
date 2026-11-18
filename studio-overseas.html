@@ -21,6 +21,22 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 .in{max-width:1120px;margin:0 auto}
 .en{font-size:12px;letter-spacing:.15em;color:#555;font-weight:700;margin:0}
 .h2{font-size:26px;font-weight:700;margin:0}
+.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
+.lead{margin:0;font-size:15px;max-width:760px}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.cg.w3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.cd{border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:8px;background:#fff;min-width:0;box-sizing:border-box}
+.cd b{font-size:16px}
+.sm{margin:0;font-size:13px;color:#444}
+.num{font-size:22px;font-weight:900;line-height:1}
+.stat{font-size:28px;font-weight:900;line-height:1.3}
+.qa{border:2px solid #1a1a1a;padding:20px 24px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.qa b{font-size:15px}.qa b::before{content:"Q. ";color:#3d6b00}
+.qa p{margin:0;font-size:14px;color:#444}.qa p::before{content:"A. ";font-weight:700;color:#1a1a1a}
+.sts{display:inline-flex;align-items:center;gap:8px;border:2px solid #1a1a1a;background:#fff;padding:4px 14px;font-size:13px;font-weight:700;border-radius:999px}
+.sts::before{content:"";width:10px;height:10px;border-radius:50%;background:#a6f03c;border:1px solid #1a1a1a}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid #1a1a1a;font-size:13px;font-weight:700;background:#fff}
+.fnote{font-size:12px;color:#555}
 .mt{position:absolute;opacity:0;width:1px;height:1px}
 .hb,a.fab{display:none}
 @media(max-width:860px){
@@ -43,6 +59,10 @@ h1{font-size:30px!important;line-height:1.3!important}
 div[style*="auto-fit"]:has(>.ph){grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
 div[style*="auto-fit"]>.ph{height:110px!important}
 a[style*="min-height:180px"]>.ph{min-height:140px}
+.cd{padding:20px!important}
+.cg{gap:12px!important}
+.stat{font-size:24px!important}
+.qa{padding:16px!important}
 }
 </style>
 </head>
@@ -64,7 +84,7 @@ a[style*="min-height:180px"]>.ph{min-height:140px}
 
 <section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f3f3f1;display:flex;align-items:center">
 <div class="in" style="width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
-<div><div style="font-size:12px;color:#555">トップ ＞ スタジオ ＞ 海外スタジオ</div><p class="en" style="margin-top:12px">OVERSEAS STUDIO</p><h1 style="margin:0;font-size:36px;font-weight:900">海外スタジオ</h1></div>
+<div><div style="font-size:12px;color:#555">トップ ＞ スタジオ ＞ 海外スタジオ</div><p class="en" style="margin-top:12px">OVERSEAS STUDIO</p><h1 style="margin:0;font-size:36px;font-weight:900">海外スタジオ<span class="kari">仮の文章</span></h1></div>
 <div style="display:flex"><a href="studio-japan.html" style="min-height:44px;padding:0 24px;display:inline-flex;align-items:center;border:2px solid #1a1a1a;background:#fff;font-weight:700;font-size:14px">国内スタジオ</a><span style="min-height:44px;padding:0 24px;display:inline-flex;align-items:center;border:2px solid #1a1a1a;background:#1a1a1a;color:#fff;font-weight:700;font-size:14px">海外スタジオ</span></div>
 </div>
 </section>
@@ -72,36 +92,61 @@ a[style*="min-height:180px"]>.ph{min-height:140px}
 <section style="min-height:480px;box-sizing:border-box;padding:64px 40px">
 <div class="in" style="display:flex;gap:56px;align-items:center;flex-wrap:wrap">
 <div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:14px">
-<h2 class="h2">直営海外スタジオ reboot China</h2>
+<h2 class="h2">直営海外スタジオ reboot China<span class="kari">仮の文章</span></h2>
 <p style="margin:0;font-size:15px">2016年に設立した弊社の仕事のみを行う直営スタジオ。数カ月に一度reboot社員が現場へ行き、直接指導や会議を実施しております。</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;font-size:13px"><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">設立</div><b>2016年</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">形態</div><b>reboot直営</b></div></div>
+<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;font-size:13px"><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">設立</div><b>2016年</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">形態</div><b>reboot直営</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">所在地</div><b>中国〇〇</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">スタッフ</div><b>〇〇名</b></div></div>
 </div>
 <div class="ph" style="flex:1 1 400px;height:340px">スタジオ外観・メイン写真</div>
 </div>
 </section>
 
-<section style="min-height:360px;box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
 <div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">reboot Chinaの様子</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px"><div class="ph" style="height:180px">スタジオ写真</div><div class="ph" style="height:180px">スタジオ写真</div><div class="ph" style="height:180px">スタジオ写真</div><div class="ph" style="height:180px">スタジオ写真</div></div>
-</div>
-</section>
-
-<section style="min-height:340px;box-sizing:border-box;padding:56px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">品質を支える取り組み</h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px">
-<div style="border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-size:24px;font-weight:900">01</div><div style="font-weight:700">日本人社員による直接指導・会議</div><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div></div>
-<div style="border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-size:24px;font-weight:900">02</div><div style="font-weight:700">国内スタジオとの連携・フィードバック</div><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div></div>
-<div style="border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-size:24px;font-weight:900">03</div><div style="font-weight:700">中国の美術大学と連携したスタッフ育成</div><div class="tx" style="width:100%"></div><div class="tx" style="width:70%"></div></div>
+<h2 class="h2">品質を守る仕組み<span class="kari">仮の文章</span></h2>
+<div class="cg">
+<div class="cd"><span class="num">01</span><b>社員が現地で直接指導</b><p class="sm">数カ月に一度、reboot社員が現地へ行き、直接指導や会議を行っています。</p></div>
+<div class="cd"><span class="num">02</span><b>マルチリンガルの作画スタッフ</b><p class="sm">日本語のわかる作画スタッフが、国内スタジオとのやりとりをつなぎます。</p></div>
+<div class="cd"><span class="num">03</span><b>国内スタジオで検査・フィードバック</b><p class="sm">国内スタジオと連携し、検査とフィードバックを重ねてから納品します。</p></div>
+<div class="cd"><span class="num">04</span><b>美術大学と連携した育成</b><p class="sm">中国の美術大学と連携し、作画スタッフを育てています。</p></div>
 </div>
 </div>
 </section>
 
-<section style="min-height:320px;box-sizing:border-box;padding:56px 40px;background:#f3f3f1;display:flex;align-items:center">
-<div class="in" style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px">
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:16px">
+<h2 class="h2" style="margin-bottom:8px">海外に出すときの不安にお答えします<span class="kari">仮の文章</span></h2>
+<div class="qa"><b>品質は国内と同じですか？</b><p>直営のため、社員が現地で直接指導しています。国内スタジオで検査してから納品します。</p></div>
+<div class="qa"><b>納期は守れますか？</b><p>国内スタジオと作業を振り分けながら、ご希望の納期に合わせて進めます（〇〇）。</p></div>
+<div class="qa"><b>連絡は取りやすいですか？</b><p>窓口は国内のrebootです。マルチリンガルのスタッフが現地との間に入ります。</p></div>
+<div class="qa"><b>データの管理はどうしていますか？</b><p>〇〇の方法で管理しています。詳しくはお問い合わせください。</p></div>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">対応量と対応作業<span class="kari">仮の文章</span></h2>
+<div class="cg">
+<div class="cd"><b>月間の対応量</b><span class="stat">〇〇,〇〇〇枚</span><p class="sm">枚数の多い作品も、国内と分けて進められます。</p></div>
+<div class="cd"><b>対応作業</b><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip">動画</span><span class="chip">仕上げ</span></div><p class="sm">※動画検査・色指定検査は国内作業のみとなっております。</p></div>
+</div>
+</div>
+</section>
+
+<section style="min-height:360px;box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">reboot Chinaの様子<span class="kari">仮の文章</span></h2>
+<p class="lead">現地のスタッフが、rebootの作品だけを担当しています。</p>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px"><div class="ph" style="height:180px">スタジオ写真1（作業フロア）</div><div class="ph" style="height:180px">スタジオ写真2（指導の様子）</div><div class="ph" style="height:180px">スタジオ写真3（会議）</div><div class="ph" style="height:180px">スタジオ写真4（スタッフ）</div></div>
+</div>
+</section>
+
+<section style="min-height:320px;box-sizing:border-box;padding:56px 40px;background:#f3f3f1;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:24px">
+<div class="in" style="width:100%;display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">もうひとつのスタジオと、ご相談<span class="kari">仮の文章</span></h2>
+<div style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
 <a href="studio-japan.html" style="display:flex;border:2px solid #1a1a1a;background:#fff;min-height:180px"><span class="ph" style="flex:1">国内スタジオ写真</span><span style="flex:1;padding:24px;display:flex;flex-direction:column;justify-content:center"><span class="en">NEXT</span><span style="font-size:20px;font-weight:700">国内スタジオを見る →</span></span></a>
-<div style="background:#1a1a1a;min-height:180px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center"><div style="font-size:20px;font-weight:700;color:#fff">ご依頼・ご相談は受注窓口へ</div><a class="bt" href="contact.html">お問い合わせフォームへ</a></div>
+<div style="background:#1a1a1a;min-height:180px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center"><div style="font-size:20px;font-weight:700;color:#fff">海外での作業のご依頼は受注窓口へ</div><a class="bt" href="contact.html">受注窓口へ</a></div>
+</div>
 </div>
 </section>
 
@@ -110,6 +155,7 @@ a[style*="min-height:180px"]>.ph{min-height:140px}
 <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#555"><div style="font-weight:900;font-size:20px;color:#1a1a1a">reboot</div><div>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F</div><div>© reboot Inc.</div></div>
 <nav class="nv" aria-label="フッターメニュー"><a href="top-a.html">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
 </div>
+<p class="in fnote" style="margin-top:24px;margin-bottom:0">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
 </footer>
 
 </div>

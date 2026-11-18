@@ -68,9 +68,9 @@ body{margin:0}
 
 .sc{padding:104px 6vw 104px calc(8vw + 48px)}
 .st{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-bottom:14px;margin-bottom:44px;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px;background-position:left bottom}
-.st h2{margin:0;font-family:'Outfit',sans-serif;font-weight:450;font-size:clamp(56px,6vw,92px);line-height:1;letter-spacing:-.03em;transform:scaleY(.76);transform-origin:left bottom}
-.st p{margin:0;font-size:14px;font-weight:700;letter-spacing:.08em;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:center;gap:10px}
-.st p:before{content:"";width:7px;height:7px;background:#1e1e1e;transform:rotate(45deg)}
+.st .eh{margin:0;font-family:'Outfit',sans-serif;font-weight:450;font-size:clamp(56px,6vw,92px);line-height:1;letter-spacing:-.03em;transform:scaleY(.76);transform-origin:left bottom}
+.st h2{margin:0;font-size:14px;font-weight:700;letter-spacing:.08em;font-family:'Noto Sans JP',sans-serif;display:flex;align-items:center;gap:10px}
+.st h2:before{content:"";width:7px;height:7px;background:#1e1e1e;transform:rotate(45deg)}
 .lead{margin:0 0 48px;font-size:clamp(19px,1.7vw,24px);font-weight:500;line-height:1.9;letter-spacing:.03em;max-width:40em}
 .more{display:inline-flex;align-items:center;gap:.6em;min-height:48px;font-family:'Outfit','Noto Sans JP',sans-serif;font-size:17px;font-weight:500;position:relative}
 .more span{position:relative}
@@ -183,7 +183,7 @@ body{margin:0}
 .kvno{left:16px;bottom:auto;top:12px}
 .sc{padding:64px 16px}
 .st{margin-bottom:28px}
-.st h2{font-size:clamp(44px,14vw,60px)}
+.st .eh{font-size:clamp(44px,14vw,60px)}
 .lead{font-size:17px;margin-bottom:32px}
 .g2,.g3{grid-template-columns:minmax(0,1fr);gap:32px}
 .g3.wks{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 14px}
@@ -201,6 +201,137 @@ body{margin:0}
 .ctc .mail{display:block;margin:16px 0 0}
 .ctc .dia{right:16px;top:28px}
 .ft{padding:40px 16px 104px;flex-direction:column}
+}
+
+/* ===== 新しい構成（トップ11ブロック） ===== */
+.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
+.pg{--lime:#9ce717}
+.pg ol,.pg ul.ls{list-style:none;margin:0;padding:0}
+.st h2{font-size:clamp(16px,1.4vw,19px);flex-wrap:wrap}
+.st h2 .kari{margin:0}
+.sc+.sc{padding-top:24px}
+
+/* hero */
+.kvb{position:absolute;left:calc(8vw + 28px);bottom:56px;z-index:4;display:flex;flex-direction:column;align-items:flex-start;gap:16px;max-width:calc(100% - 8vw - 200px);animation:fadeUp 1.2s .8s var(--ease) both}
+.kst{display:inline-flex;align-items:center;flex-wrap:wrap;gap:6px 10px;padding:6px 14px;background:#1e1e1e;color:#fff;font-size:13px;font-weight:700;font-family:'Noto Sans JP',sans-serif}
+.kst i{display:block;width:8px;height:8px;background:var(--lime);transform:rotate(45deg)}
+.kbt{display:flex;flex-wrap:wrap;gap:12px}
+.pg a.kb1,.pg a.kb2{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:56px;padding:0 26px;font-weight:700;font-size:15px;letter-spacing:.05em;border:1px solid #1e1e1e;transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.pg a.kb1{background:var(--lime);color:#1e1e1e;box-shadow:4px 4px 0 #1e1e1e}
+.pg a.kb2{background:#fff;color:#1e1e1e;box-shadow:4px 4px 0 #1e1e1e}
+.pg a.kb1:hover,.pg a.kb2:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 #1e1e1e}
+.kb1 svg,.kb2 svg{width:13px;height:13px}
+
+/* numbers */
+.nmb{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 0;margin:0;padding:0}
+.nmb div{padding:6px 18px 10px;background-image:linear-gradient(to bottom,currentColor 0 4px,transparent 4px 8px);background-repeat:repeat-y;background-size:1px 8px;background-position:left top;min-width:0}
+.nmb div:nth-child(odd){background:none;padding-left:0}
+.nmb dt{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;font-family:'Noto Sans JP',sans-serif}
+.nmb dt:before{content:"";width:7px;height:7px;background:var(--lime);border:1px solid #1e1e1e;transform:rotate(45deg);flex:none}
+.nmb dd{margin:10px 0 0;font-family:'Outfit','Noto Sans JP',sans-serif;font-weight:450;font-size:clamp(30px,3vw,44px);line-height:1.15;letter-spacing:-.01em}
+.nmb dd small{font-family:'Noto Sans JP',sans-serif;font-size:14px;font-weight:700;margin-left:4px;letter-spacing:.04em}
+.nmb dd em{display:block;font-style:normal;font-family:'Noto Sans JP',sans-serif;font-size:12.5px;font-weight:500;color:#4f4f4f;letter-spacing:.04em}
+
+/* worries */
+.cs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 28px}
+.cs li{border:1px solid #1e1e1e;box-shadow:5px 5px 0 #1e1e1e;background:#fff;padding:24px 26px 22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.cs small{font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:#4f4f4f}
+.cs h3{margin:-8px 0 0;font-size:clamp(17px,1.5vw,20px);font-weight:700;line-height:1.55;letter-spacing:.03em}
+.cs p{margin:auto 0 0;padding-top:14px;display:flex;gap:12px;align-items:baseline;font-size:15px;font-weight:500;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px}
+.cs p b{flex:none;display:inline-block;padding:0 8px;background:var(--lime);font-size:12px;font-weight:700;line-height:1.8}
+
+/* reasons */
+.rsn{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:44px;align-items:start}
+.rsn .fig img{aspect-ratio:4/5}
+.rsn ol a,.rsn ol li{display:flex;gap:22px;padding:22px 0;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px}
+.rsn ol li:last-child{background-image:var(--dash),var(--dash);background-size:100% 1px,100% 1px;background-position:left top,left bottom}
+.rsn .no{font-family:'Outfit',sans-serif;font-weight:450;font-size:52px;line-height:1;letter-spacing:-.03em;transform:scaleY(.76);transform-origin:left top;flex:0 0 66px}
+.rsn h3{margin:0 0 6px;font-size:clamp(19px,1.7vw,23px);font-weight:700;letter-spacing:.04em;line-height:1.5}
+.rsn p{margin:0;font-size:15px;color:#3a3a3a}
+
+/* works */
+.wks4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+.cli{margin:36px 0 0;font-size:14px;color:#3a3a3a}
+
+/* plan */
+.pl .pr{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:8px;font-size:14px;font-weight:700;color:#1e1e1e}
+.pl .pr span{display:inline-flex;align-items:center;gap:8px}
+.pl .pr span:before{content:"";width:6px;height:6px;border:1px solid #1e1e1e;transform:rotate(45deg)}
+.rec{display:inline-block;margin-left:10px;padding:1px 10px;background:var(--lime);border:1px solid #1e1e1e;font-size:12px;font-weight:700;letter-spacing:.06em;vertical-align:middle;line-height:1.7}
+
+/* flow */
+.fw{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 0}
+.fw li:nth-child(2):after{display:none}
+.fw li{position:relative;padding:20px 22px 8px 0;min-width:0;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px}
+.fw li:after{content:"";position:absolute;right:10px;top:-5px;width:9px;height:9px;border-top:1px solid #1e1e1e;border-right:1px solid #1e1e1e;transform:rotate(45deg);background:#fff}
+.fw li:last-child:after{display:none}
+.fw .no{display:block;font-family:'Outfit',sans-serif;font-weight:450;font-size:48px;line-height:1;letter-spacing:-.03em;transform:scaleY(.76);transform-origin:left top;margin-bottom:4px}
+.fw h3{margin:0 0 6px;font-size:17px;font-weight:700;line-height:1.5;letter-spacing:.03em}
+.fw p{margin:0;font-size:14px;color:#3a3a3a}
+
+/* faq */
+.fq li{padding:22px 0;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px}
+.fq li:last-child{background-image:var(--dash),var(--dash);background-size:100% 1px,100% 1px;background-position:left top,left bottom}
+.fq p{margin:0;display:flex;gap:16px;align-items:flex-start}
+.fq p+p{margin-top:8px}
+.fq i{flex:none;display:grid;place-items:center;width:28px;height:28px;margin-top:-1px;font-style:normal;font-family:'Outfit',sans-serif;font-weight:500;font-size:16px;line-height:1;background:#1e1e1e;color:#fff}
+.fq .q{font-size:17px;font-weight:700;letter-spacing:.03em}
+.fq .a{font-size:15px;color:#3a3a3a}
+.fq .a i{color:#1e1e1e;background:var(--lime);border:1px solid #1e1e1e}
+
+/* news */
+.nws .st .eh{font-size:clamp(40px,4vw,60px)}
+.nwl a{display:flex;gap:4px 28px;align-items:baseline;padding:14px 0;min-height:48px;font-size:14.5px;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px;background-position:left bottom}
+.nwl time{flex:none;font-family:'Outfit',sans-serif;font-size:13px;font-weight:500;color:#4f4f4f}
+.nwl a:hover b{opacity:.55}
+.nwl b{font-weight:500}
+
+/* cta + footer */
+.ctc .rt{display:block;margin:18px 0 0;font-size:14px;font-weight:700;color:#fff}
+.pg a.btn{background:var(--lime);color:#1e1e1e;border-color:var(--lime)}
+.pg a.btn:hover{background:#fff;color:#1e1e1e;border-color:#fff}
+.fnote{flex-basis:100%;margin:0;font-size:13px;font-weight:700;color:#1e1e1e}
+
+@media(min-width:1500px){
+.nmb{grid-template-columns:repeat(4,minmax(0,1fr))}
+.nmb div:nth-child(3){background-image:linear-gradient(to bottom,currentColor 0 4px,transparent 4px 8px);padding-left:18px}
+.fw{grid-template-columns:repeat(4,minmax(0,1fr))}
+.fw li:nth-child(2):after{display:block}
+}
+@media(max-width:1100px) and (min-width:861px){
+.nmb{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 0}
+.nmb div:nth-child(3){background:none;padding-left:0}
+.cs{grid-template-columns:minmax(0,1fr)}
+.fw{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 0}
+.fw li:nth-child(2):after{display:none}
+.rsn{grid-template-columns:minmax(0,1fr)}
+.rsn .fig img{aspect-ratio:16/9}
+}
+@media(max-width:860px){
+.kvb{position:relative;left:auto;bottom:auto;max-width:none;background:#1e1e1e;padding:0 16px 40px;margin-top:-1px;animation:none}
+.kst{background:#fff;color:#1e1e1e}
+.kbt{flex-direction:column;align-self:stretch}
+.pg a.kb2{box-shadow:4px 4px 0 var(--lime)}
+.pg a.kb1{box-shadow:4px 4px 0 #fff;border-color:var(--lime)}
+.st h2{font-size:16px}
+.nmb{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 0}
+.nmb div:nth-child(3){background:none;padding-left:0}
+.nmb div{padding:4px 10px 8px 14px}
+.nmb dd{font-size:clamp(24px,7.4vw,34px)}
+.cs{grid-template-columns:minmax(0,1fr);gap:22px}
+.cs li{padding:20px 18px 18px;box-shadow:4px 4px 0 #1e1e1e}
+.rsn{grid-template-columns:minmax(0,1fr);gap:24px}
+.rsn .fig img{aspect-ratio:16/10}
+.rsn ol li{gap:14px}
+.rsn .no{flex:0 0 48px;font-size:40px}
+.wks4{gap:28px 14px}
+.fw{grid-template-columns:minmax(0,1fr)}
+.fw li{padding:16px 0 14px 0;display:grid;grid-template-columns:56px minmax(0,1fr);column-gap:8px}
+.fw .no{grid-row:span 2;font-size:40px}
+.fw li:after{display:none}
+.fq .q{font-size:16px}
+.fq p{gap:12px}
+.nwl a{flex-direction:column;gap:2px}
 }
 </style>
 </head>
@@ -234,79 +365,130 @@ body{margin:0}
 <img src="images/gen/a03-gothic-illust.jpg" alt="赤い背景と薔薇の中で鉛筆を持つ黒髪のアニメーターのイラスト">
 <div class="cap">
 <h1>アニメを、<br>もっと楽しく。</h1>
-<p>動画・仕上げの依頼は、rebootへ。</p>
+<p>動画・仕上げを、国内と海外の2スタジオで。</p>
 </div>
 <nav class="mk" aria-label="ページ内の項目">
 <a class="on" href="#top" aria-label="トップ"></a>
-<a href="#about" aria-label="rebootについて"></a>
-<a href="#works" aria-label="作品履歴"></a>
+<a href="#reason" aria-label="選ばれる理由"></a>
+<a href="#works" aria-label="参加作品"></a>
+<a href="#plan" aria-label="作業プラン"></a>
 <a href="#studio" aria-label="スタジオ"></a>
-<a href="#plan" aria-label="プラン"></a>
 </nav>
-<div class="kvno en" aria-hidden="true">Key Visual 01 / 05</div>
+<div class="kvb">
+<p class="kst" style="margin:0"><i aria-hidden="true"></i>〇月の受付状況：受付中<span class="kari">仮の文章</span></p>
+<div class="kbt">
+<a class="kb1" href="contact.html">受注窓口で相談する<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+<a class="kb2" href="plan.html">作業プランを見る<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
+</div>
+</div>
 <div class="scr en" aria-hidden="true">Scroll<i></i></div>
 </section>
 
-<section class="sc" id="about">
-<div class="st"><h2>About</h2><p>rebootについて</p></div>
-<p class="lead">原画と原画のあいだを描く「動画」と、色をのせて画面を完成させる「仕上げ」。rebootは、アニメの画面を下から支えるふたつの工程を専門に請け負う、杉並のアニメーション制作会社です。</p>
-<div class="g2">
-<a class="sv" href="plan.html"><div class="fig"><img src="images/gen/a15-inbetween-sheet.jpg" alt="動画用紙に描かれた中割りの連番"></div><div class="row"><h3>動画</h3><small>01 / In-between</small></div><p>原画の間を一枚ずつ描き起こし、なめらかな動きにつなぎます。線の太さ、タイミング、作品ごとのクセまで揃えて納品します。</p></a>
-<a class="sv" href="plan.html"><div class="fig"><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"></div><div class="row"><h3>仕上げ</h3><small>02 / Ink &amp; Paint</small></div><p>色指定に沿って彩色し、画面を完成形へ。動画から一貫して請け負うことで、修正の往復を減らします。</p></a>
-</div>
-<dl class="dl">
-<div><dt><span>01</span>設立</dt><dd>2014年　東京都杉並区上荻1-5-8 直長ビル6F</dd></div>
-<div><dt><span>02</span>働き方</dt><dd>国内の作業者を正社員として迎え、スタジオに常駐する体制をつくっています。</dd></div>
-<div><dt><span>03</span>国内×海外</dt><dd>マルチリンガルの作画スタッフが、国内と海外スタジオのあいだで直接フィードバックします。</dd></div>
-<div><dt><span>04</span>取り組み</dt><dd>モンゴル初のアニメスタジオ「MONICHI PICTURES」の設立プロデュース。会社を超えたフットサル大会、BBQや制作女子会などの懇親会も。</dd></div>
+<section class="sc" id="numbers">
+<div class="st"><p class="eh" aria-hidden="true">Numbers</p><h2>数字で見るreboot<span class="kari">仮の文章</span></h2></div>
+<dl class="nmb">
+<div><dt>参加作品</dt><dd>〇〇<small>本以上</small></dd></div>
+<div><dt>月間対応</dt><dd>〇〇,〇〇〇<small>枚</small></dd></div>
+<div><dt>スタッフ</dt><dd>〇〇<small>名</small><em>国内・海外</em></dd></div>
+<div><dt>創業</dt><dd>〇〇<small>年</small></dd></div>
 </dl>
 </section>
 
-<section class="sc" id="works" style="padding-top:24px">
-<div class="st"><h2>Works</h2><p>作品履歴</p></div>
-<div class="g3 wks">
-<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a05-works-mecha.jpg" alt="パイロットと白と赤のロボットの作品ビジュアル"></div><div class="row"><b>作品タイトル</b><small>2025</small></div><p>TVアニメ ／ 動画・仕上げ</p></a>
-<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a06-works-school.jpg" alt="夕暮れの河原に立つ高校生3人と桜の作品ビジュアル"></div><div class="row"><b>作品タイトル</b><small>2025</small></div><p>TVアニメ ／ 動画</p></a>
-<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a07-works-witch.jpg" alt="ほうきで空を飛ぶ魔女と黒猫の作品ビジュアル"></div><div class="row"><b>作品タイトル</b><small>2024</small></div><p>劇場アニメ ／ 動画・仕上げ</p></a>
-<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a10-works-fire.jpg" alt="炎の中に立つヒーローの作品ビジュアル"></div><div class="row"><b>作品タイトル</b><small>2024</small></div><p>TVアニメ ／ 仕上げ</p></a>
-<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a13-works-mystery.jpg" alt="図書館にいる高校生のミステリー作品ビジュアル"></div><div class="row"><b>作品タイトル</b><small>2024</small></div><p>TVアニメ ／ 動画</p></a>
-<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a14-works-scifi.jpg" alt="宇宙船から惑星を見下ろすパイロットの作品ビジュアル"></div><div class="row"><b>作品タイトル</b><small>2023</small></div><p>劇場アニメ ／ 動画・仕上げ</p></a>
-</div>
-<p style="margin:44px 0 0"><a class="more" href="works.html"><span>作品履歴をすべて見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
+<section class="sc" id="case">
+<div class="st"><p class="eh" aria-hidden="true">Case</p><h2>こんなときにご相談ください<span class="kari">仮の文章</span></h2></div>
+<ul class="cs ls">
+<li><small>Case 01</small><h3>放送・公開まで時間がない話数がある</h3><p><b>reboot</b>2拠点で振り分けて、納期に合わせます。</p></li>
+<li><small>Case 02</small><h3>枚数が多く、社内だけでは回らない</h3><p><b>reboot</b>月 〇〇,〇〇〇枚まで対応できます。</p></li>
+<li><small>Case 03</small><h3>海外に出したいが、品質が心配</h3><p><b>reboot</b>直営スタジオなので、社員が直接指導しています。</p></li>
+<li><small>Case 04</small><h3>動画と仕上げをまとめて任せたい</h3><p><b>reboot</b>窓口ひとつで、動画から仕上げまで請け負います。</p></li>
+</ul>
 </section>
 
-<section class="sc" id="studio" style="padding-top:24px">
-<div class="st"><h2>Studio</h2><p>スタジオ</p></div>
+<section class="sc" id="reason">
+<div class="st"><p class="eh" aria-hidden="true">Reason</p><h2>rebootが選ばれる3つの理由<span class="kari">仮の文章</span></h2></div>
+<div class="rsn">
+<div class="fig"><img src="images/gen/a15-inbetween-sheet.jpg" alt="動画用紙に描かれた中割りの連番"></div>
+<ol>
+<li><span class="no" aria-hidden="true">01</span><div><h3>国内と海外、2つの直営スタジオ</h3><p>枚数と納期に合わせて、国内・海外に振り分けます。</p></div></li>
+<li><span class="no" aria-hidden="true">02</span><div><h3>社員が現地で指導する品質管理</h3><p>数カ月に一度、社員が中国のスタジオで直接指導。動画検査・色指定検査は国内で行います。</p></div></li>
+<li><span class="no" aria-hidden="true">03</span><div><h3>動画から仕上げまでまとめて</h3><p>作業ごとに発注先を分ける手間がありません。</p></div></li>
+</ol>
+</div>
+</section>
+
+<section class="sc" id="works">
+<div class="st"><p class="eh" aria-hidden="true">Works</p><h2>参加作品<span class="kari">仮の文章</span></h2></div>
+<div class="wks4 wks">
+<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a05-works-mecha.jpg" alt="パイロットと白と赤のロボットの作品ビジュアル"></div><div class="row"><b>作品タイトル（仮）</b><small>2025</small></div><p>TVアニメ ／ 担当：動画・仕上げ</p></a>
+<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a07-works-witch.jpg" alt="ほうきで空を飛ぶ魔女と黒猫の作品ビジュアル"></div><div class="row"><b>作品タイトル（仮）</b><small>2024</small></div><p>劇場 ／ 担当：動画・仕上げ</p></a>
+<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a06-works-school.jpg" alt="夕暮れの河原に立つ高校生3人と桜の作品ビジュアル"></div><div class="row"><b>作品タイトル（仮）</b><small>2025</small></div><p>TVアニメ ／ 担当：動画</p></a>
+<a class="wk" href="works.html"><div class="fig"><img src="images/gen/a10-works-fire.jpg" alt="炎の中に立つヒーローの作品ビジュアル"></div><div class="row"><b>作品タイトル（仮）</b><small>2024</small></div><p>TVアニメ ／ 担当：仕上げ</p></a>
+</div>
+<p class="cli">取引先：〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</p>
+<p style="margin:20px 0 0"><a class="more" href="works.html"><span>作品履歴をすべて見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
+</section>
+
+<section class="sc" id="plan">
+<div class="st"><p class="eh" aria-hidden="true">Plan</p><h2>作業プラン<span class="kari">仮の文章</span></h2></div>
+<div class="pl">
+<a href="plan.html"><span class="no" aria-hidden="true">01</span><div class="tx"><h3>動画プラン</h3><p>中割り・クリンナップを担当します。</p><p class="pr"><span>1枚 〇〇円〜</span><span>納期の目安 〇〇日〜</span></p></div><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
+<a href="plan.html"><span class="no" aria-hidden="true">02</span><div class="tx"><h3>仕上げプラン</h3><p>色指定に沿ったペイントを担当します。</p><p class="pr"><span>1枚 〇〇円〜</span><span>納期の目安 〇〇日〜</span></p></div><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
+<a href="plan.html"><span class="no" aria-hidden="true">03</span><div class="tx"><h3>動画＋仕上げ 一括プラン<span class="rec">おすすめ</span></h3><p>動画から仕上げまで、窓口ひとつでまとめて。</p><p class="pr"><span>1枚 〇〇円〜</span><span>納期の目安 〇〇日〜</span></p></div><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
+</div>
+<p style="margin:36px 0 0"><a class="more" href="plan.html"><span>プランの詳細を見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
+</section>
+
+<section class="sc" id="studio">
+<div class="st"><p class="eh" aria-hidden="true">Studio</p><h2>2つのスタジオ<span class="kari">仮の文章</span></h2></div>
 <a class="stu" href="studio-japan.html">
 <div class="fig"><img src="images/gen/p02-studio-wide.jpg" alt="机が並ぶ明るい国内スタジオの全景"></div>
-<div><span class="en">Domestic Studio — lolroute</span><h3>国内スタジオ<br>lolroute（ルート）</h3><p>2021年設立の国内作画スタジオ。スタッフが同じ場所に集まり、顔を合わせながら描いています。</p><ul><li>出社スタッフの正社員率100%</li><li>専門学校での授業を担当</li><li>地域の子ども向けアニメ教室</li></ul><span class="more"><span>国内スタジオを見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+<div><span class="en">Domestic Studio — lolroute</span><h3>国内スタジオ<br>lolroute（ルート）</h3><p>2021年設立。出社スタッフの正社員率100%。動画検査・色指定検査も国内で担当します。</p><span class="more"><span>国内スタジオを見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
 </a>
 <a class="stu" href="studio-overseas.html" style="background-image:var(--dash),var(--dash);background-size:100% 1px,100% 1px;background-position:left top,left bottom">
 <div class="fig"><img src="images/gen/p05-china-studio.jpg" alt="中国の都市にある海外スタジオの様子"></div>
-<div><span class="en">Overseas Studio — reboot China</span><h3>海外スタジオ<br>reboot China</h3><p>2016年設立の直営スタジオ。数カ月に一度、日本の社員が現地で指導しています。</p><ul><li>中国の美術大学と連携して人材を育成</li><li>マルチリンガルの作画スタッフが橋渡し</li><li>国内と同じ基準でチェック</li></ul><span class="more"><span>海外スタジオを見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
+<div><span class="en">Overseas Studio — reboot China</span><h3>海外スタジオ<br>reboot China</h3><p>2016年設立の直営スタジオ。数カ月に一度、社員が現地で直接指導しています。</p><span class="more"><span>海外スタジオを見る</span><svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></div>
 </a>
 </section>
 
-<section class="sc" id="plan" style="padding-top:24px">
-<div class="st"><h2>Plan</h2><p>作業プラン</p></div>
-<div class="pl">
-<a href="plan.html"><span class="no" aria-hidden="true">01</span><div class="tx"><h3>動画プラン</h3><p>中割り・クリンナップ・動画検査まで。［料金・納期の目安を記載］</p></div><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
-<a href="plan.html"><span class="no" aria-hidden="true">02</span><div class="tx"><h3>仕上げプラン</h3><p>彩色・特効・仕上げ検査まで。［料金・納期の目安を記載］</p></div><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
-<a href="plan.html"><span class="no" aria-hidden="true">03</span><div class="tx"><h3>動画＋仕上げ 一括プラン</h3><p>国内・海外スタジオを組み合わせて、まとまった物量に対応。［料金・納期の目安を記載］</p></div><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 14"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></span></a>
-</div>
+<section class="sc" id="flow">
+<div class="st"><p class="eh" aria-hidden="true">Flow</p><h2>ご依頼の流れ<span class="kari">仮の文章</span></h2></div>
+<ol class="fw">
+<li><span class="no" aria-hidden="true">01</span><h3>受注窓口からご相談</h3><p>作品名・枚数・希望納期など、わかる範囲でお送りください。</p></li>
+<li><span class="no" aria-hidden="true">02</span><h3>打ち合わせ・お見積り</h3><p>〇営業日以内にご返信します。</p></li>
+<li><span class="no" aria-hidden="true">03</span><h3>作業開始・進み具合の共有</h3><p>国内・海外の体制を組み、進み具合を共有します。</p></li>
+<li><span class="no" aria-hidden="true">04</span><h3>検査・納品</h3><p>検査をしてから納品します。</p></li>
+</ol>
+</section>
+
+<section class="sc" id="faq">
+<div class="st"><p class="eh" aria-hidden="true">FAQ</p><h2>よくある質問<span class="kari">仮の文章</span></h2></div>
+<ul class="fq ls">
+<li><p class="q"><i aria-hidden="true">Q</i><span>急ぎの案件にも対応できますか？</span></p><p class="a"><i aria-hidden="true">A</i><span>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</span></p></li>
+<li><p class="q"><i aria-hidden="true">Q</i><span>1話だけ・数カットだけでも頼めますか？</span></p><p class="a"><i aria-hidden="true">A</i><span>〇〇カットから承ります。</span></p></li>
+<li><p class="q"><i aria-hidden="true">Q</i><span>海外スタジオの品質はどう管理していますか？</span></p><p class="a"><i aria-hidden="true">A</i><span>直営のため、社員が現地で直接指導し、国内で検査してから納品します。</span></p></li>
+</ul>
+</section>
+
+<section class="sc nws" id="news">
+<div class="st"><p class="eh" aria-hidden="true">News</p><h2>お知らせ<span class="kari">仮の文章</span></h2></div>
+<ul class="nwl ls">
+<li><a href="studio-japan.html"><time datetime="2025-10-01">2025.10.01</time><b>国内スタジオ lolroute、出社スタッフの正社員率100%を継続中</b></a></li>
+<li><a href="studio-overseas.html"><time datetime="2025-08-20">2025.08.20</time><b>reboot China にて、中国の美大生向け作画トレーニングを実施しました</b></a></li>
+<li><a href="works.html"><time datetime="2025-07-10">2025.07.10</time><b>参加作品を更新しました</b></a></li>
+</ul>
 </section>
 
 <section class="ctc" id="contact">
 <div class="dia" aria-hidden="true"><i></i><i></i><i></i></div>
 <p class="big" aria-hidden="true">Contact</p>
-<h2>ご依頼・ご相談は、受注窓口へ。</h2>
-<p>動画・仕上げのご依頼、スケジュールや物量のご相談はフォームからお送りください。担当者よりご連絡します。</p>
-<a class="btn" href="contact.html">受注窓口（お問い合わせフォーム）<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><span class="mail">Works / Plan / Studio — reboot Inc.</span>
+<h2>まずは、枚数と納期だけでも<br>ご相談ください。<span class="kari">仮の文章</span></h2>
+<a class="btn" href="contact.html">受注窓口へ<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><span class="rt">返信の目安：〇営業日以内</span>
 </section>
 
 <footer class="ft">
 <div><span class="fl">reboot</span>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F<br>© reboot Inc.</div>
 <nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+<p class="fnote">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
 </footer>
 
 </main>

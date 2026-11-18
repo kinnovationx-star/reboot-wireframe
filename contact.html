@@ -10,7 +10,6 @@
 body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#fff;line-height:1.7}
 a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 .ph{background:#e4e4e1 linear-gradient(to top right,transparent calc(50% - 1px),#c4c4c0 50%,transparent calc(50% + 1px));display:flex;align-items:center;justify-content:center;color:#444;font-size:13px;text-align:center}
-.tx{height:10px;background:#d6d6d2;border-radius:5px}
 .bt{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 32px;background:#a6f03c;color:#1a1a1a;font-weight:700;border-radius:4px;border:2px solid #1a1a1a;font:inherit;font-weight:700}
 .nv{display:flex;gap:28px;align-items:center;font-size:14px;font-weight:500;flex-wrap:wrap}
 .nv a{min-height:44px;display:inline-flex;align-items:center}
@@ -20,9 +19,26 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 .dd:hover .ddm,.dd:focus-within .ddm{display:flex}
 .in{max-width:1120px;margin:0 auto}
 .en{font-size:12px;letter-spacing:.15em;color:#555;font-weight:700;margin:0}
+.h2{font-size:26px;font-weight:700;margin:0}
 .fl{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
 .fl input,.fl textarea,.fl select{min-height:48px;border:2px solid #1a1a1a;border-radius:4px;padding:8px 12px;font:inherit;font-weight:400;box-sizing:border-box;width:100%;background:#fff}
+.fl input[type=file]{padding:10px 12px}
 .rq{font-size:11px;background:#1a1a1a;color:#fff;padding:1px 8px;margin-left:8px;border-radius:2px}
+.f2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
+.lead{margin:0;font-size:15px;max-width:760px}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.cg.w3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.cd{border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:8px;background:#fff;min-width:0;box-sizing:border-box}
+.cd b{font-size:16px}
+.sm{margin:0;font-size:13px;color:#444}
+.num{font-size:22px;font-weight:900;line-height:1}
+.qa{border:2px solid #1a1a1a;padding:20px 24px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.qa b{font-size:15px}.qa b::before{content:"Q. ";color:#3d6b00}
+.qa p{margin:0;font-size:14px;color:#444}.qa p::before{content:"A. ";font-weight:700;color:#1a1a1a}
+.sts{display:inline-flex;align-items:center;gap:8px;border:2px solid #1a1a1a;background:#fff;padding:4px 14px;font-size:13px;font-weight:700;border-radius:999px}
+.sts::before{content:"";width:10px;height:10px;border-radius:50%;background:#a6f03c;border:1px solid #1a1a1a}
+.fnote{font-size:12px;color:#555}
 .mt{position:absolute;opacity:0;width:1px;height:1px}
 .hb,a.fab{display:none}
 @media(max-width:860px){
@@ -38,8 +54,13 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 header,footer,section,header>div{padding-left:16px!important;padding-right:16px!important}
 section{min-height:0!important;padding-top:40px!important;padding-bottom:40px!important}
 h1{font-size:30px!important;line-height:1.3!important}
+.h2,h2{font-size:22px!important}
 [style*="gap:64px"],[style*="gap:56px"],[style*="gap:48px"]{gap:32px!important}
 form .bt{min-width:0!important;width:100%}
+.f2{grid-template-columns:minmax(0,1fr)!important}
+.cd{padding:20px!important}
+.cg{gap:12px!important}
+.qa{padding:16px!important}
 }
 </style>
 </head>
@@ -59,29 +80,102 @@ form .bt{min-width:0!important;width:100%}
 </header>
 
 <section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f3f3f1;display:flex;align-items:center">
-<div class="in" style="width:100%"><div style="font-size:12px;color:#555">トップ ＞ 受注窓口</div><p class="en" style="margin-top:12px">CONTACT</p><h1 style="margin:0;font-size:36px;font-weight:900">受注窓口</h1></div>
+<div class="in" style="width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
+<div><div style="font-size:12px;color:#555">トップ ＞ 受注窓口</div><p class="en" style="margin-top:12px">CONTACT</p><h1 style="margin:0;font-size:36px;font-weight:900">受注窓口<span class="kari">仮の文章</span></h1></div>
+<span class="sts">〇月の受付状況：受付中</span>
+</div>
 </section>
 
-<section style="min-height:1220px;box-sizing:border-box;padding:64px 40px">
-<div class="in" style="display:flex;gap:56px;flex-wrap:wrap;align-items:flex-start">
-<form style="flex:999 1 520px;min-width:0;display:flex;flex-direction:column;gap:20px">
-<p style="margin:0;font-size:15px">動画・仕上げなど作業のご依頼・ご相談は、下記フォームよりお問い合わせください。</p>
-<label class="fl"><span>会社名</span><input type="text" name="company"></label>
-<label class="fl"><span>氏名<span class="rq">必須</span></span><input type="text" name="name"></label>
+<section style="box-sizing:border-box;padding:48px 40px 24px">
+<div class="in">
+<p style="margin:0;font-size:22px;font-weight:700;line-height:1.6">動画・仕上げのご依頼・お見積りはこちらから。<br>〇営業日以内にご返信します。<span class="kari">仮の文章</span></p>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:40px 40px 56px">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">ご相談いただける内容<span class="kari">仮の文章</span></h2>
+<div class="cg">
+<div class="cd"><b>動画</b><p class="sm">原画をもとに、動画を作成します。1話まるごとでも、一部のカットだけでも承ります。</p></div>
+<div class="cd"><b>仕上げ</b><p class="sm">色指定にあわせて、彩色・仕上げを行います。</p></div>
+<div class="cd"><b>動画＋仕上げ</b><p class="sm">動画から仕上げまでをまとめてお任せいただけます。窓口はひとつです。</p></div>
+<div class="cd"><b>急ぎの話数・リテイク対応</b><p class="sm">納期が迫った話数や、リテイクのご相談も承ります（〇〇）。</p></div>
+</div>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">お問い合わせの前に、わかると早いこと<span class="kari">仮の文章</span></h2>
+<div class="cg">
+<div class="cd"><span class="num">01</span><b>作品名・話数</b><p class="sm">どの作品の、何話分のご依頼か。</p></div>
+<div class="cd"><span class="num">02</span><b>カット数・枚数</b><p class="sm">おおよその数で大丈夫です。</p></div>
+<div class="cd"><span class="num">03</span><b>希望納期</b><p class="sm">いつまでに必要か、お知らせください。</p></div>
+<div class="cd"><span class="num">04</span><b>作業の範囲</b><p class="sm">動画のみ・仕上げのみ・両方など。</p></div>
+</div>
+<p class="lead" style="font-weight:700">わからない項目があっても大丈夫です。わかる範囲でお知らせください。</p>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:64px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">お問い合わせフォーム<span class="kari">仮の文章</span></h2>
+<form style="max-width:760px;width:100%;min-width:0;display:flex;flex-direction:column;gap:20px">
+<div class="f2">
+<label class="fl"><span>会社名<span class="rq">必須</span></span><input type="text" name="company"></label>
+<label class="fl"><span>ご担当者名<span class="rq">必須</span></span><input type="text" name="name"></label>
 <label class="fl"><span>メールアドレス<span class="rq">必須</span></span><input type="email" name="email"></label>
-<label class="fl"><span>お問い合わせ種別<span class="rq">必須</span></span><select name="type"><option>作業のご依頼・お見積り</option><option>作業プランについて</option><option>アニメーター応募</option><option>その他</option></select></label>
-<label class="fl"><span>ご希望のプラン</span><select name="plan"><option>未定</option><option>[プラン名 1]</option><option>[プラン名 2]</option><option>[プラン名 3]</option></select></label>
-<label class="fl"><span>題名<span class="rq">必須</span></span><input type="text" name="subject"></label>
-<label class="fl"><span>メッセージ本文<span class="rq">必須</span></span><textarea name="message" rows="8"></textarea></label>
-<label style="display:flex;gap:10px;align-items:center;font-size:14px;min-height:44px"><input type="checkbox" name="agree" style="width:20px;height:20px">個人情報の取り扱いに同意する</label>
+<label class="fl"><span>電話番号</span><input type="tel" name="tel"></label>
+</div>
+<label class="fl"><span>ご依頼内容<span class="rq">必須</span></span><select name="type"><option>動画</option><option>仕上げ</option><option>動画＋仕上げ</option><option>アニメーターとして応募したい</option><option>専門学校・教育関係のご連絡</option><option>その他</option></select></label>
+<div class="f2">
+<label class="fl"><span>作品名・話数</span><input type="text" name="title"></label>
+<label class="fl"><span>おおよその枚数・カット数</span><input type="text" name="volume"></label>
+<label class="fl"><span>希望納期</span><input type="text" name="deadline"></label>
+<label class="fl"><span>資料の添付</span><input type="file" name="file"></label>
+</div>
+<label class="fl"><span>ご相談内容<span class="rq">必須</span></span><textarea name="message" rows="8"></textarea></label>
+<label style="display:flex;gap:10px;align-items:center;font-size:14px;min-height:44px;flex-wrap:wrap"><input type="checkbox" name="agree" style="width:20px;height:20px">個人情報の取り扱いに同意する<span class="rq" style="margin-left:0">必須</span></label>
 <div><button type="button" class="bt" style="min-width:280px">送信する</button></div>
 <div style="font-size:12px;color:#555">※送信後はサンクスページ（送信完了）を表示／自動返信メールを送信</div>
 </form>
-<aside style="flex:1 1 300px;display:flex;flex-direction:column;gap:20px">
-<div style="border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-weight:700">ご依頼について</div><div style="font-size:13px;color:#555">※動画検査、色指定検査は国内作業のみとなっております。</div><div style="font-size:13px;color:#555">※国内作業やレイアウト、作監、動画検査、色指定検査、線撮は海外動仕をいただける会社様を優先してお引き受けしております。</div><a href="plan.html" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">作業プランを見る →</a></div>
-<div style="border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-weight:700">会社情報</div><div style="font-size:13px;color:#555">株式会社reboot<br>東京都杉並区上荻1-5-8 直長ビル6F</div><div class="ph" style="height:160px">地図</div></div>
-<div style="border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:10px"><div style="font-weight:700">営業情報</div><div class="ph" style="height:140px">営業カレンダー</div></div>
-</aside>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">送信後の流れ<span class="kari">仮の文章</span></h2>
+<div class="cg w3">
+<div class="cd"><span class="num">01</span><b>内容の確認</b><p class="sm">担当者がご依頼の内容を確認します。</p></div>
+<div class="cd"><span class="num">02</span><b>〇営業日以内にご返信</b><p class="sm">メールまたはお電話でご連絡します。</p></div>
+<div class="cd"><span class="num">03</span><b>打ち合わせ・お見積り</b><p class="sm">枚数と納期をうかがい、お見積りをお出しします。</p></div>
+</div>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:16px">
+<h2 class="h2" style="margin-bottom:8px">よくある質問<span class="kari">仮の文章</span></h2>
+<div class="qa"><b>見積りだけでも依頼できますか？</b><p>はい、お見積りだけのご相談も承ります。お気軽にお問い合わせください。</p></div>
+<div class="qa"><b>急ぎの案件にも対応できますか？</b><p>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</p></div>
+<div class="qa"><b>1話だけ・数カットだけでも頼めますか？</b><p>〇〇カットから承ります。</p></div>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:24px">
+<h2 class="h2">電話・メールでのご連絡<span class="kari">仮の文章</span></h2>
+<div class="cg w3">
+<div class="cd"><b>お電話・メール</b><div style="font-size:20px;font-weight:900">TEL 〇〇-〇〇〇〇-〇〇〇〇</div><p class="sm">受付 平日〇〇:〇〇〜〇〇:〇〇</p><p class="sm">MAIL 〇〇〇〇@〇〇〇〇</p></div>
+<div class="cd"><b>会社情報</b><p class="sm">株式会社reboot<br>東京都杉並区上荻1-5-8 直長ビル6F</p><div class="ph" style="height:160px">地図</div></div>
+<div class="cd"><b>営業情報</b><div class="ph" style="height:160px">営業カレンダー</div></div>
+</div>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:48px 40px">
+<div class="in">
+<div class="cd" style="gap:10px"><b>対応作業についてのご注意<span class="kari">仮の文章</span></b><p class="sm">※動画検査、色指定検査は国内作業のみとなっております。</p><p class="sm">※国内作業やレイアウト、作監、動画検査、色指定検査、線撮は海外動仕をいただける会社様を優先してお引き受けしております。</p><a href="plan.html" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">作業プランを見る →</a></div>
 </div>
 </section>
 
@@ -90,6 +184,7 @@ form .bt{min-width:0!important;width:100%}
 <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#555"><div style="font-weight:900;font-size:20px;color:#1a1a1a">reboot</div><div>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F</div><div>© reboot Inc.</div></div>
 <nav class="nv" aria-label="フッターメニュー"><a href="top-a.html">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
 </div>
+<p class="in fnote" style="margin-top:24px;margin-bottom:0">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
 </footer>
 
 </div>

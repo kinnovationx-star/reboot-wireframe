@@ -25,6 +25,25 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 .wk .ph{height:146px}
 .wk b{font-size:14px}
 .wk span{font-size:12px;color:#555}
+.wk .tg{display:flex;gap:4px;flex-wrap:wrap}
+.wk .tg i{font-style:normal;font-size:11px;border:1px solid #1a1a1a;padding:0 6px;color:#1a1a1a}
+.h2{font-size:26px;font-weight:700;margin:0}
+.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
+.lead{margin:0;font-size:15px;max-width:760px}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:20px}
+.cg.w3{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.cd{border:2px solid #1a1a1a;padding:24px;display:flex;flex-direction:column;gap:8px;background:#fff;min-width:0;box-sizing:border-box}
+.cd b{font-size:16px}
+.sm{margin:0;font-size:13px;color:#444}
+.num{font-size:22px;font-weight:900;line-height:1}
+.stat{font-size:28px;font-weight:900;line-height:1.3}
+.qa{border:2px solid #1a1a1a;padding:20px 24px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.qa b{font-size:15px}.qa b::before{content:"Q. ";color:#3d6b00}
+.qa p{margin:0;font-size:14px;color:#444}.qa p::before{content:"A. ";font-weight:700;color:#1a1a1a}
+.sts{display:inline-flex;align-items:center;gap:8px;border:2px solid #1a1a1a;background:#fff;padding:4px 14px;font-size:13px;font-weight:700;border-radius:999px}
+.sts::before{content:"";width:10px;height:10px;border-radius:50%;background:#a6f03c;border:1px solid #1a1a1a}
+.chip{display:inline-flex;align-items:center;min-height:36px;padding:0 14px;border:1px solid #1a1a1a;font-size:13px;font-weight:700;background:#fff}
+.fnote{font-size:12px;color:#555}
 .yr{font-size:28px;font-weight:900;margin:0;padding-bottom:8px;border-bottom:2px solid #1a1a1a}
 .mt{position:absolute;opacity:0;width:1px;height:1px}
 .hb,a.fab{display:none}
@@ -47,6 +66,10 @@ h2{font-size:22px!important}
 .gr{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 12px!important}
 .wk .ph{height:100px!important}
 .tab{padding:0 16px!important}
+.cd{padding:20px!important}
+.cg{gap:12px!important}
+.stat{font-size:24px!important}
+.wk .tg i{font-size:10px}
 }
 </style>
 </head>
@@ -67,43 +90,71 @@ h2{font-size:22px!important}
 </header>
 
 <section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f3f3f1;display:flex;align-items:center">
-<div class="in" style="width:100%"><div style="font-size:12px;color:#555">トップ ＞ 作品履歴</div><p class="en" style="margin-top:12px">WORKS</p><h1 style="margin:0;font-size:36px;font-weight:900">作品履歴</h1></div>
+<div class="in" style="width:100%"><div style="font-size:12px;color:#555">トップ ＞ 作品履歴</div><p class="en" style="margin-top:12px">WORKS</p><h1 style="margin:0;font-size:36px;font-weight:900">作品履歴<span class="kari">仮の文章</span></h1></div>
 </section>
 
-<section style="min-height:1400px;box-sizing:border-box;padding:56px 40px">
+<section style="box-sizing:border-box;padding:56px 40px 32px">
+<div class="in" style="display:flex;flex-direction:column;gap:20px">
+<h2 class="h2">数字で見る参加作品<span class="kari">仮の文章</span></h2>
+<div class="cg">
+<div class="cd"><span class="sm">参加作品</span><span class="stat">〇〇本以上</span></div>
+<div class="cd"><span class="sm">取引先</span><span class="stat">〇〇社</span></div>
+</div>
+<p class="lead">TVアニメ・劇場作品・配信作品などで、動画と仕上げを担当してきました。</p>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:24px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:12px">
+<div style="font-weight:700">種類で絞り込む<span class="kari">仮の文章</span></div>
+<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="tab" style="background:#1a1a1a;color:#fff">すべて</span><a class="tab" href="#works">TVアニメ</a><a class="tab" href="#works">劇場</a><a class="tab" href="#works">配信</a><a class="tab" href="#works">ゲーム・その他</a></div>
+<div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;font-size:13px"><span style="color:#555">年で見る：</span><a href="#y2025" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">2025</a><a href="#y2024" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">2024</a><a href="#y2023" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">2023</a><span style="color:#555">※各作品は公式サイトへリンク</span></div>
+</div>
+</section>
+
+<section id="works" style="box-sizing:border-box;padding:40px 40px 64px">
 <div class="in" style="display:flex;flex-direction:column;gap:32px">
-<div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><span class="tab" style="background:#1a1a1a;color:#fff">すべて</span><a class="tab" href="#y2025">2025</a><a class="tab" href="#y2024">2024</a><a class="tab" href="#y2023">2023</a><span style="font-size:12px;color:#555;margin-left:8px">※年別タブで絞り込み／各作品は公式サイトへリンク</span></div>
-<h2 id="y2025" class="yr">2025</h2>
+<h2 class="h2">年ごとの作品一覧<span class="kari">仮の文章</span></h2>
+<h3 id="y2025" class="yr">2025</h3>
 <div class="gr">
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>映画 ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>劇場</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内・海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>配信</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>ゲーム・その他</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内・海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>配信</span><span class="tg"><i>担当：動画・仕上げ</i><i>海外スタジオ</i></span></div>
 </div>
-<h2 id="y2024" class="yr">2024</h2>
+<h3 id="y2024" class="yr">2024</h3>
 <div class="gr">
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>劇場</span><span class="tg"><i>担当：動画・仕上げ</i><i>海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>配信</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内・海外スタジオ</i></span></div>
 </div>
-<h2 id="y2023" class="yr">2023</h2>
+<h3 id="y2023" class="yr">2023</h3>
 <div class="gr">
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
-<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><span>TVアニメ ／ 担当：動画・仕上げ</span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>劇場</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内・海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>配信</span><span class="tg"><i>担当：動画・仕上げ</i><i>海外スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>TVアニメ</span><span class="tg"><i>担当：動画・仕上げ</i><i>国内スタジオ</i></span></div>
+<div class="wk"><div class="ph">作品ビジュアル</div><b>作品タイトル（仮）</b><span>ゲーム・その他</span><span class="tg"><i>担当：動画・仕上げ</i><i>海外スタジオ</i></span></div>
 </div>
+</div>
+</section>
+
+<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
+<div class="in" style="display:flex;flex-direction:column;gap:20px">
+<h2 class="h2">主な取引先<span class="kari">仮の文章</span></h2>
+<div style="display:flex;gap:8px;flex-wrap:wrap"><span class="chip">〇〇株式会社</span><span class="chip">〇〇スタジオ</span><span class="chip">〇〇プロダクション</span><span class="chip">〇〇アニメーション</span><span class="chip">ほか</span></div>
+<p class="sm">※掲載許可を確認中です。</p>
 </div>
 </section>
 
 <section style="min-height:220px;box-sizing:border-box;padding:48px 40px;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center">
-<h2 style="margin:0;font-size:24px;font-weight:700;color:#fff">動画・仕上げのご依頼・ご相談は受注窓口へ</h2>
-<a class="bt" href="contact.html">お問い合わせフォームへ</a>
+<h2 style="margin:0;font-size:24px;font-weight:700;color:#fff">同じような作品のご相談はこちら<span class="kari">仮の文章</span></h2>
+<p style="margin:0;color:#fff;font-size:14px">枚数と納期だけでも、お気軽にご相談ください。</p>
+<a class="bt" href="contact.html">受注窓口へ</a>
 </section>
 
 <footer style="min-height:200px;box-sizing:border-box;padding:48px 40px">
@@ -111,6 +162,7 @@ h2{font-size:22px!important}
 <div style="display:flex;flex-direction:column;gap:6px;font-size:13px;color:#555"><div style="font-weight:900;font-size:20px;color:#1a1a1a">reboot</div><div>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F</div><div>© reboot Inc.</div></div>
 <nav class="nv" aria-label="フッターメニュー"><a href="top-a.html">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
 </div>
+<p class="in fnote" style="margin-top:24px;margin-bottom:0">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
 </footer>
 
 </div>
