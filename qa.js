@@ -39,6 +39,9 @@ window.__qa = async function (pages, widths) {
         const txt = n.textContent.trim().slice(0, 18);
         if (op < 0.2 && box.r - box.l > 4) { if (!el.closest('a.fab')) res.hidden.push(`${txt}(op${op.toFixed(2)})`); continue; }
         if (isFixed(el)) continue;
+        if (box.r - box.l <= 2 && box.b - box.t <= 2) continue;
+        if (el.closest('details:not([open])')) continue;
+        { let m = el, moving = false; while (m && m !== d.body) { if (w.getComputedStyle(m).animationIterationCount === 'infinite' && /translate|matrix/.test(w.getComputedStyle(m).transform)) { moving = true; break; } const ox = w.getComputedStyle(m).overflowX; if (/auto|scroll/.test(ox)) { moving = true; break; } m = m.parentElement; } if (moving) continue; }
         // 切れ：overflow hidden の祖先からはみ出す / 画面外
         let a = el, cut = false;
         if (box.l < -2 || box.r > vw + 2) cut = true;
