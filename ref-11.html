@@ -41,7 +41,7 @@ body{margin:0}
 
 /* glitch */
 .gl{position:absolute;display:flex;flex-direction:column;gap:3px;pointer-events:none}
-.gl span{display:block;flex:none;animation:gx 4.2s steps(1) infinite}
+.gl span{display:block;flex:none}
 .gl span:nth-child(3n){animation-delay:-1.3s;animation-duration:3.1s}
 .gl span:nth-child(4n+1){animation-delay:-2.2s;animation-duration:5.3s}
 @keyframes gx{0%,100%{transform:translateX(0)}12%{transform:translateX(-14px)}14%{transform:translateX(9px)}16%{transform:translateX(0)}58%{transform:translateX(22px)}60%{transform:translateX(0)}}
@@ -144,11 +144,11 @@ body{margin:0}
 .fv{padding-top:220px;text-align:center}
 .fv .g4{left:auto;right:6%;top:160px;width:300px}
 .fh{display:flex;flex-direction:column;align-items:center;margin:0;font-weight:900;line-height:1.1;white-space:nowrap}
-.fh small{font-size:26px;letter-spacing:.05em}
+.fh small{font-size:26px;letter-spacing:.05em;margin-bottom:12px}
 .fh span{display:flex;align-items:baseline}
 .fh .n{font-family:Inter,sans-serif;font-size:124px;position:relative;top:.08em}
-.fh .no{font-size:56px;letter-spacing:-.2em;margin-right:.2em}
-.fh .ti{font-size:104px;letter-spacing:-.1em}
+.fh .no{font-size:56px;letter-spacing:0;margin-right:.12em}
+.fh .ti{font-size:104px;letter-spacing:0}
 .fv p{margin:28px auto 0;max-width:420px;font-size:16px;line-height:1.8;letter-spacing:.1em;text-align:justify}
 .fl{list-style:none;padding:0;margin:56px auto 0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;max-width:1180px;text-align:left;border-top:1px solid rgba(255,255,255,.55)}
 .fl li{padding:22px 20px 26px;border-right:1px solid rgba(255,255,255,.55)}
@@ -266,10 +266,10 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .trk img:nth-child(even){height:220px;margin-top:24px}
 .fv{padding-top:140px}
 .fv .g4{width:160px;top:110px;right:-4%}
-.fh small{font-size:14px}
-.fh .n{font-size:78px}
-.fh .no{font-size:31px}
-.fh .ti{font-size:58px}
+.fh small{font-size:14px;margin-bottom:6px}
+.fh .n{font-size:64px}
+.fh .no{font-size:24px}
+.fh .ti{font-size:44px}
 .fv p{font-size:15px;letter-spacing:.05em}
 .fl{grid-template-columns:minmax(0,1fr)}
 .fl li{border-right:0;border-bottom:1px solid rgba(255,255,255,.55);padding:18px 4px}
