@@ -38,6 +38,15 @@ window.__qa = async function (pages, widths) {
         const op = effOp(el);
         const txt = n.textContent.trim().slice(0, 18);
         if (op < 0.2 && box.r - box.l > 4) { if (!el.closest('a.fab')) res.hidden.push(`${txt}(op${op.toFixed(2)})`); continue; }
+        // 文字色と背景色がほぼ同じ（読めない）
+        {
+          const pc = s => { const m = s.match(/[\d.]+/g); return m ? m.map(Number) : [0, 0, 0, 0]; };
+          const lum = c => { const f = v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }; return .2126 * f(c[0]) + .7152 * f(c[1]) + .0722 * f(c[2]); };
+          const fg = pc(w.getComputedStyle(el).color);
+          let a2 = el, bg = null, img = false;
+          while (a2 && a2.nodeType === 1) { const s = w.getComputedStyle(a2); if (s.backgroundImage !== 'none') { img = true; break; } const c = pc(s.backgroundColor); if ((c[3] === undefined ? 1 : c[3]) > .9) { bg = c; break; } a2 = a2.parentElement; }
+          if (!img && bg && (fg[3] === undefined || fg[3] > .5)) { const L1 = lum(fg), L2 = lum(bg); const cr = (Math.max(L1, L2) + .05) / (Math.min(L1, L2) + .05); if (cr < 1.6) res.hidden.push(`${txt}(同色${cr.toFixed(2)})`); }
+        }
         if (isFixed(el)) continue;
         if (box.r - box.l <= 2 && box.b - box.t <= 2) continue;
         if (el.closest('details:not([open])')) continue;
