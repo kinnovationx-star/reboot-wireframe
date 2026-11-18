@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>デザイン07 テレビ的にぎやか｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#12235e;text-decoration:none}a:hover{color:#d81e1e}
+.pg *{box-sizing:border-box}
+.pg{font-family:'Zen Maru Gothic',sans-serif;font-weight:700;color:#12235e;line-height:1.8;background:#fff;overflow:hidden}
+.rr{font-family:'RocknRoll One',sans-serif;font-weight:400}
+.w{max-width:1180px;margin:0 auto;padding:0 40px}
+.sky{background:linear-gradient(#59b5ff,#bfe6ff 62%,#1a56d6 62%,#1a56d6);position:relative}
+.sky:before{content:"";position:absolute;left:-10%;right:-10%;bottom:0;height:300px;background:#1a56d6;border-radius:50% 50% 0 0/100% 100% 0 0}
+.hero{position:relative;padding-top:36px;padding-bottom:36px;text-align:center}
+.col{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;height:330px}
+.col div{border:5px solid #fff;border-radius:18px;display:flex;align-items:flex-end;justify-content:center;padding:8px;font-size:12px;color:#12235e;box-shadow:0 6px 0 rgba(18,35,94,.25)}
+.col div:nth-child(1){grid-column:span 2;background:#ffd84a;transform:rotate(-4deg)}
+.col div:nth-child(2){background:#ff9bc2;transform:rotate(3deg) translateY(30px)}
+.col div:nth-child(3){grid-column:span 2;background:#9be37a;transform:rotate(-2deg) translateY(-6px)}
+.col div:nth-child(4){background:#ffb067;transform:rotate(5deg) translateY(24px)}
+.logo{position:relative;margin:-70px auto 0;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap}
+.logo h1{margin:0;font-size:132px;line-height:1;color:#e8251f;-webkit-text-stroke:10px #fff;paint-order:stroke fill;text-shadow:0 8px 0 #12235e;letter-spacing:.02em}
+.logo svg{width:150px;height:150px;flex:0 0 auto}
+.sub{position:relative;margin:10px 0 0;font-size:24px;font-weight:900;color:#fff}
+.hd{position:relative;z-index:6;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:18px;padding-bottom:26px}
+.hd .me{display:none}
+.nv{display:flex;gap:26px;align-items:center;font-weight:900;font-size:15px;background:#fff;border-radius:999px;padding:4px 8px 4px 28px;margin:0 auto;box-shadow:0 5px 0 rgba(18,35,94,.3)}
+.nv a{min-height:46px;display:inline-flex;align-items:center}
+.nv a.go{padding:0 22px;background:#e8251f;color:#fff;border-radius:999px}.nv a.go:hover{color:#ffd84a}
+.dd{position:relative}
+.ddm{display:none;position:absolute;top:100%;left:-18px;min-width:180px;flex-direction:column;background:#fff;border:3px solid #12235e;border-radius:16px;z-index:20;overflow:hidden}
+.ddm a{min-height:48px;padding:0 18px;display:flex;border-bottom:2px dotted #12235e}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.mt{position:absolute;opacity:0;width:1px;height:1px}
+.hb,a.fab{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:56px;padding:0 34px;background:#e8251f;color:#fff;font-weight:900;border-radius:999px;border:4px solid #fff;box-shadow:0 6px 0 #12235e}
+.btn:hover{color:#ffd84a}
+.btn.b{background:#1a56d6}
+.sec{padding-top:76px;padding-bottom:76px}
+.ttl{margin:0 0 34px;text-align:center}
+.ttl h2{margin:0;display:inline-block;font-size:44px;color:#fff;background:#1a56d6;padding:4px 34px;border-radius:999px;transform:rotate(-1.5deg);box-shadow:0 6px 0 #12235e}
+.ttl p{margin:14px 0 0;font-size:14px;letter-spacing:.3em;color:#1a56d6}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.it{display:block;border:5px solid #1a56d6;border-radius:20px;overflow:hidden;background:#fff;box-shadow:0 6px 0 #12235e}
+.it:nth-child(3n+2){border-color:#e8251f}.it:nth-child(3n){border-color:#ffb300}
+.ph{height:170px;background:#e6f3ff;background-image:radial-gradient(#bcdcff 2px,transparent 2.5px);background-size:14px 14px;display:flex;align-items:center;justify-content:center;font-size:13px}
+.it b{display:block;margin:10px 16px 0}.it small{display:block;margin:0 16px 12px;font-size:12px}
+.yl{background:#ffd84a;background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.35) 0 40px,transparent 40px 80px)}
+.st .ph{height:230px}
+.st h3{margin:14px 20px 0;font-size:28px;color:#e8251f}
+.st p{margin:0 20px 18px;font-size:14px}
+.pl{background:#fff;border:5px solid #12235e;border-radius:24px;padding:26px;text-align:center;position:relative}
+.pl i{display:inline-flex;align-items:center;justify-content:center;width:56px;height:56px;border-radius:50%;background:#e8251f;color:#fff;font-style:normal;font-size:24px;margin-top:-56px;border:4px solid #fff}
+.pl h3{margin:8px 0 6px;font-size:22px;font-weight:900}.pl p{margin:0;font-size:14px}
+.cta{background:#1a56d6;text-align:center;padding:84px 16px;color:#fff}
+.cta h2{margin:0 0 24px;font-size:44px;color:#fff;text-shadow:0 5px 0 #12235e}
+.ft{padding-top:36px;padding-bottom:48px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px}
+.ft nav{display:flex;gap:20px;flex-wrap:wrap;font-weight:900}
+@media(max-width:860px){
+.w{padding:0 16px}
+.hd{padding-bottom:12px}
+.hd .me{display:flex;align-items:center;gap:8px;font-size:22px;color:#fff}
+.hd .me img{width:40px;height:40px;border-radius:50%;border:3px solid #fff}
+.hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:50px;height:50px;padding:0 12px;background:#fff;border-radius:50%;cursor:pointer;box-shadow:0 4px 0 rgba(18,35,94,.3)}
+.hb span{display:block;height:3px;border-radius:2px;background:#12235e}
+.mt:focus-visible+.hb{outline:3px solid #e8251f}
+.mt~.nv{display:none}
+.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:0;border-radius:24px;padding:6px 20px 10px}
+.mt:checked~.nv a{min-height:52px;border-bottom:2px dotted #12235e}
+.mt:checked~.nv a.go{display:none}
+.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding-left:16px}
+a.fab{display:inline-flex;align-items:center;position:fixed;right:16px;bottom:16px;z-index:50;min-height:58px;padding:0 24px;background:#e8251f;color:#fff;font-weight:900;border-radius:999px;border:4px solid #fff;box-shadow:0 5px 0 #12235e}
+.sky:before{height:200px}
+.hero{padding-top:8px}
+.col{grid-template-columns:repeat(4,minmax(0,1fr));height:200px;gap:6px}
+.col div{border-width:3px;border-radius:12px;font-size:10px}
+.col div:nth-child(1),.col div:nth-child(3){grid-column:span 1}
+.logo{margin-top:-30px;gap:8px}
+.logo h1{font-size:19vw;-webkit-text-stroke:6px #fff;text-shadow:0 5px 0 #12235e}
+.logo svg{width:84px;height:84px}
+.sub{font-size:17px}
+.sec{padding-top:52px;padding-bottom:52px}
+.ttl h2{font-size:28px;padding:4px 24px}
+.g3{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.g3.one{grid-template-columns:minmax(0,1fr);gap:44px}
+.g2{grid-template-columns:minmax(0,1fr)}
+.ph{height:104px}.st .ph{height:170px}
+.it{border-width:4px;border-radius:16px}
+.cta{padding:56px 16px}.cta h2{font-size:28px}
+}
+</style>
+</head>
+<body>
+<div class="pg">
+
+<div class="sky">
+<header class="w hd">
+<a class="me rr" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ">reboot</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label><a class="fab" href="contact.html">お問い合わせ</a>
+<nav class="nv" aria-label="メインメニュー">
+<a href="#top">トップ</a>
+<a href="contact.html">受注窓口</a>
+<a href="works.html">作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ ▾</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html">プラン</a>
+<a class="go" href="contact.html">お問い合わせ</a>
+</nav>
+</header>
+<section id="top" class="w hero">
+<div class="col"><div>作品カット</div><div>作業風景</div><div>スタジオ写真</div><div>作品カット</div></div>
+<div class="logo">
+<svg viewBox="0 0 150 150" role="img" aria-label="電源ボタンのマスコット"><circle cx="75" cy="78" r="60" fill="#b8f04a" stroke="#12235e" stroke-width="6"/><rect x="68" y="2" width="14" height="46" rx="7" fill="#12235e"/><circle cx="54" cy="76" r="9" fill="#12235e"/><circle cx="96" cy="76" r="9" fill="#12235e"/><circle cx="57" cy="73" r="3" fill="#fff"/><circle cx="99" cy="73" r="3" fill="#fff"/><path d="M52 100 Q75 124 98 100" fill="#e8251f" stroke="#12235e" stroke-width="5" stroke-linejoin="round"/><circle cx="36" cy="94" r="7" fill="#ff9bc2"/><circle cx="114" cy="94" r="7" fill="#ff9bc2"/></svg>
+<h1 class="rr">reboot</h1>
+</div>
+<p class="sub">アニメをもっと楽しく！ 動画・仕上げの依頼は reboot へ</p>
+<p style="position:relative;margin:22px 0 0;display:flex;gap:14px;justify-content:center;flex-wrap:wrap"><a class="btn" href="contact.html">受注窓口へ</a><a class="btn b" href="plan.html">作業プランを見る</a></p>
+</section>
+</div>
+
+<section class="w sec">
+<div class="ttl"><h2 class="rr">作品履歴</h2><p>WORKS</p></div>
+<div class="g3">
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+</div>
+<p style="margin:40px 0 0;text-align:center"><a class="btn b" href="works.html">作品履歴をすべて見る</a></p>
+</section>
+
+<section id="studio" class="yl">
+<div class="w sec">
+<div class="ttl"><h2 class="rr">スタジオ</h2><p style="color:#12235e">STUDIO</p></div>
+<div class="g2">
+<a class="it st" href="studio-japan.html"><div class="ph">国内スタジオ写真</div><h3 class="rr">国内スタジオ →</h3><p>lolroute（ルート）｜2021年設立の国内作画スタジオ</p></a>
+<a class="it st" href="studio-overseas.html"><div class="ph">海外スタジオ写真</div><h3 class="rr">海外スタジオ →</h3><p>reboot China｜2016年設立の直営スタジオ</p></a>
+</div>
+</div>
+</section>
+
+<section class="w sec">
+<div class="ttl" style="margin-bottom:64px"><h2 class="rr">作業プラン</h2><p>PLAN</p></div>
+<div class="g3 one">
+<div class="pl"><i class="rr">1</i><h3>[プラン名 1]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><i class="rr">2</i><h3>[プラン名 2]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><i class="rr">3</i><h3>[プラン名 3]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+</div>
+<p style="margin:40px 0 0;text-align:center"><a class="btn b" href="plan.html">プランの詳細を見る</a></p>
+</section>
+
+<section class="cta">
+<h2 class="rr">ご依頼・ご相談は受注窓口へ！</h2>
+<a class="btn" href="contact.html">お問い合わせフォームへ</a>
+</section>
+
+<footer class="w ft">
+<div><b style="font-size:18px">reboot</b><br>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F<br>© reboot Inc.</div>
+<nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>

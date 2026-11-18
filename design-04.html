@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>デザイン04 コマ割り×ミリタリー｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#f4f2e8;text-decoration:none}a:hover{color:#ff6a5e}
+.pg *{box-sizing:border-box}
+.pg{font-family:'Noto Sans JP',sans-serif;font-weight:500;color:#f4f2e8;line-height:1.8;background:#1a1c16;overflow:hidden}
+.an{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.01em}
+.w{max-width:1200px;margin:0 auto;padding:0 40px}
+.top{background:#a9ad8c;background-image:radial-gradient(rgba(26,28,22,.16) 1px,transparent 1.4px);background-size:5px 5px;color:#1a1c16}
+.top a{color:#1a1c16}.top a:hover{color:#a3140d}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:14px;padding-bottom:14px}
+.lg{display:flex;align-items:center;gap:10px;font-size:26px}
+.lg img{width:46px;height:46px;border-radius:50%;border:3px solid #1a1c16}
+.nv{display:flex;gap:26px;align-items:center;font-weight:900;font-size:14px}
+.nv a{min-height:44px;display:inline-flex;align-items:center}
+.dd{position:relative}
+.ddm{display:none;position:absolute;top:100%;left:-16px;min-width:180px;flex-direction:column;background:#1a1c16;border:2px solid #d7261e;z-index:20}
+.top .ddm a{color:#f4f2e8;min-height:48px;padding:0 16px;display:flex;border-bottom:1px solid #3a3d31}
+.top .ddm a:hover{color:#ff6a5e}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.mt{position:absolute;opacity:0;width:1px;height:1px}
+.hb,a.fab{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:14px;min-height:54px;padding:0 26px;background:#d7261e;color:#fff;font-weight:900;letter-spacing:.08em}
+.btn:before{content:"[";font-weight:500}.btn:after{content:"]";font-weight:500}
+.btn:hover{color:#fff;background:#a3140d}
+.btn.k{background:#1a1c16;color:#f4f2e8}
+.top a.btn,.top a.btn:hover{color:#fff}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:44px;align-items:center;padding-top:20px;padding-bottom:64px}
+.koma{position:relative;height:620px;background:#1a1c16;padding:8px;display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1.25fr 1fr 1fr;gap:8px}
+.koma div{display:flex;align-items:flex-end;padding:10px;font-size:12px;font-weight:700;color:#1a1c16}
+.k1{grid-row:1 / span 2;background:linear-gradient(160deg,#c9cdae,#7f8463);clip-path:polygon(0 0,100% 0,100% 88%,0 100%)}
+.k2{background:linear-gradient(160deg,#e9e3c8,#b9b08a);clip-path:polygon(0 0,100% 0,100% 100%,0 86%)}
+.k3{background:linear-gradient(160deg,#8fb1a6,#4f7469)}
+.k4{grid-column:1 / span 2;background:linear-gradient(120deg,#ffcf5c,#ff7a1a 55%,#d7261e);clip-path:polygon(0 12%,100% 0,100% 100%,0 100%)}
+.tate{position:absolute;top:8px;right:-18px;display:flex;flex-direction:row-reverse;gap:6px;z-index:3}
+.tate span{writing-mode:vertical-rl;background:#d7261e;color:#fff;font-weight:900;font-size:20px;padding:12px 5px;letter-spacing:.14em}
+.tate span+span{background:#1a1c16;margin-top:44px}
+.hero h1{margin:0;font-size:210px;line-height:.88;color:#1a1c16;text-shadow:3px 3px 0 rgba(26,28,22,.25)}
+.kana{font-weight:900;font-size:22px;letter-spacing:.5em;margin:6px 0 26px}
+.box{border:3px solid #d7261e;background:#1a1c16;color:#f4f2e8;padding:18px 22px;display:inline-block;margin-bottom:24px}
+.box b{display:block;font-size:26px;font-weight:900;line-height:1.4}
+.sec{padding-top:84px;padding-bottom:84px}
+.ttl{display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap;margin:0 0 34px}
+.ttl h2{margin:0;font-size:120px;line-height:.9;color:#f4f2e8}
+.ttl span{font-weight:900;font-size:16px;letter-spacing:.3em;color:#ff6a5e;padding-bottom:10px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+.it{display:block;border-top:3px solid #f4f2e8;padding-top:12px}
+.it:hover{border-color:#d7261e}
+.ph{height:180px;background:#34372c;background-image:repeating-linear-gradient(135deg,rgba(244,242,232,.07) 0 2px,transparent 2px 9px);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#d9d7c9}
+.it b{display:block;margin-top:12px;font-size:17px;font-weight:900}.it small{font-size:12px;color:#c9c7b8}
+.kh{background:#a9ad8c;background-image:radial-gradient(rgba(26,28,22,.16) 1px,transparent 1.4px);background-size:5px 5px;color:#1a1c16}
+.kh .ttl h2{color:#1a1c16}.kh .ttl span{color:#a3140d}
+.st{display:block;background:#1a1c16;color:#f4f2e8;padding:10px;clip-path:polygon(0 0,100% 0,100% 94%,96% 100%,0 100%)}
+.kh a.st{color:#f4f2e8}.kh a.st:hover{color:#ff6a5e}
+.st .ph{height:240px}
+.st h3{margin:16px 12px 0;font-size:28px;font-weight:900}
+.st p{margin:2px 12px 16px;font-size:14px;color:#d9d7c9}
+.pl{border:2px solid #f4f2e8;padding:28px;position:relative}
+.pl i{position:absolute;top:-22px;left:18px;font-style:normal;font-size:44px;line-height:1;color:#d7261e;background:#1a1c16;padding:0 8px}
+.pl h3{margin:8px 0 6px;font-size:22px;font-weight:900}.pl p{margin:0;font-size:14px;color:#d9d7c9}
+.cta{background:#d7261e;text-align:center;padding:88px 16px}
+.cta h2{margin:0 0 6px;font-size:96px;line-height:1;color:#fff}
+.cta p{margin:0 0 26px;font-weight:900;font-size:20px;color:#fff}
+.ft{padding-top:36px;padding-bottom:48px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px;color:#c9c7b8}
+.ft nav{display:flex;gap:20px;flex-wrap:wrap;font-weight:700}
+@media(max-width:860px){
+.w{padding:0 16px}
+.hb{display:flex;flex-direction:column;justify-content:center;gap:7px;width:48px;height:48px;padding:0 9px;background:none;cursor:pointer}
+.hb span{display:block;height:3px;background:#1a1c16}
+.mt:focus-visible+.hb{outline:3px solid #a3140d}
+.mt~.nv{display:none}
+.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:0;background:#1a1c16;padding:4px 16px 10px}
+.top .mt:checked~.nv a{color:#f4f2e8;min-height:52px;border-bottom:1px solid #3a3d31}
+.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding-left:14px}
+a.fab{display:inline-flex;align-items:center;position:fixed;right:16px;bottom:16px;z-index:50;min-height:56px;padding:0 22px;background:#d7261e;color:#fff;font-weight:900;border:2px solid #1a1c16;box-shadow:4px 4px 0 #1a1c16}
+.top a.fab{color:#fff}
+.hero{grid-template-columns:minmax(0,1fr);gap:24px;padding-top:8px;padding-bottom:44px}
+.koma{height:340px}
+.tate{right:4px}.tate span{font-size:15px;padding:8px 4px}
+.hero h1{font-size:31vw}
+.kana{font-size:16px;margin-bottom:16px}
+.box b{font-size:20px}
+.sec{padding-top:52px;padding-bottom:52px}
+.ttl h2{font-size:64px}.ttl span{font-size:13px}
+.g3{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.g3.one,.g2{grid-template-columns:minmax(0,1fr);gap:28px}
+.ph{height:110px}.st .ph{height:170px}
+.cta{padding:56px 16px}.cta h2{font-size:56px}.cta p{font-size:16px}
+}
+</style>
+</head>
+<body>
+<div class="pg">
+
+<div class="top">
+<header class="w hd">
+<a class="lg an" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ">REBOOT</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label><a class="fab" href="contact.html">お問い合わせ</a>
+<nav class="nv" aria-label="メインメニュー">
+<a href="#top">トップ</a>
+<a href="contact.html">受注窓口</a>
+<a href="works.html">作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ ▾</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html">プラン</a>
+</nav>
+</header>
+<section id="top" class="w hero">
+<div class="koma">
+<div class="k1">作品カット（大ゴマ）</div><div class="k2">作品カット</div><div class="k3">作品カット</div><div class="k4">作品カット（見せ場）</div>
+<div class="tate" aria-hidden="true"><span>一コマに、手を抜かない。</span><span>動画・仕上げ</span></div>
+</div>
+<div>
+<h1 class="an">REBOOT</h1>
+<p class="kana">リブート</p>
+<div class="box"><b>アニメをもっと楽しく！</b>動画・仕上げの依頼は reboot へ</div>
+<p style="margin:0;display:flex;gap:14px;flex-wrap:wrap"><a class="btn" href="contact.html">受注窓口へ</a><a class="btn k" href="plan.html">作業プラン</a></p>
+</div>
+</section>
+</div>
+
+<section class="w sec">
+<div class="ttl"><h2 class="an">WORKS</h2><span>作品履歴</span></div>
+<div class="g3">
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+</div>
+<p style="margin:40px 0 0"><a class="btn" href="works.html">VIEW MORE</a></p>
+</section>
+
+<section id="studio" class="kh">
+<div class="w sec">
+<div class="ttl"><h2 class="an">STUDIO</h2><span>スタジオ</span></div>
+<div class="g2">
+<a class="st" href="studio-japan.html"><div class="ph">国内スタジオ写真</div><h3>国内スタジオ →</h3><p>lolroute（ルート）｜2021年設立の国内作画スタジオ</p></a>
+<a class="st" href="studio-overseas.html"><div class="ph">海外スタジオ写真</div><h3>海外スタジオ →</h3><p>reboot China｜2016年設立の直営スタジオ</p></a>
+</div>
+</div>
+</section>
+
+<section class="w sec">
+<div class="ttl"><h2 class="an">PLAN</h2><span>作業プラン</span></div>
+<div class="g3 one">
+<div class="pl"><i class="an">01</i><h3>[プラン名 1]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><i class="an">02</i><h3>[プラン名 2]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><i class="an">03</i><h3>[プラン名 3]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+</div>
+<p style="margin:40px 0 0"><a class="btn" href="plan.html">VIEW MORE</a></p>
+</section>
+
+<section class="cta">
+<h2 class="an">CONTACT</h2>
+<p>ご依頼・ご相談は受注窓口へ</p>
+<a class="btn k" href="contact.html">お問い合わせフォームへ</a>
+</section>
+
+<footer class="w ft">
+<div><b style="font-size:18px;color:#f4f2e8">reboot</b><br>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F<br>© reboot Inc.</div>
+<nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>

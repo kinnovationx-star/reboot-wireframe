@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>デザイン08 シネマティック・ブラック｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Shippori+Mincho:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#ebe8e1;text-decoration:none}a:hover{color:#fff}
+.pg *{box-sizing:border-box}
+.pg{font-family:'Inter','Shippori Mincho',sans-serif;font-weight:400;color:#ebe8e1;line-height:1.9;background:#0b0b0b;overflow:hidden}
+.sf{font-family:'Cormorant Garamond','Shippori Mincho',serif;font-weight:500}
+.cap{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#b9b5ac}
+.w{max-width:1240px;margin:0 auto;padding:0 40px}
+.hd{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-top:18px;padding-bottom:18px}
+.hd .cap{line-height:1.6}
+.lg{display:flex;align-items:center;gap:10px;font-size:24px;justify-self:center}
+.lg img{width:34px;height:34px;border-radius:50%}
+.nv{display:flex;gap:26px;align-items:center;justify-self:end;font-size:12px;letter-spacing:.14em}
+.nv a{min-height:44px;display:inline-flex;align-items:center}
+.dd{position:relative}
+.ddm{display:none;position:absolute;top:100%;right:-12px;min-width:170px;flex-direction:column;background:#0b0b0b;border:1px solid #4a4843;z-index:20}
+.ddm a{min-height:48px;padding:0 16px;display:flex;border-bottom:1px solid #2a2927}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.mt{position:absolute;opacity:0;width:1px;height:1px}
+.hb,a.fab{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border:1px solid #ebe8e1;font-size:12px;letter-spacing:.18em}
+.btn:before{content:"+"}
+.btn:hover{background:#ebe8e1;color:#0b0b0b}
+.btn.f{background:#ebe8e1;color:#0b0b0b}.btn.f:hover{background:#fff;color:#0b0b0b}
+.hero{padding-top:70px;padding-bottom:90px;text-align:center}
+.reel{max-width:760px;margin:0 auto;aspect-ratio:16/9;background:radial-gradient(circle at 30% 40%,#3b4fd8,#141a52 45%,#07081a 80%);display:flex;align-items:center;justify-content:center;font-size:12px;letter-spacing:.14em;color:#c9cdf5;position:relative}
+.reel:after{content:"";position:absolute;inset:0;box-shadow:inset 0 0 120px rgba(0,0,0,.7)}
+.hero h1{margin:44px 0 0;font-size:76px;line-height:1.2}
+.hero p{margin:14px 0 0;font-family:'Shippori Mincho',serif;font-size:17px;letter-spacing:.24em}
+.sec{padding-top:96px;padding-bottom:96px;border-top:1px solid #2a2927}
+.ttl{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin:0 0 30px}
+.ttl h2{margin:0;font-size:60px;line-height:1.1}
+.idx{display:grid;grid-template-columns:48px minmax(0,2.2fr) minmax(0,1.4fr) minmax(0,1fr) 60px;gap:20px;align-items:center;min-height:56px;border-bottom:1px solid #2a2927;font-size:12px;letter-spacing:.1em;color:#b9b5ac}
+.idx b{font-family:'Shippori Mincho',serif;font-weight:500;font-size:17px;letter-spacing:.04em;color:#ebe8e1}
+a.idx:hover{background:#17171a;color:#ebe8e1}
+.idx.h{border-top:1px solid #4a4843;min-height:40px}
+.feat{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:44px}
+.ph{background:linear-gradient(135deg,#232326,#101012);display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.14em;color:#b9b5ac}
+.feat .ph{aspect-ratio:16/9}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.st{display:block;position:relative}
+.st .ph{aspect-ratio:4/3}
+.st div.tx{position:absolute;left:0;right:0;bottom:0;padding:28px;background:linear-gradient(transparent,rgba(0,0,0,.85))}
+.st h3{margin:0;font-size:40px;line-height:1.2;color:#fff}
+.st p{margin:4px 0 0;font-size:13px;color:#d6d2c9}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid #4a4843;border-bottom:1px solid #4a4843}
+.pl{padding:36px 30px;border-right:1px solid #2a2927}
+.pl:last-child{border-right:0}
+.pl h3{margin:10px 0 8px;font-family:'Shippori Mincho',serif;font-weight:500;font-size:22px}
+.pl p{margin:0;font-size:13px;color:#b9b5ac}
+.cta{text-align:center;padding:120px 16px;border-top:1px solid #2a2927}
+.cta h2{margin:12px 0 30px;font-size:84px;line-height:1.1}
+.ft{padding-top:28px;padding-bottom:44px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid #2a2927}
+.ft nav{display:flex;gap:22px;flex-wrap:wrap}
+@media(max-width:860px){
+.w{padding:0 16px}
+.hd{grid-template-columns:1fr auto;padding-top:10px;padding-bottom:10px}
+.hd>.cap{display:none}
+.lg{justify-self:start}
+.hb{display:flex;flex-direction:column;justify-content:center;gap:8px;width:48px;height:48px;padding:0 11px;cursor:pointer;justify-self:end}
+.hb span{display:block;height:1px;background:#ebe8e1}
+.mt:focus-visible+.hb{outline:1px solid #fff}
+.mt~.nv{display:none}
+.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;grid-column:1 / -1;justify-self:stretch;gap:0;font-size:13px}
+.mt:checked~.nv a{min-height:54px;border-bottom:1px solid #2a2927}
+.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding-left:18px}
+a.fab{display:inline-flex;align-items:center;position:fixed;right:16px;bottom:16px;z-index:50;min-height:56px;padding:0 24px;background:#ebe8e1;color:#0b0b0b;font-size:13px;letter-spacing:.1em;font-weight:500}
+.hero{padding-top:28px;padding-bottom:56px}
+.hero h1{font-size:40px;margin-top:28px}
+.hero p{font-size:14px;letter-spacing:.14em}
+.sec{padding-top:56px;padding-bottom:56px}
+.ttl h2{font-size:38px}
+.idx{grid-template-columns:28px minmax(0,1fr) 44px;gap:10px;min-height:60px}
+.idx span:nth-child(3),.idx span:nth-child(4){display:none}
+.feat{grid-template-columns:minmax(0,1fr);gap:14px;margin-top:28px}
+.g2{grid-template-columns:minmax(0,1fr)}
+.st h3{font-size:30px}.st div.tx{padding:18px}
+.g3{grid-template-columns:minmax(0,1fr)}
+.pl{border-right:0;border-bottom:1px solid #2a2927;padding:26px 4px}.pl:last-child{border-bottom:0}
+.cta{padding:72px 16px}.cta h2{font-size:44px}
+}
+</style>
+</head>
+<body>
+<div class="pg">
+
+<header class="w hd">
+<div class="cap">Animation production<br>Tokyo, Japan</div>
+<a class="lg sf" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ">reboot</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span></label><a class="fab" href="contact.html">お問い合わせ</a>
+<nav class="nv" aria-label="メインメニュー">
+<a href="#top">トップ</a>
+<a href="contact.html">受注窓口</a>
+<a href="works.html">作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ ▾</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html">プラン</a>
+</nav>
+</header>
+
+<section id="top" class="w hero">
+<div class="reel">SHOWREEL ／ 作品リール映像（16:9）</div>
+<h1 class="sf">Make anime more fun.</h1>
+<p>アニメをもっと楽しく ── 動画・仕上げ</p>
+</section>
+
+<section class="w sec">
+<div class="ttl"><h2 class="sf">Works</h2><span class="cap">作品履歴</span></div>
+<div class="idx h"><span>No.</span><span>Title</span><span>担当</span><span>種別</span><span>Year</span></div>
+<a class="idx" href="works.html"><span>01</span><b>作品タイトル</b><span>動画・仕上げ</span><span>TVアニメ</span><span>2025</span></a>
+<a class="idx" href="works.html"><span>02</span><b>作品タイトル</b><span>動画・仕上げ</span><span>TVアニメ</span><span>2025</span></a>
+<a class="idx" href="works.html"><span>03</span><b>作品タイトル</b><span>動画・仕上げ</span><span>映画</span><span>2025</span></a>
+<a class="idx" href="works.html"><span>04</span><b>作品タイトル</b><span>動画・仕上げ</span><span>TVアニメ</span><span>2024</span></a>
+<a class="idx" href="works.html"><span>05</span><b>作品タイトル</b><span>動画・仕上げ</span><span>TVアニメ</span><span>2024</span></a>
+<a class="idx" href="works.html"><span>06</span><b>作品タイトル</b><span>動画・仕上げ</span><span>TVアニメ</span><span>2024</span></a>
+<div class="feat"><div class="ph">作品ビジュアル（一覧の行に合わせて切り替え）</div><div class="ph">作品ビジュアル</div></div>
+<p style="margin:40px 0 0;text-align:center"><a class="btn" href="works.html">VIEW ALL WORKS</a></p>
+</section>
+
+<section id="studio" class="w sec">
+<div class="ttl"><h2 class="sf">Studio</h2><span class="cap">スタジオ</span></div>
+<div class="g2">
+<a class="st" href="studio-japan.html"><div class="ph">国内スタジオ写真</div><div class="tx"><span class="cap">lolroute ／ Tokyo</span><h3 class="sf">国内スタジオ</h3><p>2021年設立の国内作画スタジオ</p></div></a>
+<a class="st" href="studio-overseas.html"><div class="ph">海外スタジオ写真</div><div class="tx"><span class="cap">reboot China</span><h3 class="sf">海外スタジオ</h3><p>2016年設立の直営スタジオ</p></div></a>
+</div>
+</section>
+
+<section class="w sec">
+<div class="ttl"><h2 class="sf">Plan</h2><span class="cap">作業プラン</span></div>
+<div class="g3">
+<div class="pl"><span class="cap">Plan 01</span><h3>[プラン名 1]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><span class="cap">Plan 02</span><h3>[プラン名 2]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><span class="cap">Plan 03</span><h3>[プラン名 3]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+</div>
+<p style="margin:40px 0 0;text-align:center"><a class="btn" href="plan.html">VIEW PLAN</a></p>
+</section>
+
+<section class="cta">
+<span class="cap">受注窓口 ／ ご依頼・ご相談</span>
+<h2 class="sf">Contact</h2>
+<a class="btn f" href="contact.html">お問い合わせフォームへ</a>
+</section>
+
+<footer class="w ft cap">
+<div>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F ／ © reboot Inc.</div>
+<nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>

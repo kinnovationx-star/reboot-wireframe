@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>デザイン02 ポップブルー｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:#0d1b6b;text-decoration:none}a:hover{color:#c2185b}
+.pg *{box-sizing:border-box}
+.pg{font-family:'M PLUS Rounded 1c',sans-serif;font-weight:500;color:#0d1b6b;line-height:1.8;background:#fff;overflow:hidden}
+.dg{font-family:'Dela Gothic One',sans-serif;font-weight:400}
+.w{max-width:1160px;margin:0 auto;padding:0 40px}
+.sky{background:#7cc0f7;position:relative}
+.sky:after{content:"";display:block;height:70px;background:#fff;border-radius:100% 100% 0 0/100% 100% 0 0;margin-top:-10px}
+.hd{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;padding-bottom:10px}
+.lg{display:flex;align-items:center;gap:10px;font-size:30px;transform:rotate(-3deg);color:#1f3fe0}
+.lg img{width:54px;height:54px;border-radius:50%;border:3px solid #0d1b6b}
+.nv{display:flex;gap:22px;align-items:center;font-weight:800;font-size:15px}
+.nv a{min-height:44px;display:inline-flex;align-items:center}
+.dd{position:relative}
+.ddm{display:none;position:absolute;top:100%;left:-16px;min-width:180px;flex-direction:column;background:#fff;border:3px solid #0d1b6b;border-radius:18px;z-index:20;overflow:hidden}
+.ddm a{min-height:48px;padding:0 18px;display:flex;border-bottom:2px dotted #0d1b6b}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.mt{position:absolute;opacity:0;width:1px;height:1px}
+.hb,a.fab{display:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 30px;background:#1f3fe0;color:#fff;font-weight:800;border-radius:999px;border:3px solid #0d1b6b}
+.btn:hover{color:#ffe14d}
+.btn.y{background:#ffe14d;color:#0d1b6b}.btn.y:hover{color:#c2185b}
+.hero{padding-top:24px;padding-bottom:40px;position:relative}
+.word{margin:0;font-size:300px;line-height:.92;letter-spacing:-.02em;text-transform:uppercase;color:#1f3fe0;-webkit-text-stroke:0;background:radial-gradient(circle at 20% 30%,#ff6b6b 0 18%,transparent 19%),radial-gradient(circle at 70% 60%,#ffe14d 0 22%,transparent 23%),radial-gradient(circle at 45% 80%,#ff9fd0 0 16%,transparent 17%),linear-gradient(120deg,#1f3fe0,#0d1b6b);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.note{font-size:13px;font-weight:700;margin:6px 0 0}
+.lead{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-top:28px}
+.lead h1{margin:0;font-size:46px;line-height:1.35;color:#0d1b6b}
+.badge{background:#1f3fe0;color:#fff;border:3px solid #0d1b6b;border-radius:28px;padding:20px 24px;min-width:280px;transform:rotate(2deg)}
+.badge b{display:block;font-size:22px}
+.blob{position:absolute;border-radius:58% 42% 55% 45%/48% 60% 40% 52%}
+.sec{padding-top:72px;padding-bottom:72px}
+.ttl{margin:0 0 32px;font-size:40px;color:#1f3fe0;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ttl small{font-family:'M PLUS Rounded 1c',sans-serif;font-size:14px;font-weight:800;background:#ffe14d;color:#0d1b6b;padding:2px 14px;border-radius:999px;border:2px solid #0d1b6b}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.it{display:block}
+.ph{height:180px;border:3px solid #0d1b6b;background:#dff0ff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700}
+.it:nth-child(3n+1) .ph{border-radius:60px 24px 60px 24px}
+.it:nth-child(3n+2) .ph{border-radius:24px 80px 24px 80px;background:#fff3b0}
+.it:nth-child(3n) .ph{border-radius:90px 90px 24px 24px;background:#ffdfee}
+.it b{display:block;margin-top:10px}.it small{font-size:12px}
+.chk{background:#fff;background-image:linear-gradient(90deg,rgba(255,80,80,.35) 50%,transparent 50%),linear-gradient(rgba(60,180,90,.35) 50%,transparent 50%);background-size:28px 28px}
+.st{display:block;background:#fff;border:3px solid #0d1b6b;border-radius:36px;overflow:hidden}
+.st .ph{height:230px;border:0;border-bottom:3px solid #0d1b6b;border-radius:0!important;background:#dff0ff}
+.st div.tx{padding:22px 28px}
+.st h3{margin:0;font-size:26px;color:#1f3fe0}
+.pl{background:#fff;border:3px solid #0d1b6b;border-radius:28px;padding:28px}
+.pl:nth-child(2){background:#ffe14d}
+.pl h3{margin:0 0 6px;font-size:22px}
+.pl p{margin:0;font-size:14px}
+.cta{background:#1f3fe0;color:#fff;text-align:center;padding:84px 16px;position:relative}
+.cta h2{margin:0 0 22px;font-size:40px;color:#fff}
+.ft{padding-top:40px;padding-bottom:48px;display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:13px}
+.ft nav{display:flex;gap:20px;flex-wrap:wrap;font-weight:800}
+@media(max-width:860px){
+.w{padding:0 16px}
+.hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:48px;height:48px;padding:0 11px;background:#fff;border:3px solid #0d1b6b;border-radius:50%;cursor:pointer}
+.hb span{display:block;height:3px;border-radius:2px;background:#0d1b6b}
+.mt:focus-visible+.hb{outline:3px solid #c2185b}
+.mt~.nv{display:none}
+.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:0;background:#fff;border:3px solid #0d1b6b;border-radius:24px;padding:8px 20px}
+.mt:checked~.nv a{min-height:52px;border-bottom:2px dotted #0d1b6b}
+.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding-left:16px}
+a.fab{display:inline-flex;align-items:center;position:fixed;right:16px;bottom:16px;z-index:50;min-height:56px;padding:0 24px;background:#ffe14d;color:#0d1b6b;font-weight:800;border:3px solid #0d1b6b;border-radius:999px;box-shadow:0 5px 0 #0d1b6b}
+.lg{font-size:24px}.lg img{width:44px;height:44px}
+.word{font-size:25vw}
+.lead h1{font-size:30px}
+.badge{min-width:0;width:100%;transform:none}
+.sec{padding-top:48px;padding-bottom:48px}
+.ttl{font-size:28px}
+.g3{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.g3.one,.g2{grid-template-columns:minmax(0,1fr)}
+.ph{height:110px}.st .ph{height:160px}
+.cta h2{font-size:26px}
+}
+</style>
+</head>
+<body>
+<div class="pg">
+
+<div class="sky">
+<header class="w hd">
+<a class="lg dg" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ">reboot</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label><a class="fab" href="contact.html">お問い合わせ</a>
+<nav class="nv" aria-label="メインメニュー">
+<a href="#top">トップ</a>
+<a href="contact.html">受注窓口</a>
+<a href="works.html">作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ ▾</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html">プラン</a>
+</nav>
+</header>
+<section id="top" class="w hero">
+<div class="word dg" aria-hidden="true">reboot</div>
+<p class="note">※ロゴ文字の中に作品映像・スタジオ写真を切り抜いて表示（文字が窓になる演出）</p>
+<div class="lead">
+<h1 class="dg">アニメを<br>もっと楽しく！</h1>
+<div class="badge"><b class="dg">動画・仕上げ</b>ご依頼受付中<br><a class="btn y" href="contact.html" style="margin-top:12px;min-height:48px">受注窓口へ</a></div>
+</div>
+</section>
+</div>
+
+<section class="w sec">
+<h2 class="ttl dg">作品履歴 <small>WORKS</small></h2>
+<div class="g3">
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2025 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+<a class="it" href="works.html"><div class="ph">作品ビジュアル</div><b>作品タイトル</b><small>2024 ／ 動画・仕上げ</small></a>
+</div>
+<p style="margin:36px 0 0;text-align:center"><a class="btn" href="works.html">作品履歴をすべて見る</a></p>
+</section>
+
+<section id="studio" class="chk">
+<div class="w sec">
+<h2 class="ttl dg">スタジオ <small>STUDIO</small></h2>
+<div class="g2">
+<a class="st" href="studio-japan.html"><div class="ph">国内スタジオ写真</div><div class="tx"><h3 class="dg">国内スタジオ →</h3><p style="margin:4px 0 0;font-size:14px">lolroute（ルート）｜2021年設立の国内作画スタジオ</p></div></a>
+<a class="st" href="studio-overseas.html"><div class="ph">海外スタジオ写真</div><div class="tx"><h3 class="dg">海外スタジオ →</h3><p style="margin:4px 0 0;font-size:14px">reboot China｜2016年設立の直営スタジオ</p></div></a>
+</div>
+</div>
+</section>
+
+<section class="w sec">
+<h2 class="ttl dg">作業プラン <small>PLAN</small></h2>
+<div class="g3 one">
+<div class="pl"><h3 class="dg">[プラン名 1]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><h3 class="dg">[プラン名 2]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+<div class="pl"><h3 class="dg">[プラン名 3]</h3><p>対応作業：動画／仕上げ ほか<br>[料金・納期の目安]</p></div>
+</div>
+<p style="margin:36px 0 0;text-align:center"><a class="btn y" href="plan.html">プランの詳細を見る</a></p>
+</section>
+
+<section class="cta">
+<h2 class="dg">ご依頼・ご相談は受注窓口へ！</h2>
+<a class="btn y" href="contact.html">お問い合わせフォームへ</a>
+</section>
+
+<footer class="w ft">
+<div><b style="font-size:18px">reboot</b><br>株式会社reboot ／ 東京都杉並区上荻1-5-8 直長ビル6F<br>© reboot Inc.</div>
+<nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>
