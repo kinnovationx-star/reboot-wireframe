@@ -5,20 +5,23 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>H案｜reboot デザイン</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Poppins:wght@500;700&family=Yomogi&display=swap" rel="stylesheet">
 <style>
 body{margin:0}
-.pg{--pr:#98e81a;--prd:#92e116;--prl:#eefadb;--dk:#163300;--dk2:#2f5d0a;--g08:#f2f2f2;--g06:#e5e5e5;--g04:#666666;--rd:4px;--gap:40px;font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:16px;line-height:2;color:#000;background:#fff;overflow:clip;position:relative}
+.pg{--pr:#98e81a;--prd:#92e116;--dk:#163300;--hc:#3a7a0a;--g08:#f2f2f2;--g06:#e5e5e5;--g04:#777;--rd:4px;--gap:40px;--ease:cubic-bezier(.22,1,.36,1);font-family:"Noto Sans JP",-apple-system,BlinkMacSystemFont,sans-serif;font-weight:500;font-size:16px;line-height:2;color:#000;background:#fff;overflow:clip;position:relative}
 .pg *{box-sizing:border-box}
 :where(.pg) a{color:inherit;text-decoration:none}
-.pg ul,.pg ol{list-style:none;margin:0;padding:0}
-.pg figure{margin:0}
+:where(.pg) :is(h1,h2,h3,p,dl,dd,ul,ol,figure,address){margin:0}
+:where(.pg) :is(ul,ol){list-style:none;padding:0}
 .pg img{display:block;max-width:100%}
 .en{font-family:"Poppins",sans-serif}
-.in{width:100%;max-width:1272px;margin:0 auto;padding:0 var(--gap);position:relative;z-index:2}
-.sec{padding:120px 0;position:relative}
-.gy{background:#f2f2f2;background:linear-gradient(180deg,#f2f2f2 0%,#f2f2f2 60%,#e4e4e4 100%)}
+.in{width:100%;max-width:1152px;margin:0 auto;padding:0 20px;position:relative;z-index:2}
+.sec{position:relative;padding:150px 0 200px}
 .kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
+.gr{background:linear-gradient(270deg,#f2f2f2 0%,#f2f2f2 50%,#e5e5e5 100%)}
+.gv{background:linear-gradient(180deg,#f2f2f2 0%,#f2f2f2 50%,#e5e5e5 100%)}
+.bgl{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
+.bgl path,.bgl circle,.bgl line{fill:none;stroke:rgba(0,0,0,.09);stroke-width:1}
 
 /* ===== header ===== */
 .hw{position:sticky;top:0;height:0;z-index:40}
@@ -26,330 +29,332 @@ body{margin:0}
 .sh:before{content:"";position:absolute;inset:0;background:#fff;border-radius:var(--rd);box-shadow:0 0 15px rgba(0,0,0,.1)}
 .shi{position:relative;height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 10px 0 20px}
 .lg{display:flex;align-items:center;gap:10px;height:100%;min-height:44px}
-.lg img{width:36px;height:36px;border-radius:50%;object-fit:cover}
+.lg img{width:34px;height:34px;border-radius:50%;object-fit:cover}
 .lg b{font-family:"Poppins",sans-serif;font-size:24px;font-weight:700;letter-spacing:-.02em;line-height:1}
-.lg small{font-size:12px;font-weight:700;letter-spacing:-.02em;line-height:1.2;margin-left:4px}
+.lg small{font-size:12px;font-weight:700;line-height:1.2;margin-left:10px}
 .snav{display:flex;align-items:center;gap:28px;height:100%}
 .nv{display:flex;align-items:stretch;gap:26px;height:100%;font-size:13px;font-weight:700}
-.nv>a,.dd>a{display:flex;align-items:center;gap:.5em;height:100%;min-height:44px;transition:color .2s ease-out}
-.nv>a:hover,.dd>a:hover{color:var(--pr)}
-.nv>a.on{position:relative}
-.nv>a.on:after{content:"";position:absolute;left:0;right:0;bottom:12px;height:2px;background:var(--pr);border-radius:2px}
+.nv>a,.dd>a{display:flex;align-items:center;gap:.5em;height:100%;min-height:44px;transition:opacity .2s ease-out}
+.nv>a:hover,.dd>a:hover{opacity:.6}
 .dd{position:relative;display:flex}
 .dd>a svg{transition:transform .2s ease-out}
 .ddm{position:absolute;top:100%;left:50%;min-width:216px;padding:8px;background:#fff;color:#000;border-radius:var(--rd);box-shadow:0 4px 12px rgba(0,0,0,.1);display:flex;flex-direction:column;gap:4px;opacity:0;visibility:hidden;transform:translateX(-50%) translateY(-8px);transition:opacity .2s ease-out,transform .2s ease-out,visibility .2s}
-.ddm a{display:flex;align-items:center;justify-content:space-between;gap:1em;min-height:44px;padding:10px 16px;font-size:14px;border-radius:var(--rd);transition:background-color .2s ease-out,color .2s ease-out}
-.ddm a:hover{background:var(--g08);color:var(--dk2)}
+.ddm a{display:flex;align-items:center;justify-content:space-between;gap:1em;min-height:44px;padding:10px 16px;font-size:14px;border-radius:var(--rd);transition:background-color .2s ease-out}
+.ddm a:hover{background:var(--g08)}
 .dd:hover .ddm,.dd:focus-within .ddm{opacity:1;visibility:visible;transform:translateX(-50%) translateY(0)}
 .dd:hover>a svg,.dd:focus-within>a svg{transform:rotate(180deg)}
-.cta{display:grid;place-content:center;min-height:44px;padding:5px 23px;line-height:1;border-radius:var(--rd);border:2px solid var(--prd);background:var(--prd);color:var(--dk) !important;font-size:13px;font-weight:700;white-space:nowrap;transition:background-color .2s ease-out,color .2s ease-out}
+.cta{display:grid;place-content:center;min-height:36px;padding:5px 23px;line-height:1;border-radius:var(--rd);border:2px solid var(--prd);background:var(--prd);color:var(--dk) !important;font-size:13px;font-weight:700;white-space:nowrap;transition:background-color .2s ease-out}
 .cta:hover{background:#fff}
 .mt{position:absolute;opacity:0;width:1px;height:1px}
 .hb,a.fab{display:none}
 @supports (animation-timeline: scroll()){
-.sh{animation:shc linear both;animation-timeline:scroll(root);animation-range:0 520px}
-.sh:before{animation:shb linear both;animation-timeline:scroll(root);animation-range:0 520px}
-.lg img{filter:drop-shadow(0 0 4px rgba(0,0,0,.15))}
-@keyframes shc{0%,70%{color:#fff}100%{color:#000}}
-@keyframes shb{0%,70%{opacity:0}100%{opacity:1}}
+.sh{animation:shc linear both;animation-timeline:scroll(root);animation-range:0 600px}
+.sh:before{animation:shb linear both;animation-timeline:scroll(root);animation-range:0 600px}
+@keyframes shc{0%,90%{color:#fff}100%{color:#000}}
+@keyframes shb{0%,90%{opacity:0}100%{opacity:1}}
 }
 
 /* ===== 1 hero ===== */
-.hero{position:relative;display:flex;align-items:flex-end;min-height:clamp(640px,100vh,820px);padding-top:110px;overflow:hidden;background:#333}
-.hero:before{content:"";position:absolute;left:0;right:0;top:0;height:120px;z-index:2;background:linear-gradient(0deg,rgba(0,0,0,0),rgba(0,0,0,.45))}
-.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:75%;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.35) 40%,rgba(0,0,0,.7) 100%)}
-.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.1);animation:kz 8s linear forwards}
-@keyframes kz{to{transform:scale(1)}}
+.hero{position:relative;height:clamp(640px,100svh,900px);overflow:hidden;background:#333}
+.hero>.ph{position:absolute;inset:0}
+.hbg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.08);animation:kz 8s linear forwards}
+.hero:before{content:"";position:absolute;left:0;right:0;top:0;height:160px;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,.35),rgba(0,0,0,0))}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:55%;z-index:2;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.4))}
 .arcs{position:absolute;inset:0;width:100%;height:100%;z-index:3;pointer-events:none}
-.arcs path{fill:none;stroke:#fff;stroke-width:1.6;stroke-dasharray:3000;stroke-dashoffset:3000;animation:dr 2.4s ease-in-out forwards}
+.arcs path{fill:none;stroke:#fff;stroke-width:1.4;stroke-dasharray:3000;stroke-dashoffset:3000;animation:dr 2.4s ease-in-out forwards}
 .arcs path:nth-child(2){animation-delay:.2s}.arcs path:nth-child(3){animation-delay:.4s}.arcs path:nth-child(4){animation-delay:.6s}
-@keyframes dr{to{stroke-dashoffset:0}}
-.hct{position:relative;z-index:4;width:100%;padding:0 30px 40px;color:#fff}
-.hstat{display:inline-flex;align-items:center;gap:10px;margin:0;padding:6px 16px;border-radius:999px;background:#fff;color:var(--dk);font-size:14px;font-weight:700;line-height:1.4}
-.hstat i{width:10px;height:10px;border-radius:50%;background:var(--pr);box-shadow:0 0 0 3px rgba(152,232,26,.35)}
-.hcopy{margin:18px 0 16px;color:#fff;font-weight:900;font-size:clamp(34px,7.4vw,108px);line-height:1.18;letter-spacing:-.02em;text-shadow:0 0 18px rgba(0,0,0,.3)}
-.hcopy>span{display:block;opacity:0;transform:translateY(30px);animation:up 1s cubic-bezier(.22,1,.36,1) forwards}
-.hcopy>span+span{animation-delay:.25s}
-.hcopy .en{font-weight:700;letter-spacing:0;margin-right:.06em}
-.hcopy .kari{font-size:12px;text-shadow:none;letter-spacing:.05em}
-@keyframes up{to{opacity:1;transform:none}}
-.hsub{margin:0 0 28px;font-size:22px;font-weight:700;line-height:1.6;text-shadow:0 0 12px rgba(0,0,0,.45)}
-.hbtns{display:flex;flex-wrap:wrap;gap:16px}
-.hbtns .btn{width:340px;margin:0}
-.scr{position:absolute;right:30px;bottom:40px;z-index:4;color:#fff;font-size:12px;letter-spacing:.2em;writing-mode:vertical-rl;display:flex;align-items:center;gap:12px}
-.scr:after{content:"";width:1px;height:70px;background:linear-gradient(#fff 50%,rgba(255,255,255,.3) 50%);background-size:1px 140px;animation:sl 1.8s linear infinite}
-@keyframes sl{from{background-position:0 -70px}to{background-position:0 70px}}
+.copy{position:absolute;z-index:4;left:0;bottom:0;margin:0;padding:28px 30px;color:#fff;font-weight:900;font-size:clamp(40px,8vw,118px);line-height:1.18;letter-spacing:-.01em;text-shadow:0 0 24px rgba(0,0,0,.25)}
+.copy>span{display:block;opacity:0;transform:translateY(30px);animation:up 1s var(--ease) forwards}
+.copy>span+span{animation-delay:.25s}
+.copy .en{font-weight:700;letter-spacing:-.02em}
+.copy .kari{font-size:12px;text-shadow:none;letter-spacing:.05em}
 
-/* ===== shared headline / copy / button ===== */
-.hl{margin:0 0 56px;color:var(--dk);letter-spacing:0;position:relative;z-index:3}
+/* message */
+.msg{background:var(--pr);background:linear-gradient(180deg,#9fea29 0%,#98e81a 60%,#8fdc14 100%);color:var(--dk);padding:150px 0 200px}
+.msg .tb{max-width:577px;margin:0 auto;font-size:20px;font-weight:700;line-height:2}
+.msg .tb p+p{margin-top:30px}
+.msg .st{display:flex;align-items:center;gap:12px}
+.msg .st:before{content:"";width:12px;height:12px;border-radius:50%;background:var(--dk);flex:0 0 auto}
+.msg .bts{margin-top:50px}
+
+/* ===== shared ===== */
+.hl{margin:0 0 46px;color:var(--hc);letter-spacing:0;position:relative;z-index:3}
 .hl.r{text-align:right}
-.hl .e{display:block;font-family:"Poppins",sans-serif;font-weight:500;font-size:94px;line-height:1.2;letter-spacing:-.02em}
-.hl .j{display:block;margin-top:10px;font-size:22px;font-weight:700;color:var(--dk2);line-height:1.6}
-.btn{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:stretch;gap:1rem;width:420px;max-width:100%;min-height:70px;padding:0 0 0 30px;color:var(--dk);font-weight:700;font-size:18px;line-height:1.7}
-.btn:before{content:"";position:absolute;inset:0;z-index:-1;background:var(--prd);border-radius:var(--rd);transition:transform .2s ease-out}
-.btn:hover:before{transform:scale(.96)}
-.btn .t{align-self:center;padding:14px 0}
+.hl .e{display:block;font-family:"Poppins",sans-serif;font-weight:700;font-size:94px;line-height:1.2;letter-spacing:-.02em}
+.hl .j{display:block;font-size:22px;font-weight:500;line-height:1.5}
+.hcp{font-size:34px;font-weight:700;line-height:1.7;margin:0 0 28px}
+.btn{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:stretch;width:420px;max-width:100%;min-height:70px;margin-top:36px;padding:18px 0 15px 30px;color:var(--dk);font-weight:700;font-size:18px;line-height:1.7;border-radius:var(--rd)}
+.btn+.btn{margin-top:20px}
+.btn:before{content:"";position:absolute;inset:0;z-index:-1;background:var(--prd);border-radius:var(--rd);transition:transform .3s var(--ease)}
+.btn:hover:before{transform:scale(1.03,1.08)}
+.btn .t{align-self:center}
 .btn .ic{position:relative;flex:0 0 70px;display:grid;place-items:center;border-left:1px solid rgba(22,51,0,.3);overflow:hidden}
-.btn .ic svg{position:absolute;transition:transform .2s ease-out}
+.btn .ic svg{position:absolute;transition:transform .3s var(--ease)}
 .btn .ic svg+svg{transform:translateX(-70px)}
 .btn:hover .ic svg{transform:translateX(70px)}
 .btn:hover .ic svg+svg{transform:translateX(0)}
-.btn.w{color:var(--dk)}
 .btn.w:before{background:#fff}
-.btn.w .ic{border-left-color:rgba(22,51,0,.25)}
 .btn.c{margin-left:auto;margin-right:auto}
-.more{margin-top:72px}
-.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
-.lines path{fill:none;stroke:#fff;stroke-width:1.6}
+.h3b{position:relative;margin:0 0 24px;padding-left:20px;font-size:26px;font-weight:700;line-height:1.5}
+.h3b:before{content:"";position:absolute;left:0;top:.2em;bottom:.2em;width:4px;background:var(--pr)}
 
-/* ===== 2 numbers ===== */
-.num{background:#9fea29;background:linear-gradient(180deg,#9fea29 0%,#98e81a 70%,#92e116 100%);color:var(--dk);overflow:clip}
-.num .hl,.num .hl .j{color:var(--dk)}
-.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
-.nums li{border-left:3px solid var(--dk);padding:6px 0 6px 20px;line-height:1.4}
-.nums span{display:block;font-size:15px;font-weight:700}
-.nums b{display:block;margin-top:14px;font-family:"Poppins","Noto Sans JP",sans-serif;font-size:42px;font-weight:700;letter-spacing:-.02em;line-height:1.2;overflow-wrap:anywhere}
-.nums b small{font-family:"Noto Sans JP",sans-serif;font-size:17px;margin-left:4px;letter-spacing:0}
+/* ===== 2 numbers (about us columns--01) ===== */
+.ab .cols{display:grid;grid-template-columns:minmax(0,1fr) 420px;column-gap:60px;align-items:start}
+.ab .imgs{position:relative;min-height:620px}
+.ab .imgs figure{position:absolute;overflow:hidden}
+.ab .imgs img{width:100%;height:100%;object-fit:cover}
+.ab .f1{left:-48px;top:0;width:490px;height:490px;border-radius:0 100% 0 0}
+.ab .f2{left:400px;top:420px;width:240px;height:240px;border-radius:100% 0 0 0}
+.ab .hl{margin-bottom:56px}
+.nml{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 24px}
+.nml dt{font-size:16px;font-weight:700;line-height:1.5}
+.nml dd{margin-top:6px;white-space:nowrap;font-family:"Poppins","Noto Sans JP",sans-serif;font-size:30px;font-weight:700;line-height:1.3;color:#000;overflow-wrap:anywhere}
+.nml dd small{font-family:"Noto Sans JP",sans-serif;font-size:16px;margin-left:4px}
+.ab .tx{margin-top:36px;font-size:16px;line-height:2}
 
-/* ===== 3 worries ===== */
-.cs{overflow:clip}
-.csg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
-.csi{position:relative;background:#fff;border-radius:var(--rd);box-shadow:0 4px 20px rgba(0,0,0,.06);padding:36px 40px 36px;display:flex;flex-direction:column;gap:22px;overflow:clip}
-.csi:before{content:"";position:absolute;right:-60px;top:-60px;width:140px;height:140px;border-radius:50%;border:1.6px solid var(--prl)}
-.csi .q{display:flex;align-items:center;gap:18px;margin:0;font-size:20px;font-weight:700;line-height:1.6}
-.csi .q i{flex:0 0 56px;height:56px;display:grid;place-items:center;border-radius:50%;background:var(--prl);color:var(--dk)}
-.csi .a{display:flex;align-items:flex-start;gap:14px;margin:auto 0 0;padding-top:20px;border-top:1px solid var(--g06);font-size:16px;font-weight:700;line-height:1.8;color:var(--dk)}
-.csi .a svg{flex:0 0 20px;margin-top:6px}
-.csi .a span{background:linear-gradient(transparent 64%,rgba(152,232,26,.55) 64%)}
+/* ===== 3 case (member) ===== */
+.mb{padding-bottom:0}
+.mb .cols{display:grid;grid-template-columns:minmax(0,1fr) 420px;column-gap:40px;align-items:center}
+.mb .hcp{margin:0}
+.mb .btn{margin-top:0;justify-self:end}
+.ccl{position:relative;z-index:2;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:90px auto 0;padding:0 0 0;max-width:1440px;perspective:1400px}
+.ccl li{display:flex;flex-direction:column}
+.ccl .ph{position:relative;aspect-ratio:466/372;overflow:hidden}
+.ccl li:nth-child(1) .ph{transform:rotateY(14deg);transform-origin:right center}
+.ccl li:nth-child(2) .ph{transform:rotateY(5deg)}
+.ccl li:nth-child(3) .ph{transform:rotateY(-5deg)}
+.ccl li:nth-child(4) .ph{transform:rotateY(-14deg);transform-origin:left center}
+.ccl .ph img{width:100%;height:100%;object-fit:cover;filter:brightness(.8)}
+.ccl .ph p{position:absolute;left:0;right:0;bottom:0;padding:0 7% 8%;color:#fff;font-family:"Yomogi",cursive;font-size:clamp(20px,1.9vw,28px);line-height:1.5;text-shadow:0 0 10px rgba(0,0,0,.45)}
+.ccl .an{display:flex;gap:10px;align-items:flex-start;padding:22px 8% 0;font-size:15px;font-weight:700;line-height:1.8;color:#000}
+.ccl .an svg{flex:0 0 18px;margin-top:7px;color:var(--hc)}
 
-/* ===== 4 reasons ===== */
-.rsl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap)}
-.rsl li{display:flex;flex-direction:column}
-.rsl figure{overflow:clip;border-top-right-radius:120px}
-.rsl li:nth-child(2) figure{border-radius:0 0 0 120px}
-.rsl figure img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.rsl .no{display:flex;align-items:baseline;gap:12px;margin:26px 0 8px;font-family:"Poppins",sans-serif;font-weight:700;color:var(--dk);line-height:1}
-.rsl .no b{font-size:56px;letter-spacing:-.02em;position:relative}
-.rsl .no b:after{content:"";position:absolute;left:0;right:0;bottom:2px;height:10px;background:var(--pr);z-index:-1}
-.rsl .no span{font-size:13px;letter-spacing:.12em}
-.rsl h3{margin:0 0 10px;font-size:22px;font-weight:700;line-height:1.6}
-.rsl p{margin:0;font-size:15px;line-height:1.9}
+/* ===== 4 reason (environment) ===== */
+.ev{padding-top:150px}
+.ev .in{min-height:760px}
+.ev .lft{position:relative;z-index:3;width:440px;max-width:100%}
+.rsl li+li{margin-top:20px}
+.rsl .btn{margin-top:0}
+.rsl .btn .t{display:flex;align-items:baseline;gap:14px}
+.rsl .btn .t b{font-family:"Poppins",sans-serif;font-weight:700;font-size:16px}
+.rsl p{margin-top:10px;padding:0 4px;font-size:15px;line-height:1.9}
+.bsy{position:absolute;z-index:1;right:20px;top:120px;width:min(52vw,640px);height:calc(100% - 120px);overflow:hidden}
+.bsy img{width:100%;height:100%;object-fit:cover;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 920 900' preserveAspectRatio='none'%3E%3Cpath d='M250 900V560a150 150 0 0 0-150-150H0V900z'/%3E%3Cpath d='M330 900V200a160 160 0 0 1 320 0V900z'/%3E%3Crect x='690' y='0' width='230' height='900' rx='0'/%3E%3C/svg%3E") no-repeat 0 0/100% 100%;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 920 900' preserveAspectRatio='none'%3E%3Cpath d='M250 900V560a150 150 0 0 0-150-150H0V900z'/%3E%3Cpath d='M330 900V200a160 160 0 0 1 320 0V900z'/%3E%3Crect x='690' y='0' width='230' height='900' rx='0'/%3E%3C/svg%3E") no-repeat 0 0/100% 100%}
 
-/* ===== 5 works ===== */
-.works{overflow:clip}
-.evl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px}
-.evi a{display:block;transition:color .2s ease-out}
-.evi a:hover{color:var(--dk2)}
+/* ===== 5 works (information / event) ===== */
+.inf{overflow:hidden}
+.inf .bgs{position:absolute;left:14%;top:0;width:300px;height:640px;border-radius:0 0 300px 300px;background:#f5f5f5;z-index:0}
+.inf .bgs2{position:absolute;right:6%;top:60px;width:240px;height:520px;border-radius:240px 240px 0 0;background:#f5f5f5;z-index:0}
+.evl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px 30px;margin:40px 0 60px}
+.evi a{display:block}
+.evi .im{aspect-ratio:293/180;border:1px solid var(--g06);border-radius:var(--rd);overflow:hidden}
+.evi .im img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
+.evi a:hover .im img{transform:scale(1.05)}
+.ml{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px;line-height:1.2}
+.ml span{font-size:12px;border-radius:2px;padding:2px 8px;border:1px solid var(--hc);color:var(--hc);background:#fff}
+.ml span.s{background:var(--hc);color:#fff}
+.ti{display:block;width:fit-content;font-size:18px;font-weight:700;line-height:1.7;margin:8px 0 12px}
 .evi a:hover .ti{text-decoration:underline}
-.evi .im{aspect-ratio:1.5/1;border:1px solid var(--g06);border-radius:var(--rd);overflow:clip}
-.evi .im img{width:100%;height:100%;object-fit:cover;transition:transform .2s ease-out}
-.evi a:hover .im img{transform:scale(1.06)}
-.evi .tx{padding-top:16px}
-.ml{display:flex;flex-wrap:wrap;gap:8px;line-height:1.2}
-.ml .tp{font-size:12px;font-weight:700;border-radius:2px;padding:4px 8px;background:var(--prd);color:var(--dk);border:1px solid var(--prd)}
-.ti{display:block;width:fit-content;font-size:18px;font-weight:700;line-height:1.7;margin:8px 0 10px}
-.dt{display:flex;align-items:center;margin:0 0 6px;font-size:13px;line-height:1.3;color:#444}
-.dt dt{border-right:1px solid #ccc;padding-right:.5em;margin-right:.5em}
+.dt{display:flex;align-items:center;font-size:12px;line-height:1.2;color:var(--g04)}
+.dt dt{border-right:1px solid #ccc;padding-right:.6em;margin-right:.6em}
+.dt+.dt{margin-top:6px}
 .dt dd{margin:0}
-.cli{margin:56px 0 0;padding:18px 24px;background:#fff;border-left:4px solid var(--pr);border-radius:var(--rd);font-size:15px;font-weight:700;line-height:1.8}
+.note{margin-top:28px;font-size:14px;line-height:1.8;color:#555;text-align:right}
 
-/* ===== 6 plans ===== */
-.pll{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--gap);align-items:stretch}
-.pli{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--g06);border-radius:var(--rd);overflow:clip;transition:box-shadow .2s ease-out}
-.pli:hover{box-shadow:0 6px 24px rgba(0,0,0,.1)}
-.pli.rc{border:3px solid var(--prd)}
-.pli .bd{position:absolute;top:16px;left:16px;z-index:2;padding:4px 14px;border-radius:999px;background:var(--dk);color:#fff;font-size:13px;font-weight:700;line-height:1.5}
-.pli figure{overflow:clip}
-.pli figure img{width:100%;aspect-ratio:16/9;object-fit:cover;transition:transform .3s ease-out}
-.pli:hover figure img{transform:scale(1.05)}
-.pli .bx{display:flex;flex-direction:column;gap:12px;padding:28px 30px 30px;flex:1 1 auto}
-.pli h3{margin:0;font-size:22px;font-weight:700;line-height:1.5}
-.pli h3 small{display:block;font-family:"Poppins",sans-serif;font-size:13px;font-weight:500;color:var(--dk2);letter-spacing:.04em}
-.pli p{margin:0;font-size:15px;line-height:1.8}
-.pli .pc{margin-top:auto;padding-top:16px;border-top:1px solid var(--g06);font-weight:700;line-height:1.5;color:var(--dk)}
-.pli .pc b{font-size:30px;margin:0 4px}
-.pli .ld{font-size:14px;font-weight:700;color:#333}
+/* ===== 6 plan (action section) ===== */
+.acs{background:var(--g08);padding:80px 0}
+.acs .hl{text-align:center}
+.bnl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.cb{position:relative;display:flex;flex-direction:column;justify-content:flex-end;aspect-ratio:536/440;border-radius:var(--rd);overflow:hidden;color:#fff;background:#777}
+.cb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease)}
+.cb:hover img{transform:scale(1.05)}
+.cb:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,0) 20%,rgba(0,0,0,.72) 100%)}
+.cb .hd{position:relative;z-index:2;padding:0 26px}
+.cb .hd .ml{margin:0 0 10px}
+.cb .hd .ml span{border-color:var(--pr);background:var(--pr);color:var(--dk)}
+.cb h3{font-size:24px;font-weight:900;line-height:1.4}
+.cb h3 small{display:block;font-family:"Poppins",sans-serif;font-weight:700;font-size:14px;letter-spacing:.06em;margin-bottom:4px}
+.cb .pc{margin-top:10px;font-size:15px;font-weight:700;line-height:1.6}
+.cb .pc b{font-size:22px;margin:0 2px}
+.cb .act{position:relative;z-index:2;display:flex;align-items:center;justify-content:flex-end;gap:14px;padding:12px 26px 24px;font-size:18px;font-weight:700}
+.arw{display:grid;place-items:center;width:40px;height:40px;border-radius:var(--rd);background:var(--pr);color:var(--dk);transition:transform .3s var(--ease)}
+.cb:hover .arw{transform:translateX(4px)}
+.acs .btn{margin-top:60px}
 
-/* ===== 7 studios ===== */
-.bns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--gap)}
-.bn{position:relative;display:grid;grid-template-rows:1fr auto;min-height:440px;border-radius:var(--rd);overflow:clip;color:#fff;background:#555}
-.bn img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease-out}
-.bn:hover img{transform:scale(1.05)}
-.bn:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.45) 40%,rgba(0,0,0,.82) 100%)}
-.bn .hd{position:relative;z-index:2;align-self:end;padding:30px 30px 10px;line-height:1.15}
-.bn .hd b{display:block;font-family:"Poppins",sans-serif;font-size:60px;font-weight:700;letter-spacing:-.02em;text-shadow:0 0 15px rgba(0,0,0,.4)}
-.bn .hd span{display:block;font-size:20px;font-weight:700;margin-top:12px}
-.bn .hd p{margin:12px 0 0;font-size:15px;font-weight:500;line-height:1.8}
-.bn .ac{position:relative;z-index:2;justify-self:end;display:flex;align-items:center;gap:1rem;margin:0 30px 30px 0;font-size:18px;font-weight:700}
-.bn .ac i{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:#fff;color:var(--dk);transition:transform .2s ease-out}
-.bn:hover .ac i{transform:translateX(4px)}
+/* ===== 7 studio (media columns) ===== */
+.mdc{display:grid;grid-template-columns:536px minmax(0,1fr);column-gap:40px;align-items:center}
+.mdc+.mdc{margin-top:80px}
+.mdc.rv{grid-template-columns:minmax(0,1fr) 536px}
+.mdc.rv figure{order:2}
+.mdc figure{border-radius:var(--rd);overflow:hidden}
+.mdc figure img{width:100%;aspect-ratio:536/400;object-fit:cover}
+.mdc .hcp small{display:block;font-family:"Poppins",sans-serif;font-size:16px;font-weight:700;color:var(--hc);letter-spacing:.04em;line-height:1.6}
+.mdc p{font-size:16px;line-height:2}
+.mdc .hcp{font-size:34px;line-height:1.6;margin-bottom:20px}
 
 /* ===== 8 flow ===== */
 .fll{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
-.fll li{position:relative;background:#f2f2f2;border-radius:var(--rd);padding:30px 26px 32px}
-.fll li:not(:last-child):after{content:"";position:absolute;top:44px;right:-28px;width:0;height:0;border-style:solid;border-width:10px 0 10px 14px;border-color:transparent transparent transparent var(--prd)}
-.fll .no{display:flex;align-items:baseline;gap:10px;margin:0 0 14px;font-family:"Poppins",sans-serif;font-weight:700;color:var(--dk);line-height:1}
-.fll .no b{font-size:44px;letter-spacing:-.02em}
-.fll .no span{font-size:12px;letter-spacing:.14em}
-.fll h3{margin:0 0 8px;font-size:18px;font-weight:700;line-height:1.6}
-.fll p{margin:0;font-size:14px;line-height:1.9;color:#333}
+.fll li{position:relative}
+.fll .no{display:block;font-family:"Poppins",sans-serif;font-weight:700;font-size:56px;line-height:1;letter-spacing:-.02em;color:var(--hc);margin-bottom:22px}
+.fll li:not(:last-child) .no:after{content:"";position:absolute;left:84px;right:-20px;top:28px;height:1px;background:rgba(0,0,0,.2)}
+.fll .h3b{font-size:20px;margin-bottom:12px}
+.fll p{font-size:15px;line-height:1.9}
 
 /* ===== 9 faq ===== */
-.fqw{max-width:960px;margin:0 auto}
-.fqi{background:#fff;border-radius:var(--rd);padding:28px 32px;margin:0 0 16px}
-.fqi dt,.fqi dd{display:flex;align-items:flex-start;gap:18px;margin:0}
-.fqi dt{font-size:18px;font-weight:700;line-height:1.7}
-.fqi dd{margin-top:14px;padding-top:14px;border-top:1px solid var(--g06);font-size:15px;line-height:1.9}
-.fqi i{flex:0 0 36px;height:36px;display:grid;place-items:center;border-radius:50%;font-style:normal;font-family:"Poppins",sans-serif;font-weight:700;font-size:16px;line-height:1}
-.fqi dt i{background:var(--pr);color:var(--dk)}
-.fqi dd i{background:var(--dk);color:#fff}
+.fqw{max-width:1112px;margin:0 auto;border-top:1px solid var(--g06)}
+.fqi{padding:32px 0;border-bottom:1px solid var(--g06)}
+.fqi dt{position:relative;padding-left:20px;font-size:20px;font-weight:700;line-height:1.6}
+.fqi dt:before{content:"";position:absolute;left:0;top:.25em;bottom:.25em;width:4px;background:var(--pr)}
+.fqi dt b,.fqi dd b{font-family:"Poppins",sans-serif;font-weight:700;color:var(--hc);margin-right:.5em}
+.fqi dd{margin-top:12px;padding-left:20px;font-size:16px;line-height:2}
 
 /* ===== 10 news ===== */
-.nws{padding:72px 0 80px;border-top:1px solid var(--g06)}
-.nws .in{display:grid;grid-template-columns:260px minmax(0,1fr);gap:var(--gap);align-items:start}
-.h3{margin:0;font-size:22px;font-weight:700;line-height:1.5;position:relative;padding-left:20px}
-.h3:before{content:"";position:absolute;left:0;top:.2em;width:5px;height:85%;background:var(--pr)}
-.h3 small{display:block;font-family:"Poppins",sans-serif;font-size:13px;font-weight:500;color:var(--g04)}
-.nwl li{display:flex;gap:28px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--g06);font-size:14px;line-height:1.8}
+.nws{padding:80px 0 100px;border-top:1px solid var(--g06)}
+.nws .in{display:grid;grid-template-columns:260px minmax(0,1fr);column-gap:var(--gap);align-items:start}
+.nws .h3b{font-size:22px}
+.nwl li{display:flex;align-items:baseline;gap:0;padding:14px 0;border-bottom:1px solid var(--g06);font-size:14px;line-height:1.8}
 .nwl li:first-child{border-top:1px solid var(--g06)}
-.nwl time{flex:0 0 auto;font-family:"Poppins",sans-serif;font-size:13px;color:var(--g04)}
+.nwl time{flex:0 0 auto;font-family:"Poppins",sans-serif;font-size:12px;color:var(--g04);border-right:1px solid #ccc;padding-right:.8em;margin-right:.8em}
 
 /* ===== 11 bottom cta ===== */
-.bcta{position:relative;padding:130px 0;background:#9fea29;background:radial-gradient(circle,#9fea29 0%,#94e517 100%);color:var(--dk);overflow:hidden}
-.bcol{display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:var(--gap);align-items:center}
-.bcol h2{margin:-1rem 0 1rem;font-family:"Poppins",sans-serif;font-size:70px;font-weight:700;line-height:1.2;letter-spacing:-.01em}
-.bcol p{margin:0;font-size:27px;font-weight:700;line-height:1.7}
-.bcol .btn{width:420px}
-.bcol .rn{margin:14px 0 0;font-size:15px;font-weight:700;text-align:center}
+.bcta{position:relative;padding:130px 0;background:#9fea29;background:radial-gradient(circle,#a6ee35 0%,#94e517 100%);color:var(--dk);overflow:hidden}
+.bcta .bgl path{stroke:rgba(255,255,255,.55)}
+.bcol{display:grid;grid-template-columns:minmax(0,1fr) 420px;column-gap:var(--gap);align-items:center}
+.bcol h2{margin:-16px 0 16px;font-family:"Poppins",sans-serif;font-size:70px;font-weight:700;line-height:1.2}
+.bcol p{font-size:27px;font-weight:700;line-height:1.7}
+.bcol .btn{margin-top:0}
+.bcol .rn{margin-top:14px;font-size:15px;font-weight:700;text-align:center}
 
 /* ===== footer ===== */
-.ft{background:#000;color:#fff;padding:80px 0 40px;font-weight:500}
-.fti{display:grid;grid-template-columns:auto auto;column-gap:var(--gap);row-gap:60px}
+.ft{background:#000;color:#fff;padding:80px 0 40px}
+.fti{display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:var(--gap);row-gap:60px;max-width:1440px;padding:0 60px}
 .flg{display:flex;align-items:center;gap:14px;align-self:start;min-height:44px}
+.flg img{width:40px;height:40px;border-radius:50%}
 .flg b{font-family:"Poppins",sans-serif;font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1}
-.flg span{font-size:13px;color:#ccc}
-.fnv{justify-self:end;display:flex;gap:56px;font-size:14px}
-.fnv strong{display:block}
-.fnv strong span{color:#999}
-.fnv ul:before{content:"";display:block;margin:8px 0 14px;width:10px;height:2px;border-radius:2px;background:var(--pr)}
-.fnv ul a{display:flex;align-items:center;min-height:32px;font-size:13px}
+.flg span{font-size:13px;font-weight:700}
+.fnv{justify-self:end;display:flex;gap:48px;font-size:14px}
+.fnv strong{display:block;font-weight:700;line-height:1.4}
+.fnv strong span{color:#bbb}
+.fnv ul:before{content:"";display:block;margin:8px 0 12px;width:10px;height:2px;border-radius:2px;background:var(--pr)}
+.fnv ul a{display:flex;align-items:center;min-height:30px;font-size:12px}
 .fnv a:hover{text-decoration:underline}
-.fmeta{font-size:13px;color:#ccc;line-height:1.8}
-.fcopy{justify-self:end;align-self:end;font-family:"Poppins",sans-serif;font-size:12px;color:#ccc}
-.fnote{grid-column:1/-1;margin:0;padding-top:24px;border-top:1px solid #333;font-size:12px;line-height:1.8;color:#ddd}
+.fmeta{grid-column:1/-1;display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;padding-top:24px;border-top:1px solid #333;font-size:12px;line-height:1.8;color:#ddd}
+.fmeta .cp{font-family:"Poppins",sans-serif}
 
-/* ===== responsive ===== */
+/* ===== motion ===== */
+@keyframes kz{to{transform:scale(1)}}
+@keyframes dr{to{stroke-dashoffset:0}}
+@keyframes up{to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.pg *,.pg *:before,.pg *:after{animation:none !important;transition:none !important}.arcs path{stroke-dashoffset:0}.copy>span{opacity:1;transform:none}.hbg{transform:none}}
+
+/* ===== tablet ===== */
 @media(max-width:1100px){
 .hl .e{font-size:72px}
-.nums{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:48px}
+.ab .cols{grid-template-columns:minmax(0,1fr) 380px;column-gap:32px}
+.ab .f1{left:-20px;width:400px;height:400px}
+.ab .f2{left:300px;top:360px;width:200px;height:200px}
+.ab .imgs{min-height:560px}
+.mb .cols{grid-template-columns:minmax(0,1fr)}
+.mb .btn{justify-self:start;margin-top:32px}
+.ccl{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 12px;padding:0 20px}
+.ccl li .ph{transform:none !important}
 .evl{grid-template-columns:repeat(2,minmax(0,1fr))}
-.fll{grid-template-columns:repeat(2,minmax(0,1fr))}
-.fll li:nth-child(2):after{display:none}
-.bcol{grid-template-columns:1fr;row-gap:40px}
+.bnl{grid-template-columns:repeat(2,minmax(0,1fr))}
+.mdc,.mdc.rv{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.fll{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:56px}
+.fll li .no:after{display:none}
+.bcol{grid-template-columns:minmax(0,1fr);row-gap:40px}
 .bcol .rn{text-align:left}
+.fti{grid-template-columns:minmax(0,1fr);padding:0 20px}
+.fnv{justify-self:start;flex-wrap:wrap;gap:32px 40px}
 }
 @media(max-width:860px){
 .pg{--gap:20px}
-.sec{padding:88px 0}
+.sec{padding:80px 0 100px}
 .shi{padding:0 6px 0 14px}
 .sh{height:56px;left:10px;right:10px;top:10px}
-.lg b{font-size:21px}.lg small{display:none}
+.lg b{font-size:21px}.lg small{font-size:11px;margin-left:4px}
 .hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:48px;height:48px;padding:0 12px;cursor:pointer;border-radius:var(--rd)}
 .hb span{display:block;height:2px;background:currentColor;border-radius:2px;transition:transform .2s ease-in-out,opacity .2s}
 .mt:focus-visible+.hb{outline:3px solid var(--pr)}
 .mt:checked+.hb span:nth-child(1){transform:translateY(8px) rotate(40deg)}
 .mt:checked+.hb span:nth-child(2){opacity:0}
 .mt:checked+.hb span:nth-child(3){transform:translateY(-8px) rotate(-40deg)}
+.shi>.cta{margin-left:auto;font-size:13px}
 .snav{position:absolute;top:calc(100% + 8px);left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:12px;height:auto;padding:16px;background:#fff;color:#000;border-radius:var(--rd);box-shadow:0 4px 16px rgba(0,0,0,.15)}
 .mt:checked~.snav{display:flex}
 .nv{flex-direction:column;align-items:stretch;gap:0;height:auto;font-size:16px}
 .nv>a,.dd>a{min-height:52px;padding:0 6px;border-bottom:1px solid var(--g06)}
-.nv>a.on:after{display:none}
-.nv>a.on{color:var(--dk2)}
 .dd{flex-direction:column}
 .dd>a svg{display:none}
 .ddm{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;padding:4px 0 4px 16px;min-width:0}
 .ddm a{font-size:15px;padding:10px 6px}
-.cta{min-height:52px;font-size:15px}
 a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:50;min-height:56px;padding:0 22px;background:var(--prd);color:var(--dk);font-weight:700;font-size:15px;border-radius:var(--rd);box-shadow:0 4px 16px rgba(0,0,0,.25)}
-.hero{min-height:max(600px,92svh);padding-top:90px}
-.hbg{object-position:30% 50%}
-.hct{padding:0 16px 36px}
-.hstat{font-size:13px}
-.hsub{font-size:17px;margin-bottom:22px}
-.hbtns{gap:12px}
-.hbtns .btn{width:100%}
-.scr{display:none}
-.hl{margin-bottom:40px}
-.hl .e{font-size:clamp(40px,12vw,54px)}
-.hl .j{font-size:17px}
-.btn{width:100% !important;max-width:420px;min-height:56px;padding-left:20px;font-size:16px}
+.hero{height:auto;min-height:0;display:flex;flex-direction:column;background:var(--pr);overflow:visible}
+.hero>.ph{position:relative;height:clamp(420px,62svh,560px);overflow:hidden}
+.hero:before,.hero:after{display:none}
+.hero>.ph:after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.35))}
+.hbg{object-position:40% 50%}
+.arcs{height:clamp(420px,62svh,560px)}
+.copy{position:relative;margin-top:-1.3em;padding:0 16px 8px;font-size:clamp(30px,9.4vw,46px);line-height:1.25}
+.copy>span:first-child{text-shadow:0 0 14px rgba(0,0,0,.35)}
+.copy>span+span{color:var(--dk)}
+.msg{padding:36px 0 100px;background:var(--pr)}
+.msg .tb{padding:0 20px;font-size:17px;line-height:2.1}
+.msg .bts{margin-top:36px}
+.hl{margin-bottom:32px}
+.hl .e{font-size:clamp(40px,13vw,54px)}
+.hl .j{font-size:16px}
+.hcp{font-size:24px;line-height:1.6;margin-bottom:24px}
+.btn{width:100%;max-width:420px;min-height:60px;padding:14px 0 12px 20px;font-size:16px}
 .btn .ic{flex-basis:56px}
-.nums{row-gap:32px;column-gap:16px}
-.nums li{padding-left:12px}
-.nums span{font-size:13px}
-.nums b{font-size:26px;margin-top:10px}
-.nums b small{font-size:13px;margin-left:2px}
-.csg,.rsl,.pll,.bns,.fll{grid-template-columns:minmax(0,1fr)}
-.csi{padding:24px 20px;gap:16px}
-.csi .q{font-size:17px;gap:14px}
-.csi .q i{flex-basis:46px;height:46px}
-.csi .q i svg{width:22px;height:22px}
-.csi .a{font-size:15px}
-.rsl{gap:48px}
-.rsl figure{border-top-right-radius:80px}
-.rsl li:nth-child(2) figure{border-radius:0 0 0 80px}
-.rsl .no b{font-size:44px}
-.rsl h3{font-size:19px}
-.evl{grid-template-columns:minmax(0,1fr);gap:0}
-.evi{border-bottom:1px solid var(--g06);padding:24px 0}
+.ab .cols{grid-template-columns:minmax(0,1fr)}
+.ab .imgs{min-height:0;height:min(92vw,420px);margin-bottom:24px}
+.ab .f1{left:-20px;width:min(76vw,330px);height:min(76vw,330px)}
+.ab .f2{left:auto;right:0;top:auto;bottom:0;width:min(36vw,160px);height:min(36vw,160px)}
+.nml{gap:24px 16px}
+.nml dt{font-size:13px}
+.nml dd{font-size:24px}
+.nml dd small{font-size:12px;margin-left:2px}
+.ccl{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:48px}
+.ccl .ph p{font-size:22px}
+.ccl .an{padding:14px 2px 0;font-size:15px}
+.ev .in{min-height:0}
+.ev .lft{width:100%}
+.bsy{position:relative;top:auto;right:auto;width:100%;height:min(90vw,420px);margin-top:48px}
+.evl{grid-template-columns:minmax(0,1fr);gap:0;margin:24px 0 40px}
+.evi{padding:24px 0;border-bottom:1px solid var(--g06)}
 .evi:first-child{border-top:1px solid var(--g06)}
-.cli{margin-top:40px;font-size:14px;padding:16px 18px}
-.more{margin-top:48px}
-.pli .bx{padding:22px 20px 24px}
-.pli h3{font-size:20px}
-.bn{min-height:380px}
-.bn .hd{padding:20px 20px 8px}
-.bn .hd b{font-size:42px}
-.bn .hd span{font-size:17px}
-.bn .hd p{font-size:14px}
-.bn .ac{font-size:16px;margin:0 20px 20px 0}
-.fll{gap:28px}
-.fll li{padding:22px 20px 24px}
-.fll li:not(:last-child):after,.fll li:nth-child(2):after{display:block;top:auto;bottom:-22px;right:auto;left:50%;margin-left:-10px;border-width:14px 10px 0 10px;border-color:var(--prd) transparent transparent transparent}
-.fll .no b{font-size:36px}
-.fqi{padding:20px 18px}
-.fqi dt{font-size:16px;gap:14px}
-.fqi dd{font-size:14px;gap:14px}
-.fqi i{flex-basis:32px;height:32px;font-size:14px}
+.note{text-align:left}
+.bnl{grid-template-columns:minmax(0,1fr);gap:16px}
+.cb{aspect-ratio:auto;min-height:300px}
+.cb h3{font-size:24px}
+.acs .btn{margin-top:40px}
+.mdc,.mdc.rv{grid-template-columns:minmax(0,1fr);row-gap:24px}
+.mdc.rv figure{order:0}
+.mdc+.mdc{margin-top:56px}
+.mdc .hcp{font-size:24px}
+.fll{grid-template-columns:minmax(0,1fr);row-gap:40px}
+.fll .no{font-size:44px;margin-bottom:14px}
+.fqi{padding:24px 0}
+.fqi dt{font-size:17px}
+.fqi dd{font-size:15px}
 .nws{padding:56px 0 64px}
-.nws .in{grid-template-columns:minmax(0,1fr);gap:24px}
+.nws .in{grid-template-columns:minmax(0,1fr);row-gap:16px}
 .nwl li{flex-direction:column;gap:2px}
-.bcta{padding:88px 0 110px}
-.bcol h2{font-size:clamp(36px,11vw,48px)}
-.bcol p{font-size:20px}
+.nwl time{border-right:0}
+.bcta{padding:80px 0 100px}
+.bcol h2{font-size:clamp(40px,12vw,54px);margin:0 0 12px}
+.bcol p{font-size:19px}
 .bcol p br{display:none}
-.ft{padding:60px 0 100px}
-.fti{grid-template-columns:minmax(0,1fr);row-gap:40px}
-.fnv{justify-self:start;flex-wrap:wrap;gap:32px 40px}
-.fcopy{justify-self:start}
+.ft{padding:60px 0 110px}
+.fmeta{flex-direction:column;align-items:flex-start}
 }
-@media(min-width:600px) and (max-width:860px){.evl{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.evi,.evi:first-child{border:0;padding:0}}
-@media(prefers-reduced-motion:reduce){
-.pg *,.pg *:before,.pg *:after{animation:none !important;transition:none !important}
-.arcs path{stroke-dashoffset:0}
-.hcopy>span{opacity:1;transform:none}
-.hbg{transform:none}
-}
-</style>
-<style data-fix>
-/* 緑の背景で読みにくい文字の色補正 */
-@media (max-width:599px){div.pg>a.fab:not(:hover){color:#163300}}
-@media (min-width:600px) and (max-width:1024px){div.pg>a.fab:not(:hover){color:#163300}}
+@media(min-width:600px) and (max-width:860px){.evl{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}.evi,.evi:first-child{border:0;padding:0}.bnl{grid-template-columns:repeat(2,minmax(0,1fr))}.ccl{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 </head>
 <body>
-<div class="pg">
+<div class="pg" id="top">
 
 <div class="hw">
 <header class="sh">
@@ -358,7 +363,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label>
 <div class="snav">
 <nav class="nv" aria-label="メインメニュー">
-<a class="on" href="#top">トップ</a>
+<a href="#top">トップ</a>
 <a href="contact.html">受注窓口</a>
 <a href="works.html">作品履歴</a>
 <div class="dd"><a href="#studio" aria-haspopup="true">スタジオ<svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><div class="ddm"><a href="studio-japan.html">国内スタジオ<span aria-hidden="true">›</span></a><a href="studio-overseas.html">海外スタジオ<span aria-hidden="true">›</span></a></div></div>
@@ -371,127 +376,153 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </div>
 <a class="fab" href="contact.html"><svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z M3 6l9 7 9-7" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>お問い合わせ</a>
 
-<!-- 1 ヒーロー -->
-<section id="top" class="hero">
-<img class="hbg" src="images/gen/p03-team-monitor.jpg" alt="モニターに映る作画を囲んで笑い合うrebootのスタッフ">
-<svg class="arcs" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-<path d="M-40 150 H300 C540 150 735 345 735 585 V820"/>
-<path d="M240 820 V420 C240 190 430 -10 660 -10 H1480"/>
-<path d="M1480 520 C1270 520 1110 650 1060 830"/>
-<path d="M-40 585 H1050 C1270 585 1440 410 1440 190"/>
+<!-- 1 ヒーロー（全面写真＋超特大コピー → メッセージ） -->
+<section class="hero" aria-label="メインビジュアル">
+<div class="ph"><img class="hbg" src="images/gen/p03-team-monitor.jpg" alt="モニターに映る作画を囲んで笑い合うrebootのスタッフ"></div>
+<svg class="arcs" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<path d="M-40 300 H180 C470 300 700 530 700 820 V940"/>
+<path d="M300 -20 V160 C300 420 510 620 770 620 H1480"/>
+<path d="M1480 120 C1300 120 1240 260 1240 420 V940"/>
+<path d="M-40 70 H520 C650 70 760 -10 800 -40"/>
 </svg>
-<div class="hct">
-<p class="hstat"><i aria-hidden="true"></i>〇月の受付状況：受付中</p>
-<h1 class="hcopy"><span>人と手描きで、</span><span><span class="en">1</span>秒<span class="en">24</span>枚を、つなぐ。<span class="kari">仮の文章</span></span></h1>
-<p class="hsub">動画・仕上げを、国内と海外の2スタジオで。</p>
-<div class="hbtns">
-<a class="btn" href="contact.html"><span class="t">受注窓口で相談する</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+<h1 class="copy"><span>人と手描きで、</span><span><span class="en">1</span>秒<span class="en">24</span>枚を、つなぐ。<span class="kari">仮の文章</span></span></h1>
+</section>
+<section class="msg" aria-label="メッセージ">
+<div class="tb">
+<p>動画・仕上げを、国内と海外の2スタジオで。</p>
+<p>東京の国内スタジオ lolroute と、<br>中国の直営スタジオ reboot China。<br>2つの拠点が連携して、原画のあいだをつなぐ動画と、<br>画面を仕上げる色を、同じ基準で請け負います。</p>
+<p class="st">〇月の受付状況：受付中</p>
+<div class="bts">
+<a class="btn w" href="contact.html"><span class="t">受注窓口で相談する</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
 <a class="btn w" href="plan.html"><span class="t">作業プランを見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
 </div>
 </div>
-<p class="scr en" aria-hidden="true">SCROLL</p>
 </section>
 
-<!-- 2 数字で見るreboot -->
-<section class="sec num" id="numbers">
-<svg class="lines" viewBox="0 0 1440 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-20 120 H300 C520 120 700 300 700 520 V720" opacity=".7"/><path d="M1460 600 H1200 C1010 600 860 450 860 260 V-20" opacity=".7"/></svg>
+<!-- 2 数字で見るreboot（About us） -->
+<section class="sec ab gr" id="numbers">
+<svg class="bgl" viewBox="0 0 1440 1300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="1140" cy="380" r="420"/><line x1="0" y1="560" x2="1440" y2="560"/><line x1="560" y1="0" x2="560" y2="1300"/></svg>
 <div class="in">
-<h2 class="hl"><span class="e">Numbers</span><span class="j">数字で見るreboot<span class="kari">仮の文章</span></span></h2>
-<ul class="nums">
-<li><span>参加作品</span><b>〇〇<small>本以上</small></b></li>
-<li><span>月間対応</span><b>〇〇,〇〇〇<small>枚</small></b></li>
-<li><span>スタッフ（国内・海外）</span><b>〇〇<small>名</small></b></li>
-<li><span>創業</span><b>〇〇<small>年</small></b></li>
+<div class="cols">
+<div class="imgs" aria-hidden="true">
+<figure class="f1"><img src="images/gen/p09-man-portrait.jpg" alt=""></figure>
+<figure class="f2"><img src="images/gen/p22-sketch-flatlay.jpg" alt=""></figure>
+</div>
+<div class="tbx">
+<h2 class="hl r"><span class="e">Numbers</span><span class="j">数字で見るreboot<span class="kari">仮の文章</span></span></h2>
+<dl class="nml">
+<div><dt>参加作品</dt><dd>〇〇<small>本以上</small></dd></div>
+<div><dt>月間対応</dt><dd>〇〇,〇〇〇<small>枚</small></dd></div>
+<div><dt>スタッフ（国内・海外）</dt><dd>〇〇<small>名</small></dd></div>
+<div><dt>創業</dt><dd>〇〇<small>年</small></dd></div>
+</dl>
+</div>
+</div>
+</div>
+</section>
+
+<div class="gv">
+<!-- 3 こんなときにご相談ください（Member） -->
+<section class="sec mb" id="case">
+<svg class="bgl" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="1000" cy="480" r="400"/><line x1="0" y1="430" x2="1440" y2="430"/><line x1="1000" y1="0" x2="1000" y2="1000"/></svg>
+<div class="in">
+<h2 class="hl"><span class="e">Case</span><span class="j">こんなときにご相談ください<span class="kari">仮の文章</span></span></h2>
+<div class="cols">
+<p class="hcp">放送・公開に間に合わせるために。<br>発注の現場のお悩みに、<br>rebootがお答えします。</p>
+<a class="btn" href="contact.html"><span class="t">受注窓口で相談する</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+</div>
+</div>
+<ul class="ccl">
+<li><div class="ph"><img src="images/gen/p18-tokyo-night.jpg" alt=""><p>放送・公開まで<br>時間がない話数がある</p></div><p class="an"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>2拠点で振り分けて、納期に合わせます。</p></li>
+<li><div class="ph"><img src="images/gen/p15-cut-folders.jpg" alt=""><p>枚数が多く、<br>社内だけでは回らない</p></div><p class="an"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>月 〇〇,〇〇〇枚まで対応できます。</p></li>
+<li><div class="ph"><img src="images/gen/p14-online-call.jpg" alt=""><p>海外に出したいが、<br>品質が心配</p></div><p class="an"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>直営スタジオなので、社員が直接指導しています。</p></li>
+<li><div class="ph"><img src="images/gen/p13-meeting.jpg" alt=""><p>動画と仕上げを<br>まとめて任せたい</p></div><p class="an"><svg width="18" height="12" viewBox="0 0 18 12" aria-hidden="true"><path d="M0 6h16M11 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg>窓口ひとつで、動画から仕上げまで請け負います。</p></li>
 </ul>
-</div>
 </section>
 
-<!-- 3 こんなときにご相談ください -->
-<section class="sec cs gy" id="case">
-<svg class="lines" viewBox="0 0 1440 1000" preserveAspectRatio="xMidYMin slice" aria-hidden="true"><path d="M1460 120 H1100 C860 120 670 310 670 550 V1020"/></svg>
+<!-- 4 rebootが選ばれる3つの理由（Environment） -->
+<section class="sec ev" id="reason">
 <div class="in">
-<h2 class="hl r"><span class="e">Case</span><span class="j">こんなときにご相談ください<span class="kari">仮の文章</span></span></h2>
-<div class="csg">
-<div class="csi"><p class="q"><i aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="2"/><path d="M13 7v6l4 3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></i>放送・公開まで時間がない話数がある</p><p class="a"><svg width="20" height="12" viewBox="0 0 20 12" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>2拠点で振り分けて、納期に合わせます。</span></p></div>
-<div class="csi"><p class="q"><i aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><rect x="4" y="14" width="18" height="8" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="6" y="8" width="14" height="6" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="8" y="3" width="10" height="5" rx="1" fill="none" stroke="currentColor" stroke-width="2"/></svg></i>枚数が多く、社内だけでは回らない</p><p class="a"><svg width="20" height="12" viewBox="0 0 20 12" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>月 〇〇,〇〇〇枚まで対応できます。</span></p></div>
-<div class="csi"><p class="q"><i aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><circle cx="13" cy="13" r="11" fill="none" stroke="currentColor" stroke-width="2"/><ellipse cx="13" cy="13" rx="4.5" ry="11" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 13h22" stroke="currentColor" stroke-width="2"/></svg></i>海外に出したいが、品質が心配</p><p class="a"><svg width="20" height="12" viewBox="0 0 20 12" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>直営スタジオなので、社員が直接指導しています。</span></p></div>
-<div class="csi"><p class="q"><i aria-hidden="true"><svg width="26" height="26" viewBox="0 0 26 26"><rect x="2" y="8" width="9" height="10" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="15" y="8" width="9" height="10" rx="1" fill="currentColor"/><path d="M11 13h4" stroke="currentColor" stroke-width="2"/></svg></i>動画と仕上げをまとめて任せたい</p><p class="a"><svg width="20" height="12" viewBox="0 0 20 12" aria-hidden="true"><path d="M0 6h18M13 1l5 5-5 5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>窓口ひとつで、動画から仕上げまで請け負います。</span></p></div>
-</div>
-</div>
-</section>
-
-<!-- 4 rebootが選ばれる3つの理由 -->
-<section class="sec rs" id="reason">
-<div class="in">
+<div class="lft">
 <h2 class="hl"><span class="e">Reason</span><span class="j">rebootが選ばれる3つの理由<span class="kari">仮の文章</span></span></h2>
+<p class="hcp">国内と海外の2拠点で、<br>動画から仕上げまで。</p>
 <ol class="rsl">
-<li><figure><img src="images/gen/p09-man-portrait.jpg" alt="机の前で笑う男性アニメーター"></figure><p class="no"><b>01</b><span>TWO STUDIOS</span></p><h3>国内と海外、2つの直営スタジオ</h3><p>枚数と納期に合わせて国内・海外に振り分けます。</p></li>
-<li><figure><img src="images/gen/p10-woman-tablet.jpg" alt="ペンタブを持つ色彩担当の女性"></figure><p class="no"><b>02</b><span>QUALITY</span></p><h3>社員が現地で指導する品質管理</h3><p>数カ月に一度、社員が中国のスタジオで直接指導。動画検査・色指定検査は国内で行います。</p></li>
-<li><figure><img src="images/gen/a15-inbetween-sheet.jpg" alt="中割りの連番が描かれた動画用紙"></figure><p class="no"><b>03</b><span>ONE STOP</span></p><h3>動画から仕上げまでまとめて</h3><p>作業ごとに発注先を分ける手間がありません。</p></li>
+<li><a class="btn" href="studio-japan.html"><span class="t"><b>01</b>国内と海外、2つの直営スタジオ</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><p>枚数と納期に合わせて国内・海外に振り分けます。</p></li>
+<li><a class="btn" href="studio-overseas.html"><span class="t"><b>02</b>社員が現地で指導する品質管理</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><p>数カ月に一度、社員が中国のスタジオで直接指導。動画検査・色指定検査は国内で行います。</p></li>
+<li><a class="btn" href="plan.html"><span class="t"><b>03</b>動画から仕上げまでまとめて</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a><p>作業ごとに発注先を分ける手間がありません。</p></li>
 </ol>
 </div>
+<figure class="bsy" aria-hidden="true"><img src="images/gen/p04-team-walk.jpg" alt=""></figure>
+</div>
 </section>
+</div>
 
-<!-- 5 参加作品 -->
-<section class="sec works gy" id="works">
+<!-- 5 参加作品（Information / イベント） -->
+<section class="sec inf" id="works">
+<span class="bgs" aria-hidden="true"></span><span class="bgs2" aria-hidden="true"></span>
 <div class="in">
 <h2 class="hl r"><span class="e">Works</span><span class="j">参加作品<span class="kari">仮の文章</span></span></h2>
 <ul class="evl">
-<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a06-works-school.jpg" alt="夕暮れの河原に立つ高校生3人の作品ビジュアル"></figure><div class="tx"><div class="ml"><span class="tp">TVアニメ</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2025</dd></dl><dl class="dt"><dt>担当</dt><dd>動画・仕上げ</dd></dl></div></a></li>
-<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a10-works-fire.jpg" alt="炎の中に立つヒーローの作品ビジュアル"></figure><div class="tx"><div class="ml"><span class="tp">TVアニメ</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2025</dd></dl><dl class="dt"><dt>担当</dt><dd>動画</dd></dl></div></a></li>
-<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a13-works-mystery.jpg" alt="図書館にいる高校生の作品ビジュアル"></figure><div class="tx"><div class="ml"><span class="tp">劇場</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2024</dd></dl><dl class="dt"><dt>担当</dt><dd>仕上げ</dd></dl></div></a></li>
-<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a05-works-mecha.jpg" alt="パイロットと白赤のロボットの作品ビジュアル"></figure><div class="tx"><div class="ml"><span class="tp">配信</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2024</dd></dl><dl class="dt"><dt>担当</dt><dd>動画・仕上げ</dd></dl></div></a></li>
+<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a06-works-school.jpg" alt="夕暮れの河原に立つ高校生3人の作品ビジュアル"></figure><div class="ml"><span class="s">TVアニメ</span><span>動画</span><span>仕上げ</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2025</dd></dl><dl class="dt"><dt>担当</dt><dd>動画・仕上げ</dd></dl></a></li>
+<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a10-works-fire.jpg" alt="炎の中に立つヒーローの作品ビジュアル"></figure><div class="ml"><span class="s">TVアニメ</span><span>動画</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2025</dd></dl><dl class="dt"><dt>担当</dt><dd>動画</dd></dl></a></li>
+<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a13-works-mystery.jpg" alt="図書館にいる高校生の作品ビジュアル"></figure><div class="ml"><span class="s">劇場</span><span>仕上げ</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2024</dd></dl><dl class="dt"><dt>担当</dt><dd>仕上げ</dd></dl></a></li>
+<li class="evi"><a href="works.html"><figure class="im"><img src="images/gen/a05-works-mecha.jpg" alt="パイロットと白赤のロボットの作品ビジュアル"></figure><div class="ml"><span class="s">配信</span><span>動画</span><span>仕上げ</span></div><span class="ti">作品タイトル（仮）</span><dl class="dt"><dt>年</dt><dd>2024</dd></dl><dl class="dt"><dt>担当</dt><dd>動画・仕上げ</dd></dl></a></li>
 </ul>
-<p class="cli">取引先：〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</p>
-<div class="more"><a class="btn c" href="works.html"><span class="t">作品履歴をすべて見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+<a class="btn c" href="works.html"><span class="t">作品履歴をすべて見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
+<p class="note">取引先：〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</p>
 </div>
 </section>
 
-<!-- 6 作業プラン -->
-<section class="sec pl" id="plan">
+<!-- 6 作業プラン（カテゴリーバナー） -->
+<section class="acs" id="plan">
 <div class="in">
 <h2 class="hl"><span class="e">Plan</span><span class="j">作業プラン<span class="kari">仮の文章</span></span></h2>
-<ul class="pll">
-<li class="pli"><figure><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台の上で鉛筆を走らせる動画マンの手元"></figure><div class="bx"><h3><small>INBETWEEN</small>動画プラン</h3><p>原画と原画のあいだを描き、動きをなめらかにつなぎます。</p><p class="pc">1枚<b>〇〇</b>円〜</p><p class="ld">納期の目安 〇〇日〜</p></div></li>
-<li class="pli"><figure><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"></figure><div class="bx"><h3><small>PAINT</small>仕上げプラン</h3><p>色指定にもとづき、線画に色をのせて画面を完成させます。</p><p class="pc">1枚<b>〇〇</b>円〜</p><p class="ld">納期の目安 〇〇日〜</p></div></li>
-<li class="pli rc"><span class="bd">おすすめ</span><figure><img src="images/gen/p23-color-chips.jpg" alt="仕上げで使う色指定表のカラーチップ"></figure><div class="bx"><h3><small>PACKAGE</small>動画＋仕上げ 一括プラン</h3><p>動画から仕上げまで、窓口ひとつでまとめてお任せいただけます。</p><p class="pc">1枚<b>〇〇</b>円〜</p><p class="ld">納期の目安 〇〇日〜</p></div></li>
+<ul class="bnl">
+<li><a class="cb" href="plan.html"><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台の上で鉛筆を走らせる動画マンの手元"><div class="hd"><h3><small>INBETWEEN</small>動画プラン</h3><p class="pc">1枚<b>〇〇</b>円〜／納期の目安 〇〇日〜</p></div><span class="act">プランを見る<span class="arw" aria-hidden="true"><svg width="14" height="10" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></span></a></li>
+<li><a class="cb" href="plan.html"><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"><div class="hd"><h3><small>PAINT</small>仕上げプラン</h3><p class="pc">1枚<b>〇〇</b>円〜／納期の目安 〇〇日〜</p></div><span class="act">プランを見る<span class="arw" aria-hidden="true"><svg width="14" height="10" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></span></a></li>
+<li><a class="cb" href="plan.html"><img src="images/gen/p23-color-chips.jpg" alt="仕上げで使う色指定表のカラーチップ"><div class="hd"><div class="ml"><span>おすすめ</span></div><h3><small>PACKAGE</small>動画＋仕上げ 一括プラン</h3><p class="pc">1枚<b>〇〇</b>円〜／納期の目安 〇〇日〜</p></div><span class="act">プランを見る<span class="arw" aria-hidden="true"><svg width="14" height="10" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span></span></a></li>
 </ul>
-<div class="more"><a class="btn c" href="plan.html"><span class="t">プランの詳細を見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+<a class="btn c" href="plan.html"><span class="t">プランの詳細を見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
 </div>
 </section>
 
-<!-- 7 2つのスタジオ -->
-<section class="sec stu gy" id="studio">
+<!-- 7 2つのスタジオ（メディア） -->
+<section class="sec" id="studio">
 <div class="in">
 <h2 class="hl r"><span class="e">Studio</span><span class="j">2つのスタジオ<span class="kari">仮の文章</span></span></h2>
-<div class="bns">
-<a class="bn" href="studio-japan.html"><img src="images/gen/p02-studio-wide.jpg" alt="机が並ぶ明るい国内スタジオの全景"><div class="hd"><b>Japan</b><span>国内スタジオ lolroute</span><p>2021年設立。出社スタッフの正社員率100%で、動画検査・色指定検査も担当します。</p></div><div class="ac">国内スタジオを見る<i aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></i></div></a>
-<a class="bn" href="studio-overseas.html"><img src="images/gen/p21-art-students.jpg" alt="中国の美大生に作画を指導する様子"><div class="hd"><b>Overseas</b><span>海外スタジオ reboot China</span><p>2016年設立の直営スタジオ。数カ月に一度、社員が現地で指導しています。</p></div><div class="ac">海外スタジオを見る<i aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></i></div></a>
+<div class="mdc">
+<figure><img src="images/gen/p02-studio-wide.jpg" alt="机が並ぶ明るい国内スタジオの全景"></figure>
+<div><p class="hcp"><small>JAPAN</small>国内スタジオ lolroute</p><p>2021年設立。出社スタッフの正社員率100%で、動画検査・色指定検査も担当します。</p><a class="btn" href="studio-japan.html"><span class="t">国内スタジオを見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
+</div>
+<div class="mdc rv">
+<figure><img src="images/gen/p05-china-studio.jpg" alt="中国の都市にある海外アニメスタジオ"></figure>
+<div><p class="hcp"><small>OVERSEAS</small>海外スタジオ reboot China</p><p>2016年設立の直営スタジオ。数カ月に一度、社員が現地で指導しています。</p><a class="btn" href="studio-overseas.html"><span class="t">海外スタジオを見る</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a></div>
 </div>
 </div>
 </section>
 
 <!-- 8 ご依頼の流れ -->
-<section class="sec flw" id="flow">
+<section class="sec gv" id="flow">
+<svg class="bgl" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><circle cx="300" cy="420" r="380"/><line x1="0" y1="300" x2="1440" y2="300"/></svg>
 <div class="in">
 <h2 class="hl"><span class="e">Flow</span><span class="j">ご依頼の流れ<span class="kari">仮の文章</span></span></h2>
 <ol class="fll">
-<li><p class="no"><b>01</b><span>STEP</span></p><h3>受注窓口からご相談</h3><p>作品名・枚数・希望納期など、わかる範囲でお知らせください。</p></li>
-<li><p class="no"><b>02</b><span>STEP</span></p><h3>打ち合わせ・お見積り</h3><p>〇営業日以内にご返信します。</p></li>
-<li><p class="no"><b>03</b><span>STEP</span></p><h3>作業開始・進み具合の共有</h3><p>国内・海外のスタジオで作業し、進み具合をこまめに共有します。</p></li>
-<li><p class="no"><b>04</b><span>STEP</span></p><h3>検査・納品</h3><p>国内で検査してから納品します。</p></li>
+<li><span class="no">01</span><h3 class="h3b">受注窓口からご相談</h3><p>作品名・枚数・希望納期など、わかる範囲でお知らせください。</p></li>
+<li><span class="no">02</span><h3 class="h3b">打ち合わせ・お見積り</h3><p>〇営業日以内にご返信します。</p></li>
+<li><span class="no">03</span><h3 class="h3b">作業開始・進み具合の共有</h3><p>国内・海外のスタジオで作業し、進み具合をこまめに共有します。</p></li>
+<li><span class="no">04</span><h3 class="h3b">検査・納品</h3><p>国内で検査してから納品します。</p></li>
 </ol>
 </div>
 </section>
 
 <!-- 9 よくある質問 -->
-<section class="sec faq gy" id="faq">
+<section class="sec" id="faq">
 <div class="in">
 <h2 class="hl r"><span class="e">FAQ</span><span class="j">よくある質問<span class="kari">仮の文章</span></span></h2>
 <div class="fqw">
-<dl class="fqi"><dt><i>Q</i>急ぎの案件にも対応できますか？</dt><dd><i>A</i>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</dd></dl>
-<dl class="fqi"><dt><i>Q</i>1話だけ・数カットだけでも頼めますか？</dt><dd><i>A</i>〇〇カットから承ります。</dd></dl>
-<dl class="fqi"><dt><i>Q</i>海外スタジオの品質はどう管理していますか？</dt><dd><i>A</i>直営のため、社員が現地で直接指導し、国内で検査してから納品します。</dd></dl>
+<dl class="fqi"><dt><b>Q.</b>急ぎの案件にも対応できますか？</dt><dd><b>A.</b>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</dd></dl>
+<dl class="fqi"><dt><b>Q.</b>1話だけ・数カットだけでも頼めますか？</dt><dd><b>A.</b>〇〇カットから承ります。</dd></dl>
+<dl class="fqi"><dt><b>Q.</b>海外スタジオの品質はどう管理していますか？</dt><dd><b>A.</b>直営のため、社員が現地で直接指導し、国内で検査してから納品します。</dd></dl>
 </div>
 </div>
 </section>
@@ -499,7 +530,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <!-- 10 お知らせ -->
 <section class="nws" id="news">
 <div class="in">
-<h2 class="h3"><small>News</small>お知らせ<span class="kari">仮の文章</span></h2>
+<h2 class="h3b">お知らせ<span class="kari">仮の文章</span></h2>
 <ul class="nwl">
 <li><time datetime="2026-11">2026.11</time><span>国内スタジオ lolroute、出社スタッフ正社員率100%を継続中。新規作画スタッフも募集しています。</span></li>
 <li><time datetime="2026-10">2026.10</time><span>〇月分の動画・仕上げのご依頼を受け付けています。</span></li>
@@ -508,9 +539,9 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </div>
 </section>
 
-<!-- 11 最後の申し込み -->
+<!-- 11 最後の申し込み（Join Our Team） -->
 <section class="bcta" id="contact">
-<svg class="lines" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-20 90 H260 C470 90 640 260 640 470 V620" opacity=".6"/><path d="M1460 560 H1180 C980 560 820 400 820 200 V-20" opacity=".6"/></svg>
+<svg class="bgl" viewBox="0 0 1440 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-20 60 H260 C470 60 640 230 640 440"/><path d="M1460 400 H1180 C980 400 820 240 820 40 V-20"/><path d="M330 -20 V100 C330 300 490 460 690 460"/></svg>
 <div class="in">
 <div class="bcol">
 <div>
@@ -527,15 +558,13 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 
 <footer class="ft">
 <div class="in fti">
-<a class="flg" href="#top"><svg width="44" height="44" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="21" fill="none" stroke="#98e81a" stroke-width="2"/><path d="M22 11v10M15 15a10 10 0 1 0 14 0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg><b>reboot</b><span>アニメーション制作</span></a>
+<a class="flg" href="#top"><svg width="40" height="40" viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="21" fill="none" stroke="#98e81a" stroke-width="2"/><path d="M22 11v10M15 15a10 10 0 1 0 14 0" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/></svg><b>reboot</b><span>アニメーション制作</span></a>
 <nav class="fnv" aria-label="フッターメニュー">
 <div><strong><a href="#top">トップ</a></strong><ul><li><a href="contact.html">受注窓口</a></li><li><a href="plan.html">プラン</a></li></ul></div>
 <div><strong><a href="works.html">作品履歴</a></strong><ul><li><a href="works.html">参加作品一覧</a></li></ul></div>
 <div><strong><span>スタジオ</span></strong><ul><li><a href="studio-japan.html">国内スタジオ</a></li><li><a href="studio-overseas.html">海外スタジオ</a></li></ul></div>
 </nav>
-<p class="fmeta" style="margin:0">株式会社reboot<br>東京都杉並区上荻1-5-8 直長ビル6F</p>
-<p class="fcopy" style="margin:0">© reboot Inc.</p>
-<p class="fnote">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
+<div class="fmeta"><p>株式会社reboot　東京都杉並区上荻1-5-8 直長ビル6F<br>※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p><p class="cp">© reboot Inc.</p></div>
 </div>
 </footer>
 
