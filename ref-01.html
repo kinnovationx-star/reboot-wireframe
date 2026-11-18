@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>R01 SK∞風｜reboot ワイヤーフレーム</title>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=Dela+Gothic+One&family=Mochiy+Pop+One&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+body{margin:0;background:#050042}
+.pg *{box-sizing:border-box}
+.pg{--nv:#050042;--pu:#3f2095;--pk:#fc2960;--ye:#ffdf00;font-family:'Noto Sans JP',-apple-system,'Hiragino Kaku Gothic ProN',sans-serif;color:#fff;background:#050042;line-height:1.7;overflow:hidden;position:relative}
+.pg a{color:inherit;text-decoration:none}
+.pg img{display:block;max-width:100%}
+.en{font-family:'Bowlby One SC','Noto Sans JP',sans-serif;font-weight:400}
+.dg{font-family:'Dela Gothic One','Noto Sans JP',sans-serif;font-weight:400}
+
+/* ===== header ===== */
+.hd{position:absolute;top:0;left:0;right:0;z-index:30;display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:22px 28px 0 calc(5% + 140px)}
+.lg{display:flex;align-items:center;gap:10px;min-height:48px;font-family:'Mochiy Pop One',sans-serif;font-size:22px;color:#fff;text-shadow:0 2px 0 #050042}
+.lg img{width:48px;height:48px;border-radius:50%;border:2px solid #fff}
+.nv{display:flex;align-items:stretch;gap:2px;background:rgba(5,0,66,.84);padding:0 6px;margin-left:auto}
+.nv>a,.dd>a{min-height:56px;padding:6px 16px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900;font-size:14px;line-height:1.3;letter-spacing:.06em;color:#fff;transition:color .3s}
+.nv small{font-family:'Bowlby One SC',sans-serif;font-size:10px;letter-spacing:.08em;color:#ffdf00;font-weight:400}
+.nv>a:hover,.dd>a:hover,.nv>a.on{color:#fc2960}
+.dd{position:relative;display:flex}
+.ddm{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);min-width:190px;flex-direction:column;background:#050042;border-top:4px solid #fc2960;z-index:40}
+.ddm a{min-height:50px;padding:0 20px;display:flex;align-items:center;font-weight:700;font-size:14px;border-bottom:1px solid rgba(255,255,255,.14)}
+.ddm a:hover{background:#fc2960;color:#050042}
+.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
+.mk{flex:0 0 auto;width:58px;padding-top:6px;color:#fc2960;text-align:center}
+.mk i{display:block;height:7px;background:#fc2960;margin-bottom:7px}
+.mk b{display:block;font-family:'Bowlby One SC',sans-serif;font-weight:400;font-size:14px;line-height:1;letter-spacing:.06em}
+.mt{position:absolute;opacity:0;width:1px;height:1px}
+.hb,a.fab{display:none}
+
+/* ===== hero ===== */
+.hero{position:relative;height:66.6vw;max-height:920px;min-height:640px;overflow:hidden;background:#050042}
+.kv{position:absolute;inset:0;overflow:hidden}
+.kv img{width:100%;height:100%;object-fit:cover;object-position:center 30%;animation:kb 15s cubic-bezier(0,1,.05,.95) both}
+@keyframes kb{from{transform:scale(1.2)}to{transform:scale(1)} }
+.kv:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,0,66,.15) 0%,rgba(5,0,66,0) 40%,rgba(5,0,66,.55) 100%)}
+.cf{position:absolute;inset:0;pointer-events:none;z-index:2}
+.cf span{position:absolute;width:18px;height:12px;clip-path:polygon(0 30%,100% 0,80% 100%,10% 85%);animation:fl 7s ease-in-out infinite alternate}
+.cf span:nth-child(1){left:12%;top:18%;background:#fc2960}
+.cf span:nth-child(2){left:24%;top:62%;background:#2de2e6;width:26px;height:16px;animation-delay:-2s}
+.cf span:nth-child(3){left:36%;top:12%;background:#ffdf00;animation-delay:-4s}
+.cf span:nth-child(4){left:47%;top:44%;background:#7cff6b;width:14px;height:9px;animation-delay:-1s}
+.cf span:nth-child(5){left:58%;top:22%;background:#fc2960;width:30px;height:18px;animation-delay:-3s}
+.cf span:nth-child(6){left:66%;top:70%;background:#2de2e6;animation-delay:-5s}
+.cf span:nth-child(7){left:74%;top:9%;background:#b27bff;width:24px;height:15px;animation-delay:-2.5s}
+.cf span:nth-child(8){left:82%;top:48%;background:#ffdf00;width:16px;height:10px;animation-delay:-6s}
+.cf span:nth-child(9){left:90%;top:30%;background:#7cff6b;animation-delay:-1.5s}
+.cf span:nth-child(10){left:18%;top:84%;background:#b27bff;animation-delay:-3.5s}
+.cf span:nth-child(11){left:52%;top:88%;background:#fc2960;width:12px;height:8px;animation-delay:-4.5s}
+.cf span:nth-child(12){left:30%;top:36%;background:#ffffff;width:10px;height:7px;animation-delay:-.5s}
+.cf span:nth-child(13){left:70%;top:38%;background:#ffdf00;width:28px;height:17px;animation-delay:-5.5s}
+.cf span:nth-child(14){left:42%;top:74%;background:#2de2e6;width:14px;height:9px;animation-delay:-6.5s}
+.cf span:nth-child(15){left:94%;top:78%;background:#fc2960;animation-delay:-2.2s}
+.cf span:nth-child(16){left:6%;top:52%;background:#ffdf00;width:22px;height:14px;animation-delay:-3.2s}
+@keyframes fl{0%{transform:translate(0,0) rotate(0deg)}50%{transform:translate(14px,-22px) rotate(160deg)}100%{transform:translate(-10px,18px) rotate(320deg)} }
+.ct{position:absolute;top:0;left:5%;z-index:5;display:flex;flex-direction:row-reverse;align-items:flex-start;gap:8px;animation:ctin 1s cubic-bezier(.16,1,.3,1) .3s both}
+@keyframes ctin{from{opacity:0;transform:scale(1.2) translate(-20px,-20px)}to{opacity:1;transform:none} }
+.ct h1,.ct p{writing-mode:vertical-rl;margin:0;background:#fc2960;color:#fff;font-weight:900;letter-spacing:.06em;line-height:1.25;padding:.45em .3em .5em}
+.ct h1{font-size:clamp(20px,2.6vw,36px)}
+.ct p{font-size:clamp(18px,2.2vw,30px);margin-top:0}
+.ct p span{color:#050042}
+.hlogo{position:absolute;left:50%;bottom:16%;z-index:6;transform:translateX(-50%);text-align:center;animation:fade .8s ease 1.4s both}
+.hlogo svg.br{position:absolute;left:50%;top:50%;width:150%;transform:translate(-50%,-52%) rotate(-8deg);z-index:-1}
+.hlogo strong{display:block;font-family:'Mochiy Pop One',sans-serif;font-weight:400;font-size:clamp(70px,14vw,200px);line-height:.95;letter-spacing:-.02em;color:#fff;text-shadow:0 6px 0 #050042,0 0 40px rgba(5,0,66,.45)}
+.hlogo em{display:block;font-style:normal;font-family:'Dela Gothic One',sans-serif;font-size:clamp(16px,2vw,28px);letter-spacing:.3em;margin-top:.2em;color:#fff;text-shadow:0 3px 0 #050042;transform:rotate(-3deg)}
+@keyframes fade{from{opacity:0}to{opacity:1} }
+.sns{position:absolute;left:4.25%;bottom:4.5%;z-index:7;width:21.5%;min-width:260px;height:44px;background:#ffdf00;color:#050042;display:flex;align-items:center;overflow:hidden;animation:fade .8s ease 1.6s both}
+.sns .ic{flex:0 0 46px;height:100%;display:flex;align-items:center;justify-content:center;background:#ffdf00;position:relative;z-index:1;border-right:2px solid #050042}
+.sns .mq{display:flex;white-space:nowrap;animation:mq 15s linear infinite;font-family:'Bowlby One SC',sans-serif;font-size:15px;letter-spacing:.04em}
+.sns .mq span{padding-right:1.6em}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)} }
+.scr{position:absolute;right:5%;bottom:5.5%;z-index:7;display:flex;flex-direction:column;align-items:center;gap:12px;min-width:56px;color:#fff;animation:fade .8s ease 1.6s both}
+.scr b{writing-mode:vertical-rl;font-family:'Bowlby One SC',sans-serif;font-weight:400;font-size:clamp(13px,1.3vw,18px);letter-spacing:.1em;line-height:1}
+.scr svg{width:64px;height:auto;animation:bob .8s cubic-bezier(.45,0,.55,1) infinite alternate}
+@keyframes bob{from{transform:translateY(-6px)}to{transform:translateY(6px)} }
+.fix{position:fixed;right:0;bottom:28px;z-index:60;background:#fff;color:#050042;border-radius:12px 0 0 12px;padding:12px 26px 12px 30px;min-height:64px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:0 6px 20px rgba(5,0,66,.35);transition:transform .3s}
+.pg a.fix{color:#050042}
+.fix b{font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:17px;line-height:1.35}
+.fix small{font-weight:900;font-size:12px;letter-spacing:.1em}
+.fix:hover{transform:translateX(-6px)}
+
+/* ===== onair band ===== */
+.oa{background:#3f2095;padding:64px 16px 72px;text-align:center;position:relative}
+.oa p.l1{margin:0;font-family:'Dela Gothic One',sans-serif;font-size:clamp(22px,3.3vw,44px);line-height:1.4}
+.oa p.l2{margin:4px 0 0;font-family:'Dela Gothic One',sans-serif;font-size:clamp(34px,6vw,84px);line-height:1.2;color:#ffdf00;letter-spacing:.04em}
+.oa p.l3{margin:18px auto 0;max-width:660px;font-size:15px;line-height:1.9}
+.pbtn{display:flex;align-items:center;justify-content:center;max-width:626px;width:80vw;margin:28px auto 0;min-height:64px;padding:.6em 1em;background:#fc2960;color:#fff;font-family:'Dela Gothic One',sans-serif;font-size:24px;line-height:1.4;transition:background .3s,color .3s}
+.pg a.pbtn{color:#fff}
+.pg a.pbtn:hover{background:#ffdf00;color:#050042}
+
+/* ===== news ===== */
+.nw{position:relative;background:#efedf8;background-image:radial-gradient(rgba(63,32,149,.14) 1.5px,transparent 1.6px);background-size:16px 16px;padding:94px 0 128px;color:#050042}
+.nw .sp1,.nw .sp2{position:absolute;pointer-events:none}
+.nw .sp1{top:0;right:0;width:25%}
+.nw .sp2{bottom:0;left:0;width:20%}
+.nwi{position:relative;z-index:1;margin:0 auto;padding-top:72px;padding-left:111px;width:90%;max-width:1200px}
+.nwh{position:absolute;top:0;left:0;width:111px;height:100%}
+.nwh h2{margin:0;writing-mode:vertical-rl;font-family:'Bowlby One SC',sans-serif;font-weight:400;font-size:80px;line-height:1;letter-spacing:.02em;color:#050042}
+.more{position:absolute;bottom:0;left:22px;writing-mode:vertical-rl;font-family:'Bowlby One SC',sans-serif;font-size:13px;letter-spacing:.12em;min-width:44px;min-height:96px;display:flex;align-items:center;padding-bottom:16px;color:#050042}
+.more:after{content:"";position:absolute;bottom:0;left:50%;margin-left:-4px;border-width:8px 4px 0 4px;border-style:solid;border-color:#050042 transparent transparent transparent}
+.ls{margin:0;padding:0;list-style:none;animation:slin 1.5s cubic-bezier(.16,1,.3,1) .2s both}
+@keyframes slin{from{opacity:0;transform:translateX(300px)}to{opacity:1;transform:none} }
+.ls li+li{margin-top:10px}
+.ls a{position:relative;display:block;background:#050042;color:#fff;padding:35px 70px 30px 198px;transition:background .4s,color .4s}
+.ls a:hover{background:#ffdf00;color:#050042}
+.ls time{position:absolute;top:50%;left:50px;margin-top:-14px;transform:rotate(-5deg);background:#ffdf00;color:#050042;padding:4px 8px;min-width:110px;text-align:center;font-family:'Bowlby One SC',sans-serif;font-size:14px;line-height:1.2}
+.ls a:hover time{background:#050042;color:#ffdf00}
+.ls b{display:block;font-size:17px;font-weight:700;line-height:1.5;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ls a:after{content:"";position:absolute;top:50%;right:28px;margin-top:-8px;border-width:8px 0 8px 12px;border-style:solid;border-color:transparent transparent transparent #fc2960}
+
+/* ===== movie / works ===== */
+.mv{position:relative;background:#120509;padding:0}
+.mvin{position:relative;display:block}
+.mvc{position:relative;padding-top:39.9%;overflow:hidden}
+.mvc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s cubic-bezier(.16,1,.3,1);filter:saturate(.9)}
+.mvc:after{content:"";position:absolute;inset:0;background:rgba(18,5,9,.62);transition:background .4s}
+.mvin:hover .mvc img{transform:scale(1.08)}
+.mvin:hover .mvc:after{background:rgba(18,5,9,.45)}
+.mvt{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.mvt strong{font-weight:900;font-size:clamp(70px,13vw,190px);line-height:1;letter-spacing:.35em;padding-left:.35em;color:#e9e6ea;text-shadow:-5px 0 0 rgba(252,41,96,.85),5px 0 0 rgba(47,107,255,.85);animation:glt 3.2s steps(1) infinite}
+@keyframes glt{0%{transform:none}92%{transform:translate(3px,-2px) skewX(-6deg)}95%{transform:translate(-4px,1px)}98%{transform:none} }
+.mvt span{font-family:'Bowlby One SC',sans-serif;font-size:clamp(14px,1.6vw,20px);letter-spacing:.2em;background:#fc2960;color:#050042;padding:6px 16px}
+.ring{position:absolute;top:0;left:7.5%;z-index:3;width:11.43%;min-width:96px;transform:translateY(-50%)}
+.ring svg{display:block;width:100%;height:auto}
+.ring .rt{transform-origin:50% 50%;animation:rot 15s linear infinite}
+.mvin:hover .ring .rt{animation-duration:7.5s}
+@keyframes rot{from{transform:rotate(0)}to{transform:rotate(360deg)} }
+.bnr{background:#050042;padding:40px 0 56px}
+.bl{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:0 auto;padding:0 3%;max-width:1440px}
+.bi{padding:0 10px;display:block}
+.bim{overflow:hidden;aspect-ratio:3/2;border:3px solid #fff}
+.bim img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.bi:hover .bim img{transform:scale(1.07)}
+.bi b{display:block;margin-top:10px;font-size:15px;font-weight:900;line-height:1.4}
+.bi small{display:block;font-family:'Bowlby One SC',sans-serif;font-size:11px;letter-spacing:.08em;color:#ffdf00}
+.bmore{text-align:center;margin-top:32px}
+.obtn{display:inline-flex;align-items:center;gap:14px;min-height:56px;padding:0 34px;border:3px solid #ffdf00;color:#ffdf00;font-family:'Bowlby One SC','Noto Sans JP',sans-serif;font-size:16px;letter-spacing:.08em;transition:background .3s,color .3s}
+.pg a.obtn{color:#ffdf00}
+.pg a.obtn:hover{background:#ffdf00;color:#050042}
+
+/* ===== section title (outlined pink) ===== */
+.st{margin:0 0 8px;font-family:'Bowlby One SC',sans-serif;font-weight:400;font-size:clamp(46px,7vw,104px);line-height:1;letter-spacing:.03em;color:#fc2960;text-shadow:3px 3px 0 #050042,-1px -1px 0 #050042,1px -1px 0 #050042,-1px 1px 0 #050042}
+.sj{display:inline-block;margin:0 0 40px;background:#ffdf00;color:#050042;font-weight:900;font-size:16px;padding:4px 14px;transform:rotate(-3deg)}
+
+/* ===== studio ===== */
+.so{background:#3f2095;padding:96px 0 110px;position:relative}
+.so:before{content:"";position:absolute;top:0;right:0;width:38%;height:100%;background:repeating-linear-gradient(-45deg,rgba(255,255,255,.05) 0 14px,transparent 14px 28px);pointer-events:none}
+.w{position:relative;margin:0 auto;width:88%;max-width:1210px}
+.sg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px}
+.sc{display:block;background:#050042;position:relative;transition:transform .4s}
+.sc:hover{transform:translateY(-6px)}
+.sc .im{position:relative;aspect-ratio:16/10;overflow:hidden}
+.sc .im img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.sc:hover .im img{transform:scale(1.06)}
+.sc .im:after{content:"";position:absolute;left:0;right:0;bottom:0;height:0;background:#fc2960}
+.sc .tx{padding:28px 30px 34px;position:relative}
+.sc .tag{position:absolute;top:-20px;left:24px;background:#ffdf00;color:#050042;font-family:'Bowlby One SC',sans-serif;font-size:14px;padding:4px 12px;transform:rotate(-5deg)}
+.sc h3{margin:0;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:clamp(24px,2.6vw,34px);line-height:1.3}
+.sc h3 span{color:#fc2960}
+.sc p{margin:10px 0 0;font-size:15px;line-height:1.85}
+.sc .go{position:absolute;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;background:#fc2960;display:flex;align-items:center;justify-content:center}
+
+/* ===== crew ===== */
+.cw{background:#050042;padding:110px 0 120px;position:relative}
+.cg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cc{position:relative}
+.cc .fr{position:relative;aspect-ratio:3/4;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);overflow:hidden;background:#3f2095}
+.cc .fr img{width:100%;height:100%;object-fit:cover}
+.cc:nth-child(2){margin-top:56px}
+.cc .nm{position:absolute;left:0;bottom:18px;background:#fc2960;color:#050042;padding:6px 16px 6px 14px;font-weight:900;font-size:18px;line-height:1.3}
+.cc .nm small{display:block;font-family:'Bowlby One SC',sans-serif;font-size:11px;font-weight:400;letter-spacing:.08em}
+.cc p{margin:16px 6% 0;font-size:14px;line-height:1.85}
+
+/* ===== plan ===== */
+.pl{background:#efedf8;color:#050042;padding:100px 0 120px;position:relative}
+.pl .st{text-shadow:3px 3px 0 #efedf8,-1px -1px 0 #efedf8,1px -1px 0 #efedf8,-1px 1px 0 #efedf8;color:#050042}
+.pg3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.pc{background:#050042;color:#fff;padding:44px 30px 34px;position:relative;display:flex;flex-direction:column;transition:transform .4s}
+.pc:hover{transform:rotate(-1deg) translateY(-4px)}
+.pc .no{position:absolute;top:-22px;right:20px;font-family:'Bowlby One SC',sans-serif;font-size:56px;line-height:1;color:#fc2960}
+.pc h3{margin:0;font-family:'Dela Gothic One',sans-serif;font-weight:400;font-size:26px;line-height:1.35}
+.pc .en2{font-family:'Bowlby One SC',sans-serif;font-size:12px;letter-spacing:.1em;color:#ffdf00}
+.pc p{margin:14px 0 0;font-size:14px;line-height:1.85;flex:1}
+.pc ul{margin:16px 0 0;padding:0;list-style:none;font-size:14px}
+.pc li{padding:8px 0;border-top:1px dashed rgba(255,255,255,.3)}
+.pc li:before{content:"";display:inline-block;width:10px;height:10px;background:#fc2960;margin-right:10px;transform:rotate(45deg)}
+.plb{text-align:center;margin-top:44px}
+.pg a.obtn.dk{border-color:#050042;color:#050042}
+.pg a.obtn.dk:hover{background:#050042;color:#ffdf00}
+
+/* ===== footer ===== */
+.ft{position:relative;z-index:3;background:#050042;padding:66px 0 90px;color:#fff}
+.ft:before{content:"";position:absolute;top:-50px;left:0;width:50%;height:50px;background:#050042}
+.ftin{margin:0 auto;width:88%;max-width:1210px;display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap}
+.fnav{width:60%;min-width:300px}
+.fl{display:flex;flex-wrap:wrap;gap:0 28px}
+.fl[data-line="1"]{padding-left:10%}
+.fl[data-line="2"]{padding-left:15%}
+.fl[data-line="3"]{justify-content:flex-end}
+.fl[data-line="4"]{padding-left:5%}
+.fl a{display:block;padding:4px 0;font-family:'Bowlby One SC',sans-serif;font-size:clamp(30px,4.2vw,54px);letter-spacing:.03em;line-height:1.2;color:#fc2960;text-shadow:1px 1px 0 #050042,-1px 1px 0 #050042,1px -1px 0 #050042,-1px -1px 0 #050042;transition:color .6s}
+.pg .fl a{color:#fc2960}
+.pg .fl a:hover{color:#ffdf00}
+.fl a small{display:block;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:12px;letter-spacing:.1em;color:#fff;line-height:1.2}
+.fin{font-size:13px;line-height:1.9}
+.fin .flg{display:flex;align-items:center;gap:12px;font-family:'Mochiy Pop One',sans-serif;font-size:26px;margin-bottom:10px}
+.fin .flg img{width:56px;height:56px;border-radius:50%;border:2px solid #fff}
+.fin .dom{display:block;margin-top:14px;font-family:'Bowlby One SC',sans-serif;font-size:13px;letter-spacing:.08em;color:#ffdf00}
+.ptop{position:absolute;top:0;right:3%;transform:translate(0,-75%);width:88px;height:88px;display:flex;align-items:center;justify-content:center;background:#fc2960;border-radius:50%}
+
+@media(max-width:860px){
+.hd{padding:12px 16px 0;align-items:center;gap:10px}
+.lg{font-size:20px}
+.lg img{width:44px;height:44px}
+.mk{display:none}
+.hb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:60px;height:56px;margin-left:auto;cursor:pointer;background:rgba(5,0,66,.84)}
+.hb span{display:block;width:34px;height:4px;background:#fc2960}
+.hb em{font-style:normal;font-family:'Bowlby One SC',sans-serif;font-size:11px;line-height:1;color:#fc2960;letter-spacing:.06em}
+.mt:focus-visible+.hb{outline:3px solid #ffdf00}
+.mt~.nv{display:none}
+.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:0;padding:12px 20px 24px;background:#050042;border-top:4px solid #fc2960}
+.nv>a,.dd>a{align-items:flex-start;min-height:60px;font-size:22px;padding:8px 4px;border-bottom:1px solid rgba(255,255,255,.12)}
+.nv small{font-size:12px}
+.dd{flex-direction:column}
+.mt:checked~.nv .ddm{display:flex;position:static;transform:none;border:0;background:none;padding-left:20px;min-width:0}
+.ddm a{font-size:17px}
+a.fab{display:inline-flex;align-items:center;justify-content:center;position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;padding:0 24px;background:#fc2960;color:#050042;font-weight:900;font-size:16px;border:3px solid #050042;box-shadow:4px 4px 0 #ffdf00}
+.pg a.fab{color:#050042}
+.fix{display:none}
+.hero{height:auto;min-height:640px}
+.kv img{object-position:44% 30%}
+.ct{top:84px;left:4%;gap:6px}
+.ct h1{font-size:19px}
+.ct p{font-size:16px}
+.hlogo{bottom:20%;width:92%}
+.hlogo strong{font-size:16vw}
+.hlogo svg.br{width:120%}
+.sns{left:0;bottom:24px;width:70%;min-width:0;height:44px}
+.sns .mq{font-size:13px}
+.scr{right:4%;bottom:90px;min-width:44px}
+.scr svg{width:40px}
+.oa{padding:48px 16px 56px}
+.oa p.l3{font-size:14px;text-align:left}
+.pbtn{font-size:19px;width:100%}
+.nw{padding:48px 0 103px}
+.nw .sp1{width:48%}
+.nw .sp2{width:43%}
+.nwi{padding-top:33px;padding-left:56px;padding-right:16px;width:100%}
+.nwh{width:56px}
+.nwh h2{font-size:40px;transform:translateX(10px)}
+.more{left:10px}
+.ls a{padding:46px 40px 18px 16px}
+.ls time{top:10px;left:12px;margin-top:0;font-size:12px;min-width:94px}
+.ls b{font-size:13px;white-space:normal}
+.ls a:after{right:14px}
+.mvc{padding-top:72%}
+.ring{left:auto;right:6%;width:24%;min-width:84px}
+.mvt strong{letter-spacing:.2em;padding-left:.2em}
+.bl{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 0;padding:0 6px}
+.bi b{font-size:13px}
+.so{padding:64px 0 72px}
+.w{width:auto;margin:0 16px}
+.sg,.cg,.pg3{grid-template-columns:minmax(0,1fr);gap:40px}
+.sc .tx{padding:28px 20px 80px}
+.cw{padding:72px 0 80px}
+.cc:nth-child(2){margin-top:0}
+.cc .fr{aspect-ratio:4/3}
+.pl{padding:72px 0 88px}
+.ft{padding:56px 0 110px}
+.ft:before{top:-25px;height:25px}
+.ftin{width:auto;margin:0 16px}
+.fnav{width:100%;min-width:0}
+.fl a{font-size:6.8vw}
+.fl[data-line="1"],.fl[data-line="2"],.fl[data-line="4"]{padding-left:0}
+.ptop{width:60px;height:60px;right:5%}
+}
+@supports (animation-timeline: view()){
+.sc .im:after{animation:wipe linear both;animation-timeline:view();animation-range:entry 0% entry 90%}
+@keyframes wipe{from{height:100%}to{height:0} }
+}
+@media (prefers-reduced-motion:reduce){
+.pg *,.pg *:before,.pg *:after{animation:none !important;transition:none !important}
+.sc .im:after{height:0}
+}
+</style>
+</head>
+<body>
+<div class="pg">
+
+<header class="hd">
+<a class="lg" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ">reboot</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span><em>MENU</em></label><a class="fab" href="contact.html">お問い合わせ</a>
+<nav class="nv" aria-label="メインメニュー">
+<a class="on" href="#top"><small>TOP</small>トップ</a>
+<a href="contact.html"><small>CONTACT</small>受注窓口</a>
+<a href="works.html"><small>WORKS</small>作品履歴</a>
+<div class="dd"><a href="#studio" aria-haspopup="true"><small>STUDIO</small>スタジオ</a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<a href="plan.html"><small>PLAN</small>プラン</a>
+</nav>
+<div class="mk" aria-hidden="true"><i></i><i></i><i></i><b>MENU</b></div>
+</header>
+
+<section id="top" class="hero" aria-label="メインビジュアル">
+<div class="kv"><img src="images/gen/a01-hero-action.jpg" alt="巨大な鉛筆や筆、フィルムを手に跳躍する4人のアニメキャラクター"></div>
+<div class="cf" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+<div class="ct">
+<h1>アニメを、もっと楽しく！</h1>
+<p>動画<span>×</span>仕上げの依頼はrebootへ</p>
+</div>
+<div class="hlogo">
+<svg class="br" viewBox="0 0 600 240" aria-hidden="true"><path d="M20 150 C 80 40, 260 10, 420 40 C 520 58, 590 90, 580 140 C 560 200, 380 230, 220 220 C 120 214, 40 200, 20 150 Z" fill="#5b2bd6" opacity=".78"/><path d="M60 170 C 160 120, 360 90, 560 110" stroke="#fc2960" stroke-width="10" fill="none" stroke-linecap="round" opacity=".9"/></svg>
+<strong>reboot</strong>
+<em>リブート</em>
+</div>
+<a class="sns" href="contact.html" aria-label="動画・仕上げのご依頼受付中、受注窓口へ">
+<span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21l3.5-1 12-12-2.5-2.5-12 12L3 21z" fill="#050042"/><path d="M15.5 4.5l2.5-2.5 4 4-2.5 2.5z" fill="#fc2960"/></svg></span>
+<span class="mq" aria-hidden="true"><span>ORDER NOW / DOUGA &amp; SHIAGE / REBOOT ANIMATION</span><span>ORDER NOW / DOUGA &amp; SHIAGE / REBOOT ANIMATION</span></span>
+</a>
+<a class="scr" href="#news"><b>SCROLL DOWN</b><svg viewBox="0 0 64 80" aria-hidden="true"><path d="M22 4h20v40h16L32 76 6 44h16z" fill="none" stroke="#fff" stroke-width="4" stroke-linejoin="round"/></svg></a>
+</section>
+
+<a class="fix" href="contact.html"><b>動画・仕上げのご依頼</b><small>受注窓口はこちら</small></a>
+
+<section class="oa" aria-label="お知らせ">
+<p class="l1">国内×海外の2スタジオ体制で</p>
+<p class="l2">動画・仕上げ受付中！</p>
+<p class="l3">株式会社rebootは2014年設立のアニメーション制作会社です。国内スタジオ lolroute と直営の海外スタジオ reboot China が連携し、動画・仕上げをまとめてお引き受けします。</p>
+<a class="pbtn" href="contact.html">受注窓口でご相談ください</a>
+</section>
+
+<section id="news" class="nw" aria-labelledby="news-h">
+<svg class="sp1" viewBox="0 0 300 220" aria-hidden="true"><path d="M300 0v220c-40-20-60-70-110-80s-90 20-120-20S60 30 20 0z" fill="#fc2960"/><circle cx="60" cy="150" r="10" fill="#fc2960"/><circle cx="30" cy="110" r="5" fill="#fc2960"/><path d="M300 0v120c-30-10-50-50-90-60S150 30 140 0z" fill="#ffdf00"/></svg>
+<svg class="sp2" viewBox="0 0 260 200" aria-hidden="true"><path d="M0 200V20c30 30 40 70 80 80s70-10 100 30 40 50 80 70z" fill="#3f2095"/><circle cx="200" cy="80" r="9" fill="#3f2095"/><circle cx="230" cy="120" r="5" fill="#fc2960"/></svg>
+<div class="nwi">
+<div class="nwh"><h2 id="news-h">NEWS</h2><a class="more" href="works.html">MORE</a></div>
+<ul class="ls">
+<li><a href="studio-japan.html"><time datetime="2025-10-01">2025.10.01</time><b>国内スタジオ lolroute、出社スタッフの正社員率100%を継続中</b></a></li>
+<li><a href="studio-overseas.html"><time datetime="2025-08-20">2025.08.20</time><b>reboot China にて、中国の美大生向け作画トレーニングを実施しました</b></a></li>
+<li><a href="works.html"><time datetime="2025-07-10">2025.07.10</time><b>参加作品を更新しました（2025年 TVアニメ・劇場作品）</b></a></li>
+<li><a href="studio-japan.html"><time datetime="2025-06-02">2025.06.02</time><b>会社をこえたフットサル大会を開催しました</b></a></li>
+</ul>
+</div>
+</section>
+
+<section class="mv" aria-label="作品履歴">
+<a class="mvin" href="works.html">
+<div class="ring" aria-hidden="true"><svg viewBox="0 0 200 200"><defs><path id="rc" d="M100 100 m-78 0 a78 78 0 1 1 156 0 a78 78 0 1 1 -156 0"/></defs><circle cx="100" cy="100" r="98" fill="#050042"/><g class="rt"><text font-family="Bowlby One SC, sans-serif" font-size="21" fill="#fff" letter-spacing="3"><textPath href="#rc">WORKS ∞ REBOOT ∞ WORKS ∞ REBOOT ∞</textPath></text></g><circle cx="100" cy="100" r="44" fill="#fc2960"/><path d="M88 78l30 22-30 22z" fill="#050042"/></svg></div>
+<div class="mvc"><img src="images/gen/a05-works-mecha.jpg" alt="白と赤のロボットとパイロットのアニメビジュアル"></div>
+<div class="mvt"><strong>作品</strong><span>WORKS 2023-2025</span></div>
+</a>
+</section>
+<section class="bnr" aria-label="参加作品の一部">
+<div class="bl">
+<a class="bi" href="works.html"><div class="bim"><img src="images/gen/a06-works-school.jpg" alt="夕暮れの河原に立つ高校生3人と桜"></div><small>TV ANIME / 2025</small><b>作品タイトル（青春ドラマ）</b></a>
+<a class="bi" href="works.html"><div class="bim"><img src="images/gen/a08-works-sports.jpg" alt="バスケットボールのダンクシュート"></div><small>TV ANIME / 2025</small><b>作品タイトル（スポーツ）</b></a>
+<a class="bi" href="works.html"><div class="bim"><img src="images/gen/a11-works-romance.jpg" alt="ネオン街にたたずむ男女"></div><small>MOVIE / 2024</small><b>作品タイトル（恋愛）</b></a>
+<a class="bi" href="works.html"><div class="bim"><img src="images/gen/a14-works-scifi.jpg" alt="宇宙船から惑星を見るパイロット"></div><small>TV ANIME / 2023</small><b>作品タイトル（SF）</b></a>
+</div>
+<p class="bmore"><a class="obtn" href="works.html">作品履歴をすべて見る
+<svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M0 7h15M10 1l6 6-6 6" stroke="currentColor" stroke-width="3" fill="none"/></svg></a></p>
+</section>
+
+<section id="studio" class="so" aria-labelledby="studio-h">
+<div class="w">
+<h2 class="st" id="studio-h">STUDIO</h2>
+<p class="sj">ふたつのスタジオ</p>
+<div class="sg">
+<a class="sc" href="studio-japan.html"><div class="im"><img src="images/gen/p02-studio-wide.jpg" alt="机が並ぶ明るいアニメスタジオ"></div><div class="tx"><span class="tag">JAPAN</span><h3>国内スタジオ <span>lolroute</span></h3><p>2021年設立の作画スタジオ。出社スタッフは正社員率100%。専門学校での授業や地域のアニメ教室も行っています。</p><span class="go" aria-hidden="true"><svg width="18" height="14" viewBox="0 0 18 14"><path d="M0 7h15M10 1l6 6-6 6" stroke="#050042" stroke-width="3" fill="none"/></svg></span></div></a>
+<a class="sc" href="studio-overseas.html"><div class="im"><img src="images/gen/p05-china-studio.jpg" alt="中国の都市にあるアニメスタジオ"></div><div class="tx"><span class="tag">OVERSEAS</span><h3>海外スタジオ <span>reboot China</span></h3><p>2016年設立の直営スタジオ。数カ月に一度、社員が現地で指導。マルチリンガルの作画スタッフが国内とつなぎます。</p><span class="go" aria-hidden="true"><svg width="18" height="14" viewBox="0 0 18 14"><path d="M0 7h15M10 1l6 6-6 6" stroke="#050042" stroke-width="3" fill="none"/></svg></span></div></a>
+</div>
+</div>
+</section>
+
+<section class="cw" aria-labelledby="crew-h">
+<div class="w">
+<h2 class="st" id="crew-h">CREW</h2>
+<p class="sj">現場をつくる人たち</p>
+<div class="cg">
+<div class="cc"><div class="fr"><img src="images/gen/p09-man-portrait.jpg" alt="机の前で笑う男性アニメーター"></div><span class="nm"><small>ANIMATOR</small>動画</span><p>原画と原画のあいだを描き、動きをなめらかにつなぎます。</p></div>
+<div class="cc"><div class="fr"><img src="images/gen/p10-woman-tablet.jpg" alt="ペンタブレットを持つ女性の色彩担当"></div><span class="nm"><small>FINISHING</small>仕上げ</span><p>色指定にそって線画に色をのせ、画面を完成に近づけます。</p></div>
+<div class="cc"><div class="fr"><img src="images/gen/p25-producer-portrait.jpg" alt="黒いジャケットの男性プロデューサー"></div><span class="nm"><small>PRODUCER</small>制作</span><p>国内と海外のスタジオをつなぎ、スケジュールと品質を守ります。</p></div>
+</div>
+</div>
+</section>
+
+<section class="pl" aria-labelledby="plan-h">
+<div class="w">
+<h2 class="st" id="plan-h">PLAN</h2>
+<p class="sj">作業プラン</p>
+<div class="pg3">
+<a class="pc" href="plan.html"><span class="no" aria-hidden="true">01</span><span class="en2">DOUGA</span><h3>動画プラン</h3><p>中割り・クリーンアップをお引き受けします。話数単位・カット単位のどちらでも。</p><ul><li>国内スタジオで対応</li><li>[料金・納期の目安]</li></ul></a>
+<a class="pc" href="plan.html"><span class="no" aria-hidden="true">02</span><span class="en2">SHIAGE</span><h3>仕上げプラン</h3><p>色指定にもとづくペイント・特効まで。国内と海外の連携で物量にも対応します。</p><ul><li>国内／海外スタジオで対応</li><li>[料金・納期の目安]</li></ul></a>
+<a class="pc" href="plan.html"><span class="no" aria-hidden="true">03</span><span class="en2">DOUGA + SHIAGE</span><h3>動画＋仕上げ一括</h3><p>動画から仕上げまでをまとめて。窓口がひとつなので、やりとりがシンプルです。</p><ul><li>2スタジオ連携</li><li>[料金・納期の目安]</li></ul></a>
+</div>
+<p class="plb"><a class="obtn dk" href="plan.html">プランの詳細を見る
+<svg width="18" height="14" viewBox="0 0 18 14" aria-hidden="true"><path d="M0 7h15M10 1l6 6-6 6" stroke="currentColor" stroke-width="3" fill="none"/></svg></a></p>
+</div>
+</section>
+
+<footer class="ft">
+<a class="ptop" href="#top" aria-label="ページの先頭へ"><svg width="26" height="30" viewBox="0 0 26 30" aria-hidden="true"><path d="M13 2v26M2 13L13 2l11 11" stroke="#050042" stroke-width="4" fill="none"/></svg></a>
+<div class="ftin">
+<nav class="fnav" aria-label="フッターメニュー">
+<div class="fl" data-line="1"><a href="#top"><small>トップ</small>TOP</a><a href="contact.html"><small>受注窓口</small>CONTACT</a></div>
+<div class="fl" data-line="2"><a href="works.html"><small>作品履歴</small>WORKS</a></div>
+<div class="fl" data-line="3"><a href="studio-japan.html"><small>国内スタジオ</small>STUDIO JAPAN</a></div>
+<div class="fl" data-line="4"><a href="studio-overseas.html"><small>海外スタジオ</small>STUDIO OVERSEAS</a><a href="plan.html"><small>プラン</small>PLAN</a></div>
+</nav>
+<div class="fin">
+<div class="flg">reboot</div>
+株式会社reboot<br>東京都杉並区上荻1-5-8 直長ビル6F
+<span class="dom">© REBOOT INC.</span>
+</div>
+</div>
+</footer>
+
+</div>
+<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+</body>
+</html>
