@@ -6,7 +6,7 @@
 
   /* ---------- オープニング（黒い幕＋回転する円の文字 → 5本の幕が順に上へ） ---------- */
   function intro() {
-    if (reduce) return;
+    return; /* オープニング・ページ移動の幕は使わない */
     var box = document.createElement('div');
     box.className = 'g-in';
     box.setAttribute('aria-hidden', 'true');

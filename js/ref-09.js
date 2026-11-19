@@ -20,7 +20,7 @@
       if (hd) hd.classList.remove('pre');
     }, t2);
   }
-  if (reduce) {
+  if (true) { /* ローディングは使わない */
     kvi.concat(kvf).forEach(function (el) { el.classList.add('on'); });
   } else {
     if (hd) hd.classList.add('pre');

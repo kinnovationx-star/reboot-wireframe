@@ -37,7 +37,7 @@
   function showHero() { if (hc) hc.classList.add('go'); }
 
   /* ローディング */
-  if (reduce) { showHero(); } else {
+  if (true) { showHero(); } else { /* ローディングは使わない */
     var ld = document.createElement('div');
     ld.className = 'ld'; ld.setAttribute('aria-hidden', 'true');
     ld.innerHTML = '<div class="up"><span class="cube cb q2"></span></div><div class="bar"></div><div class="lo"><span class="pc">00</span></div>';

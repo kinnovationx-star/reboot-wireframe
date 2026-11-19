@@ -104,7 +104,10 @@
     });
     d.querySelectorAll('.pg .fl').forEach(function (el) { el.classList.add('-move'); });
   } else {
-    /* ローディング（参考：.l_loading 赤地にギザギザの星と LOADING...） */
+    /* ローディングは使わない：すぐにファーストビューを出す */
+    opening();
+  }
+  if (false) {
     var ld = d.createElement('div');
     ld.className = 'ld';
     ld.setAttribute('aria-hidden', 'true');

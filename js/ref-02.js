@@ -12,7 +12,7 @@
   var seen = false;
   try { seen = sessionStorage.getItem('rb-op') === '1'; sessionStorage.setItem('rb-op', '1'); } catch (e) {}
   function opEnd() { html.classList.add('op-end'); }
-  if (reduce || seen) {
+  if (true) { /* ローディング（オープニング）は使わない */
     opEnd();
   } else {
     var op = d.createElement('div');
