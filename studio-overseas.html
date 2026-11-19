@@ -64,6 +64,98 @@ a[style*="min-height:180px"]>.ph{min-height:140px}
 .stat{font-size:24px!important}
 .qa{padding:16px!important}
 }
+
+/* v2 */
+.hd{display:flex;flex-direction:column;gap:6px}
+.dl{display:grid;grid-template-columns:200px minmax(0,1fr);border-top:2px solid #1a1a1a;margin:0}
+.dl dt,.dl dd{margin:0;padding:14px 0;border-bottom:1px solid #c9c9c4;font-size:14px;min-width:0}
+.dl dt{font-weight:700;padding-right:16px}
+.flow{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:28px;list-style:none;margin:0;padding:0;counter-reset:f}
+.flow li{position:relative;border:2px solid #1a1a1a;background:#fff;padding:14px 14px 16px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:#444;min-width:0}
+.flow li b{font-size:15px;color:#1a1a1a;line-height:1.45}
+.flow li::before{counter-increment:f;content:counter(f,decimal-leading-zero);font-weight:900;font-size:12px;color:#1a1a1a;background:#a6f03c;align-self:flex-start;padding:0 6px;letter-spacing:.05em}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-21px;top:50%;border:7px solid transparent;border-left:10px solid #1a1a1a;transform:translateY(-50%)}
+.nums{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+.nums>div{padding:20px 18px;border-left:1px solid #c9c9c4;display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums>div:first-child{border-left:0;padding-left:0}
+.nums span{font-size:13px;color:#444}.nums b{font-size:30px;font-weight:900;line-height:1.25}
+.nums small{font-size:12px;color:#555}
+.ol{list-style:none;margin:0;padding:0;border-top:2px solid #1a1a1a}
+.ol li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #c9c9c4;align-items:baseline}
+.ol li>i{font-style:normal;font-weight:900;font-size:24px;line-height:1.2}
+.ol li b{display:block;font-size:16px}.ol li p{margin:4px 0 0;font-size:14px;color:#444}
+.ol li a{font-weight:700}
+.pg{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:16px}
+.pg figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pg img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:2px solid #1a1a1a;box-sizing:border-box}
+.pg figcaption{font-size:12px;color:#444}
+img.im{width:100%;height:100%;object-fit:cover;display:block}
+.cta{background:#a6f03c;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+.cta .bt{background:#fff}
+.tel{font-size:40px;font-weight:900;line-height:1.2;letter-spacing:.02em}
+.ty{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:2px solid #1a1a1a}
+.ty a{display:flex;flex-direction:column;gap:4px;padding:18px 16px;border-left:1px solid #1a1a1a;min-height:120px;box-sizing:border-box;background:#fff}
+.ty a:first-child{border-left:0}
+.ty a:hover{background:#eefad6;color:#1a1a1a}
+.ty i{font-style:normal;font-size:12px;font-weight:700;color:#555}
+.ty b{font-size:15px;line-height:1.45}.ty span{font-size:12px;color:#444;margin-top:auto}
+.ck{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;font-weight:400}
+.ck label{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.ck input{width:20px;height:20px;margin:0}
+.op{font-size:11px;border:1px solid #1a1a1a;color:#1a1a1a;padding:0 7px;margin-left:8px;border-radius:2px;font-weight:700}
+.fx{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fx>div{border:2px solid #1a1a1a;background:#fff;padding:14px 20px;display:flex;flex-direction:column;min-width:0}
+.fx>div span{font-size:12px;color:#555}.fx>div b{font-size:22px;font-weight:900}
+.fx>em{font-style:normal;font-size:26px;font-weight:900}
+.fx>div.eq{background:#a6f03c}
+.ftab{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 16px;align-items:center;border-top:2px solid #1a1a1a;border-bottom:1px solid #c9c9c4;padding:16px 0}
+.ftab>span{font-size:13px;font-weight:700}
+.ftab>div{display:flex;gap:8px;flex-wrap:wrap}
+.tab.on{background:#a6f03c}
+.tab{background:#fff}
+.wg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 16px}
+.wc{display:flex;flex-direction:column;gap:4px;min-width:0}
+.wc img,.wc .ni{width:100%;aspect-ratio:40/21;object-fit:contain;background:#f6fdea;border:1px solid #1a1a1a;box-sizing:border-box;display:block}
+.wc .ni{display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;border-style:dashed;padding:6px;text-align:center;line-height:1.5}
+.wc img{height:auto}
+.wc b{font-size:13px;line-height:1.5;font-weight:700;overflow-wrap:anywhere}
+.wc span{font-size:11px;color:#555;line-height:1.5}
+.yh{display:flex;align-items:baseline;gap:14px;margin:0;padding-bottom:8px;border-bottom:2px solid #1a1a1a}
+.yh b{font-size:32px;font-weight:900;line-height:1}
+.yh span{font-size:13px;color:#555}
+.ptab{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff}
+.ptab th,.ptab td{border:1px solid #1a1a1a;padding:14px 16px;font-size:14px;text-align:left;vertical-align:top}
+.ptab thead th{background:#eefad6}
+.pc dl{margin:0;display:flex;flex-direction:column;border-top:1px solid #1a1a1a}
+.pc dt{font-size:12px;color:#555;padding-top:10px}
+.pc dd{margin:0;padding-bottom:10px;border-bottom:1px solid #c9c9c4;font-size:14px;font-weight:500}
+@media(max-width:1100px){.wg{grid-template-columns:repeat(4,minmax(0,1fr))}.ty{grid-template-columns:repeat(3,minmax(0,1fr))}.ty a:nth-child(4){border-left:0}.ty a:nth-child(n+4){border-top:1px solid #1a1a1a}}
+@media(max-width:860px){
+.dl{grid-template-columns:minmax(0,1fr)!important}
+.dl dt{border-bottom:0!important;padding:12px 0 0!important}
+.dl dd{padding:2px 0 12px!important}
+.flow{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
+.flow li:not(:last-child)::after{right:auto;left:22px;top:auto;bottom:-20px;transform:none;border:7px solid transparent;border-top:10px solid #1a1a1a}
+.nums{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.nums>div{border-left:0!important;border-bottom:1px solid #c9c9c4;padding:14px 8px 14px 0!important}
+.nums b{font-size:24px}
+.ol li{grid-template-columns:44px minmax(0,1fr)!important;gap:10px!important}
+.ol li>i{font-size:18px}
+.pg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+.tel{font-size:28px}
+.ty{grid-template-columns:minmax(0,1fr)!important}
+.ty a{border-left:0!important;border-top:1px solid #1a1a1a;min-height:0}
+.ty a:first-child{border-top:0}
+.fx>em{font-size:20px}
+.fx>div{padding:10px 14px}.fx>div b{font-size:18px}
+.ftab{grid-template-columns:minmax(0,1fr)!important}
+.wg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 12px!important}
+.yh b{font-size:24px}
+.ptab th,.ptab td{padding:10px 8px!important;font-size:12px!important}
+.sp2{grid-template-columns:minmax(0,1fr)!important}
+.ml{border-left:0!important;padding-left:0!important;border-top:1px solid #c9c9c4}
+}
+@media(min-width:600px) and (max-width:860px){.wg{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 </style>
 </head>
 <body>
@@ -82,72 +174,48 @@ a[style*="min-height:180px"]>.ph{min-height:140px}
 </nav>
 </header>
 
-<section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f3f3f1;display:flex;align-items:center">
+<section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f6fdea;display:flex;align-items:center">
 <div class="in" style="width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
 <div><div style="font-size:12px;color:#555">トップ ＞ スタジオ ＞ 海外スタジオ</div><p class="en" style="margin-top:12px">OVERSEAS STUDIO</p><h1 style="margin:0;font-size:36px;font-weight:900">海外スタジオ<span class="kari">仮の文章</span></h1></div>
-<div style="display:flex"><a href="studio-japan.html" style="min-height:44px;padding:0 24px;display:inline-flex;align-items:center;border:2px solid #1a1a1a;background:#fff;font-weight:700;font-size:14px">国内スタジオ</a><span style="min-height:44px;padding:0 24px;display:inline-flex;align-items:center;border:2px solid #1a1a1a;background:#1a1a1a;color:#fff;font-weight:700;font-size:14px">海外スタジオ</span></div>
+<div style="display:flex"><a href="studio-japan.html" style="min-height:44px;padding:0 24px;display:inline-flex;align-items:center;border:2px solid #1a1a1a;background:#fff;font-weight:700;font-size:14px">国内スタジオ</a><span style="min-height:44px;padding:0 24px;display:inline-flex;align-items:center;border:2px solid #1a1a1a;background:#a6f03c;font-weight:700;font-size:14px">海外スタジオ</span></div>
 </div>
 </section>
 
-<section style="min-height:480px;box-sizing:border-box;padding:64px 40px">
-<div class="in" style="display:flex;gap:56px;align-items:center;flex-wrap:wrap">
-<div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:14px">
-<h2 class="h2">直営海外スタジオ reboot China<span class="kari">仮の文章</span></h2>
-<p style="margin:0;font-size:15px">2016年に設立した弊社の仕事のみを行う直営スタジオ。数カ月に一度reboot社員が現場へ行き、直接指導や会議を実施しております。</p>
-<div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;font-size:13px"><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">設立</div><b>2016年</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">形態</div><b>reboot直営</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">所在地</div><b>中国〇〇</b></div><div style="border:1px solid #1a1a1a;padding:12px"><div style="color:#555">スタッフ</div><b>〇〇名</b></div></div>
-</div>
-<div class="ph" style="flex:1 1 400px;height:340px">スタジオ外観・メイン写真</div>
+<section style="box-sizing:border-box;padding:64px 40px">
+<div class="in sp2" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start"><div style="display:flex;flex-direction:column;gap:16px;min-width:0"><div class="hd"><p class="en">OVERVIEW</p><h2 class="h2">直営海外スタジオ reboot China<span class="kari">仮の文章</span></h2></div><p style="margin:0;font-size:18px;font-weight:700;line-height:1.6">rebootの仕事だけを行う、直営のスタジオです。</p><p style="margin:0;font-size:14px">2016年に設立。数カ月に一度reboot社員が現場へ行き、直接指導や会議を実施しております。</p><dl class="dl"><dt>運営会社名</dt><dd>〇〇</dd><dt>都市</dt><dd>中国〇〇</dd><dt>設立</dt><dd>2016年</dd><dt>形態</dt><dd>reboot直営</dd></dl></div><div style="border:2px solid #1a1a1a;aspect-ratio:4/3;min-width:0"><img class="im" src="images/off/g012.jpg" alt="reboot China 社内"></div></div>
+</section>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">TEAM</p><h2 class="h2">体制<span class="kari">仮の文章</span></h2></div><div class="nums" style="--n:4"><div><span>動画</span><b>〇〇名</b></div><div><span>仕上げ</span><b>〇〇名</b></div><div><span>進行・窓口</span><b>〇〇名</b></div><div><span>月間の対応枚数</span><b>〇〇,〇〇〇枚</b><small>国内と分担</small></div></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">品質を守る仕組み<span class="kari">仮の文章</span></h2>
-<div class="cg">
-<div class="cd"><span class="num">01</span><b>社員が現地で直接指導</b><p class="sm">数カ月に一度、reboot社員が現地へ行き、直接指導や会議を行っています。</p></div>
-<div class="cd"><span class="num">02</span><b>マルチリンガルの作画スタッフ</b><p class="sm">日本語のわかる作画スタッフが、国内スタジオとのやりとりをつなぎます。</p></div>
-<div class="cd"><span class="num">03</span><b>国内スタジオで検査・フィードバック</b><p class="sm">国内スタジオと連携し、検査とフィードバックを重ねてから納品します。</p></div>
-<div class="cd"><span class="num">04</span><b>美術大学と連携した育成</b><p class="sm">中国の美術大学と連携し、作画スタッフを育てています。</p></div>
-</div>
-</div>
-</section>
-
 <section style="box-sizing:border-box;padding:56px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:16px">
-<h2 class="h2" style="margin-bottom:8px">海外に出すときの不安にお答えします<span class="kari">仮の文章</span></h2>
-<div class="qa"><b>品質は国内と同じですか？</b><p>直営のため、社員が現地で直接指導しています。国内スタジオで検査してから納品します。</p></div>
-<div class="qa"><b>納期は守れますか？</b><p>国内スタジオと作業を振り分けながら、ご希望の納期に合わせて進めます（〇〇）。</p></div>
-<div class="qa"><b>連絡は取りやすいですか？</b><p>窓口は国内のrebootです。マルチリンガルのスタッフが現地との間に入ります。</p></div>
-<div class="qa"><b>データの管理はどうしていますか？</b><p>〇〇の方法で管理しています。詳しくはお問い合わせください。</p></div>
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">WORKFLOW</p><h2 class="h2">日本側との連携<span class="kari">仮の文章</span></h2></div><ol class="flow" style="--n:4"><li><b>作業指示</b>日本から注意事項とともに</li><li><b>作業</b>reboot China で動画・仕上げ</li><li><b>国内で検査</b>lolroute で動画検査・色指定検査</li><li><b>納品</b>rebootから納品</li></ol><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px" class="sp2"><dl class="dl"><dt>日本語の窓口</dt><dd>ご連絡は国内のrebootが受けます。中国側と直接やりとりする必要はありません。</dd></dl><dl class="dl"><dt>マルチリンガルの作画スタッフ</dt><dd>日本語のわかる作画スタッフが、国内とのやりとりをつなぎます。</dd></dl></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">対応量と対応作業<span class="kari">仮の文章</span></h2>
-<div class="cg">
-<div class="cd"><b>月間の対応量</b><span class="stat">〇〇,〇〇〇枚</span><p class="sm">枚数の多い作品も、国内と分けて進められます。</p></div>
-<div class="cd"><b>対応作業</b><div style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip">動画</span><span class="chip">仕上げ</span></div><p class="sm">※動画検査・色指定検査は国内作業のみとなっております。</p></div>
-</div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">QUALITY</p><h2 class="h2">品質を保つ仕組み<span class="kari">仮の文章</span></h2></div><ul class="ol"><li><i>01</i><div><b>社員が数カ月に一度、現地で指導</b><p>reboot社員が現場へ行き、直接指導や会議を行っています。</p></div></li><li><i>02</i><div><b>日本基準の注意事項</b><p>作品ごとの注意事項を日本側でまとめて共有します（〇〇）。</p></div></li><li><i>03</i><div><b>国内での動画検査</b><p>上がりはすべて国内スタジオで検査し、フィードバックしてから納品します。</p></div></li><li><i>04</i><div><b>美術大学と連携した育成</b><p>中国の美術大学と連携し、作画スタッフを育てています。</p></div></li></ul>
 </div>
 </section>
-
-<section style="min-height:360px;box-sizing:border-box;padding:56px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">reboot Chinaの様子<span class="kari">仮の文章</span></h2>
-<p class="lead">現地のスタッフが、rebootの作品だけを担当しています。</p>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px"><div class="ph" style="height:180px">スタジオ写真1（作業フロア）</div><div class="ph" style="height:180px">スタジオ写真2（指導の様子）</div><div class="ph" style="height:180px">スタジオ写真3（会議）</div><div class="ph" style="height:180px">スタジオ写真4（スタッフ）</div></div>
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">SECURITY</p><h2 class="h2">セキュリティ<span class="kari">仮の文章</span></h2></div><dl class="dl"><dt>データの扱い</dt><dd>〇〇（作品データの保管場所・アクセス権限）</dd><dt>NDA</dt><dd>NDA の事前締結に対応します（〇〇）</dd><dt>通信環境</dt><dd>〇〇（専用回線・〇〇）</dd><dt>持ち出し</dt><dd>〇〇</dd></dl>
 </div>
 </section>
-
-<section style="min-height:320px;box-sizing:border-box;padding:56px 40px;background:#f3f3f1;display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:24px">
-<div class="in" style="width:100%;display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">もうひとつのスタジオと、ご相談<span class="kari">仮の文章</span></h2>
-<div style="width:100%;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px">
-<a href="studio-japan.html" style="display:flex;border:2px solid #1a1a1a;background:#fff;min-height:180px"><span class="ph" style="flex:1">国内スタジオ写真</span><span style="flex:1;padding:24px;display:flex;flex-direction:column;justify-content:center"><span class="en">NEXT</span><span style="font-size:20px;font-weight:700">国内スタジオを見る →</span></span></a>
-<div style="background:#1a1a1a;min-height:180px;padding:24px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center"><div style="font-size:20px;font-weight:700;color:#fff">海外での作業のご依頼は受注窓口へ</div><a class="bt" href="contact.html">受注窓口へ</a></div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">STUDIO</p><h2 class="h2">スタジオの様子<span class="kari">仮の文章</span></h2></div><div class="pg" style="--n:5"><figure><img src="images/off/g001.jpg" alt="reboot China のサイン" loading="lazy"><figcaption>reboot China のサイン</figcaption></figure><figure><img src="images/off/g013.jpg" alt="作業するスタッフ" loading="lazy"><figcaption>作業するスタッフ</figcaption></figure><figure><img src="images/off/g014.jpg" alt="社内の様子" loading="lazy"><figcaption>社内の様子</figcaption></figure><figure><img src="images/off/g015.jpg" alt="社内の様子" loading="lazy"><figcaption>社内の様子</figcaption></figure><figure><img src="images/off/g016.jpg" alt="社内の様子" loading="lazy"><figcaption>社内の様子</figcaption></figure></div>
 </div>
+</section>
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">DOMESTIC STUDIO</p><h2 class="h2">国内スタジオ<span class="kari">仮の文章</span></h2></div><a href="studio-japan.html" style="display:grid;grid-template-columns:240px minmax(0,1fr);border:2px solid #1a1a1a;background:#fff;min-height:150px" class="sp2"><span style="display:block;min-height:150px"><img class="im" src="images/off/g002.jpg" alt="lolroute の入口" loading="lazy"></span><span style="padding:24px;display:flex;flex-direction:column;justify-content:center;gap:4px"><span class="en">DOMESTIC STUDIO</span><span style="font-size:20px;font-weight:700">国内スタジオ lolroute を見る →</span><span style="font-size:13px;color:#444">検査・リテイク・急ぎ案件を担う国内拠点</span></span></a>
 </div>
+</section>
+<section class="cta" style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 420px"><h2 class="h2">海外での作業のご依頼は受注窓口へ<span class="kari">仮の文章</span></h2><p style="margin:0;font-size:14px">枚数の多い話数も、国内と分担して進められます。返信の目安：〇営業日以内</p></div><a class="bt" href="contact.html" style="min-width:240px">受注窓口へ</a></div>
 </section>
 
 <footer style="min-height:200px;box-sizing:border-box;padding:48px 40px;border-top:2px solid #1a1a1a">

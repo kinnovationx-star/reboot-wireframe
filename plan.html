@@ -66,6 +66,98 @@ div[style*="minmax(200px"]>div{padding:14px!important}
 .qa{padding:16px!important}
 table .td{padding:10px 8px!important;font-size:13px!important}
 }
+
+/* v2 */
+.hd{display:flex;flex-direction:column;gap:6px}
+.dl{display:grid;grid-template-columns:200px minmax(0,1fr);border-top:2px solid #1a1a1a;margin:0}
+.dl dt,.dl dd{margin:0;padding:14px 0;border-bottom:1px solid #c9c9c4;font-size:14px;min-width:0}
+.dl dt{font-weight:700;padding-right:16px}
+.flow{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:28px;list-style:none;margin:0;padding:0;counter-reset:f}
+.flow li{position:relative;border:2px solid #1a1a1a;background:#fff;padding:14px 14px 16px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:#444;min-width:0}
+.flow li b{font-size:15px;color:#1a1a1a;line-height:1.45}
+.flow li::before{counter-increment:f;content:counter(f,decimal-leading-zero);font-weight:900;font-size:12px;color:#1a1a1a;background:#a6f03c;align-self:flex-start;padding:0 6px;letter-spacing:.05em}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-21px;top:50%;border:7px solid transparent;border-left:10px solid #1a1a1a;transform:translateY(-50%)}
+.nums{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+.nums>div{padding:20px 18px;border-left:1px solid #c9c9c4;display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums>div:first-child{border-left:0;padding-left:0}
+.nums span{font-size:13px;color:#444}.nums b{font-size:30px;font-weight:900;line-height:1.25}
+.nums small{font-size:12px;color:#555}
+.ol{list-style:none;margin:0;padding:0;border-top:2px solid #1a1a1a}
+.ol li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #c9c9c4;align-items:baseline}
+.ol li>i{font-style:normal;font-weight:900;font-size:24px;line-height:1.2}
+.ol li b{display:block;font-size:16px}.ol li p{margin:4px 0 0;font-size:14px;color:#444}
+.ol li a{font-weight:700}
+.pg{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:16px}
+.pg figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pg img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:2px solid #1a1a1a;box-sizing:border-box}
+.pg figcaption{font-size:12px;color:#444}
+img.im{width:100%;height:100%;object-fit:cover;display:block}
+.cta{background:#a6f03c;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+.cta .bt{background:#fff}
+.tel{font-size:40px;font-weight:900;line-height:1.2;letter-spacing:.02em}
+.ty{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:2px solid #1a1a1a}
+.ty a{display:flex;flex-direction:column;gap:4px;padding:18px 16px;border-left:1px solid #1a1a1a;min-height:120px;box-sizing:border-box;background:#fff}
+.ty a:first-child{border-left:0}
+.ty a:hover{background:#eefad6;color:#1a1a1a}
+.ty i{font-style:normal;font-size:12px;font-weight:700;color:#555}
+.ty b{font-size:15px;line-height:1.45}.ty span{font-size:12px;color:#444;margin-top:auto}
+.ck{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;font-weight:400}
+.ck label{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.ck input{width:20px;height:20px;margin:0}
+.op{font-size:11px;border:1px solid #1a1a1a;color:#1a1a1a;padding:0 7px;margin-left:8px;border-radius:2px;font-weight:700}
+.fx{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fx>div{border:2px solid #1a1a1a;background:#fff;padding:14px 20px;display:flex;flex-direction:column;min-width:0}
+.fx>div span{font-size:12px;color:#555}.fx>div b{font-size:22px;font-weight:900}
+.fx>em{font-style:normal;font-size:26px;font-weight:900}
+.fx>div.eq{background:#a6f03c}
+.ftab{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 16px;align-items:center;border-top:2px solid #1a1a1a;border-bottom:1px solid #c9c9c4;padding:16px 0}
+.ftab>span{font-size:13px;font-weight:700}
+.ftab>div{display:flex;gap:8px;flex-wrap:wrap}
+.tab.on{background:#a6f03c}
+.tab{background:#fff}
+.wg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 16px}
+.wc{display:flex;flex-direction:column;gap:4px;min-width:0}
+.wc img,.wc .ni{width:100%;aspect-ratio:40/21;object-fit:contain;background:#f6fdea;border:1px solid #1a1a1a;box-sizing:border-box;display:block}
+.wc .ni{display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;border-style:dashed;padding:6px;text-align:center;line-height:1.5}
+.wc img{height:auto}
+.wc b{font-size:13px;line-height:1.5;font-weight:700;overflow-wrap:anywhere}
+.wc span{font-size:11px;color:#555;line-height:1.5}
+.yh{display:flex;align-items:baseline;gap:14px;margin:0;padding-bottom:8px;border-bottom:2px solid #1a1a1a}
+.yh b{font-size:32px;font-weight:900;line-height:1}
+.yh span{font-size:13px;color:#555}
+.ptab{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff}
+.ptab th,.ptab td{border:1px solid #1a1a1a;padding:14px 16px;font-size:14px;text-align:left;vertical-align:top}
+.ptab thead th{background:#eefad6}
+.pc dl{margin:0;display:flex;flex-direction:column;border-top:1px solid #1a1a1a}
+.pc dt{font-size:12px;color:#555;padding-top:10px}
+.pc dd{margin:0;padding-bottom:10px;border-bottom:1px solid #c9c9c4;font-size:14px;font-weight:500}
+@media(max-width:1100px){.wg{grid-template-columns:repeat(4,minmax(0,1fr))}.ty{grid-template-columns:repeat(3,minmax(0,1fr))}.ty a:nth-child(4){border-left:0}.ty a:nth-child(n+4){border-top:1px solid #1a1a1a}}
+@media(max-width:860px){
+.dl{grid-template-columns:minmax(0,1fr)!important}
+.dl dt{border-bottom:0!important;padding:12px 0 0!important}
+.dl dd{padding:2px 0 12px!important}
+.flow{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
+.flow li:not(:last-child)::after{right:auto;left:22px;top:auto;bottom:-20px;transform:none;border:7px solid transparent;border-top:10px solid #1a1a1a}
+.nums{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.nums>div{border-left:0!important;border-bottom:1px solid #c9c9c4;padding:14px 8px 14px 0!important}
+.nums b{font-size:24px}
+.ol li{grid-template-columns:44px minmax(0,1fr)!important;gap:10px!important}
+.ol li>i{font-size:18px}
+.pg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+.tel{font-size:28px}
+.ty{grid-template-columns:minmax(0,1fr)!important}
+.ty a{border-left:0!important;border-top:1px solid #1a1a1a;min-height:0}
+.ty a:first-child{border-top:0}
+.fx>em{font-size:20px}
+.fx>div{padding:10px 14px}.fx>div b{font-size:18px}
+.ftab{grid-template-columns:minmax(0,1fr)!important}
+.wg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 12px!important}
+.yh b{font-size:24px}
+.ptab th,.ptab td{padding:10px 8px!important;font-size:12px!important}
+.sp2{grid-template-columns:minmax(0,1fr)!important}
+.ml{border-left:0!important;padding-left:0!important;border-top:1px solid #c9c9c4}
+}
+@media(min-width:600px) and (max-width:860px){.wg{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 </style>
 </head>
 <body>
@@ -84,88 +176,42 @@ table .td{padding:10px 8px!important;font-size:13px!important}
 </nav>
 </header>
 
-<section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f3f3f1;display:flex;align-items:center">
+<section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f6fdea;display:flex;align-items:center">
 <div class="in" style="width:100%"><div style="font-size:12px;color:#555">トップ ＞ プラン</div><p class="en" style="margin-top:12px">PLAN</p><h1 style="margin:0;font-size:36px;font-weight:900">作業プラン<span class="kari">仮の文章</span></h1><p style="margin:8px 0 0;font-size:15px">作品と作業量に合わせて選べる3つのプラン</p></div>
 </section>
 
-<section style="box-sizing:border-box;padding:64px 40px">
+<section style="box-sizing:border-box;padding:56px 40px">
 <div class="in" style="display:flex;flex-direction:column;gap:28px">
-<h2 class="h2">プラン比較<span class="kari">仮の文章</span></h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:24px">
-<div class="pc"><div class="en">PLAN 1</div><div style="font-size:22px;font-weight:700">動画プラン</div><div style="font-size:26px;font-weight:900;line-height:1.3">1枚 〇〇円〜</div><div style="font-size:13px;color:#555">納期の目安：〇〇日〜</div><div style="font-size:13px;font-weight:700;margin-top:4px">含まれる作業</div><ul style="margin:0;padding-left:1.2em;font-size:14px"><li>動画</li><li>動画のチェック</li></ul><div style="flex:1"></div><a class="bo" href="contact.html">このプランで相談する</a></div>
-<div class="pc" style='border-width:4px'><div class="en" style="color:#1a1a1a"><span style="background:#a6f03c;padding:2px 8px">おすすめ</span> PLAN 2</div><div style="font-size:22px;font-weight:700">動画＋仕上げ 一括プラン</div><div style="font-size:26px;font-weight:900;line-height:1.3">1枚 〇〇円〜</div><div style="font-size:13px;color:#555">納期の目安：〇〇日〜</div><div style="font-size:13px;font-weight:700;margin-top:4px">含まれる作業</div><ul style="margin:0;padding-left:1.2em;font-size:14px"><li>動画</li><li>仕上げ</li><li>動画検査・色指定検査（国内）</li></ul><div style="flex:1"></div><a class="bt" href="contact.html" style="min-height:48px">このプランで相談する</a></div>
-<div class="pc"><div class="en">PLAN 3</div><div style="font-size:22px;font-weight:700">仕上げプラン</div><div style="font-size:26px;font-weight:900;line-height:1.3">1枚 〇〇円〜</div><div style="font-size:13px;color:#555">納期の目安：〇〇日〜</div><div style="font-size:13px;font-weight:700;margin-top:4px">含まれる作業</div><ul style="margin:0;padding-left:1.2em;font-size:14px"><li>仕上げ</li><li>仕上げのチェック</li></ul><div style="flex:1"></div><a class="bo" href="contact.html">このプランで相談する</a></div>
-</div>
-<p class="sm">※料金・納期は作品の内容によって変わります。まずはお見積りをご依頼ください。</p>
+<div class="hd"><p class="en">PLANS</p><h2 class="h2">プラン一覧<span class="kari">仮の文章</span></h2><p class="lead" style="margin-top:6px">納期と量に合わせて、3つのプランからお選びいただけます。</p></div><div class="ty" style="grid-template-columns:repeat(3,minmax(0,1fr))"><a href="#p1"><i>PLAN 1</i><b style="font-size:20px">急ぎ対応</b><span>UPまで日数がない話数・カットに　詳しく ↓</span></a><a href="#p2"><i>PLAN 2</i><b style="font-size:20px">話数単位</b><span>1話分の動画・仕上げをまとめて　詳しく ↓</span></a><a href="#p3"><i>PLAN 3</i><b style="font-size:20px">継続・グロス</b><span>シリーズを通して、または工程をまとめて　詳しく ↓</span></a></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">オプション<span class="kari">仮の文章</span></h2>
-<div class="cg">
-<div class="cd"><b>特急対応</b><p class="sm">納期の短い話数に、優先して人員を割り当てます（〇〇）。</p></div>
-<div class="cd"><b>動画検査</b><p class="sm">国内スタジオで動画を検査します。国内作業のみ。</p></div>
-<div class="cd"><b>色指定検査</b><p class="sm">国内スタジオで色指定どおりか検査します。国内作業のみ。</p></div>
-<div class="cd"><b>線撮 など</b><p class="sm">線撮・レイアウト・作監などもご相談ください（〇〇）。</p></div>
-</div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">DETAIL</p><h2 class="h2">各プランの中身<span class="kari">仮の文章</span></h2></div><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px" class="sp2"><div class="pc" id="p1" style="min-width:0;box-sizing:border-box"><div class="en">PLAN 1</div><div style="font-size:22px;font-weight:700;line-height:1.4">急ぎ対応</div><dl><dt>対応工程</dt><dd>動画／仕上げ</dd><dt>処理量の目安</dt><dd>〇〇枚／〇〇時間</dd><dt>担当拠点</dt><dd>lolroute（国内）中心</dd><dt>含まれる検査</dt><dd>動画検査・色指定検査（国内）</dd><dt>向いているケース</dt><dd>UPまで〇〇日以内・リテイクの戻し</dd></dl><div style="flex:1"></div><a class="bo" href="contact.html">このプランで見積もる</a></div><div class="pc" id="p2" style="min-width:0;box-sizing:border-box"><div class="en">PLAN 2</div><div style="font-size:22px;font-weight:700;line-height:1.4">話数単位</div><dl><dt>対応工程</dt><dd>動画／仕上げ／動画検査／色指定検査</dd><dt>処理量の目安</dt><dd>1話 〇〇枚／〇〇日</dd><dt>担当拠点</dt><dd>reboot China＋lolroute</dd><dt>含まれる検査</dt><dd>動画検査・色指定検査（国内）</dd><dt>向いているケース</dt><dd>1話分をまとめて任せたい</dd></dl><div style="flex:1"></div><a class="bo" href="contact.html">このプランで見積もる</a></div><div class="pc" id="p3" style="min-width:0;box-sizing:border-box"><div class="en">PLAN 3</div><div style="font-size:22px;font-weight:700;line-height:1.4">継続・グロス</div><dl><dt>対応工程</dt><dd>動画／仕上げ／検査／レイアウト・作監・線撮（〇〇）</dd><dt>処理量の目安</dt><dd>月 〇〇,〇〇〇枚</dd><dt>担当拠点</dt><dd>reboot China＋lolroute</dd><dt>含まれる検査</dt><dd>動画検査・色指定検査（国内）＋〇〇</dd><dt>向いているケース</dt><dd>シリーズを通した継続・グロス</dd></dl><div style="flex:1"></div><a class="bo" href="contact.html">このプランで見積もる</a></div></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:64px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">対応作業一覧<span class="kari">仮の文章</span></h2>
-<table style="width:100%;border-collapse:collapse;background:#fff;table-layout:fixed">
-<tr><th class="td" style="background:#1a1a1a;color:#fff;text-align:left">作業内容</th><th class="td" style="background:#1a1a1a;color:#fff">国内スタジオ</th><th class="td" style="background:#1a1a1a;color:#fff">海外スタジオ</th></tr>
-<tr><th class="td" style="text-align:left">動画</th><td class="td">○</td><td class="td">○</td></tr>
-<tr><th class="td" style="text-align:left">仕上げ</th><td class="td">○</td><td class="td">○</td></tr>
-<tr><th class="td" style="text-align:left">動画検査</th><td class="td">○</td><td class="td">—（国内作業のみ）</td></tr>
-<tr><th class="td" style="text-align:left">色指定検査</th><td class="td">○</td><td class="td">—（国内作業のみ）</td></tr>
-<tr><th class="td" style="text-align:left">レイアウト</th><td class="td">〇〇</td><td class="td">〇〇</td></tr>
-<tr><th class="td" style="text-align:left">作監</th><td class="td">〇〇</td><td class="td">〇〇</td></tr>
-<tr><th class="td" style="text-align:left">線撮</th><td class="td">〇〇</td><td class="td">〇〇</td></tr>
-</table>
-<div style="font-size:13px;color:#555;display:flex;flex-direction:column;gap:4px"><div>※動画検査、色指定検査は国内作業のみとなっております。</div><div>※国内作業やレイアウト、作監、動画検査、色指定検査、線撮は海外動仕をいただける会社様を優先してお引き受けしております。予めご了承ください。</div></div>
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">PRICE</p><h2 class="h2">料金の考え方<span class="kari">仮の文章</span></h2><p class="lead" style="margin-top:6px">金額は〇〇。作品の内容を伺ってお見積りします。</p></div><div class="fx"><div><span>1枚単価</span><b>〇〇円</b></div><em>×</em><div><span>枚数</span><b>〇〇枚</b></div><em>×</em><div><span>急ぎの割増</span><b>〇〇%</b></div><em>＝</em><div class="eq"><span style="color:#1a1a1a">お見積り</span><b>〇〇円</b></div></div><dl class="dl"><dt>1枚単価</dt><dd>絵の難しさ（キャラクターの数・動き・描き込み）で決まります（〇〇）</dd><dt>急ぎの割増</dt><dd>UPまで〇〇日以内のときにかかります（〇〇）</dd><dt>検査</dt><dd>動画検査・色指定検査は〇〇</dd></dl>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">料金の決まり方<span class="kari">仮の文章</span></h2>
-<p class="lead">料金は、次の3つで決まります（〇〇）。</p>
-<div class="cg w3">
-<div class="cd"><span class="num">01</span><b>枚数</b><p class="sm">動画・仕上げの枚数やカット数。</p></div>
-<div class="cd"><span class="num">02</span><b>絵の難しさ</b><p class="sm">キャラクターの数や動きの多さ、描き込みの量。</p></div>
-<div class="cd"><span class="num">03</span><b>納期</b><p class="sm">ご希望の納期までの日数。</p></div>
-</div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">SCOPE</p><h2 class="h2">対応作業一覧<span class="kari">仮の文章</span></h2></div><table class="ptab"><thead><tr><th style="width:40%">作業内容</th><th>国内（lolroute）</th><th>海外（reboot China）</th></tr></thead><tbody><tr><th>動画</th><td>○</td><td>○</td></tr><tr><th>仕上げ</th><td>○</td><td>○</td></tr><tr><th>動画検査</th><td>○</td><td>—（国内作業のみ）</td></tr><tr><th>色指定検査</th><td>○</td><td>—（国内作業のみ）</td></tr><tr><th>レイアウト</th><td>〇〇</td><td>〇〇</td></tr><tr><th>作監</th><td>〇〇</td><td>〇〇</td></tr><tr><th>線撮</th><td>〇〇</td><td>〇〇</td></tr></tbody></table><div style="font-size:13px;color:#444;display:flex;flex-direction:column;gap:4px"><div>※動画検査、色指定検査は国内作業のみとなっております。</div><div>※国内作業やレイアウト、作監、動画検査、色指定検査、線撮は海外動仕をいただける会社様を優先してお引き受けしております。予めご了承ください。</div></div>
 </div>
 </section>
-
-<section style="min-height:300px;box-sizing:border-box;padding:64px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">ご依頼の流れ<span class="kari">仮の文章</span></h2>
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
-<div style="border:2px solid #1a1a1a;padding:20px"><div class="en">STEP 1</div><div style="font-weight:700">受注窓口からご相談</div><p class="sm">フォームから、枚数と納期をお知らせください。</p></div>
-<div style="border:2px solid #1a1a1a;padding:20px"><div class="en">STEP 2</div><div style="font-weight:700">打ち合わせ・お見積り</div><p class="sm">〇営業日以内にご返信します。</p></div>
-<div style="border:2px solid #1a1a1a;padding:20px"><div class="en">STEP 3</div><div style="font-weight:700">作業開始</div><p class="sm">進み具合をこまめに共有します。</p></div>
-<div style="border:2px solid #1a1a1a;padding:20px"><div class="en">STEP 4</div><div style="font-weight:700">検査・納品</div><p class="sm">国内で検査してから納品します。</p></div>
-</div>
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">FLOW</p><h2 class="h2">ご依頼の流れ<span class="kari">仮の文章</span></h2></div><ol class="flow" style="--n:6"><li><b>お問い合わせ</b>フォーム・お電話で</li><li><b>お見積り</b>〇営業日以内に</li><li><b>素材のお受け取り</b>〇〇の方法で</li><li><b>作業</b>国内・中国で分担</li><li><b>国内で検査</b>動画検査・色指定検査</li><li><b>納品</b>〇〇形式で</li></ol>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:16px">
-<h2 class="h2" style="margin-bottom:8px">よくある質問<span class="kari">仮の文章</span></h2>
-<div class="qa"><b>プランの途中で作業の範囲を変えられますか？</b><p>はい、ご相談ください。範囲にあわせてお見積りを出し直します。</p></div>
-<div class="qa"><b>1話だけ・数カットだけでも頼めますか？</b><p>〇〇カットから承ります。</p></div>
-<div class="qa"><b>急ぎの案件にも対応できますか？</b><p>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</p></div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">FAQ</p><h2 class="h2">よくある質問<span class="kari">仮の文章</span></h2></div><div style="display:flex;flex-direction:column;gap:12px"><div class="qa"><b>最小枚数はありますか？</b><p>〇〇枚（〇〇カット）から承ります。</p></div><div class="qa"><b>リテイクはどう扱われますか？</b><p>国内スタジオで対応します。弊社起因のリテイクは〇〇。</p></div><div class="qa"><b>紙・デジタルのどちらに対応していますか？</b><p>どちらにも対応します（〇〇）。</p></div><div class="qa"><b>納品形式は選べますか？</b><p>〇〇・〇〇に対応します。ご指定の形式があればお知らせください。</p></div></div>
 </div>
 </section>
-
-<section style="min-height:220px;box-sizing:border-box;padding:48px 40px;background:#1a1a1a;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;text-align:center">
-<h2 style="margin:0;font-size:24px;font-weight:700;color:#fff">どのプランが合うか、まずはご相談ください<span class="kari">仮の文章</span></h2>
-<p style="margin:0;color:#fff;font-size:14px">返信の目安：〇営業日以内</p>
-<a class="bt" href="contact.html">受注窓口へ</a>
+<section class="cta" style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap"><div style="display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 420px"><h2 class="h2">お見積りのご依頼<span class="kari">仮の文章</span></h2><p style="margin:0;font-size:14px">作品名・枚数・UP希望日がわかれば、〇営業日以内にお見積りをお出しします。</p></div><a class="bt" href="contact.html" style="min-width:240px">見積もりを依頼する</a></div>
 </section>
 
 <footer style="min-height:200px;box-sizing:border-box;padding:48px 40px">

@@ -7,30 +7,36 @@
 <title>サイト構成の考え方｜reboot</title>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#f3f3f1;line-height:1.8}
+body{margin:0;font-family:'Noto Sans JP',sans-serif;color:#1a1a1a;background:#f6fdea;line-height:1.8}
 main{max-width:960px;margin:0 auto;padding:40px 16px 96px}
 a{color:#2b6a00}
 .bk{font-size:14px;font-weight:700;text-decoration:none}
 h1{font-size:28px;font-weight:900;margin:16px 0 0;line-height:1.4}
-h2{font-size:21px;margin:56px 0 16px;padding-bottom:8px;border-bottom:2px solid #1a1a1a}
+h2{font-size:21px;margin:56px 0 16px;padding-bottom:8px;border-bottom:3px solid #a6f03c}
 h3{font-size:17px;margin:0 0 6px}
 p{margin:10px 0 0;font-size:15px}
 .lead{font-size:16px}
-.box{background:#fff;border:2px solid #1a1a1a;border-radius:8px;padding:20px 22px;margin-top:16px}
-.why{background:#eaf9d2;border-left:6px solid #7ccf1c;padding:12px 16px;margin-top:12px;font-size:14.5px}
+.box{background:#fff;border:1px solid #cfe9a6;border-radius:8px;padding:20px 22px;margin-top:16px}
+.why{background:#eefad6;border-left:6px solid #7ccf1c;padding:12px 16px;margin-top:12px;font-size:14.5px}
 .why b{display:block;font-size:13px;color:#2b6a00;letter-spacing:.05em}
 ol.sec{margin:8px 0 0;padding-left:1.6em;font-size:14.5px}
-ol.sec li{margin:3px 0}
-ol.sec small{color:#555}
+ol.sec li{margin:5px 0}
+ol.sec small{display:block;color:#4a5a3a;font-size:12.5px;line-height:1.6}
 .pg{display:grid;gap:16px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px;margin-top:10px}
+.tbl th,.tbl td{border-bottom:1px solid #dcefc0;padding:8px 6px;text-align:left;vertical-align:top}
+.tbl th{font-size:12.5px;color:#4a5a3a}
+.tbl td:nth-child(2){white-space:nowrap;font-weight:700;color:#2b6a00}
 .q{margin:0;padding:0;list-style:none;font-size:14.5px}
-.q li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #ddd}
+.q li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid #e3f2cc}
 .q li:last-child{border-bottom:0}
 .q input{margin-top:6px;width:18px;height:18px;flex:none;accent-color:#2b6a00}
-.q small{display:block;color:#555;font-size:12.5px}
-.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:3px;background:#1a1a1a;color:#fff;margin-left:6px;vertical-align:2px}
+.q small{display:block;color:#4a5a3a;font-size:12.5px}
+.tag{display:inline-block;font-size:11px;font-weight:700;padding:1px 8px;border-radius:3px;background:#a6f03c;color:#163300;margin-left:6px;vertical-align:2px}
 .flow{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;font-size:14px;font-weight:700}
-.flow span{background:#fff;border:2px solid #1a1a1a;border-radius:999px;padding:4px 14px}
+.flow span{background:#fff;border:2px solid #7ccf1c;border-radius:999px;padding:4px 14px}
+.src{font-size:12.5px;color:#4a5a3a;margin-top:8px}
+@media(max-width:600px){.tbl td:nth-child(2){white-space:normal}}
 @media print{body{background:#fff}.bk{display:none}.box{break-inside:avoid}}
 </style>
 </head>
@@ -38,172 +44,179 @@ ol.sec small{color:#555}
 <main>
 <a class="bk" href="index.html">← デザイン一覧に戻る</a>
 <h1>サイト構成の考え方と、<br>確認したいこと</h1>
-<p class="lead">全ページの中身を、<b>アニメ制作会社から「動画・仕上げ」のご依頼をいただくこと</b>を一番の目的にして組み直しました。ページの数と名前は変えていません。文章と数字はすべて仮です（各セクションに「仮の文章」と表示しています）。下の「確認したいこと」がそろったら、正式な文章に差し替えます。</p>
+<p class="lead">アニメ制作会社・動画仕上げ会社のサイトを26社調べ、<b>発注する側が必要とする情報</b>を各ページのセクションに落とし込みました。ページの数と名前は変えていません。文章はすべて仮です（各セクションに「仮の文章」と表示）。作品名・作品画像・スタジオの写真は、公式サイト（reboot62.jp）のものを使っています。</p>
 
-<h2>全体の考え方</h2>
+<h2>1. 調べたサイト</h2>
 <div class="box">
-<h3>サイトを見る人と、見る順番</h3>
-<p>見に来るのは主に、外注先を探しているアニメ制作会社のプロデューサーや制作進行の方です。この方たちは、だいたい次の順で確かめてから問い合わせます。</p>
-<div class="flow"><span>① 頼める会社か</span><span>② 本当にできるか（実績・数字）</span><span>③ 品質は大丈夫か</span><span>④ いくら・どれくらいで</span><span>⑤ どう頼むか</span></div>
-<p>どのページも、この順に答えが出てくるように並べ、ページの終わりには必ず「受注窓口」への入口を置いています。</p>
-<div class="why"><b>この形にした理由</b>これまでの案は「会社紹介」が中心で、発注する人が知りたい「どれだけの量を・どれくらいの納期で・いくらで・どんな品質で」が見つけにくくなっていました。発注の判断に使う情報を前に出し、迷ったらすぐ相談できる形にしています。</div>
-</div>
-<div class="box">
-<h3>2番目の目的：アニメーターの採用</h3>
-<p>採用の情報（スタッフ紹介・社内の様子・募集）は、トップからスタジオのページへ移しました。</p>
-<div class="why"><b>この形にした理由</b>トップに採用と受注の話が混ざると、発注側の人には関係のない情報が増えてしまいます。働く人に関わる話はスタジオのページにまとめ、求職者がそこで全部わかるようにしています。</div>
+<p><b>動画・仕上げ・グロスを受ける会社（17社）</b>：スタジオグラム、暁、ライトフット、スタジオ・ピーコック、スタジオ雲雀、旭プロダクション、スタジオエイトカラーズ、玩拓アニメーション、X10（東京＋上海ほか）、メイマ（東京＋上海）、Creators in Pack、Fincrossed Studio、絵顔スタジオ、長春知行合一、NAM HAI ART（ベトナム）、Studio 9 Lives（フィリピン）、DR MOVIE（韓国）</p>
+<p><b>元請けの制作会社（9社）</b>：MAPPA、ufotable、WIT STUDIO、CloverWorks、TRIGGER、BONES、david production、ライデンフィルム、手塚プロダクション</p>
+<p class="src">見たのは各社のトップと、サービス・会社・作品・問い合わせ・採用のページです。</p>
 </div>
 
-<h2>ページごとの構成と理由</h2>
+<h2>2. 調べてわかったこと</h2>
+<div class="box">
+<h3>受注向けの情報が、どれくらい載っているか（受託17社のうち）</h3>
+<table class="tbl">
+<tr><th>項目</th><th>載っていた数</th><th>メモ</th></tr>
+<tr><td>対応できる工程の一覧</td><td>約10社</td><td>基本の項目。動画・仕上げ・検査などを並べる</td></tr>
+<tr><td>月の処理量などの数字</td><td>3社</td><td>「24時間で約1000枚」「月600カット」など。出せば目立つ</td></tr>
+<tr><td>品質管理の仕組み</td><td>4社</td><td>「海外の上がりを国内で検査してから納品」など</td></tr>
+<tr><td>納期・急ぎの対応</td><td>3社</td><td>電話の受付時間を出している会社は1社だけ</td></tr>
+<tr><td>海外拠点の体制</td><td>4社</td><td>運営会社名、職種ごとの人数、日本との役割分担</td></tr>
+<tr><td>取引先の社名</td><td>4社</td><td>信用の材料になる</td></tr>
+<tr><td>料金・見積もりの考え方</td><td>0社</td><td>どこにも無い。書けば一番差がつく</td></tr>
+<tr><td>NDA・データの受け渡し</td><td>0社</td><td>どこにも無い</td></tr>
+<tr><td>依頼の流れ</td><td>0社</td><td>どこにも無い。初めての発注者の不安を減らせる</td></tr>
+</table>
+<div class="why"><b>ここから決めたこと</b>どの会社も「作品」と「会社紹介」は載せていますが、発注する人が知りたい「どれだけ・どれくらいの速さで・どんな品質で・いくらで」はほとんど書かれていません。rebootのサイトはここを正面から出し、問い合わせの前に判断できる情報をそろえます。</div>
+</div>
+<div class="box">
+<h3>参考にした見せ方</h3>
+<ol class="sec">
+<li><b>X10</b>：中国スタジオの体制を「職種×都市の人数」で出し、月の処理量を発注の単位で書いている。直営と提携を書き分けている。<small>→ 海外スタジオのページ、数字の帯</small></li>
+<li><b>スタジオグラム</b>：電話・受付時間・依頼ボタンを常に表示。「24/36/48時間で何枚」と急ぎの量を明示。フォームでカット数・枚数・UP希望日を最初に聞く。<small>→ ヒーロー、プラン、受注窓口のフォーム</small></li>
+<li><b>MAPPA（会社ページ）</b>：拠点ごとに「ここは何を担当するか」を書いている。<small>→ 2拠点の体制、各スタジオのページ</small></li>
+<li><b>ライトフット</b>：一行目で「仕上・撮影のプロ集団」と言い切り、工程と使用ソフトを細かく並べている。<small>→ ヒーローの一言、対応工程</small></li>
+<li><b>NAM HAI ART</b>：取引先14社を社名で並べている。<small>→ 主な取引先</small></li>
+</ol>
+</div>
+
+<h2>3. ページごとの構成と理由</h2>
 <div class="pg">
 
 <div class="box">
 <h3>トップ</h3>
 <ol class="sec">
-<li>キャッチコピー ＋「受注窓口で相談する」「作業プランを見る」＋ 今月の受付状況</li>
-<li>数字で見るreboot <small>（参加作品数・月間の対応枚数・スタッフ数・創業年数）</small></li>
-<li>こんなときにご相談ください <small>（発注側によくある悩み4つ）</small></li>
-<li>rebootが選ばれる3つの理由</li>
-<li>参加作品 ＋ 取引先</li>
-<li>作業プラン <small>（3プランと目安の料金）</small></li>
-<li>2つのスタジオ</li>
-<li>ご依頼の流れ</li>
-<li>よくある質問</li>
-<li>お知らせ</li>
-<li>最後の申し込み <small>（「まずは枚数と納期だけでも」）</small></li>
+<li>ヒーロー：一言 ＋「作業を依頼する」＋ 電話・受付時間<small>専門を一行で言い切る（ライトフット）。電話と受付時間を出す受託会社は1社だけなので目立つ（スタジオグラム）。</small></li>
+<li>数字で見るreboot（月の対応枚数・スタッフ数・2拠点・参加作品数）<small>数字を出している会社は26社中3社だけ。</small></li>
+<li>対応工程（何を受けられるか）<small>受託会社の6割が載せている基本の項目。</small></li>
+<li>2拠点の体制と品質管理の流れ<small>「中国で作業 → 東京で検査 → 納品」を図で。海外の品質への不安に答えている会社は少ない。</small></li>
+<li>参加作品（本物の作品画像とタイトル）<small>ほぼ全社が載せている。担当工程まで書くと発注者に伝わる。</small></li>
+<li>主な取引先<small>受託会社の4社が社名で掲載。信用の材料。</small></li>
+<li>作業プラン（短く）<small>納期×量や工程の組み合わせで選べる形。料金の考え方を出す会社は0社。</small></li>
+<li>採用（アニメーター募集）<small>26社中18社がトップに採用への入口を置いている。</small></li>
+<li>お知らせ<small>ほぼ全社にあるが、受注の判断には関係が薄いので下に置く。</small></li>
+<li>最後の問い合わせ（依頼ボタン＋電話＋返信の目安）</li>
 </ol>
-<div class="why"><b>この形にした理由</b>最初の画面で「何の会社で、今頼めるか」がわかるようにしました。続けて数字と悩みへの答えで「ここなら頼めそう」と思ってもらい、料金・流れ・よくある質問で不安を減らしてから、もう一度申し込みの入口を出します。お知らせは発注の判断に関係が薄いので下に下げ、スタッフ紹介・社内の様子・アクセスはスタジオのページとフッターへ移しました。</div>
 </div>
 
 <div class="box">
 <h3>受注窓口（CONTACT）</h3>
 <ol class="sec">
-<li>今月の受付状況</li>
-<li>返信の目安を書いたリード文</li>
-<li>ご相談いただける内容</li>
-<li>お問い合わせの前に、わかると早いこと</li>
-<li>お問い合わせフォーム <small>（依頼内容・作品名・枚数・希望納期・資料添付など）</small></li>
-<li>送信後の流れ</li>
-<li>よくある質問</li>
-<li>電話・メールでの連絡先、会社情報</li>
+<li>受け付ける内容・返信の目安・「急ぎは電話で」</li>
+<li>電話・受付時間・メール（大きく）<small>発注は急ぎが多い。</small></li>
+<li>問い合わせの種類（作業依頼・グロスの相談・採用・学校関係・その他）<small>種類を選ばせる会社が多く、採用は別にしている。</small></li>
+<li>案件フォーム（作品名・話数・作業内容・カット数・枚数・素材の受け渡し日・UP希望日・納品形式など）<small>最初に枚数とUP日を聞くと、見積もりまでのやり取りが減る（スタジオグラム）。</small></li>
+<li>NDA・データの受け渡し<small>26社中0社。書けば安心材料になる。</small></li>
+<li>ご依頼の流れ<small>26社中0社。</small></li>
+<li>よくある質問（最小ロット・急ぎの料金・リテイク・紙/デジタル）</li>
+<li>会社情報・対応作業の注意書き</li>
 </ol>
-<div class="why"><b>この形にした理由</b>「送ったあと、いつ・どう返事が来るか」が見えると、問い合わせのハードルが下がります。フォームで枚数や納期を最初に聞くと、見積りまでのやり取りが1〜2回減ります。「わからなくても大丈夫」と書き、項目が埋まらない人も送れるようにしています。</div>
 </div>
 
 <div class="box">
 <h3>作品履歴</h3>
 <ol class="sec">
-<li>数字（参加作品数・取引先数）</li>
-<li>種類で絞り込み（TV・劇場・配信・ゲームなど）</li>
-<li>年ごとの作品一覧 <small>（担当した工程・担当スタジオつき）</small></li>
+<li>参加作品の数・取引先の数</li>
+<li>絞り込み（年・担当工程・担当拠点）<small>受託会社で絞り込みを持つ会社は0社。</small></li>
+<li>年ごとの作品一覧（公式サイトの全作品を画像つきで）＋担当工程・拠点<small>年→作品→話数→担当の書き方が一番伝わる（Fincrossed）。</small></li>
 <li>主な取引先</li>
 <li>「同じような作品のご相談はこちら」</li>
 </ol>
-<div class="why"><b>この形にした理由</b>発注する人は「自分の作品と近いものをやったことがあるか」を探します。種類で絞れて、どの工程をどちらのスタジオでやったかがわかると、頼めるかどうかを判断しやすくなります。</div>
 </div>
 
 <div class="box">
-<h3>スタジオ ＞ 国内スタジオ</h3>
+<h3>スタジオ ＞ 国内スタジオ（lolroute）</h3>
 <ol class="sec">
-<li>概要（lolroute・設立・所在地・人数・正社員率100%）</li>
-<li>このスタジオの強み 3つ</li>
-<li>対応作業と体制 <small>（月間の対応枚数・使用ソフト）</small></li>
-<li>社内の様子</li>
-<li>アニメを作る楽しさを広める活動</li>
-<li>採用（アニメーター募集）</li>
-<li>海外スタジオへのリンク ＋ 申し込み</li>
+<li>概要（所在地・設立・人数・役割の一言）</li>
+<li>担当工程と役割（海外上がりの検査・リテイク・急ぎ対応など）<small>拠点ごとの役割を書く（MAPPA）。</small></li>
+<li>体制（職種ごとの人数）<small>X10・david production。</small></li>
+<li>使用ソフト・機材・データ形式<small>データ形式を書いている会社は0社。</small></li>
+<li>品質管理の流れ</li>
+<li>スタジオの写真（公式写真）</li>
+<li>アニメを作る楽しさを広める活動（授業・まちゼミ）</li>
+<li>採用</li>
+<li>アクセス・海外スタジオへ・問い合わせ</li>
 </ol>
-<div class="why"><b>この形にした理由</b>発注する人には「急ぎ・リテイクにすぐ対応できる国内の拠点」であることを、求職者には「働く環境と募集」を伝えるページにしました。トップから外したスタッフ紹介や社内の様子はここに集めています。</div>
 </div>
 
 <div class="box">
-<h3>スタジオ ＞ 海外スタジオ</h3>
+<h3>スタジオ ＞ 海外スタジオ（reboot China）</h3>
 <ol class="sec">
-<li>概要（reboot China・2016年設立の直営・所在地・人数）</li>
-<li>品質を守る仕組み 4ステップ</li>
-<li>海外に出すときの不安にお答えします <small>（品質・納期・連絡・データ管理）</small></li>
-<li>対応量</li>
-<li>reboot Chinaの様子</li>
-<li>国内スタジオへのリンク ＋ 申し込み</li>
+<li>概要（運営会社名・都市・設立・<b>直営</b>であること）<small>直営か提携かを書き分ける（X10）。</small></li>
+<li>体制（職種ごとの人数・月の対応枚数）<small>X10 の人数表が一番説得力があった。</small></li>
+<li>日本側との連携（指示→作業→国内で検査→納品、日本語の窓口）<small>東京＝品質管理、海外＝制作の分担（メイマ）。</small></li>
+<li>品質を保つ仕組み（社員の現地指導・日本基準・研修）</li>
+<li>セキュリティ（データ・NDA・通信環境）<small>受託会社は0社。</small></li>
+<li>スタジオの写真（公式写真）</li>
+<li>国内スタジオへ・問い合わせ</li>
 </ol>
-<div class="why"><b>この形にした理由</b>海外への発注で一番心配されるのは品質と連絡です。「直営で、社員が現地で指導している」というrebootの一番の強みを、仕組みとQ&Aで具体的に見せて、不安を先に消す構成にしました。</div>
 </div>
 
 <div class="box">
 <h3>プラン</h3>
 <ol class="sec">
-<li>3つのプランの比較 <small>（動画・仕上げ・一括。目安の料金と納期）</small></li>
-<li>オプション <small>（特急対応・検査・線撮など）</small></li>
-<li>対応作業一覧（国内・海外の表）</li>
-<li>料金の決まり方</li>
+<li>プラン一覧（急ぎ対応・話数単位・継続/グロス など）<small>「プラン」というページを持つ会社は0社。作れば差別化になる。</small></li>
+<li>各プランの中身（対応工程・処理量の目安・担当拠点・含まれる検査）</li>
+<li>料金の考え方（「1枚単価×枚数、急ぎは割増」など、金額を出さなくても計算方法を示す）<small>26社中0社。</small></li>
+<li>対応作業の一覧表（国内・海外）</li>
 <li>ご依頼の流れ</li>
 <li>よくある質問</li>
-<li>申し込み</li>
+<li>見積もり依頼</li>
 </ol>
-<div class="why"><b>この形にした理由</b>「だいたいいくらか」がわからないと、発注先の候補に入りにくくなります。正確な金額でなくても「〇〇円〜」と目安を出し、何で金額が変わるかを書いておくと、問い合わせの前に社内で検討してもらえます。</div>
 </div>
 </div>
 
-<h2>確認したいこと（正式な文章にするために）</h2>
-<p>チェックしながら使えます（このページを閉じるとチェックは消えます）。<span class="tag">優先</span>がついたものは、トップに大きく出るので先に確認したい項目です。</p>
+<h2>4. 確認したいこと（ヒアリング用）</h2>
+<p>チェックしながら使えます（このページを閉じるとチェックは消えます）。<span class="tag">優先</span>はトップに大きく出る項目です。</p>
 
-<div class="box"><h3>会社・数字</h3><ul class="q">
-<li><input type="checkbox"><div>これまでに参加した作品の数<span class="tag">優先</span><small>「〇〇本以上」で可</small></div></li>
-<li><input type="checkbox"><div>1か月に対応できる枚数（国内・海外それぞれ）<span class="tag">優先</span></div></li>
-<li><input type="checkbox"><div>スタッフの人数（国内・海外それぞれ）<span class="tag">優先</span></div></li>
-<li><input type="checkbox"><div>会社の設立年</div></li>
-<li><input type="checkbox"><div>取引先の数と、社名を出してよい取引先</div></li>
+<div class="box"><h3>全体</h3><ul class="q">
+<li><input type="checkbox"><div>受注の主力（動画だけ／動画＋仕上げ／二原・グロスも受けるか）<span class="tag">優先</span></div></li>
+<li><input type="checkbox"><div>想定している発注者（元請けのプロデューサー／制作進行／グロス会社）</div></li>
+<li><input type="checkbox"><div>一言で言うと何が強いか（速さ・量・品質・2拠点）<span class="tag">優先</span></div></li>
+<li><input type="checkbox"><div>数字をどこまで公開してよいか（人数・月の枚数・取引先名）</div></li>
 </ul></div>
 
-<div class="box"><h3>強み・選ばれる理由</h3><ul class="q">
-<li><input type="checkbox"><div>お客様から実際に言われる「rebootに頼む理由」<span class="tag">優先</span><small>例：納期を守る、修正が早い、量が多くても受けてくれる など</small></div></li>
-<li><input type="checkbox"><div>急ぎの案件はどこまで対応できるか（何日前までの相談なら可能か）</div></li>
-<li><input type="checkbox"><div>何カットから受けられるか（1話だけ・数カットだけの依頼は可能か）</div></li>
-<li><input type="checkbox"><div>品質チェックの具体的なやり方（誰が・いつ・何を見るか）</div></li>
-</ul></div>
-
-<div class="box"><h3>作品</h3><ul class="q">
-<li><input type="checkbox"><div>サイトに載せてよい作品名と、その画像を使えるか<span class="tag">優先</span></div></li>
-<li><input type="checkbox"><div>各作品で担当した工程（動画・仕上げ）と担当スタジオ</div></li>
-<li><input type="checkbox"><div>作品の種類（TV・劇場・配信・ゲームなど）</div></li>
-</ul></div>
-
-<div class="box"><h3>料金・プラン</h3><ul class="q">
-<li><input type="checkbox"><div>プランの分け方（動画・仕上げ・一括の3つでよいか）<span class="tag">優先</span></div></li>
-<li><input type="checkbox"><div>サイトに出せる料金の目安（「1枚〇〇円〜」など）、または「お見積り」のみにするか<span class="tag">優先</span></div></li>
-<li><input type="checkbox"><div>納期の目安</div></li>
-<li><input type="checkbox"><div>オプション（特急対応・検査・線撮など）と料金</div></li>
-<li><input type="checkbox"><div>料金が変わる条件（枚数・難しさ・納期など）</div></li>
+<div class="box"><h3>数字・体制</h3><ul class="q">
+<li><input type="checkbox"><div>月の対応枚数（動画・仕上げそれぞれ、国内・海外それぞれ）<span class="tag">優先</span></div></li>
+<li><input type="checkbox"><div>スタッフの人数（国内・海外、職種ごと）<span class="tag">優先</span></div></li>
+<li><input type="checkbox"><div>最短でどれくらいで上げられるか（急ぎの目安）</div></li>
+<li><input type="checkbox"><div>社名を出してよい取引先</div></li>
 </ul></div>
 
 <div class="box"><h3>受注窓口</h3><ul class="q">
-<li><input type="checkbox"><div>問い合わせへの返信の目安（〇営業日以内）<span class="tag">優先</span></div></li>
-<li><input type="checkbox"><div>受付状況を出すかどうか、更新できるか</div></li>
-<li><input type="checkbox"><div>フォームで聞く項目（追加・削除したいもの）</div></li>
-<li><input type="checkbox"><div>電話番号・メールアドレス・受付時間を載せるか</div></li>
-<li><input type="checkbox"><div>個人情報の取り扱い（プライバシーポリシー）の文章</div></li>
+<li><input type="checkbox"><div>電話番号・受付時間（深夜・土日も受けるか）・返信の目安<span class="tag">優先</span></div></li>
+<li><input type="checkbox"><div>見積もりに必要な情報（カット数・枚数・UP日のほかに何が要るか）</div></li>
+<li><input type="checkbox"><div>NDA を事前に結べるか、データの受け渡し方法（使っているサービス）</div></li>
+<li><input type="checkbox"><div>断る案件（最小ロット・持ち込み企画など）</div></li>
+</ul></div>
+
+<div class="box"><h3>作品履歴</h3><ul class="q">
+<li><input type="checkbox"><div>各作品の担当工程・話数・担当拠点</div></li>
+<li><input type="checkbox"><div>元請けの社名を載せてよいか</div></li>
+<li><input type="checkbox"><div>公式サイトに無い作品で、載せたいもの</div></li>
 </ul></div>
 
 <div class="box"><h3>国内スタジオ（lolroute）</h3><ul class="q">
-<li><input type="checkbox"><div>所在地・人数・使用ソフト</div></li>
-<li><input type="checkbox"><div>このスタジオならではの強み（3つ程度）</div></li>
-<li><input type="checkbox"><div>採用の条件（雇用形態・給与・勤務地・応募方法）</div></li>
-<li><input type="checkbox"><div>授業・アニメ教室などの活動の実績（学校名・回数など）</div></li>
-<li><input type="checkbox"><div>社内の写真を撮れるか、スタッフの顔出しは可能か</div></li>
+<li><input type="checkbox"><div>所在地・人数（職種ごと）・担当工程・役割</div></li>
+<li><input type="checkbox"><div>使用ソフト（例：PaintMan / CLIP STUDIO / TVPaint など）、受け取れる・納品できるデータ形式、紙の作業に対応するか</div></li>
+<li><input type="checkbox"><div>品質管理の流れ（何段階で検査するか）</div></li>
+<li><input type="checkbox"><div>採用の条件（職種・雇用形態・応募方法）</div></li>
 </ul></div>
 
 <div class="box"><h3>海外スタジオ（reboot China）</h3><ul class="q">
-<li><input type="checkbox"><div>所在地（都市名）・人数</div></li>
-<li><input type="checkbox"><div>現地指導の頻度と内容、国内との連絡の方法</div></li>
-<li><input type="checkbox"><div>データの管理・セキュリティで気をつけていること</div></li>
-<li><input type="checkbox"><div>連携している美術大学の名前を出してよいか</div></li>
-<li><input type="checkbox"><div>スタジオの写真を使えるか</div></li>
+<li><input type="checkbox"><div>運営会社名・都市・直営であることの説明（出せる範囲で）</div></li>
+<li><input type="checkbox"><div>職種ごとの人数・月の対応枚数</div></li>
+<li><input type="checkbox"><div>日本側との作業の流れ、日本語の窓口、時差</div></li>
+<li><input type="checkbox"><div>研修・日本基準の注意事項の扱い</div></li>
+<li><input type="checkbox"><div>セキュリティ（データ管理・ネットワーク・社内ルール）</div></li>
 </ul></div>
 
-<div class="box"><h3>そのほか</h3><ul class="q">
-<li><input type="checkbox"><div>キャッチコピーの方向（今の「アニメを、もっと楽しく」を使い続けるか）</div></li>
-<li><input type="checkbox"><div>お知らせを更新する人と頻度</div></li>
-<li><input type="checkbox"><div>サイトで一番伝えたいこと（1つだけ選ぶなら）</div></li>
+<div class="box"><h3>プラン</h3><ul class="q">
+<li><input type="checkbox"><div>作業の単位（1枚単価／話数単位／月契約）<span class="tag">優先</span></div></li>
+<li><input type="checkbox"><div>急ぎの割増の有無と条件、最小ロット</div></li>
+<li><input type="checkbox"><div>料金を公開するか（金額か、計算方法だけか）</div></li>
+<li><input type="checkbox"><div>リテイクの対応範囲、納品形式ごとの違い</div></li>
 </ul></div>
 </main>
 </body>

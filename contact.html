@@ -23,7 +23,7 @@ a{color:#1a1a1a;text-decoration:none}a:hover{color:#3d6b00}
 .fl{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:700}
 .fl input,.fl textarea,.fl select{min-height:48px;border:2px solid #1a1a1a;border-radius:4px;padding:8px 12px;font:inherit;font-weight:400;box-sizing:border-box;width:100%;background:#fff}
 .fl input[type=file]{padding:10px 12px}
-.rq{font-size:11px;background:#1a1a1a;color:#fff;padding:1px 8px;margin-left:8px;border-radius:2px}
+.rq{font-size:11px;background:#a6f03c;color:#1a1a1a;border:1px solid #1a1a1a;padding:1px 8px;margin-left:8px;border-radius:2px}
 .f2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
 .kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
 .lead{margin:0;font-size:15px;max-width:760px}
@@ -62,6 +62,98 @@ form .bt{min-width:0!important;width:100%}
 .cg{gap:12px!important}
 .qa{padding:16px!important}
 }
+
+/* v2 */
+.hd{display:flex;flex-direction:column;gap:6px}
+.dl{display:grid;grid-template-columns:200px minmax(0,1fr);border-top:2px solid #1a1a1a;margin:0}
+.dl dt,.dl dd{margin:0;padding:14px 0;border-bottom:1px solid #c9c9c4;font-size:14px;min-width:0}
+.dl dt{font-weight:700;padding-right:16px}
+.flow{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:28px;list-style:none;margin:0;padding:0;counter-reset:f}
+.flow li{position:relative;border:2px solid #1a1a1a;background:#fff;padding:14px 14px 16px;display:flex;flex-direction:column;gap:4px;font-size:13px;color:#444;min-width:0}
+.flow li b{font-size:15px;color:#1a1a1a;line-height:1.45}
+.flow li::before{counter-increment:f;content:counter(f,decimal-leading-zero);font-weight:900;font-size:12px;color:#1a1a1a;background:#a6f03c;align-self:flex-start;padding:0 6px;letter-spacing:.05em}
+.flow li:not(:last-child)::after{content:"";position:absolute;right:-21px;top:50%;border:7px solid transparent;border-left:10px solid #1a1a1a;transform:translateY(-50%)}
+.nums{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+.nums>div{padding:20px 18px;border-left:1px solid #c9c9c4;display:flex;flex-direction:column;gap:2px;min-width:0}
+.nums>div:first-child{border-left:0;padding-left:0}
+.nums span{font-size:13px;color:#444}.nums b{font-size:30px;font-weight:900;line-height:1.25}
+.nums small{font-size:12px;color:#555}
+.ol{list-style:none;margin:0;padding:0;border-top:2px solid #1a1a1a}
+.ol li{display:grid;grid-template-columns:72px minmax(0,1fr);gap:16px;padding:18px 0;border-bottom:1px solid #c9c9c4;align-items:baseline}
+.ol li>i{font-style:normal;font-weight:900;font-size:24px;line-height:1.2}
+.ol li b{display:block;font-size:16px}.ol li p{margin:4px 0 0;font-size:14px;color:#444}
+.ol li a{font-weight:700}
+.pg{display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));gap:16px}
+.pg figure{margin:0;display:flex;flex-direction:column;gap:6px;min-width:0}
+.pg img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;border:2px solid #1a1a1a;box-sizing:border-box}
+.pg figcaption{font-size:12px;color:#444}
+img.im{width:100%;height:100%;object-fit:cover;display:block}
+.cta{background:#a6f03c;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a}
+.cta .bt{background:#fff}
+.tel{font-size:40px;font-weight:900;line-height:1.2;letter-spacing:.02em}
+.ty{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:2px solid #1a1a1a}
+.ty a{display:flex;flex-direction:column;gap:4px;padding:18px 16px;border-left:1px solid #1a1a1a;min-height:120px;box-sizing:border-box;background:#fff}
+.ty a:first-child{border-left:0}
+.ty a:hover{background:#eefad6;color:#1a1a1a}
+.ty i{font-style:normal;font-size:12px;font-weight:700;color:#555}
+.ty b{font-size:15px;line-height:1.45}.ty span{font-size:12px;color:#444;margin-top:auto}
+.ck{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;font-weight:400}
+.ck label{display:inline-flex;align-items:center;gap:8px;min-height:44px}
+.ck input{width:20px;height:20px;margin:0}
+.op{font-size:11px;border:1px solid #1a1a1a;color:#1a1a1a;padding:0 7px;margin-left:8px;border-radius:2px;font-weight:700}
+.fx{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.fx>div{border:2px solid #1a1a1a;background:#fff;padding:14px 20px;display:flex;flex-direction:column;min-width:0}
+.fx>div span{font-size:12px;color:#555}.fx>div b{font-size:22px;font-weight:900}
+.fx>em{font-style:normal;font-size:26px;font-weight:900}
+.fx>div.eq{background:#a6f03c}
+.ftab{display:grid;grid-template-columns:120px minmax(0,1fr);gap:10px 16px;align-items:center;border-top:2px solid #1a1a1a;border-bottom:1px solid #c9c9c4;padding:16px 0}
+.ftab>span{font-size:13px;font-weight:700}
+.ftab>div{display:flex;gap:8px;flex-wrap:wrap}
+.tab.on{background:#a6f03c}
+.tab{background:#fff}
+.wg{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px 16px}
+.wc{display:flex;flex-direction:column;gap:4px;min-width:0}
+.wc img,.wc .ni{width:100%;aspect-ratio:40/21;object-fit:contain;background:#f6fdea;border:1px solid #1a1a1a;box-sizing:border-box;display:block}
+.wc .ni{display:flex;align-items:center;justify-content:center;font-size:11px;color:#555;border-style:dashed;padding:6px;text-align:center;line-height:1.5}
+.wc img{height:auto}
+.wc b{font-size:13px;line-height:1.5;font-weight:700;overflow-wrap:anywhere}
+.wc span{font-size:11px;color:#555;line-height:1.5}
+.yh{display:flex;align-items:baseline;gap:14px;margin:0;padding-bottom:8px;border-bottom:2px solid #1a1a1a}
+.yh b{font-size:32px;font-weight:900;line-height:1}
+.yh span{font-size:13px;color:#555}
+.ptab{width:100%;border-collapse:collapse;table-layout:fixed;background:#fff}
+.ptab th,.ptab td{border:1px solid #1a1a1a;padding:14px 16px;font-size:14px;text-align:left;vertical-align:top}
+.ptab thead th{background:#eefad6}
+.pc dl{margin:0;display:flex;flex-direction:column;border-top:1px solid #1a1a1a}
+.pc dt{font-size:12px;color:#555;padding-top:10px}
+.pc dd{margin:0;padding-bottom:10px;border-bottom:1px solid #c9c9c4;font-size:14px;font-weight:500}
+@media(max-width:1100px){.wg{grid-template-columns:repeat(4,minmax(0,1fr))}.ty{grid-template-columns:repeat(3,minmax(0,1fr))}.ty a:nth-child(4){border-left:0}.ty a:nth-child(n+4){border-top:1px solid #1a1a1a}}
+@media(max-width:860px){
+.dl{grid-template-columns:minmax(0,1fr)!important}
+.dl dt{border-bottom:0!important;padding:12px 0 0!important}
+.dl dd{padding:2px 0 12px!important}
+.flow{grid-template-columns:minmax(0,1fr)!important;gap:20px!important}
+.flow li:not(:last-child)::after{right:auto;left:22px;top:auto;bottom:-20px;transform:none;border:7px solid transparent;border-top:10px solid #1a1a1a}
+.nums{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+.nums>div{border-left:0!important;border-bottom:1px solid #c9c9c4;padding:14px 8px 14px 0!important}
+.nums b{font-size:24px}
+.ol li{grid-template-columns:44px minmax(0,1fr)!important;gap:10px!important}
+.ol li>i{font-size:18px}
+.pg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important}
+.tel{font-size:28px}
+.ty{grid-template-columns:minmax(0,1fr)!important}
+.ty a{border-left:0!important;border-top:1px solid #1a1a1a;min-height:0}
+.ty a:first-child{border-top:0}
+.fx>em{font-size:20px}
+.fx>div{padding:10px 14px}.fx>div b{font-size:18px}
+.ftab{grid-template-columns:minmax(0,1fr)!important}
+.wg{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:16px 12px!important}
+.yh b{font-size:24px}
+.ptab th,.ptab td{padding:10px 8px!important;font-size:12px!important}
+.sp2{grid-template-columns:minmax(0,1fr)!important}
+.ml{border-left:0!important;padding-left:0!important;border-top:1px solid #c9c9c4}
+}
+@media(min-width:600px) and (max-width:860px){.wg{grid-template-columns:repeat(3,minmax(0,1fr))!important}}
 </style>
 </head>
 <body>
@@ -79,103 +171,51 @@ form .bt{min-width:0!important;width:100%}
 </nav>
 </header>
 
-<section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f3f3f1;display:flex;align-items:center">
+<section style="min-height:200px;box-sizing:border-box;padding:40px;background:#f6fdea;display:flex;align-items:center">
 <div class="in" style="width:100%;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap">
 <div><div style="font-size:12px;color:#555">トップ ＞ 受注窓口</div><p class="en" style="margin-top:12px">CONTACT</p><h1 style="margin:0;font-size:36px;font-weight:900">受注窓口<span class="kari">仮の文章</span></h1></div>
 <span class="sts">〇月の受付状況：受付中</span>
 </div>
 </section>
 
-<section style="box-sizing:border-box;padding:48px 40px 24px">
-<div class="in">
-<p style="margin:0;font-size:22px;font-weight:700;line-height:1.6">動画・仕上げのご依頼・お見積りはこちらから。<br>〇営業日以内にご返信します。<span class="kari">仮の文章</span></p>
+<section style="box-sizing:border-box;padding:56px 40px 24px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">ABOUT</p><h2 class="h2">動画・仕上げのご依頼・お見積りを受け付けています<span class="kari">仮の文章</span></h2><p class="lead" style="margin-top:6px">動画・仕上げ・動画検査・色指定検査のご依頼、お見積り、グロスのご相談を承ります。返信の目安は〇営業日以内です。お急ぎの場合はお電話でご連絡ください。</p></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:40px 40px 56px">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">ご相談いただける内容<span class="kari">仮の文章</span></h2>
-<div class="cg">
-<div class="cd"><b>動画</b><p class="sm">原画をもとに、動画を作成します。1話まるごとでも、一部のカットだけでも承ります。</p></div>
-<div class="cd"><b>仕上げ</b><p class="sm">色指定にあわせて、彩色・仕上げを行います。</p></div>
-<div class="cd"><b>動画＋仕上げ</b><p class="sm">動画から仕上げまでをまとめてお任せいただけます。窓口はひとつです。</p></div>
-<div class="cd"><b>急ぎの話数・リテイク対応</b><p class="sm">納期が迫った話数や、リテイクのご相談も承ります（〇〇）。</p></div>
-</div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">TEL / MAIL</p><h2 class="h2">お電話・メール<span class="kari">仮の文章</span></h2></div><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0;border-top:2px solid #1a1a1a;border-bottom:2px solid #1a1a1a" class="sp2"><div style="padding:24px 24px 24px 0;display:flex;flex-direction:column;gap:6px;min-width:0"><span class="en">TEL</span><a class="tel" href="tel:00-0000-0000">〇〇-〇〇〇〇-〇〇〇〇</a><span style="font-size:14px">受付 〇〇:〇〇〜〇〇:〇〇（土日祝を除く）</span><span style="font-size:13px;color:#444">お急ぎの話数は、まずお電話でご相談ください。</span></div><div style="padding:24px 0 24px 24px;border-left:1px solid #c9c9c4;display:flex;flex-direction:column;gap:6px;min-width:0" class="ml"><span class="en">MAIL</span><span class="tel" style="font-size:30px;overflow-wrap:anywhere">〇〇〇〇@〇〇〇〇</span><span style="font-size:14px">24時間受付・返信の目安 〇営業日以内</span><span style="font-size:13px;color:#444">資料の添付は下のフォームからもお送りいただけます。</span></div></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">お問い合わせの前に、わかると早いこと<span class="kari">仮の文章</span></h2>
-<div class="cg">
-<div class="cd"><span class="num">01</span><b>作品名・話数</b><p class="sm">どの作品の、何話分のご依頼か。</p></div>
-<div class="cd"><span class="num">02</span><b>カット数・枚数</b><p class="sm">おおよその数で大丈夫です。</p></div>
-<div class="cd"><span class="num">03</span><b>希望納期</b><p class="sm">いつまでに必要か、お知らせください。</p></div>
-<div class="cd"><span class="num">04</span><b>作業の範囲</b><p class="sm">動画のみ・仕上げのみ・両方など。</p></div>
-</div>
-<p class="lead" style="font-weight:700">わからない項目があっても大丈夫です。わかる範囲でお知らせください。</p>
-</div>
-</section>
-
-<section style="box-sizing:border-box;padding:64px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">お問い合わせフォーム<span class="kari">仮の文章</span></h2>
-<form style="max-width:760px;width:100%;min-width:0;display:flex;flex-direction:column;gap:20px">
-<div class="f2">
-<label class="fl"><span>会社名<span class="rq">必須</span></span><input type="text" name="company"></label>
-<label class="fl"><span>ご担当者名<span class="rq">必須</span></span><input type="text" name="name"></label>
-<label class="fl"><span>メールアドレス<span class="rq">必須</span></span><input type="email" name="email"></label>
-<label class="fl"><span>電話番号</span><input type="tel" name="tel"></label>
-</div>
-<label class="fl"><span>ご依頼内容<span class="rq">必須</span></span><select name="type"><option>動画</option><option>仕上げ</option><option>動画＋仕上げ</option><option>アニメーターとして応募したい</option><option>専門学校・教育関係のご連絡</option><option>その他</option></select></label>
-<div class="f2">
-<label class="fl"><span>作品名・話数</span><input type="text" name="title"></label>
-<label class="fl"><span>おおよその枚数・カット数</span><input type="text" name="volume"></label>
-<label class="fl"><span>希望納期</span><input type="text" name="deadline"></label>
-<label class="fl"><span>資料の添付</span><input type="file" name="file"></label>
-</div>
-<label class="fl"><span>ご相談内容<span class="rq">必須</span></span><textarea name="message" rows="8"></textarea></label>
-<label style="display:flex;gap:10px;align-items:center;font-size:14px;min-height:44px;flex-wrap:wrap"><input type="checkbox" name="agree" style="width:20px;height:20px">個人情報の取り扱いに同意する<span class="rq" style="margin-left:0">必須</span></label>
-<div><button type="button" class="bt" style="min-width:280px">送信する</button></div>
-<div style="font-size:12px;color:#555">※送信後はサンクスページ（送信完了）を表示／自動返信メールを送信</div>
-</form>
-</div>
-</section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">送信後の流れ<span class="kari">仮の文章</span></h2>
-<div class="cg w3">
-<div class="cd"><span class="num">01</span><b>内容の確認</b><p class="sm">担当者がご依頼の内容を確認します。</p></div>
-<div class="cd"><span class="num">02</span><b>〇営業日以内にご返信</b><p class="sm">メールまたはお電話でご連絡します。</p></div>
-<div class="cd"><span class="num">03</span><b>打ち合わせ・お見積り</b><p class="sm">枚数と納期をうかがい、お見積りをお出しします。</p></div>
-</div>
-</div>
-</section>
-
 <section style="box-sizing:border-box;padding:56px 40px">
-<div class="in" style="display:flex;flex-direction:column;gap:16px">
-<h2 class="h2" style="margin-bottom:8px">よくある質問<span class="kari">仮の文章</span></h2>
-<div class="qa"><b>見積りだけでも依頼できますか？</b><p>はい、お見積りだけのご相談も承ります。お気軽にお問い合わせください。</p></div>
-<div class="qa"><b>急ぎの案件にも対応できますか？</b><p>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</p></div>
-<div class="qa"><b>1話だけ・数カットだけでも頼めますか？</b><p>〇〇カットから承ります。</p></div>
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">TYPE</p><h2 class="h2">お問い合わせの種類<span class="kari">仮の文章</span></h2></div><div class="ty"><a href="#form"><i>01</i><b>作業依頼・お見積り</b><span>下のフォームへ ↓</span></a><a href="#form"><i>02</i><b>グロスのご相談</b><span>下のフォームへ ↓</span></a><a href="#form"><i>03</i><b>取材・その他</b><span>下のフォームへ ↓</span></a><a href="studio-japan.html#recruit"><i>04</i><b>アニメーター応募</b><span>国内スタジオの採用へ →</span></a><a href="#form"><i>05</i><b>専門学校・教育関係</b><span>下のフォームへ ↓</span></a></div>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:56px 40px;background:#f3f3f1">
-<div class="in" style="display:flex;flex-direction:column;gap:24px">
-<h2 class="h2">電話・メールでのご連絡<span class="kari">仮の文章</span></h2>
-<div class="cg w3">
-<div class="cd"><b>お電話・メール</b><div style="font-size:20px;font-weight:900">TEL 〇〇-〇〇〇〇-〇〇〇〇</div><p class="sm">受付 平日〇〇:〇〇〜〇〇:〇〇</p><p class="sm">MAIL 〇〇〇〇@〇〇〇〇</p></div>
-<div class="cd"><b>会社情報</b><p class="sm">株式会社reboot<br>東京都杉並区上荻1-5-8 直長ビル6F</p><div class="ph" style="height:160px">地図</div></div>
-<div class="cd"><b>営業情報</b><div class="ph" style="height:160px">営業カレンダー</div></div>
-</div>
+<section id="form" style="box-sizing:border-box;padding:56px 40px 64px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">FORM</p><h2 class="h2">案件のご相談フォーム<span class="kari">仮の文章</span></h2><p class="lead" style="margin-top:6px">わからない項目は空欄のままで大丈夫です。わかる範囲でお知らせください。</p></div><form style="max-width:820px;width:100%;min-width:0;display:flex;flex-direction:column;gap:22px"><label class="fl"><span>お問い合わせの種類<span class="rq">必須</span></span><select name="type"><option>作業依頼・お見積り</option><option>グロスのご相談</option><option>取材・その他</option><option>専門学校・教育関係</option></select></label><div class="f2"><label class="fl"><span>会社名<span class="rq">必須</span></span><input type="text" name="company"></label><label class="fl"><span>ご担当者名<span class="rq">必須</span></span><input type="text" name="name"></label><label class="fl"><span>メールアドレス<span class="rq">必須</span></span><input type="email" name="email"></label><label class="fl"><span>電話番号<span class="rq">必須</span></span><input type="tel" name="tel"></label></div><label class="fl"><span>作品名・話数</span><input type="text" name="title" placeholder="例：〇〇〇〇 第〇話"></label><fieldset class="fl" style="border:0;margin:0;padding:0"><legend style="padding:0;margin-bottom:6px;font-weight:700">作業内容<span class="rq">必須</span><span style="font-weight:400;font-size:12px;margin-left:8px;color:#555">複数選択できます</span></legend><div class="ck"><label><input type="checkbox" name="work">動画</label><label><input type="checkbox" name="work">仕上げ</label><label><input type="checkbox" name="work">動画検査</label><label><input type="checkbox" name="work">色指定検査</label><label><input type="checkbox" name="work">その他</label></div></fieldset><div class="f2"><label class="fl"><span>カット数</span><input type="text" name="cuts" placeholder="例：〇〇カット"></label><label class="fl"><span>枚数</span><input type="text" name="sheets" placeholder="例：〇〇〇〇枚"></label><label class="fl"><span>素材のお渡し予定日</span><input type="date" name="material"></label><label class="fl"><span>UP希望日<span class="rq">必須</span></span><input type="date" name="up"></label><label class="fl"><span>納品形式</span><select name="format"><option>〇〇</option><option>〇〇</option><option>未定・相談したい</option></select></label><label class="fl"><span>ご予算の目安<span class="op">任意</span></span><input type="text" name="budget"></label></div><label class="fl"><span>資料添付</span><input type="file" name="file"></label><label class="fl"><span>ご相談内容</span><textarea name="message" rows="7"></textarea></label><label style="display:flex;gap:10px;align-items:center;font-size:14px;min-height:44px;flex-wrap:wrap"><input type="checkbox" name="agree" style="width:20px;height:20px">個人情報の取り扱いに同意する<span class="rq" style="margin-left:0">必須</span></label><div><button type="button" class="bt" style="min-width:280px">送信する</button></div><div style="font-size:12px;color:#555">※送信後はサンクスページ（送信完了）を表示／自動返信メールを送信</div></form>
 </div>
 </section>
-
-<section style="box-sizing:border-box;padding:48px 40px">
-<div class="in">
-<div class="cd" style="gap:10px"><b>対応作業についてのご注意<span class="kari">仮の文章</span></b><p class="sm">※動画検査、色指定検査は国内作業のみとなっております。</p><p class="sm">※国内作業やレイアウト、作監、動画検査、色指定検査、線撮は海外動仕をいただける会社様を優先してお引き受けしております。</p><a href="plan.html" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">作業プランを見る →</a></div>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">NDA / DATA</p><h2 class="h2">NDA・データの受け渡し<span class="kari">仮の文章</span></h2></div><div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px" class="sp2"><dl class="dl"><dt>NDA</dt><dd>NDA の事前締結に対応します（〇〇）。お見積りの前でも締結できます。</dd><dt>書式</dt><dd>貴社の書式・弊社の書式のどちらでも（〇〇）</dd></dl><dl class="dl"><dt>データの受け渡し</dt><dd>〇〇（例：〇〇ストレージ・〇〇）</dd><dt>保管と削除</dt><dd>納品後 〇〇日で削除（〇〇）</dd></dl></div>
+</div>
+</section>
+<section style="box-sizing:border-box;padding:56px 40px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">FLOW</p><h2 class="h2">ご依頼の流れ<span class="kari">仮の文章</span></h2></div><ol class="flow" style="--n:6"><li><b>お問い合わせ</b>フォーム・お電話で</li><li><b>お見積り</b>〇営業日以内に</li><li><b>素材のお受け取り</b>〇〇の方法で</li><li><b>作業</b>国内・中国で分担</li><li><b>国内で検査</b>動画検査・色指定検査</li><li><b>納品</b>〇〇形式で</li></ol>
+</div>
+</section>
+<section style="box-sizing:border-box;padding:56px 40px;background:#f6fdea">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">FAQ</p><h2 class="h2">よくある質問<span class="kari">仮の文章</span></h2></div><div style="display:flex;flex-direction:column;gap:12px"><div class="qa"><b>最小ロットはありますか？</b><p>〇〇カット（〇〇枚）から承ります。1話まるごとでなくてもご相談ください。</p></div><div class="qa"><b>急ぎの料金はどうなりますか？</b><p>UPまでの日数に応じて、〇〇％の割増になる場合があります。まずは日程をお知らせください。</p></div><div class="qa"><b>リテイクには対応してもらえますか？</b><p>国内スタジオで対応します。弊社起因のリテイクは〇〇。</p></div><div class="qa"><b>紙・デジタルのどちらで作業できますか？</b><p>紙・デジタルのどちらにも対応します（〇〇）。</p></div></div>
+</div>
+</section>
+<section style="box-sizing:border-box;padding:56px 40px 64px">
+<div class="in" style="display:flex;flex-direction:column;gap:28px">
+<div class="hd"><p class="en">COMPANY</p><h2 class="h2">会社情報<span class="kari">仮の文章</span></h2></div><div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px" class="sp2"><div style="min-width:0"><dl class="dl" style="grid-template-columns:90px minmax(0,1fr)"><dt>会社名</dt><dd>株式会社reboot</dd><dt>所在地</dt><dd>東京都杉並区上荻1-5-8 直長ビル6F</dd><dt>受付時間</dt><dd>〇〇:〇〇〜〇〇:〇〇</dd></dl></div><div style="min-width:0;display:flex;flex-direction:column;gap:8px"><div class="ph" style="height:200px;border:2px solid #1a1a1a">地図</div><span style="font-size:12px;color:#555">地図</span></div><div style="min-width:0;display:flex;flex-direction:column;gap:8px"><div class="ph" style="height:200px;border:2px solid #1a1a1a">営業カレンダー</div><span style="font-size:12px;color:#555">営業カレンダー</span></div></div><div style="border-top:2px solid #1a1a1a;padding-top:16px;display:flex;flex-direction:column;gap:6px"><b style="font-size:15px">対応作業についてのご注意</b><div style="font-size:13px;color:#444;display:flex;flex-direction:column;gap:4px"><div>※動画検査、色指定検査は国内作業のみとなっております。</div><div>※国内作業やレイアウト、作監、動画検査、色指定検査、線撮は海外動仕をいただける会社様を優先してお引き受けしております。予めご了承ください。</div></div><a href="plan.html" style="font-weight:700;min-height:44px;display:inline-flex;align-items:center">作業プランを見る →</a></div>
 </div>
 </section>
 

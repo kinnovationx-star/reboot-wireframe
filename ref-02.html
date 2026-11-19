@@ -4,20 +4,20 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
-<title>B案｜reboot デザイン</title>
+<title>A案｜reboot デザイン</title>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;600;700;800&family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 body{margin:0}
 .pg *{box-sizing:border-box}
-.pg{--red:#a2e926;--olv:#848c76;--ink:#000;--deep:#2a2b28;font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-weight:400;font-size:15px;line-height:1.75;color:#fff;background:var(--deep);overflow-x:hidden;overflow-x:clip}
+.pg{--red:#a2e926;--olv:#eefad6;--ink:#000;--deep:#f6fdea;font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;font-weight:400;font-size:15px;line-height:1.75;color:#163300;background:var(--deep);overflow-x:hidden;overflow-x:clip}
 :where(.pg) a{color:inherit;text-decoration:none}
 .pg img{display:block;max-width:100%}
 .bc{font-family:"Barlow Condensed","Noto Sans JP",sans-serif}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 
 /* textures */
-.tx-olv{background-color:var(--olv);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.08),rgba(0,0,0,.12))}
-.tx-deep{background-color:var(--deep);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .075 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .5 -.12'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E")}
+.tx-olv{background-color:var(--olv);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .2 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.08),rgba(0,0,0,.12))}
+.tx-deep{background-color:var(--deep);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .2 0 0 0 0 0 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012' numOctaves='2' seed='4'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .85 0 0 0 0 .2 0 0 0 .3 -.08'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E")}
 
 /* header */
 .hd{position:relative;z-index:30;height:75px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 30px;color:#000}
@@ -351,183 +351,253 @@ a.fab{display:inline-flex;align-items:center;justify-content:center;position:fix
 <style data-new>
 .kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
 .gts .kari{letter-spacing:.05em}
-.sr2{font-family:"Noto Serif JP",serif}
-/* lime の地には濃い文字 */
-.mvc span,.onair h2,.onair li,.onair p.oh{color:#163300}
-.ni:not(:hover) .nt{color:#163300}
-.nt span{border-color:currentColor}
 
-/* ===== hero 右パネル：放送情報の赤チップ→受付・サブ、Netflixボタン→受注窓口、SNSの行→プラン ===== */
-.onair .oh{margin:0;background:var(--red);text-align:center;font-size:18px;font-weight:900;letter-spacing:.06em;line-height:1.5;padding:6px 8px}
-.onair .oh .kari{color:#163300}
-.sns a i{font-style:normal;display:block;width:0;height:0;border-style:solid;border-width:5px 0 5px 8px;border-color:transparent transparent transparent currentColor}
+/* ===== 明るい配色への置き換え（組み・書体はそのまま） ===== */
+.pg{--g:#163300;--g2:#2f6b0a;--lt:#eefad6;--wh:#f6fdea;--li:#c8f56b}
+.hd,.lg,.nv>a,.dd>a{color:var(--g)}
+.nv>a:after,.dd>a:after{background:var(--g)}
+.ddm{background:#fff;border:2px solid var(--g);padding:0}
+.ddm a{color:var(--g);font-weight:700}
+.ddm a+a{border-top:1px solid #d5e8bd}
+.ddm a:hover{background:var(--red)}
+.cb{color:var(--g)}
+.cb:before{--c:var(--g)}
+.cb:after{background:rgba(162,233,38,.6)}
+.blkbtn{background:var(--red);color:var(--g);--c:var(--g)}
+.pg a.blkbtn{color:var(--g)}
+.blkbtn b{color:var(--g)}
+.blkbtn:hover{background-color:var(--li)}
+.gt{color:var(--g)}
+.gts{color:var(--g)}
+.lbl{color:var(--g2)}
+.lbl:before{border-top-color:var(--g2)}
+.rail a.mnu span{background:var(--g)}
+.rail .vl{color:var(--g)}
+.scr:before,.scr:after{background:var(--g)}
+.sns a{color:var(--g)}
+.sns a:hover{color:var(--g2)}
 
-/* ===== 共通の見出し：グランジの大英字＋和文 ===== */
-.sec{position:relative;padding:110px 6% 110px 7.2%}
-.gt.m{font-size:150px}
-.ovt{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:38px;line-height:1;letter-spacing:.01em;margin:0 0 14px;transform:scaleY(1.15);transform-origin:left bottom}
+.tx-olv{background-color:#eefad6;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .09 0 0 0 0 .2 0 0 0 0 0 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"),radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.55),rgba(255,255,255,0))}
+.cb{--c:var(--g);--l:10px;--w:2px}
+.tel b{white-space:nowrap;font-size:30px}
+/* ===== 1 HERO（p-hero：KVの短冊＋縦書きコピー＋右パネル） ===== */
+.hero{background:#fff}
+.st{border-right:1px solid #fff}
+.st:before{background:rgba(22,51,0,.38)}
+.st:after{background:rgba(162,233,38,.85)}
+.st img{filter:none}
+.st .cap b{color:#fff;text-shadow:0 0 6px rgba(22,51,0,.8)}
+.st .cap em{color:var(--g)}
+.kvb{background:var(--wh)}
+.copy{color:var(--g);flex-basis:136px}
+.copy h1{font-size:40px}
+.copy h1:after{background:var(--g)}
+.copy p{padding-top:96px}
+.hr{color:var(--g)}
+.blogo b{color:var(--g)}
+.onair .oh{margin:0;background:var(--red);color:var(--g);text-align:center;font-size:18px;font-weight:900;letter-spacing:.06em;line-height:1.5;padding:6px 8px}
+.onair li{color:var(--g)}
+.tel{list-style:none;margin:22px auto 0;padding:0;width:fit-content;text-align:center}
+.tel b{display:block;font-family:"Barlow Condensed","Noto Sans JP",sans-serif;font-weight:800;font-size:34px;line-height:1.1;letter-spacing:.04em}
+.tel b small{font-size:.5em;letter-spacing:.12em;margin-right:.3em}
+.tel span{display:block;font-size:13px;font-weight:700;letter-spacing:.08em;margin-top:2px}
 
-/* ===== COMMENT の組み（黒地・赤い明朝の小見出し＋下線・明朝の本文）：NUMBERS / REASON / FAQ ===== */
-.cm{background:#000;color:#fff;padding:149px 6% 121px 7.2%;font-family:"Noto Serif JP",serif}
+/* ===== 共通の組み ===== */
+.ovt{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:38px;line-height:1;letter-spacing:.01em;margin:0 0 14px;transform:scaleY(1.15);transform-origin:left bottom;color:var(--g2)}
+
+/* ===== 2 NUMBERS／4 SYSTEM：p-comment の組み（明朝の小見出し＋下線） ===== */
+.cm{background:#fff;color:var(--g);padding:130px 6% 110px 7.2%;font-family:"Noto Serif JP",serif}
 .cm .gth{margin-left:-2.57%;margin-bottom:5%}
 .cbk{padding-top:5%}
-.cbk h3{position:relative;margin:0 0 10px;padding-bottom:10px;color:var(--red);font-family:"Noto Serif JP",serif;font-size:18px;font-weight:700;line-height:1.4;letter-spacing:.04em}
-.cbk h3:before{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--red)}
-.cbk p{margin:0;font-size:16.5px;line-height:2.05;letter-spacing:.07em;text-indent:1em}
-.cm2{display:flex;justify-content:space-between;gap:4%}
-.cm2 .w1{width:57%}
-.cm2 .w2{width:40.3%;margin-top:12px}
-.cm2 .w2 img{width:100%;aspect-ratio:1/1;object-fit:cover}
-.cm2 .w2 .cbk h3{margin-bottom:20px}
-/* numbers：4列のブロック */
+.cbk h3{position:relative;margin:0 0 10px;padding-bottom:10px;color:var(--g2);font-family:"Noto Serif JP",serif;font-size:18px;font-weight:700;line-height:1.4;letter-spacing:.04em}
+.cbk h3:before{content:"";position:absolute;left:0;bottom:0;width:100%;height:3px;background:var(--red)}
+.cbk p{margin:0;font-size:16.5px;line-height:2.05;letter-spacing:.07em}
 .cm4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0 3.2%}
-.cm4 .cbk p{text-indent:0;font-family:"Barlow Condensed","Noto Sans JP",sans-serif;font-weight:700;font-size:clamp(28px,2.9vw,46px);line-height:1.1;letter-spacing:.01em;white-space:nowrap}
+.cm4 .cbk p{font-family:"Barlow Condensed","Noto Sans JP",sans-serif;font-weight:700;font-size:clamp(28px,2.9vw,46px);line-height:1.1;letter-spacing:.01em;white-space:nowrap;color:var(--g)}
 .cm4 .cbk p small{font-family:"Noto Serif JP",serif;font-size:16px;font-weight:700;margin-left:.2em;letter-spacing:.06em}
-.cm4 .cbk p span{display:block;font-family:"Noto Serif JP",serif;font-size:14px;font-weight:400;line-height:1.8;letter-spacing:.06em}
-/* faq：Q を見出し、A を本文に */
-.cbk h3 i,.cbk p i{font-style:normal;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.25em;margin-right:.5em}
-.cbk p i{color:#fff}
-.fq3 .cbk p{text-indent:0}
-.fq3{max-width:1000px}
-
-/* ===== NEWS の組み（赤い帯リスト）：CASE ===== */
-.cs .nlist{margin-top:76px}
-.ni.cs1{padding:18px 0 20px}
-.nd.cs2 small{font-size:15px;top:6px}
-.nt b{display:block;font-weight:500;font-size:19px;line-height:1.6}
-.nt em{display:block;font-style:normal;font-weight:300;font-size:16px;line-height:1.7}
-.nt em:before{content:"→ "}
-.nhead .cb{flex:0 0 auto}
-
-/* ===== MOVIE の組み：WORKS ===== */
-.wcards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;flex:1 1 auto;min-width:0;padding:40px 6% 0 0}
-.wcd{position:relative;display:block;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.5)}
-.wcd .im{position:relative;aspect-ratio:16/10;overflow:hidden}
-.wcd img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.165,.84,.44,1)}
-.wcd:hover img{transform:scale(1.05)}
-.wcd .im:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 40%,rgba(0,0,0,.8))}
-.wcd .cp{position:absolute;left:14px;right:14px;bottom:12px;z-index:1;padding-left:12px;border-left:4px solid var(--red)}
-.wcd .cp b{display:block;font-size:17px;font-weight:900;line-height:1.35;letter-spacing:.04em}
-.wcd .cp small{display:block;font-family:"Barlow Condensed","Noto Sans JP",sans-serif;font-weight:600;font-size:14px;letter-spacing:.06em;color:#e7e7e1}
-.wcd .cp span{display:block;font-size:12.5px;color:#e7e7e1}
-.cli{position:relative;z-index:1;margin:40px 6% 0 calc(4.5% + 200px);font-size:14px;color:#e7e7e1}
-.wmore{margin-top:30px}
-
-/* ===== バナーエリアの組み：PLAN ===== */
-.pa{position:relative;padding:90px 6% 100px 7.2%}
-.pa .gth{margin-bottom:56px}
-.pa .bnr{padding:0;align-items:stretch}
-.pa .lbl{align-self:flex-start;margin-top:4px}
-.pa .bx{min-height:150px;padding:22px 18px 20px;justify-content:flex-start}
-.pa .bx .pn{font-family:"Barlow Condensed",sans-serif;font-weight:600;font-size:13px;letter-spacing:.16em;color:#b2ed4b}
-.pa .bx h3{margin:4px 0 0;font-size:20px;font-weight:900;letter-spacing:.06em;line-height:1.4}
-.pa .bx dl{margin:12px 0 0;display:flex;justify-content:center;gap:18px;flex-wrap:wrap}
-.pa .bx dt{font-size:12px;font-weight:500;color:#cfcfc9}
-.pa .bx dd{margin:0;font-size:17px;font-weight:700;color:#b2ed4b}
-.pa .bx .rb{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--red);color:#163300;font-size:13px;font-weight:900;letter-spacing:.08em;padding:1px 12px;white-space:nowrap}
-.pa .bx:hover{transform:none}
-.pmore{margin-top:44px;text-align:center}
-
-/* ===== ABOUT の組み：STUDIO（2つを左右交互） ===== */
-.ab{position:relative;padding:120px 6% 60px 7.2%}
-.ab+.ab{padding-top:60px;padding-bottom:123px}
-.abw{display:flex;align-items:flex-start}
-.ab.rev .abw{flex-direction:row-reverse}
-.abi{width:34%;flex-shrink:0;margin-left:-2.6%;margin-right:5.4%}
-.ab.rev .abi{margin-left:5.4%;margin-right:0}
-.abi img{width:100%;aspect-ratio:4/5;object-fit:cover;filter:saturate(.8) contrast(1.05)}
-.abt{flex:1 1 auto;min-width:0}
-.abh{position:relative;margin:4% 0 0 -4%}
-.abh .gt{font-size:120px}
-.abh .lb{position:absolute;left:8%;top:44px;z-index:1;background:var(--red);color:#163300;font-weight:700;font-size:18px;letter-spacing:.04em;line-height:1.4;padding:1px 12px;white-space:nowrap}
-.abd{margin-top:5%}
-.abd p{margin:0;font-family:"Noto Serif JP",serif;font-size:19px;line-height:1.85;letter-spacing:.04em}
-.abd .cb{margin-top:26px}
-.stl{padding:110px 6% 0 7.2%}
-
-/* ===== 放送情報チップの組み：FLOW ===== */
-.fwc{position:relative;padding:100px 6% 110px 7.2%;color:#000}
-.fwc .gt{color:#000}
-.fwc .gts{color:#000}
-.chips{list-style:none;margin:56px 0 0;padding:0;display:flex;flex-direction:column;align-items:flex-start;gap:14px}
-.chips li{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px}
-.chips .c1{background:var(--red);color:#163300;font-weight:900;font-size:clamp(18px,2vw,26px);letter-spacing:.06em;line-height:1.5;padding:4px 14px}
+.cm4 .cbk p span{display:block;font-family:"Noto Serif JP",serif;font-size:13.5px;font-weight:400;line-height:1.8;letter-spacing:.04em;white-space:normal;margin-top:6px}
+.cm.sy{background:var(--lt)}
+.cm2{display:flex;justify-content:space-between;gap:4%}
+.cm2 .w1{width:55%}
+.cm2 .w2{width:41%}
+.cm2 .w2 figure{margin:0}
+.cm2 .w2 figure+figure{margin-top:28px}
+.cm2 .w2 img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.cm2 .w2 figcaption{margin-top:8px;font-size:13.5px;letter-spacing:.04em}
+.cm2 .w2 figcaption b{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:16px;letter-spacing:.1em;margin-right:.6em;color:var(--g2)}
+/* 放送情報チップの組みで流れを示す */
+.chips{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;align-items:flex-start;font-family:"Noto Sans JP",sans-serif}
+.chips li{display:flex;flex-direction:column;align-items:flex-start;gap:6px;position:relative}
+.chips li+li{margin-top:46px}
+.chips li+li:before{content:"";position:absolute;left:22px;top:-36px;border-style:solid;border-width:14px 9px 0 9px;border-color:var(--g) transparent transparent transparent}
+.chips .c1{background:var(--red);color:var(--g);font-weight:900;font-size:clamp(18px,1.9vw,25px);letter-spacing:.06em;line-height:1.5;padding:4px 14px}
 .chips .c1 b{font-family:"Barlow Condensed",sans-serif;font-weight:800;margin-right:.5em;letter-spacing:.02em}
-.chips .c2{font-weight:700;font-size:15px;letter-spacing:.04em}
-.chips li:nth-child(2){margin-left:6%}
-.chips li:nth-child(3){margin-left:12%}
-.chips li:nth-child(4){margin-left:18%}
+.chips .c1 small{font-size:.62em;margin-left:.5em;font-weight:700}
+.chips .c2{font-family:"Noto Serif JP",serif;font-weight:400;font-size:15.5px;line-height:1.9;letter-spacing:.05em}
+.chips .c2 strong{font-weight:700;background:linear-gradient(transparent 62%,var(--li) 62%)}
+.chips li:nth-child(2){margin-left:7%}
+.chips li:nth-child(3){margin-left:14%}
 
-/* news (quiet) */
+/* ===== 3 PROCESS／9 NEWS：p-news の組み（黄緑の帯リスト） ===== */
+.news{background-color:var(--wh)}
+.ni{background:var(--red)}
+.ni:before{background:#fff}
+.ni:hover .nd{color:var(--g)}
+.nd{color:var(--g)}
+.nt{color:var(--g)}
+.nt span{border-color:currentColor}
+div.ni:before{display:none}
+.pr .nlist li+li{margin-top:14px}
+.pr .ni{padding:12px 0 14px}
+.pr .nd{min-width:170px}
+.pr .nt b{display:block;font-weight:700;font-size:21px;line-height:1.5;letter-spacing:.04em}
+.pr .nt em{display:block;font-style:normal;font-weight:400;font-size:15px;line-height:1.7}
+.pr .nt em i{font-style:normal;display:inline-block;font-weight:700;font-size:12px;letter-spacing:.1em;border:1px solid currentColor;padding:0 8px;margin-right:10px;line-height:1.7;vertical-align:1px}
+.pnote{margin:22px 6% 0 8%;font-size:13.5px;line-height:1.9;position:relative;z-index:2}
+.shard{background-image:url(images/off/g020.jpg);filter:none;opacity:1}
 .news.sm{padding:80px 0 90px}
 .news.sm .gt{font-size:110px}
 .news.sm .nlist{margin-top:44px}
 .news.sm .nd b{font-size:34px;line-height:44px}
-.news.sm .nt{font-size:15.5px}
+.news.sm .nt{font-size:15.5px;font-weight:400}
 .news.sm .ni{padding:8px 0 10px}
 .news.sm .shard{top:70px;height:180px;width:18%}
 
-/* contact */
-.ctr .rp{margin:14px 0 0;font-size:14px}
-.fnote{display:block;font-family:"Noto Sans JP",sans-serif;letter-spacing:.04em;font-weight:400;margin:14px 0 0;font-size:12px;line-height:1.8;color:#cfcfc9}
-.cbk h3,.abd p,.nt b,.wcd .cp b,.chips .c1{word-break:auto-phrase}
+/* ===== 5 WORKS：p-movie の組み（縦の大見出し＋作品の並び） ===== */
+.works{background:var(--lt)}
+.wwrap{align-items:flex-start}
+.wcards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 18px;flex:1 1 auto;min-width:0;padding:30px 6% 0 0}
+.wcd{display:block;color:var(--g)}
+.wcd .im{position:relative;aspect-ratio:40/21;overflow:hidden;background:#fff}
+.wcd img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.165,.84,.44,1)}
+.wcd:hover img{transform:scale(1.05)}
+.wcd .cp{display:block;margin-top:10px;padding-left:10px;border-left:4px solid var(--red)}
+.wcd .cp small{display:block;font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:15px;letter-spacing:.08em;line-height:1.2}
+.wcd .cp b{display:block;font-size:14.5px;font-weight:700;line-height:1.45;letter-spacing:.02em;margin-top:2px}
+.wcd .cp span{display:block;font-size:12.5px;margin-top:2px}
+.wmore{position:relative;z-index:1;text-align:center;margin-top:50px}
+
+/* ===== 6 CLIENTS／7 PLAN：p-hero__bnr のバナー枠の組み ===== */
+.pa{position:relative;padding:100px 6% 100px 7.2%}
+.pa .gth{margin-bottom:50px}
+.pa .bnr{padding:0;align-items:stretch}
+.pa .lbl{align-self:flex-start;margin-top:4px}
+.bx{background:#fff;color:var(--g);--c:var(--g);--l:14px;--w:3px;outline:1px solid #cfe3b4;outline-offset:-1px}
+.bx:after{background:rgba(162,233,38,.35)}
+.cl .bnl{grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.cl .bx{min-height:84px;font-size:17px;font-weight:700}
+.cl .bx:hover{transform:none}
+.cl .bx:hover:after{opacity:0}
+.cln{margin:18px 0 0;font-size:13.5px}
+.pl .bx{min-height:170px;padding:24px 20px 22px;justify-content:flex-start}
+.pl .bx .pn{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:14px;letter-spacing:.16em;color:var(--g2)}
+.pl .bx h3{margin:4px 0 0;font-size:22px;font-weight:900;letter-spacing:.06em;line-height:1.4}
+.pl .bx p{margin:8px 0 0;font-size:14px;font-weight:500;line-height:1.7}
+.pl .bx dl{margin:12px 0 0}
+.pl .bx dt{display:inline;font-size:12px;font-weight:700;margin-right:.6em}
+.pl .bx dd{display:inline;margin:0;font-size:17px;font-weight:900;background:linear-gradient(transparent 60%,var(--li) 60%)}
+.pl .bx:hover{transform:none}
+.pmore{margin-top:44px;text-align:center}
+
+/* ===== 8 RECRUIT：p-introduction の組み（写真＋大英字＋明朝） ===== */
+.ab{position:relative;padding:110px 6% 110px 7.2%;background:#fff}
+.abw{display:flex;align-items:flex-start}
+.abi{width:30%;flex-shrink:0;margin-left:-2.6%;margin-right:5.4%}
+.abi img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.abt{flex:1 1 auto;min-width:0}
+.abh{position:relative;margin:3% 0 0 -4%}
+.abh .gt{font-size:130px}
+.abh .lb{position:absolute;left:8%;top:44px;z-index:1;background:var(--red);color:var(--g);font-weight:700;font-size:18px;letter-spacing:.04em;line-height:1.4;padding:1px 12px;white-space:nowrap}
+.abd{margin-top:6%}
+.abd p{margin:0;font-family:"Noto Serif JP",serif;font-size:19px;line-height:1.85;letter-spacing:.04em}
+.abd ul{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.abd li{background:var(--red);font-size:14px;font-weight:700;padding:1px 10px;letter-spacing:.04em}
+.abd .cb{margin-top:28px}
+
+/* ===== 10 CONTACT ===== */
+.ct{background:var(--li);color:var(--g)}
+.ct .gt,.ct .gts{color:var(--g)}
+.ctr p{margin:0 0 6px;font-size:16px;font-weight:700;line-height:1.9}
+.ctr .blkbtn{background:#fff;width:100%;margin:24px 0 0}
+.ctr .blkbtn:hover{background:var(--wh)}
+.ctr .tel{margin:22px 0 0;text-align:left}
+.ctr .rp{margin:12px 0 0;font-size:14px}
+
+/* footer */
+.ft{background:var(--lt);color:var(--g);padding-top:0}
+.flogo:before{background:var(--g)}
+.flogo p,.fnav a small,.fcp{color:#34521c}
+.fup:before{border-color:var(--g)}
+.fnote{display:block;font-family:"Noto Sans JP",sans-serif;letter-spacing:.04em;font-weight:400;margin:14px 0 0;font-size:12px;line-height:1.8}
+.ctr p,.cbk h3,.abd p,.nt b,.wcd .cp b,.chips .c1,.chips .c2{word-break:auto-phrase}
 
 @media(max-width:1180px){
-.cli{margin-left:6%}
 .cm4{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 6%}
-.abh .gt{font-size:96px}
+.wcards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.abh .gt{font-size:100px}
 }
 @media(max-width:860px){
-.sec{padding:72px 16px}
-.cm{padding:72px 16px 80px}
+.hd:has(.mt:checked){background:#fff}
+.mt:checked~.nv{background:#fff;border-top:3px solid var(--g)}
+.mt:checked~.nv>a,.mt:checked~.nv .dd>a{color:var(--g);border-bottom:1px solid #d5e8bd}
+.mt:checked~.nv>a span,.mt:checked~.nv .dd>a span{color:var(--g2)}
+.mt:checked~.nv .ddm{border:0}
+.hb span{background:var(--g)}
+a.fab{background:var(--red);color:var(--g);--c:var(--g);box-shadow:0 4px 14px rgba(22,51,0,.25)}
+.pg a.fab{color:var(--g)}
+.copy{flex-basis:84px}
+.copy h1{font-size:27px}
+.copy p{padding-top:62px}
+.tel b{font-size:26px}
+.cm,.cm.sy{padding:72px 16px 80px}
 .cm .gth{margin-left:0}
-.cm2{flex-direction:column;gap:20px}
+.cm2{flex-direction:column;gap:40px}
 .cm2 .w1,.cm2 .w2{width:100%}
 .cbk p{font-size:15px;line-height:1.95}
-.cm4 .cbk p{font-size:clamp(24px,6.4vw,44px)}
+.cm4 .cbk p{font-size:clamp(24px,7.4vw,44px)}
 .cm4 .cbk p small{font-size:13px}
 .cbk h3{font-size:16px}
-.cs .nlist{margin:44px 0 0 16px}
-.nt b{font-size:15.5px}
-.nt em{font-size:14px}
-.ni.cs1{padding:12px 0 14px}
-.wcards{grid-template-columns:minmax(0,1fr);padding:36px 0 0;gap:12px}
-.cli{margin:24px 16px 0}
+.chips li:nth-child(n){margin-left:0}
+.chips .c2{font-size:14.5px}
+.pr .nlist{margin:44px 0 0 16px}
+.pr .nd{min-width:0}
+.pr .nt b{font-size:17px}
+.pr .nt em{font-size:13.5px}
+.pnote{margin:18px 16px 0}
+.wcards{grid-template-columns:repeat(2,minmax(0,1fr));padding:36px 0 0;gap:22px 12px}
+.wcd .cp{padding-left:8px}
+.wcd .cp b{font-size:13px}
 .pa{padding:72px 16px}
-.pa .gth{margin-bottom:36px}
-.pa .bnl{gap:22px}
-.ab,.ab+.ab{padding:40px 16px}
-.stl{padding:72px 16px 0}
-.abw,.ab.rev .abw{flex-direction:column}
-.abi,.ab.rev .abi{width:100%;margin:0}
+.pa .gth{margin-bottom:32px}
+.cl .bnl{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.cl .bx{min-height:64px;font-size:14.5px}
+.pl .bnl{gap:22px}
+.ab{padding:72px 16px}
+.abw{flex-direction:column}
+.abi{width:100%;margin:0}
 .abi img{aspect-ratio:4/3}
 .abh{margin:20px 0 0}
-.abh .gt{font-size:17vw}
-.abh .lb{top:auto;bottom:-6px;left:0;font-size:15px}
-.abd{margin-top:24px}
+.abh .gt{font-size:19vw}
+.abh .lb{position:relative;top:auto;left:0;display:inline-block;margin-top:14px;font-size:15px}
+.abd{margin-top:28px}
 .abd p{font-size:16px}
-.fwc{padding:72px 16px}
-.chips{margin-top:40px}
-.chips li{margin-left:0 !important;flex-direction:column;align-items:flex-start}
-.chips .c2{font-size:14px}
 .news.sm{padding:56px 0 64px}
 .news.sm .gt{font-size:22vw}
 .news.sm .nd b{font-size:28px;line-height:36px}
 .news.sm .nt{font-size:14px}
 .news.sm .shard{display:none}
 .fnote{margin:20px 0 0}
-.nhead .cb{min-width:0}
 }
 @media(min-width:600px) and (max-width:860px){
-.wcards{grid-template-columns:repeat(2,minmax(0,1fr))}
-.pa .bnl{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.pa .bx h3{font-size:16px}
+.wcards{grid-template-columns:repeat(3,minmax(0,1fr))}
+.pl .bnl{grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.pl .bx h3{font-size:17px}
+.cl .bnl{grid-template-columns:repeat(4,minmax(0,1fr))}
 .abw{flex-direction:row}
-.ab.rev .abw{flex-direction:row-reverse}
-.abi,.ab.rev .abi{width:38%;margin:0 5% 0 0}
-.ab.rev .abi{margin:0 0 0 5%}
-.cm2 .w2{max-width:420px}
+.abi{width:38%;margin:0 5% 0 0}
 .abh .gt{font-size:12vw}
+.cm2 .w2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.cm2 .w2 figure+figure{margin-top:0}
 }
 </style>
 </head>
@@ -550,16 +620,16 @@ a.fab{display:inline-flex;align-items:center;justify-content:center;position:fix
 <section id="top" class="hero" aria-label="メインビジュアル">
 <div class="kva">
 <div class="strips">
-<a class="st" href="works.html"><img src="images/gen/a05-works-mecha.jpg" alt="参加作品のビジュアル（ロボットとパイロット）"><span class="cap"><span><em>REBOOT WORKS</em><b>VISUAL 01</b></span></span></a>
-<a class="st" href="works.html"><img src="images/gen/a14-works-scifi.jpg" alt="参加作品のビジュアル（宇宙船と惑星）"><span class="cap"><span><em>REBOOT WORKS</em><b>VISUAL 02</b></span></span></a>
-<a class="st" href="works.html"><img src="images/gen/a11-works-romance.jpg" alt="参加作品のビジュアル（ネオン街の男女）"><span class="cap"><span><em>REBOOT WORKS</em><b>VISUAL 03</b></span></span></a>
-<a class="st" href="works.html"><img src="images/gen/a13-works-mystery.jpg" alt="参加作品のビジュアル（図書館の高校生）"><span class="cap"><span><em>REBOOT WORKS</em><b>VISUAL 04</b></span></span></a>
+<a class="st" href="studio-japan.html"><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"><span class="cap"><span><em>REBOOT STUDIO</em><b>LOLROUTE</b></span></span></a>
+<a class="st" href="studio-japan.html"><img src="images/off/g017.jpg" alt="机で作画する国内スタッフ"><span class="cap"><span><em>REBOOT STUDIO</em><b>TOKYO</b></span></span></a>
+<a class="st" href="studio-overseas.html"><img src="images/off/g013.jpg" alt="reboot China の社内で作業する人々"><span class="cap"><span><em>REBOOT STUDIO</em><b>CHINA</b></span></span></a>
+<a class="st" href="studio-overseas.html"><img src="images/off/g014.jpg" alt="reboot China の社内"><span class="cap"><span><em>REBOOT STUDIO</em><b>2 STUDIOS</b></span></span></a>
 </div>
 <div class="kvb">
 <div class="kvimg"><img src="images/gen/a02-team-keyvisual.jpg" alt="作業ジャケットを着た6人のチームが並び立つキービジュアル"></div>
 <div class="copy">
-<h1>アニメを、もっと楽しく</h1>
-<p>動画・仕上げの依頼は reboot へ</p>
+<h1>動画・仕上げを、</h1>
+<p>東京と直営の中国スタジオで</p>
 </div>
 </div>
 </div>
@@ -568,11 +638,11 @@ a.fab{display:inline-flex;align-items:center;justify-content:center;position:fix
 <div class="blogo"><b>REBOOT</b></div>
 <p class="bsub">株式会社リブート</p>
 <div class="onair">
-<p class="oh">動画・仕上げを、<br>国内と海外の2スタジオで。<span class="kari">仮の文章</span></p>
+<p class="oh">動画・仕上げを、<br>東京と直営の中国スタジオで。<span class="kari">仮の文章</span></p>
 <ul><li>〇月の受付状況：受付中</li></ul>
 </div>
-<a class="blkbtn cn" href="contact.html"><b>CONTACT</b>受注窓口で相談する</a>
-<ul class="sns"><li><a href="plan.html"><i aria-hidden="true"></i>PLAN／作業プランを見る</a></li></ul>
+<a class="blkbtn cn" href="contact.html"><b>ORDER</b>作業を依頼する</a>
+<div class="tel"><b><small>TEL</small>〇〇-〇〇〇〇-〇〇〇〇</b><span>受付 〇〇:〇〇〜〇〇:〇〇</span></div>
 <span class="scr" aria-hidden="true"></span>
 </div>
 </div>
@@ -584,102 +654,96 @@ a.fab{display:inline-flex;align-items:center;justify-content:center;position:fix
 <section class="cm" aria-labelledby="num-t">
 <div class="gth"><span class="ovt">REBOOT IN NUMBERS</span><h2 id="num-t" class="gt l">NUMBERS</h2><p class="gts">数字で見るreboot<span class="kari">仮の文章</span></p></div>
 <div class="cm4">
-<div class="cbk"><h3>参加作品</h3><p>〇〇<small>本以上</small></p></div>
-<div class="cbk"><h3>月間対応</h3><p>〇〇,〇〇〇<small>枚</small></p></div>
-<div class="cbk"><h3>スタッフ</h3><p>〇〇<small>名</small><span>国内・海外</span></p></div>
-<div class="cbk"><h3>創業</h3><p>〇〇<small>年</small></p></div>
+<div class="cbk"><h3>月間の対応枚数</h3><p>〇〇,〇〇〇<small>枚</small></p></div>
+<div class="cbk"><h3>スタッフ</h3><p>〇〇<small>名</small><span>国内・海外の合計</span></p></div>
+<div class="cbk"><h3>拠点</h3><p>2<small>拠点</small><span>東京・中国</span></p></div>
+<div class="cbk"><h3>参加作品</h3><p>165<small>本以上</small><span>2023〜2025年の作品履歴より</span></p></div>
 </div>
 </section>
 
-<section class="news cs" aria-labelledby="case-t">
+<section class="news pr" aria-labelledby="pr-t">
 <div class="nhead">
-<h2 id="case-t" class="gt">CASE</h2>
-<p class="gts">こんなときにご相談ください<span class="kari">仮の文章</span></p>
+<h2 id="pr-t" class="gt">PROCESS</h2>
+<p class="gts">対応工程<span class="kari">仮の文章</span></p>
 </div>
 <ul class="nlist">
-<li><a class="ni cs1" href="contact.html"><span class="nin"><span class="nd cs2"><small>CASE</small><b>01</b></span><span class="nt"><b>放送・公開まで時間がない話数がある</b><em>2拠点で振り分けて、納期に合わせます。</em></span></span></a></li>
-<li><a class="ni cs1" href="contact.html"><span class="nin"><span class="nd cs2"><small>CASE</small><b>02</b></span><span class="nt"><b>枚数が多く、社内だけでは回らない</b><em>月 〇〇,〇〇〇枚まで対応できます。</em></span></span></a></li>
-<li><a class="ni cs1" href="contact.html"><span class="nin"><span class="nd cs2"><small>CASE</small><b>03</b></span><span class="nt"><b>海外に出したいが、品質が心配</b><em>直営スタジオなので、社員が直接指導しています。</em></span></span></a></li>
-<li><a class="ni cs1" href="contact.html"><span class="nin"><span class="nd cs2"><small>CASE</small><b>04</b></span><span class="nt"><b>動画と仕上げをまとめて任せたい</b><em>窓口ひとつで、動画から仕上げまで請け負います。</em></span></span></a></li>
+<li><div class="ni"><span class="nin"><span class="nd"><small>NO.</small><b>01</b></span><span class="nt"><b>動画</b><em><i>拠点</i>lolroute（東京）・reboot China</em></span></span></div></li>
+<li><div class="ni"><span class="nin"><span class="nd"><small>NO.</small><b>02</b></span><span class="nt"><b>仕上げ（デジタル彩色）</b><em><i>拠点</i>lolroute（東京）・reboot China</em></span></span></div></li>
+<li><div class="ni"><span class="nin"><span class="nd"><small>NO.</small><b>03</b></span><span class="nt"><b>動画検査</b><em><i>拠点</i>lolroute（東京）※国内のみ</em></span></span></div></li>
+<li><div class="ni"><span class="nin"><span class="nd"><small>NO.</small><b>04</b></span><span class="nt"><b>色指定検査</b><em><i>拠点</i>lolroute（東京）※国内のみ</em></span></span></div></li>
+<li><div class="ni"><span class="nin"><span class="nd"><small>NO.</small><b>05</b></span><span class="nt"><b>レイアウト・作監・線撮</b><em><i>拠点</i>〇〇（条件つき）</em></span></span></div></li>
 </ul>
+<p class="pnote">※国内作業やレイアウト・作監・動画検査・色指定検査・線撮は、海外動仕をいただける会社様を優先しています。</p>
 </section>
 
-<section class="cm" aria-labelledby="rs-t">
-<div class="gth"><span class="ovt">WHY REBOOT</span><h2 id="rs-t" class="gt">REASON</h2><p class="gts">rebootが選ばれる3つの理由<span class="kari">仮の文章</span></p></div>
+<section id="studio" class="cm sy" aria-labelledby="sy-t">
+<div class="gth"><span class="ovt">2 STUDIOS</span><h2 id="sy-t" class="gt">SYSTEM</h2><p class="gts">2拠点の体制と品質管理の流れ<span class="kari">仮の文章</span></p></div>
 <div class="cm2">
 <div class="w1">
-<div class="cbk"><h3><i>01</i>国内と海外、2つの直営スタジオ</h3><p>枚数と納期に合わせて国内・海外に振り分けます。</p></div>
-<div class="cbk"><h3><i>02</i>社員が現地で指導する品質管理</h3><p>数カ月に一度、社員が中国のスタジオで直接指導。動画検査・色指定検査は国内で行います。</p></div>
-<div class="cbk"><h3><i>03</i>動画から仕上げまでまとめて</h3><p>作業ごとに発注先を分ける手間がありません。</p></div>
+<ol class="chips">
+<li><span class="c1"><b>01</b>reboot China<small>作業</small></span><span class="c2"><strong>直営</strong>の海外スタジオで動画・仕上げを行います。<strong>社員が数カ月に一度、現地で指導</strong>しています。</span></li>
+<li><span class="c1"><b>02</b>lolroute<small>検査・リテイク・急ぎ対応</small></span><span class="c2">海外から上がった素材を東京で検査し、リテイクや急ぎの話数にも対応します。</span></li>
+<li><span class="c1"><b>03</b>納品</span><span class="c2">国内で検査を済ませてから納品します。</span></li>
+</ol>
 </div>
-<div class="w2"><div class="cbk"><h3>動画用紙と鉛筆の手元</h3><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台で鉛筆を走らせる手元"></div></div>
+<div class="w2">
+<figure><img src="images/off/g012.jpg" alt="reboot China の社内全景"><figcaption><b>CHINA</b>reboot China（2016年設立・直営）</figcaption></figure>
+<figure><img src="images/off/g007.jpg" alt="作業机が並ぶ lolroute の社内"><figcaption><b>TOKYO</b>lolroute（2021年設立・東京）</figcaption></figure>
+</div>
 </div>
 </section>
 
 <section class="works" aria-labelledby="works-t">
-<div class="wbg" aria-hidden="true"><img src="images/gen/a10-works-fire.jpg" alt=""></div>
 <div class="wwrap">
 <div class="gth"><h2 id="works-t" class="gt wt l">WORKS</h2><p class="gts">参加作品<span class="kari">仮の文章</span></p></div>
 <div class="wcards">
-<a class="wcd" href="works.html"><div class="im"><img src="images/gen/a06-works-school.jpg" alt="夕暮れの河原に立つ高校生3人と桜"></div><span class="cp"><small>2025 / TVアニメ</small><b>作品タイトル（仮）</b><span>担当：動画・仕上げ</span></span></a>
-<a class="wcd" href="works.html"><div class="im"><img src="images/gen/a07-works-witch.jpg" alt="ほうきで飛ぶ魔女と黒猫"></div><span class="cp"><small>2025 / TVアニメ</small><b>作品タイトル（仮）</b><span>担当：動画・仕上げ</span></span></a>
-<a class="wcd" href="works.html"><div class="im"><img src="images/gen/a12-works-comedy.jpg" alt="女騎士とゴリラのコメディ作品"></div><span class="cp"><small>2024 / 劇場</small><b>作品タイトル（仮）</b><span>担当：動画・仕上げ</span></span></a>
-<a class="wcd" href="works.html"><div class="im"><img src="images/gen/a08-works-sports.jpg" alt="バスケットボールのダンクシュート"></div><span class="cp"><small>2023 / 配信</small><b>作品タイトル（仮）</b><span>担当：動画・仕上げ</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></div><span class="cp"><small>2025</small><b>TVアニメ『WIND BREAKER』</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></div><span class="cp"><small>2025</small><b>TVアニメ『SAKAMOTO DAYS』</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX"></div><span class="cp"><small>2025</small><b>機動戦士Gundam GQuuuuuuX</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w004.jpg" alt="『炎炎ノ消防隊 参ノ章』"></div><span class="cp"><small>2025</small><b>『炎炎ノ消防隊 参ノ章』</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></div><span class="cp"><small>2025</small><b>TVアニメ『九龍ジェネリックロマンス』</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w020.jpg" alt="オリジナルアニメ『LAZARUS ラザロ』"></div><span class="cp"><small>2025</small><b>オリジナルアニメ『LAZARUS ラザロ』</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></div><span class="cp"><small>2025</small><b>TVアニメ「チ。 ―地球の運動について―」</b><span>担当：〇〇</span></span></a>
+<a class="wcd" href="works.html"><div class="im"><img src="images/off/w002.jpg" alt="ヴィジランテ-僕のヒーローアカデミア ILLEGALS-"></div><span class="cp"><small>2025</small><b>ヴィジランテ-僕のヒーローアカデミア ILLEGALS-</b><span>担当：〇〇</span></span></a>
 </div>
 </div>
-<p class="cli">取引先：〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</p>
-<p class="wmore"><a class="cb cn ar" href="works.html"><span>作品履歴をすべて見る</span><i></i></a></p>
+<p class="wmore"><a class="cb cn ar" href="works.html"><span>作品履歴をすべて見る（165作品）</span><i></i></a></p>
 </section>
 
-<section class="pa" aria-labelledby="plan-t">
+<section class="pa cl tx-deep" aria-labelledby="cl-t">
+<div class="gth"><h2 id="cl-t" class="gt">CLIENTS</h2><p class="gts">主な取引先<span class="kari">仮の文章</span></p></div>
+<div class="bnr">
+<span class="lbl">CLIENT AREA</span>
+<div class="bnl">
+<span class="bx cn">〇〇株式会社</span>
+<span class="bx cn">〇〇スタジオ</span>
+<span class="bx cn">〇〇株式会社</span>
+<span class="bx cn">〇〇アニメーション</span>
+</div>
+</div>
+<p class="cln">ほか（掲載許可を確認中）</p>
+</section>
+
+<section class="pa pl tx-olv" aria-labelledby="plan-t">
 <div class="gth"><h2 id="plan-t" class="gt">PLAN</h2><p class="gts">作業プラン<span class="kari">仮の文章</span></p></div>
 <div class="bnr">
 <span class="lbl">PLAN AREA</span>
 <div class="bnl">
-<a class="bx cn" href="plan.html"><span class="pn">PLAN 01 / INBETWEEN</span><h3>動画プラン</h3><dl><div><dt>料金</dt><dd>1枚 〇〇円〜</dd></div><div><dt>納期の目安</dt><dd>〇〇日〜</dd></div></dl></a>
-<a class="bx cn" href="plan.html"><span class="pn">PLAN 02 / COLORING</span><h3>仕上げプラン</h3><dl><div><dt>料金</dt><dd>1枚 〇〇円〜</dd></div><div><dt>納期の目安</dt><dd>〇〇日〜</dd></div></dl></a>
-<a class="bx cn" href="plan.html"><span class="rb">おすすめ</span><span class="pn">PLAN 03 / FULL PACKAGE</span><h3>動画＋仕上げ 一括プラン</h3><dl><div><dt>料金</dt><dd>1枚 〇〇円〜</dd></div><div><dt>納期の目安</dt><dd>〇〇日〜</dd></div></dl></a>
+<a class="bx cn" href="plan.html"><span class="pn">PLAN 01 / RUSH</span><h3>急ぎ対応</h3><p>放送・納期が迫った話数を東京で</p><dl><dt>目安</dt><dd>〇〇枚／〇〇時間</dd></dl></a>
+<a class="bx cn" href="plan.html"><span class="pn">PLAN 02 / EPISODE</span><h3>話数単位</h3><p>1話ぶんの動画・仕上げをまとめて</p><dl><dt>目安</dt><dd>〇〇枚／〇〇日</dd></dl></a>
+<a class="bx cn" href="plan.html"><span class="pn">PLAN 03 / GROSS</span><h3>継続・グロス</h3><p>シリーズを通して2拠点で継続対応</p><dl><dt>目安</dt><dd>月 〇〇,〇〇〇枚</dd></dl></a>
 </div>
 </div>
-<p class="pmore"><a class="cb cn ar" href="plan.html"><span>プランの詳細を見る</span><i></i></a></p>
+<p class="pmore"><a class="cb cn ar" href="plan.html"><span>プランの詳細</span><i></i></a></p>
 </section>
 
-<div id="studio" class="stl"><div class="gth"><h2 id="studio-t" class="gt">STUDIO</h2><p class="gts">2つのスタジオ<span class="kari">仮の文章</span></p></div></div>
-<section class="ab" aria-label="国内スタジオ lolroute">
+<section class="ab" aria-labelledby="rc-t">
 <div class="abw">
-<div class="abi"><img src="images/gen/p02-studio-wide.jpg" alt="机が並ぶ明るい国内アニメスタジオ"></div>
+<div class="abi"><img src="images/off/g021.jpg" alt="作画中の国内スタッフ"></div>
 <div class="abt">
-<div class="abh"><p class="gt">LOLROUTE</p><span class="lb">国内スタジオ lolroute</span></div>
-<div class="abd"><p>2021年設立の国内作画スタジオ。急ぎの話数や、動画検査・色指定検査を担当します。</p><a class="cb cn ja ar" href="studio-japan.html"><span>詳しくはこちら</span><i></i></a></div>
+<div class="abh"><h2 id="rc-t" class="gt">RECRUIT</h2><span class="lb">アニメーター募集<span class="kari">仮の文章</span></span></div>
+<div class="abd"><p>国内スタジオ lolroute で、動画・仕上げのアニメーターを募集しています。出社スタッフの正社員率は100%です。</p><ul><li>正社員率100%</li><li>雇用形態：〇〇</li><li>職種：〇〇</li></ul><a class="cb cn ja ar" href="studio-japan.html"><span>国内スタジオの採用情報へ</span><i></i></a></div>
 </div>
-</div>
-</section>
-<section class="ab rev" aria-label="海外スタジオ reboot China">
-<div class="abw">
-<div class="abi"><img src="images/gen/p05-china-studio.jpg" alt="中国の都市にあるアニメスタジオ"></div>
-<div class="abt">
-<div class="abh"><p class="gt">CHINA</p><span class="lb">海外スタジオ reboot China</span></div>
-<div class="abd"><p>2016年設立の直営スタジオ。数カ月に一度、社員が現地で直接指導しています。</p><a class="cb cn ja ar" href="studio-overseas.html"><span>詳しくはこちら</span><i></i></a></div>
-</div>
-</div>
-</section>
-
-<section class="fwc tx-olv" aria-labelledby="flow-t">
-<div class="gth"><h2 id="flow-t" class="gt">FLOW</h2><p class="gts">ご依頼の流れ<span class="kari">仮の文章</span></p></div>
-<ol class="chips">
-<li><span class="c1"><b>01</b>受注窓口からご相談</span><span class="c2">枚数と納期がわかれば大丈夫です。</span></li>
-<li><span class="c1"><b>02</b>打ち合わせ・お見積り</span><span class="c2">〇営業日以内にご返信します。</span></li>
-<li><span class="c1"><b>03</b>作業開始・進み具合の共有</span><span class="c2">進み具合をこまめにお知らせします。</span></li>
-<li><span class="c1"><b>04</b>検査・納品</span><span class="c2">検査を済ませてから納品します。</span></li>
-</ol>
-</section>
-
-<section class="cm" aria-labelledby="faq-t">
-<div class="gth"><span class="ovt">QUESTIONS</span><h2 id="faq-t" class="gt">FAQ</h2><p class="gts">よくある質問<span class="kari">仮の文章</span></p></div>
-<div class="fq3">
-<div class="cbk"><h3><i>Q</i>急ぎの案件にも対応できますか？</h3><p><i>A</i>〇〇日前までのご相談で対応できる場合があります。まずは納期をお知らせください。</p></div>
-<div class="cbk"><h3><i>Q</i>1話だけ・数カットだけでも頼めますか？</h3><p><i>A</i>〇〇カットから承ります。</p></div>
-<div class="cbk"><h3><i>Q</i>海外スタジオの品質はどう管理していますか？</h3><p><i>A</i>直営のため、社員が現地で直接指導し、国内で検査してから納品します。</p></div>
 </div>
 </section>
 
@@ -696,11 +760,12 @@ a.fab{display:inline-flex;align-items:center;justify-content:center;position:fix
 </ul>
 </section>
 
-<section class="ct tx-olv" aria-labelledby="ct-t">
+<section class="ct" aria-labelledby="ct-t">
 <div class="gth"><h2 id="ct-t" class="gt l">CONTACT</h2><p class="gts">受注窓口<span class="kari">仮の文章</span></p></div>
 <div class="ctr">
-<p>まずは、枚数と納期だけでもご相談ください。</p>
-<a class="blkbtn cn" href="contact.html"><b>CONTACT</b>受注窓口へ</a>
+<p>枚数と納期がわかれば、まずはご相談ください。</p>
+<a class="blkbtn cn" href="contact.html"><b>ORDER</b>作業を依頼する</a>
+<div class="tel"><b><small>TEL</small>〇〇-〇〇〇〇-〇〇〇〇</b><span>受付 〇〇:〇〇〜〇〇:〇〇</span></div>
 <p class="rp">返信の目安：〇営業日以内</p>
 </div>
 </section>
