@@ -380,6 +380,37 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .fmeta{flex-direction:column;align-items:flex-start}
 }
 @media(min-width:600px) and (max-width:860px){.evl{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}.evi,.evi:first-child{border:0;padding:0}.bnl{grid-template-columns:repeat(2,minmax(0,1fr))}.ccl{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ===== 画像追加 ===== */
+.msg .mw{display:grid;grid-template-columns:minmax(0,520px) minmax(0,1fr);column-gap:64px;align-items:center;max-width:1240px;margin:0 auto;padding:0 60px}
+.msg .mw .tb{margin:0}
+.mph{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px;align-items:start}
+.mph figure{margin:0}
+.mph img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:var(--rd)}
+.mph .m2{margin-top:120px}
+.mph figcaption{margin-top:10px;font-family:"Poppins","Noto Sans JP",sans-serif;font-size:13px;font-weight:700;line-height:1.5}
+.cwk{grid-column:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;margin-top:40px}
+.cwk img{display:block;width:100%;aspect-ratio:40/21;object-fit:cover;border:1px solid var(--g06);border-radius:var(--rd)}
+.nwl li>img{flex:0 0 120px;width:120px;aspect-ratio:3/2;object-fit:cover;border-radius:var(--rd);margin-right:24px;align-self:center}
+.nwl li{align-items:center}
+.bcol.bcol{grid-template-columns:300px minmax(0,1fr) 380px}
+.bph{margin:0;align-self:stretch}
+.bph img{display:block;width:100%;height:100%;min-height:240px;object-fit:cover;border-radius:var(--rd)}
+@media(max-width:1100px){
+.msg .mw{grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:40px;padding:0 20px}
+.cwk{grid-template-columns:repeat(3,minmax(0,1fr))}
+.bcol.bcol{grid-template-columns:minmax(0,1fr)}
+.bph img{height:auto;aspect-ratio:16/7;min-height:0}
+}
+@media(max-width:860px){
+.msg .mw{grid-template-columns:minmax(0,1fr);row-gap:48px;padding:0}
+.mph{padding:0 20px;gap:12px}
+.mph .m2{margin-top:48px}
+.cwk{grid-column:1;gap:8px;margin-top:28px}
+.nwl li{display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:16px;align-items:start}
+.nwl li>img{grid-row:1/3;width:96px;margin:4px 0 0}
+.bph img{aspect-ratio:3/2}
+}
 </style>
 </head>
 <body>
@@ -417,6 +448,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <h1 class="copy"><span>動画・仕上げを、</span><span>東京と直営の</span><span>中国スタジオで。<span class="kari">仮の文章</span></span></h1>
 </section>
 <section class="msg" aria-label="メッセージ">
+<div class="mw">
 <div class="tb">
 <p>アニメの「動画」「仕上げ」を受託しています。</p>
 <p>東京の国内スタジオ lolroute と、<br>中国の直営スタジオ reboot China。<br>海外で作業したものも国内で検査してから、<br>同じ基準で納品します。</p>
@@ -424,6 +456,11 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <a class="btn w" href="contact.html"><span class="t">作業を依頼する</span><span class="ic" aria-hidden="true"><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg><svg width="16" height="11" viewBox="0 0 16 11"><path d="M0 5.5h14M9.5 1l4.5 4.5L9.5 10" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></span></a>
 </div>
 <p class="tel"><b>TEL 〇〇-〇〇〇〇-〇〇〇〇</b>受付 〇〇:〇〇〜〇〇:〇〇／返信の目安：〇営業日以内</p>
+</div>
+<div class="mph">
+<figure class="m1"><img src="images/off/g002.jpg" alt="東京の国内スタジオ lolroute の入口"><figcaption>lolroute（東京）</figcaption></figure>
+<figure class="m2"><img src="images/off/g016.jpg" alt="reboot China の社内で作業するスタッフ"><figcaption>reboot China（中国）</figcaption></figure>
+</div>
 </div>
 </section>
 
@@ -516,6 +553,14 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <li>〇〇株式会社</li><li>株式会社〇〇スタジオ</li><li>〇〇アニメーション</li><li>株式会社〇〇</li><li>〇〇プロダクション</li><li>〇〇ピクチャーズ</li>
 </ul>
 <p class="note">ほか（掲載許可を確認中）</p>
+<ul class="cwk" aria-label="参加作品の一部">
+<li><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></li>
+<li><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></li>
+<li><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></li>
+<li><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></li>
+<li><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></li>
+<li><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"></li>
+</ul>
 </div>
 </section>
 
@@ -548,9 +593,9 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <div class="in">
 <h2 class="h3b">お知らせ<span class="kari">仮の文章</span></h2>
 <ul class="nwl">
-<li><time datetime="2026-11">2026.11</time><span>〇月分の動画・仕上げのご依頼を受け付けています。</span></li>
-<li><time datetime="2026-10">2026.10</time><span>国内スタジオ lolroute で作画スタッフを募集しています。</span></li>
-<li><time datetime="2026-09">2026.09</time><span>サイトをリニューアルしました。</span></li>
+<li><img src="images/off/g012.jpg" alt="reboot China の社内全景"><time datetime="2026-11">2026.11</time><span>〇月分の動画・仕上げのご依頼を受け付けています。</span></li>
+<li><img src="images/off/g009.jpg" alt="トレス台に向かって作画する様子"><time datetime="2026-10">2026.10</time><span>国内スタジオ lolroute で作画スタッフを募集しています。</span></li>
+<li><img src="images/off/g029.jpg" alt="rebootの公式イラスト"><time datetime="2026-09">2026.09</time><span>サイトをリニューアルしました。</span></li>
 </ul>
 </div>
 </section>
@@ -560,6 +605,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <svg class="bgl" viewBox="0 0 1440 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><path d="M-20 60 H260 C470 60 640 230 640 440"/><path d="M1460 400 H1180 C980 400 820 240 820 40 V-20"/><path d="M330 -20 V100 C330 300 490 460 690 460"/></svg>
 <div class="in">
 <div class="bcol">
+<figure class="bph"><img src="images/gen/n3-contact-desk.jpg" alt="窓辺の作業机に置かれた動画用紙と鉛筆"></figure>
 <div>
 <h2>Contact<span class="kari">仮の文章</span></h2>
 <p>まずは、枚数と納期だけでも<br>ご相談ください。</p>

@@ -291,6 +291,29 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 }
 @media(min-width:600px) and (max-width:860px){.g2{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}.sq{width:min(100%,440px)}.wor{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 24px}.cls{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 24px}}
 </style>
+<style data-img>
+/* 画像追加（トップ） */
+.nbw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(1.5rem,4vw,4rem);margin-top:80px;align-items:center}
+.nbw .nums{margin-top:0}
+.nbp{border-radius:16px;overflow:hidden;aspect-ratio:4/3;box-shadow:0 30px 80px rgba(111,214,38,.3)}
+.nbp img,.wo .im img,.cbn img,.nwl .th img,.fph img{width:100%;height:100%;object-fit:cover;display:block}
+.wo .im{aspect-ratio:16/9;border-radius:2px;overflow:hidden;margin-bottom:4px}
+.wo .im img{transition:transform .6s}.wo:hover .im img{transform:scale(1.04)}
+.cbn{list-style:none;margin:56px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px}
+.cbn li{aspect-ratio:40/21;border-radius:2px;overflow:hidden;background:#e9f6d5}
+.nwl a{grid-template-columns:120px 120px minmax(0,1fr);align-items:center}
+.nwl .th{aspect-ratio:3/2;border-radius:2px;overflow:hidden}
+.fiw{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:clamp(1.5rem,4vw,4rem);align-items:end}
+.fph{margin-top:80px;border-radius:16px;overflow:hidden;aspect-ratio:1;box-shadow:0 30px 80px rgba(111,214,38,.3)}
+@media(min-width:861px){.nbw .nums{grid-template-columns:repeat(2,minmax(0,1fr))}.nbw .num:nth-child(3){border-left:0;padding-left:0}.nbw .num:nth-child(n+3){border-top:1px solid var(--ln);margin-top:28px;padding-bottom:28px}}
+@media(max-width:860px){
+.nbw,.fiw{grid-template-columns:minmax(0,1fr);margin-top:48px;gap:28px}
+.nbp,.fph{aspect-ratio:16/10;margin-top:0}
+.cbn{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin-top:40px}
+.nwl a{grid-template-columns:96px minmax(0,1fr);gap:0 14px;align-items:start}
+.nwl .th{grid-row:span 2}
+}
+</style>
 <style data-fix>
 /* 緑の背景・白地で読みにくい文字の色補正（該当要素なし） */
 </style>
@@ -352,22 +375,25 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 
 <section id="numbers" class="sec">
 <h2 class="h2"><span class="sr">01. Numbers ― 数字で見るreboot</span><span class="no" aria-hidden="true">01</span><span class="en" aria-hidden="true">Numbers</span><span class="ja">数字で見るreboot<span class="kari">仮の文章</span></span></h2>
+<div class="nbw">
+<div class="nbp"><img src="images/off/g012.jpg" alt="reboot China の社内全景。作業机が並ぶ"></div>
 <div class="nums">
 <div class="num"><span>月間の対応枚数</span><b>〇〇,〇〇〇<small>枚</small></b></div>
 <div class="num"><span>スタッフ</span><b>〇〇<small>名</small></b><em>国内・海外</em></div>
 <div class="num"><span>拠点</span><b>2<small>拠点</small></b><em>東京・中国</em></div>
 <div class="num"><span>参加作品</span><b>165<small>本以上</small></b><em>作品履歴 2023〜2025</em></div>
 </div>
+</div>
 </section>
 
 <section id="process" class="sec">
 <h2 class="h2"><span class="sr">02. Process ― 対応工程</span><span class="no" aria-hidden="true">02</span><span class="en" aria-hidden="true">Process</span><span class="ja">対応工程（できること）<span class="kari">仮の文章</span></span></h2>
 <div class="wor">
-<div class="wo"><span class="no" aria-hidden="true">PROCESS 01</span><h3>動画</h3><p class="tx">原画の間を描き、線を清書します。</p><span class="at"><b>STUDIO</b>lolroute ／ reboot China</span></div>
-<div class="wo"><span class="no" aria-hidden="true">PROCESS 02</span><h3>仕上げ（デジタル彩色）</h3><p class="tx">色指定に沿って、デジタルで色をのせます。</p><span class="at"><b>STUDIO</b>lolroute ／ reboot China</span></div>
-<div class="wo"><span class="no" aria-hidden="true">PROCESS 03</span><h3>動画検査</h3><p class="tx">上がった動画を、国内で1枚ずつ確かめます。</p><span class="at"><b>STUDIO</b>lolroute（国内のみ）</span></div>
-<div class="wo"><span class="no" aria-hidden="true">PROCESS 04</span><h3>色指定検査</h3><p class="tx">色の塗り分けを、国内で確かめます。</p><span class="at"><b>STUDIO</b>lolroute（国内のみ）</span></div>
-<div class="wo"><span class="no" aria-hidden="true">PROCESS 05</span><h3>レイアウト・作監・線撮</h3><p class="tx">〇〇。海外動仕をいただける会社様を優先します。</p><span class="at"><b>STUDIO</b>〇〇（条件つき）</span></div>
+<div class="wo"><div class="im"><img src="images/gen/a15-inbetween-sheet.jpg" alt="動画用紙に描かれた中割りの連番"></div><span class="no" aria-hidden="true">PROCESS 01</span><h3>動画</h3><p class="tx">原画の間を描き、線を清書します。</p><span class="at"><b>STUDIO</b>lolroute ／ reboot China</span></div>
+<div class="wo"><div class="im"><img src="images/gen/a16-coloring-screen.jpg" alt="デジタル彩色の作業画面とペン"></div><span class="no" aria-hidden="true">PROCESS 02</span><h3>仕上げ（デジタル彩色）</h3><p class="tx">色指定に沿って、デジタルで色をのせます。</p><span class="at"><b>STUDIO</b>lolroute ／ reboot China</span></div>
+<div class="wo"><div class="im"><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙が置かれた検査の机"></div><span class="no" aria-hidden="true">PROCESS 03</span><h3>動画検査</h3><p class="tx">上がった動画を、国内で1枚ずつ確かめます。</p><span class="at"><b>STUDIO</b>lolroute（国内のみ）</span></div>
+<div class="wo"><div class="im"><img src="images/gen/p23-color-chips.jpg" alt="色指定表とカラーチップ"></div><span class="no" aria-hidden="true">PROCESS 04</span><h3>色指定検査</h3><p class="tx">色の塗り分けを、国内で確かめます。</p><span class="at"><b>STUDIO</b>lolroute（国内のみ）</span></div>
+<div class="wo"><div class="im"><img src="images/gen/p13-meeting.jpg" alt="絵コンテを貼った打ち合わせ"></div><span class="no" aria-hidden="true">PROCESS 05</span><h3>レイアウト・作監・線撮</h3><p class="tx">〇〇。海外動仕をいただける会社様を優先します。</p><span class="at"><b>STUDIO</b>〇〇（条件つき）</span></div>
 </div>
 <div class="more"><a class="big lk" href="plan.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>Learn More<span class="sr">（対応作業の一覧を見る）</span></a></div>
 </section>
@@ -410,14 +436,15 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <li><small>04</small>〇〇アニメーション</li>
 </ul>
 <p class="cln">ほか（掲載許可を確認中）</p>
+<ul class="cbn" aria-label="参加作品の一部"><li><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></li><li><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"></li><li><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"></li><li><img src="images/off/w012.jpg" alt="アニメ『中禅寺先生物怪講義録』"></li><li><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"></li><li><img src="images/off/w002.jpg" alt="ヴィジランテ -僕のヒーローアカデミア ILLEGALS-"></li></ul>
 </section>
 
 <section id="plan" class="sec">
 <h2 class="h2"><span class="sr">06. Plan ― 作業プラン</span><span class="no" aria-hidden="true">06</span><span class="en" aria-hidden="true">Plan</span><span class="ja">作業プラン<span class="kari">仮の文章</span></span></h2>
 <div class="pls">
-<a class="pl" href="plan.html"><div class="im"><img src="images/gen/a15-inbetween-sheet.jpg" alt="動画用紙に描かれた中割りの連番"></div><span class="pn">PLAN 01</span><h3>急ぎ対応</h3><p>放送・公開が近い話数を、国内スタジオ中心で受けます。</p><p class="me">目安：〇〇</p></a>
-<a class="pl" href="plan.html"><div class="im"><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"></div><span class="pn">PLAN 02</span><h3>話数単位</h3><p>1話ごとに、動画・仕上げをまとめて受けます。</p><p class="me">目安：〇〇</p></a>
-<a class="pl" href="plan.html"><div class="im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></div><span class="pn">PLAN 03</span><h3>継続・グロス</h3><p>シリーズを通して、2拠点で継続して受けます。</p><p class="me">目安：〇〇</p></a>
+<a class="pl" href="plan.html"><div class="im"><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台で鉛筆を走らせる手元"></div><span class="pn">PLAN 01</span><h3>急ぎ対応</h3><p>放送・公開が近い話数を、国内スタジオ中心で受けます。</p><p class="me">目安：〇〇</p></a>
+<a class="pl" href="plan.html"><div class="im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></div><span class="pn">PLAN 02</span><h3>話数単位</h3><p>1話ごとに、動画・仕上げをまとめて受けます。</p><p class="me">目安：〇〇</p></a>
+<a class="pl" href="plan.html"><div class="im"><img src="images/off/g016.jpg" alt="reboot China の社内"></div><span class="pn">PLAN 03</span><h3>継続・グロス</h3><p>シリーズを通して、2拠点で継続して受けます。</p><p class="me">目安：〇〇</p></a>
 </div>
 <div class="more"><a class="big lk" href="plan.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h17M14 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>View All<span class="sr">（プランの詳細）</span></a><p class="tx" style="margin-top:6px">プランの詳細</p></div>
 </section>
@@ -443,18 +470,21 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <section id="news" class="sec nws">
 <h2 class="h2 sm"><span class="sr">08. News ― お知らせ</span><span class="no" aria-hidden="true">08</span><span class="en" aria-hidden="true">News</span><span class="ja">お知らせ<span class="kari">仮の文章</span></span></h2>
 <ul class="nwl">
-<li><a class="lk" href="#news"><time datetime="2025-10-18">2025.10.18</time><span>会社の垣根をこえたフットサル大会を開催しました。</span></a></li>
-<li><a class="lk" href="#news"><time>〇〇〇〇.〇〇.〇〇</time><span>国内スタジオでアニメーターを募集しています。</span></a></li>
-<li><a class="lk" href="#news"><time>〇〇〇〇.〇〇.〇〇</time><span>作品履歴を更新しました。</span></a></li>
+<li><a class="lk" href="#news"><span class="th"><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></span><time datetime="2025-10-18">2025.10.18</time><span>会社の垣根をこえたフットサル大会を開催しました。</span></a></li>
+<li><a class="lk" href="#news"><span class="th"><img src="images/gen/n2-d-news-timesheet.jpg" alt="タイムシートと赤青鉛筆"></span><time>〇〇〇〇.〇〇.〇〇</time><span>国内スタジオでアニメーターを募集しています。</span></a></li>
+<li><a class="lk" href="#news"><span class="th"><img src="images/off/w013.jpg" alt="アニメ『謎解きはディナーのあとで』"></span><time>〇〇〇〇.〇〇.〇〇</time><span>作品履歴を更新しました。</span></a></li>
 </ul>
 </section>
 
 <section id="contact" class="sec">
 <h2 class="h2"><span class="sr">09. Contact ― 作業のご依頼</span><span class="no" aria-hidden="true">09</span><span class="en" aria-hidden="true">Contact</span><span class="ja">作業のご依頼<span class="kari">仮の文章</span></span></h2>
+<div class="fiw">
 <div class="fin">
 <h3>まずは、枚数と納期だけでも<br>ご相談ください。</h3>
 <p class="tl"><b>TEL 〇〇-〇〇〇〇-〇〇〇〇</b><span><span class="nw">受付 〇〇:〇〇〜〇〇:〇〇</span> ／ <span class="nw">返信の目安：〇営業日以内</span></span></p>
 <a class="big lk" href="contact.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18L18 6M8 6h10v10" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>作業を依頼する</a>
+</div>
+<div class="fph"><img src="images/gen/n2-d-contact-desk.jpg" alt="朝の光が入る国内スタジオの作画机"></div>
 </div>
 </section>
 

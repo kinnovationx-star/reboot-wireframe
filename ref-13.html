@@ -215,7 +215,36 @@ font-family:var(--ja);color:var(--tx);background:var(--bg);line-height:1.6;overf
 .fb .cp{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-size:12px}
 .fb .cp b{font-weight:400;font-size:94px;line-height:.8}
 
+/* img add */
+.nbx{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:40px;align-items:end;margin-top:40px}
+.nbx .nbt{margin-top:0}
+.nbf{aspect-ratio:2.4/1;overflow:hidden;background:#e8eee2}
+.nbf img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.nbf:hover img{transform:scale(1.03)}
+.pjh.sv{grid-template-columns:80px minmax(0,1fr) auto 150px 62px}
+.pjh.sv .pjj{max-width:240px}
+.sv .pjt{font-size:clamp(30px,5.2vw,76px)}
+.svf{width:150px;aspect-ratio:16/10;overflow:hidden;background:#e8eee2}
+.svf img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pj:hover .svf img{transform:scale(1.06)}
+.clw{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:10px;margin-top:clamp(30px,4vw,50px)}
+.clw figure{aspect-ratio:800/420;overflow:hidden;background:#e8eee2}
+.clw img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) brightness(1.08);transition:filter .5s}
+.clw figure:hover img{filter:none}
+.pr{grid-template-columns:minmax(0,1fr) 200px minmax(0,300px)}
+.prf{aspect-ratio:16/10;overflow:hidden;margin-bottom:10px;background:#e8eee2}
+.prf img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pr:hover .prf img{transform:scale(1.06)}
+.nw a{grid-template-columns:96px 120px 110px minmax(0,1fr) 28px;padding:10px 0}
+.nw a>img{width:96px;aspect-ratio:16/10;object-fit:cover}
+.ctf{width:min(340px,100%);aspect-ratio:4/3;overflow:hidden;margin-top:28px}
+.ctf img{width:100%;height:100%;object-fit:cover}
 @media(max-width:1100px){
+.pjh.sv{grid-template-columns:64px minmax(0,1fr) 140px 62px}
+.pjh.sv .pjj{grid-column:2 / 4}
+.pjh.sv .svf{grid-column:3;grid-row:1;width:140px}
+.pjh.sv .vw{grid-column:4}
+.pr{grid-template-columns:minmax(0,1fr) 160px minmax(0,260px)}
 .tgl{display:none}
 .nv>a,.dd>a{padding:0 9px}
 .pjh{grid-template-columns:64px minmax(0,1fr) 62px}
@@ -280,6 +309,19 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 .fb{flex-direction:column;align-items:flex-start;padding-bottom:96px}
 .fb .cp{align-items:flex-start}
 .fb .cp b{font-size:60px}
+.nbx{grid-template-columns:minmax(0,1fr);gap:20px}
+.pjh.sv{grid-template-columns:52px minmax(0,1fr) 52px}
+.pjh.sv .svf{grid-column:2 / 4;grid-row:3;width:100%;max-width:260px;margin-top:12px}
+.pjh.sv .vw{grid-column:3;grid-row:1}
+.pjh.sv .pjj{grid-column:2 / 4}
+.clw{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.pr{grid-template-columns:minmax(0,1fr)}
+.prf{max-width:240px;margin:10px 0 0}
+.nw a{grid-template-columns:22vw minmax(0,1fr) 24px}
+.nw a>img{grid-column:1;grid-row:1 / 4;width:22vw;align-self:start}
+.nw time,.nw .tg,.nw a>span:not(.tg){grid-column:2}
+.nw a>svg{grid-column:3}
+.ctf{margin-top:16px}
 }
 @media(min-width:561px) and (max-width:860px){
 .fl{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
@@ -359,7 +401,7 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <li><b>2<small>拠点</small></b><span>東京・中国</span></li>
 </ul>
 </div>
-<p class="nbt">We Draw<br>Every Frame<br>For Your Anime.</p>
+<div class="nbx"><p class="nbt">We Draw<br>Every Frame<br>For Your Anime.</p><figure class="nbf"><img src="images/off/g012.jpg" alt="reboot China の社内全景"></figure></div>
 </div>
 </section>
 
@@ -368,11 +410,11 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="in">
 <div class="sh"><h2 class="shj" id="svh">対応工程<span class="kari">仮の文章</span></h2><p class="she" aria-hidden="true">SERVICE</p></div>
 <div class="pjl">
-<a class="pj" href="plan.html"><div class="pjh"><p class="pjn"><span>PROCESS</span><b>01</b></p><div><ul class="tg"><li>lolroute</li><li>reboot China</li></ul><h3 class="pjt">IN-BETWEEN</h3></div><p class="pjj"><b>動画</b>原画の間をつなぐ中割り。東京・中国の2拠点で対応します。</p><span class="vw">VIEW</span></div></a>
-<a class="pj" href="plan.html"><div class="pjh"><p class="pjn"><span>PROCESS</span><b>02</b></p><div><ul class="tg"><li>lolroute</li><li>reboot China</li></ul><h3 class="pjt">FINISHING</h3></div><p class="pjj"><b>仕上げ</b>デジタル彩色。色指定に沿って塗り分けます。</p><span class="vw">VIEW</span></div></a>
-<a class="pj" href="plan.html"><div class="pjh"><p class="pjn"><span>PROCESS</span><b>03</b></p><div><ul class="tg"><li>lolroute</li><li>国内のみ</li></ul><h3 class="pjt">DOUGA CHECK</h3></div><p class="pjj"><b>動画検査</b>動画の線・タイミングを国内スタジオで検査します。</p><span class="vw">VIEW</span></div></a>
-<a class="pj" href="plan.html"><div class="pjh"><p class="pjn"><span>PROCESS</span><b>04</b></p><div><ul class="tg"><li>lolroute</li><li>国内のみ</li></ul><h3 class="pjt">COLOR CHECK</h3></div><p class="pjj"><b>色指定検査</b>色指定どおりに塗られているかを国内で確認します。</p><span class="vw">VIEW</span></div></a>
-<a class="pj" href="plan.html"><div class="pjh"><p class="pjn"><span>PROCESS</span><b>05</b></p><div><ul class="tg"><li>〇〇</li><li>条件つき</li></ul><h3 class="pjt">LAYOUT &amp; MORE</h3></div><p class="pjj"><b>レイアウト・作監・線撮</b>海外動仕をいただける会社様を優先して承ります。</p><span class="vw">VIEW</span></div></a>
+<a class="pj" href="plan.html"><div class="pjh sv"><p class="pjn"><span>PROCESS</span><b>01</b></p><div><ul class="tg"><li>lolroute</li><li>reboot China</li></ul><h3 class="pjt">IN-BETWEEN</h3></div><p class="pjj"><b>動画</b>原画の間をつなぐ中割り。東京・中国の2拠点で対応します。</p><figure class="svf"><img src="images/gen/a15-inbetween-sheet.jpg" alt="動画用紙に描かれた中割りの連番"></figure><span class="vw">VIEW</span></div></a>
+<a class="pj" href="plan.html"><div class="pjh sv"><p class="pjn"><span>PROCESS</span><b>02</b></p><div><ul class="tg"><li>lolroute</li><li>reboot China</li></ul><h3 class="pjt">FINISHING</h3></div><p class="pjj"><b>仕上げ</b>デジタル彩色。色指定に沿って塗り分けます。</p><figure class="svf"><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"></figure><span class="vw">VIEW</span></div></a>
+<a class="pj" href="plan.html"><div class="pjh sv"><p class="pjn"><span>PROCESS</span><b>03</b></p><div><ul class="tg"><li>lolroute</li><li>国内のみ</li></ul><h3 class="pjt">DOUGA CHECK</h3></div><p class="pjj"><b>動画検査</b>動画の線・タイミングを国内スタジオで検査します。</p><figure class="svf"><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙が置かれた机"></figure><span class="vw">VIEW</span></div></a>
+<a class="pj" href="plan.html"><div class="pjh sv"><p class="pjn"><span>PROCESS</span><b>04</b></p><div><ul class="tg"><li>lolroute</li><li>国内のみ</li></ul><h3 class="pjt">COLOR CHECK</h3></div><p class="pjj"><b>色指定検査</b>色指定どおりに塗られているかを国内で確認します。</p><figure class="svf"><img src="images/gen/p23-color-chips.jpg" alt="色指定表のカラーチップ"></figure><span class="vw">VIEW</span></div></a>
+<a class="pj" href="plan.html"><div class="pjh sv"><p class="pjn"><span>PROCESS</span><b>05</b></p><div><ul class="tg"><li>〇〇</li><li>条件つき</li></ul><h3 class="pjt">LAYOUT &amp; MORE</h3></div><p class="pjj"><b>レイアウト・作監・線撮</b>海外動仕をいただける会社様を優先して承ります。</p><figure class="svf"><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台で鉛筆を走らせる手元"></figure><span class="vw">VIEW</span></div></a>
 </div>
 </div>
 </section>
@@ -422,6 +464,7 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="sh"><h2 class="shj" id="clh">主な取引先<span class="kari">仮の文章</span></h2><p class="she two" aria-hidden="true"><span>CLIENT</span><span>PARTNERS</span></p></div>
 <p class="cl">〇〇株式会社、〇〇スタジオ、〇〇アニメーション、〇〇プロダクション、〇〇ピクチャーズ ほか</p>
 <p class="cln">※社名の掲載は、各社の許可を確認中です。</p>
+<div class="clw"><figure><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></figure><figure><img src="images/off/w020.jpg" alt="オリジナルアニメ『LAZARUS ラザロ』"></figure><figure><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></figure><figure><img src="images/off/w013.jpg" alt="アニメ『謎解きはディナーのあとで』"></figure><figure><img src="images/off/w025.jpg" alt="TVアニメ「妃教育から逃げたい私」"></figure><figure><img src="images/off/w035.jpg" alt="TVアニメ『ハニーレモンソーダ』"></figure></div>
 </div>
 </section>
 
@@ -430,9 +473,9 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="in">
 <div class="sh"><h2 class="shj" id="plh">作業プラン<span class="kari">仮の文章</span></h2><p class="she" aria-hidden="true">PLAN</p></div>
 <ul class="prl">
-<li><a class="pr" href="plan.html"><span class="w"><small>01</small>EXPRESS</span><span class="r"><b>急ぎ対応</b><span>放送・公開が近い話数を2拠点で振り分け／目安 〇〇</span></span></a></li>
-<li><a class="pr" href="plan.html"><span class="w"><small>02</small>EPISODE</span><span class="r"><b>話数単位</b><span>1話ぶんの動画・仕上げをまとめて／目安 〇〇</span></span></a></li>
-<li><a class="pr" href="plan.html"><span class="w"><small>03</small>SERIES</span><span class="r"><b>継続・グロス</b><span>シリーズを通して枠を確保／目安 〇〇</span></span></a></li>
+<li><a class="pr" href="plan.html"><span class="w"><small>01</small>EXPRESS</span><figure class="prf"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></figure><span class="r"><b>急ぎ対応</b><span>放送・公開が近い話数を2拠点で振り分け／目安 〇〇</span></span></a></li>
+<li><a class="pr" href="plan.html"><span class="w"><small>02</small>EPISODE</span><figure class="prf"><img src="images/off/g014.jpg" alt="reboot China の社内"></figure><span class="r"><b>話数単位</b><span>1話ぶんの動画・仕上げをまとめて／目安 〇〇</span></span></a></li>
+<li><a class="pr" href="plan.html"><span class="w"><small>03</small>SERIES</span><figure class="prf"><img src="images/off/g015.jpg" alt="reboot China の作業スペース"></figure><span class="r"><b>継続・グロス</b><span>シリーズを通して枠を確保／目安 〇〇</span></span></a></li>
 </ul>
 <a class="more" href="plan.html"><span class="en">MORE PLAN</span><span class="jp">プランの詳細</span><i aria-hidden="true"></i><b aria-hidden="true"><svg width="16" height="12" viewBox="0 0 16 12"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></b></a>
 </div>
@@ -463,9 +506,9 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="in">
 <div class="sh"><h2 class="shj" id="nwh">お知らせ<span class="kari">仮の文章</span></h2><p class="she sm" aria-hidden="true">NEWS</p></div>
 <div class="nw">
-<a href="#top"><time datetime="2025-10-01">2025.10.01</time><ul class="tg"><li>お知らせ</li></ul><span>〇〇月の受付状況を更新しました</span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></a>
-<a href="#top"><time datetime="2025-09-01">2025.09.01</time><ul class="tg"><li>作品</li></ul><span>参加作品を追加しました（〇〇）</span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></a>
-<a href="#top"><time datetime="2025-08-01">2025.08.01</time><ul class="tg"><li>採用</li></ul><span>国内スタジオでアニメーターを募集しています</span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></a>
+<a href="#top"><img src="images/off/g001.jpg" alt="reboot China の社名サイン"><time datetime="2025-10-01">2025.10.01</time><ul class="tg"><li>お知らせ</li></ul><span>〇〇月の受付状況を更新しました</span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></a>
+<a href="#top"><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"><time datetime="2025-09-01">2025.09.01</time><ul class="tg"><li>作品</li></ul><span>参加作品を追加しました（〇〇）</span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></a>
+<a href="#top"><img src="images/off/g020.jpg" alt="国内スタジオの会議室"><time datetime="2025-08-01">2025.08.01</time><ul class="tg"><li>採用</li></ul><span>国内スタジオでアニメーターを募集しています</span><svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M0 6h14M9 1l5 5-5 5" fill="none" stroke="#0e1a06" stroke-width="1.6"/></svg></a>
 </div>
 </div>
 </section>
@@ -473,7 +516,7 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <!-- 10 contact -->
 <section class="ct" aria-labelledby="cth">
 <div class="in cti">
-<div class="cth"><h2 class="shj" id="cth">作業のご依頼・ご相談<span class="kari">仮の文章</span></h2></div>
+<div class="cth"><h2 class="shj" id="cth">作業のご依頼・ご相談<span class="kari">仮の文章</span></h2><figure class="ctf"><img src="images/off/g045.jpg" alt="rebootの木の看板"></figure></div>
 <div class="ctr" aria-hidden="true"><i></i><svg class="ring" viewBox="0 0 150 150"><defs><path id="rg" d="M75 75m-58 0a58 58 0 1 1 116 0a58 58 0 1 1-116 0"/></defs><text><textPath href="#rg" textLength="362" lengthAdjust="spacing">REBOOT · ANIMATION · REBOOT · TOKYO · CHINA · </textPath></text></svg></div>
 <a class="ctk" href="contact.html">rebootにつなぐ<svg width="70" height="44" viewBox="0 0 70 44" aria-hidden="true"><path d="M0 43h40L68 2M50 2h18v18" fill="none" stroke="#1d4300" stroke-width="1.5"/></svg></a>
 <div class="ctd">

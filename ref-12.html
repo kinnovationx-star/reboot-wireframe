@@ -283,6 +283,22 @@ body{margin:0}
 .ft-no .kari{margin-left:0;margin-right:8px}
 .ft-cr{position:relative;margin-top:40px;padding:18px 80px;background-image:linear-gradient(125deg,#d9fb8f,#a6f03c);font-size:12px;letter-spacing:.05em;color:var(--dk)}
 
+/* img add */
+.sc-wk{position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px;margin-top:30px}
+.sc-wk figure{margin:0;overflow:hidden;border-radius:10px;background:#fff;box-shadow:0 3px 20px rgba(90,90,90,.14)}
+.sc-wk img{width:100%;aspect-ratio:800/420;object-fit:cover;transition:transform .3s cubic-bezier(.53,.165,.325,.96)}
+.sc-wk figure:hover img{transform:scale(1.08)}
+.cl-im{margin:-26px -12px 22px;overflow:hidden;border-radius:8px}
+.cl-im img{width:100%;aspect-ratio:16/10;object-fit:cover;transition:transform .3s cubic-bezier(.53,.165,.325,.96)}
+.cl-c:hover .cl-im img{transform:scale(1.06)}
+.cl-in{padding-top:70px}
+.tk-ph{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:22px}
+.tk-ph figure{margin:0;overflow:hidden;border-radius:10px}
+.tk-ph img{width:100%;aspect-ratio:3/2;object-fit:cover}
+.tk-ph figcaption{margin-top:6px;font-size:12px;color:#767676;text-align:center}
+.fq-it{align-items:center}
+.fq-it img{flex-shrink:0;width:128px;aspect-ratio:16/10;object-fit:cover;border-radius:6px;margin-left:-16px}
+.lt-ch--r{left:auto;right:calc(50% - 470px);bottom:auto;top:-50px}
 @media(max-width:1180px){
 .kv h1{font-size:36px;line-height:56px}
 .kv-art{width:50vw;top:230px}
@@ -292,6 +308,8 @@ body{margin:0}
 .tk-chara img{width:120px;height:120px}
 }
 @media(max-width:1023px){
+.sc-wk{grid-template-columns:repeat(3,minmax(0,1fr))}
+.lt-ch--r{right:24px}
 .wrap{padding:0 40px}
 .kv-in{padding:150px 40px 0}
 .kv-art{width:44vw;top:260px}
@@ -402,6 +420,16 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 .fk ol{font-size:3.466vw;line-height:1.8}
 .lt-ch{left:auto;right:3vw;bottom:auto;top:-20vw;width:22vw}
 .lt-ch img{width:22vw;height:22vw;border-width:4px}
+.sc-wk{grid-template-columns:repeat(3,minmax(0,1fr));gap:2.4vw;margin-top:5vw}
+.sc-wk figure{border-radius:6px}
+.cl-in{padding-top:14vw}
+.cl-im{margin:-2vw -1vw 5vw}
+.tk-ph{gap:2.6vw}
+.fq-it{display:grid;grid-template-columns:26vw minmax(0,1fr);align-items:start;gap:1.5vw 4vw}
+.fq-it img{grid-row:1/4;width:26vw;margin:0}
+.fq-it span{justify-self:start}
+.lt-ch--r{right:auto;left:3vw;top:-20vw}
+
 .ft-top{padding:10vw 5.333vw 4vw}
 .ft-ct{width:100%}
 .ft-row a{margin-right:20px}
@@ -607,6 +635,7 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div><h3 class="sc-h">映像・企画会社</h3><ul class="sc-ul"><li class="c3">株式会社〇〇</li><li class="c3">〇〇ピクチャーズ</li></ul></div>
 <div><h3 class="sc-h">そのほか</h3><ul class="sc-ul"><li class="c4">〇〇 ほか</li></ul></div>
 </div>
+<div class="sc-wk"><figure><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"></figure><figure><img src="images/off/w012.jpg" alt="アニメ『中禅寺先生物怪講義録 先生が謎を解いてしまうから。』"></figure><figure><img src="images/off/w034.jpg" alt="TVアニメ『花は咲く、修羅の如く』"></figure><figure><img src="images/off/w026.jpg" alt="TVアニメ『キン肉マン』完璧超人始祖編"></figure><figure><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"></figure><figure><img src="images/off/w021.jpg" alt="「ロックは淑女の嗜みでして」"></figure></div>
 </section>
 
 <!-- 7 plans -->
@@ -615,9 +644,9 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="hdg"><p class="hdg-s1">納期と量に合わせて選べる</p><h2 class="hdg-ja" id="h-plan">作業プラン</h2><p class="kr"><span class="kari">仮の文章</span></p></div>
 </div>
 <div class="cl-flex">
-<section class="cl-c"><p class="cl-n">01</p><div class="cl-in"><p class="cl-c1">放送・公開まで時間がない</p><h3 class="cl-c2">急ぎ対応</h3><p class="cl-tx">国内スタジオを中心に、短い納期のカットを優先して作業します。</p><div class="cl-pr"><span>目安</span><b>〇〇<small>日〜</small></b></div></div></section>
-<section class="cl-c"><p class="cl-n">02</p><div class="cl-in"><p class="cl-c1">1話・数カットから頼みたい</p><h3 class="cl-c2">話数単位</h3><p class="cl-tx">話数やカット単位でお受けし、2拠点で分担して進めます。</p><div class="cl-pr"><span>目安</span><b>〇〇<small>カット〜</small></b></div></div></section>
-<section class="cl-c"><p class="cl-n">03</p><div class="cl-in"><p class="cl-c1">シリーズを通して任せたい</p><h3 class="cl-c2">継続・グロス</h3><p class="cl-tx">シリーズ全体の動画・仕上げを、窓口ひとつで継続してお受けします。</p><div class="cl-pr"><span>目安</span><b>〇〇<small>枚／月</small></b></div></div></section>
+<section class="cl-c"><p class="cl-n">01</p><div class="cl-in"><div class="cl-im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></div><p class="cl-c1">放送・公開まで時間がない</p><h3 class="cl-c2">急ぎ対応</h3><p class="cl-tx">国内スタジオを中心に、短い納期のカットを優先して作業します。</p><div class="cl-pr"><span>目安</span><b>〇〇<small>日〜</small></b></div></div></section>
+<section class="cl-c"><p class="cl-n">02</p><div class="cl-in"><div class="cl-im"><img src="images/gen/a15-inbetween-sheet.jpg" alt="動画用紙に描かれた中割りの連番"></div><p class="cl-c1">1話・数カットから頼みたい</p><h3 class="cl-c2">話数単位</h3><p class="cl-tx">話数やカット単位でお受けし、2拠点で分担して進めます。</p><div class="cl-pr"><span>目安</span><b>〇〇<small>カット〜</small></b></div></div></section>
+<section class="cl-c"><p class="cl-n">03</p><div class="cl-in"><div class="cl-im"><img src="images/off/g013.jpg" alt="reboot China の社内で作業するスタッフ"></div><p class="cl-c1">シリーズを通して任せたい</p><h3 class="cl-c2">継続・グロス</h3><p class="cl-tx">シリーズ全体の動画・仕上げを、窓口ひとつで継続してお受けします。</p><div class="cl-pr"><span>目安</span><b>〇〇<small>枚／月</small></b></div></div></section>
 </div>
 <div class="more"><a class="wbtn" href="plan.html">プランの詳細<i class="tri" aria-hidden="true"></i></a></div>
 </section>
@@ -633,6 +662,7 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <p class="tk-ttl"><span>lolroute</span><b>出社スタッフ正社員率100%</b></p>
 <p class="tk-sub">lolrouteとは？</p>
 <p class="tk-tx">2021年に東京で立ち上げた国内の作画スタジオです。<strong>動画・動画検査・仕上げ</strong>を中心に、専門学校での授業や地域のアニメ教室「まちゼミ」など、アニメを作る楽しさを広める活動もしています。</p>
+<div class="tk-ph"><figure><img src="images/off/g011.jpg" alt="専門学校での授業風景"><figcaption>専門学校での授業</figcaption></figure><figure><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙が置かれた作画机"><figcaption>国内スタジオの作画机</figcaption></figure></div>
 <a class="tk-lk" href="studio-japan.html">国内スタジオのページを見る</a>
 <div class="tk-tg"><em>募集の内容</em><ul><li>職種：<strong>動画・動画検査・仕上げ</strong>（〇〇）</li><li>雇用形態：〇〇</li></ul><p>※くわしい条件は国内スタジオのページの採用欄でご案内します。</p></div>
 </div>
@@ -645,15 +675,16 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="drw" style="top:40px;right:-180px;width:600px" aria-hidden="true"><svg viewBox="0 0 800 650"><polyline points="80,560 300,80 260,480 520,60 430,590 700,170" fill="none" stroke="url(#gl2)" stroke-width="74" stroke-linecap="round" stroke-linejoin="round" opacity=".8"/></svg></div>
 <div class="hdg"><h2 class="hdg-ja" id="h-news">お知らせ</h2><p class="hdg-en hdg-en--t">News</p><p class="kr"><span class="kari">仮の文章</span></p></div>
 <div class="fq-list">
-<p class="fq-it"><time>〇〇〇〇.〇〇.〇〇</time><span>お知らせ</span>年末年始の営業日についてのお知らせ</p>
-<p class="fq-it"><time>〇〇〇〇.〇〇.〇〇</time><span>採用</span>lolroute でアニメーター（動画）を募集しています</p>
-<p class="fq-it"><time>〇〇〇〇.〇〇.〇〇</time><span>活動</span>地域のアニメ教室「まちゼミ」を開催しました</p>
+<p class="fq-it"><img src="images/gen/p22-sketch-flatlay.jpg" alt="スケッチブックと色鉛筆"><time>〇〇〇〇.〇〇.〇〇</time><span>お知らせ</span>年末年始の営業日についてのお知らせ</p>
+<p class="fq-it"><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台で鉛筆を走らせる手元"><time>〇〇〇〇.〇〇.〇〇</time><span>採用</span>lolroute でアニメーター（動画）を募集しています</p>
+<p class="fq-it"><img src="images/off/g008.jpg" alt="地域のアニメ教室まちゼミの様子"><time>〇〇〇〇.〇〇.〇〇</time><span>活動</span>地域のアニメ教室「まちゼミ」を開催しました</p>
 </div>
 </section>
 
 <!-- 10 last contact -->
 <section class="lt" aria-labelledby="h-last">
 <div class="lt-ch"><img src="images/off/g009.jpg" alt="まちゼミのアニメ教室の様子"></div>
+<div class="lt-ch lt-ch--r"><img src="images/off/g016.jpg" alt="reboot China の社内"></div>
 <div class="bk">
 <div class="fk">
 <h2 class="fk-t" id="h-last">お気軽にご相談ください！<span class="kari">仮の文章</span></h2>
@@ -673,7 +704,7 @@ a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;
 <div class="ft-top">
 <div>
 <p class="ft-cp">アニメーションの動画・仕上げ　株式会社reboot</p>
-<a class="ft-lg" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ">reboot</a>
+<a class="ft-lg" href="#top">reboot</a>
 <p class="ft-ad">〒167-0043 東京都杉並区上荻1-5-8 直長ビル6F ／ 2014年設立</p>
 <nav class="ft-mn" aria-label="フッターメニュー">
 <div class="ft-row"><a href="#top"><i class="tri" aria-hidden="true"></i>トップ</a><a href="contact.html"><i class="tri" aria-hidden="true"></i>受注窓口</a><a href="works.html"><i class="tri" aria-hidden="true"></i>作品履歴</a></div>

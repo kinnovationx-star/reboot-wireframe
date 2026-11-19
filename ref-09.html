@@ -514,6 +514,24 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 @media(prefers-reduced-motion:reduce){
 .pg *,.pg *:before,.pg *:after{animation:none!important;transition:none!important}
 }
+
+/* ===== 画像追加 ===== */
+.ncd .im{aspect-ratio:40/21;margin:-8px -4px 0;border-radius:4px;overflow:hidden}
+.ncd .im img{width:100%;height:100%;object-fit:cover;display:block}
+.clw{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px 23px}
+.clw img{display:block;width:100%;aspect-ratio:40/21;object-fit:cover;border-radius:4px}
+.nl3 .im{display:block;aspect-ratio:3/2;border-radius:4px;overflow:hidden;margin-bottom:6px}
+.nl3 .im img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease}
+.nl3 a:hover .im img{transform:scale(1.04)}
+.ct10 .cim{margin:48px 0 0;aspect-ratio:3/2;border-radius:4px;overflow:hidden}
+.ct10 .cim img{width:100%;height:100%;object-fit:cover;display:block}
+@media(max-width:980px){
+.ncd .im{margin:-4px -2px 0;border-radius:2px}
+.clw{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:28px}
+.nl3 a{display:grid;grid-template-columns:110px minmax(0,1fr);column-gap:14px;align-items:start}
+.nl3 .im{grid-row:1/3;margin:0}
+.ct10 .cim{margin-top:20px;aspect-ratio:16/9}
+}
 </style>
 </head>
 <body>
@@ -553,10 +571,10 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <div class="in">
 <h2 class="sh" id="numh"><b>Numbers</b><i aria-hidden="true"></i><span class="sj">数字で見るreboot</span><span class="kari">仮の文章</span></h2>
 <div class="ng4">
-<div class="ncd"><div class="meta"><span class="dt">01</span><span class="tgs"><span class="tg g">月間の対応枚数</span></span></div><b>〇〇,〇〇〇<em>枚</em></b><p>動画・仕上げの合計</p></div>
-<div class="ncd"><div class="meta"><span class="dt">02</span><span class="tgs"><span class="tg g">スタッフ</span></span></div><b>〇〇<em>名</em></b><p>国内・海外の合計</p></div>
-<div class="ncd"><div class="meta"><span class="dt">03</span><span class="tgs"><span class="tg g">拠点</span></span></div><b>2<em>拠点</em></b><p>東京・中国</p></div>
-<div class="ncd"><div class="meta"><span class="dt">04</span><span class="tgs"><span class="tg g">参加作品</span></span></div><b>165<em>本以上</em></b><p>2023〜2025年の作品履歴より</p></div>
+<div class="ncd"><div class="im"><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙の机"></div><div class="meta"><span class="dt">01</span><span class="tgs"><span class="tg g">月間の対応枚数</span></span></div><b>〇〇,〇〇〇<em>枚</em></b><p>動画・仕上げの合計</p></div>
+<div class="ncd"><div class="im"><img src="images/off/g015.jpg" alt="reboot China の社内で作業するスタッフ"></div><div class="meta"><span class="dt">02</span><span class="tgs"><span class="tg g">スタッフ</span></span></div><b>〇〇<em>名</em></b><p>国内・海外の合計</p></div>
+<div class="ncd"><div class="im"><img src="images/off/g016.jpg" alt="reboot China の窓際の作業席"></div><div class="meta"><span class="dt">03</span><span class="tgs"><span class="tg g">拠点</span></span></div><b>2<em>拠点</em></b><p>東京・中国</p></div>
+<div class="ncd"><div class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></div><div class="meta"><span class="dt">04</span><span class="tgs"><span class="tg g">参加作品</span></span></div><b>165<em>本以上</em></b><p>2023〜2025年の作品履歴より</p></div>
 </div>
 </div>
 </section>
@@ -630,6 +648,14 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <li>〇〇株式会社</li><li>株式会社〇〇</li><li>〇〇スタジオ</li><li>〇〇アニメーション</li><li>株式会社〇〇プロダクション</li><li>〇〇株式会社</li><li>〇〇スタジオ</li><li>ほか</li>
 </ul>
 <p class="cln">※社名は掲載許可を確認中です（50音順）</p>
+<ul class="clw" aria-label="参加作品の一部">
+<li><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"></li>
+<li><img src="images/off/w002.jpg" alt="ヴィジランテ-僕のヒーローアカデミア ILLEGALS-"></li>
+<li><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"></li>
+<li><img src="images/off/w021.jpg" alt="「ロックは淑女の嗜みでして」"></li>
+<li><img src="images/off/w033.jpg" alt="TVアニメ「日本へようこそエルフさん。」"></li>
+<li><img src="images/off/w035.jpg" alt="TVアニメ『ハニーレモンソーダ』"></li>
+</ul>
 </div>
 </section>
 
@@ -666,9 +692,9 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <div class="in">
 <h2 class="sh" id="nh"><b>News</b><i aria-hidden="true"></i><span class="sj">お知らせ</span><span class="kari">仮の文章</span></h2>
 <div class="nl3">
-<a href="studio-overseas.html"><span class="meta"><span class="dt">2026.11.12</span><span class="tgs"><span class="tg">海外スタジオ</span></span></span><span class="nt">reboot China で、社員による現地指導を行いました</span></a>
-<a href="studio-japan.html"><span class="meta"><span class="dt">2026.10.28</span><span class="tgs"><span class="tg">国内スタジオ</span></span></span><span class="nt">lolroute のスタッフが専門学校で動画の授業を担当しました</span></a>
-<a href="studio-japan.html"><span class="meta"><span class="dt">2026.10.05</span><span class="tgs"><span class="tg">イベント</span></span></span><span class="nt">会社をこえたアニメ業界のフットサル大会を開催しました</span></a>
+<a href="studio-overseas.html"><span class="im"><img src="images/off/g014.jpg" alt="reboot China の社内"></span><span class="meta"><span class="dt">2026.11.12</span><span class="tgs"><span class="tg">海外スタジオ</span></span></span><span class="nt">reboot China で、社員による現地指導を行いました</span></a>
+<a href="studio-japan.html"><span class="im"><img src="images/gen/p11-classroom.jpg" alt="専門学校での作画の授業"></span><span class="meta"><span class="dt">2026.10.28</span><span class="tgs"><span class="tg">国内スタジオ</span></span></span><span class="nt">lolroute のスタッフが専門学校で動画の授業を担当しました</span></a>
+<a href="studio-japan.html"><span class="im"><img src="images/off/g010.jpg" alt="会社を超えた懇親会の様子"></span><span class="meta"><span class="dt">2026.10.05</span><span class="tgs"><span class="tg">イベント</span></span></span><span class="nt">会社の垣根を越えた懇親会を開催しました</span></a>
 </div>
 </div>
 </section>
@@ -676,7 +702,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <section class="biz ct10" aria-labelledby="lth">
 <div class="in">
 <div class="btop">
-<div class="bhead"><p class="sh"><b>Contact</b><i aria-hidden="true"></i><span class="sj">お問い合わせ</span></p></div>
+<div class="bhead"><p class="sh"><b>Contact</b><i aria-hidden="true"></i><span class="sj">お問い合わせ</span></p><figure class="cim"><img src="images/gen/n3-contact-shelf.jpg" alt="色見本とペンタブレットが置かれた仕上げの作業机"></figure></div>
 <div class="bi"><h2 id="lth">動画・仕上げのご依頼は、<br>受注窓口へ。<span class="kari">仮の文章</span></h2><p>作品名・話数・枚数・納期など、わかる範囲でお知らせください。返信の目安：〇営業日以内。</p>
 <div class="ctr"><a class="btn" href="contact.html"><span>作業を依頼する</span><span class="ar" aria-hidden="true"><svg viewBox="0 0 14 10"><path vector-effect="non-scaling-stroke" d="M0 5h13M9 1l4 4-4 4" fill="none" stroke="#333" stroke-width="1.3"/></svg><svg viewBox="0 0 14 10"><path vector-effect="non-scaling-stroke" d="M0 5h13M9 1l4 4-4 4" fill="none" stroke="#333" stroke-width="1.3"/></svg></span></a><p class="tel"><span class="en">TEL</span> <a href="tel:00-0000-0000">〇〇-〇〇〇〇-〇〇〇〇</a><small>受付 〇〇:〇〇〜〇〇:〇〇（土日祝を除く）</small></p></div>
 </div>

@@ -273,6 +273,29 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 }
 @media(min-width:600px) and (max-width:860px){.wg{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles{grid-template-columns:repeat(3,minmax(0,1fr))}.tile{display:block;text-align:center}}
 </style>
+<style data-img>
+/* 画像追加（トップ） */
+.abp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:64px 0 0}
+.abp figure{margin:0;position:relative;border-radius:24px;overflow:hidden;aspect-ratio:16/9;background:#fff}
+.abp img,.sv .im img,.cbn img,.nwl .th img,.mph img{display:block;width:100%;height:100%;object-fit:cover}
+.abp figcaption{position:absolute;left:16px;bottom:16px;padding:4px 12px;border-radius:8px;background:#fff;color:#163300;font-weight:700;font-size:13px;line-height:1.7}
+.abp+.nums{margin-top:16px}
+.sv .im{margin:-36px -40px 28px;aspect-ratio:16/7;overflow:hidden}
+.cbn{list-style:none;margin:28px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cbn li{border-radius:16px;overflow:hidden;aspect-ratio:40/21;border:1px solid #e3efd9;background:#effce9}
+.nwl a{grid-template-columns:96px 140px minmax(0,1fr) 32px}
+.nwl .th{aspect-ratio:3/2;border-radius:8px;overflow:hidden}
+.mph{position:relative;z-index:1;max-width:880px;margin:48px auto 0;border-radius:24px;overflow:hidden;aspect-ratio:21/9}
+@media(max-width:860px){
+.abp{gap:10px;margin-top:40px}.abp figure{border-radius:16px}.abp figcaption{left:6px;bottom:6px;font-size:10px;padding:1px 6px;white-space:nowrap}
+.abp+.nums{margin-top:10px}
+.sv .im{margin:-28px -18px 22px}
+.cbn{gap:8px}.cbn li{border-radius:10px}
+.nwl a{grid-template-columns:80px minmax(0,1fr) 32px;gap:2px 12px}
+.nwl .th{grid-column:1;grid-row:1/span 2}.nwl a time{grid-column:2;grid-row:1}.nwl a>span:not(.th):not(.ar){grid-column:2;grid-row:2}.nwl a .ar{grid-column:3;grid-row:1/span 2}
+.mph{margin-top:36px;border-radius:16px;aspect-ratio:16/10}
+}
+</style>
 <style data-fix>
 /* 緑の背景・白地で読みにくい文字の色補正（該当要素なし） */
 </style>
@@ -328,6 +351,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <a class="lnk" href="contact.html">作業を依頼する<span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </div>
 </div>
+<div class="abp"><figure><img src="images/off/g002.jpg" alt="東京・杉並の国内スタジオ lolroute の入口"><figcaption>国内スタジオ lolroute</figcaption></figure><figure><img src="images/off/g016.jpg" alt="直営の中国スタジオ reboot China の社内"><figcaption>海外スタジオ reboot China</figcaption></figure></div>
 <div class="nums">
 <div class="num"><span>月間の対応枚数</span><b>〇〇,〇〇〇<small>枚</small></b></div>
 <div class="num"><span>スタッフ</span><b>〇〇<small>名</small></b><em>国内・海外</em></div>
@@ -343,11 +367,13 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <h2 class="h2 c" id="prh">工程ごとに選べる、<br><span class="ul">rebootの対応工程<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12 C40 4 70 18 110 9 S170 6 198 13"/></svg></span><span class="kari">仮の文章</span></h2>
 <div class="svs">
 <div class="sv lm">
+<div class="im"><img src="images/gen/a16-coloring-screen.jpg" alt="デジタル彩色の作業画面とペン"></div>
 <div class="lg2"><strong>Douga &amp;<br>Shiage<small>動画・仕上げ</small></strong><span>国内と海外の<br>2拠点で受けます</span></div>
 <ul><li><b>動画</b><span>lolroute ／ reboot China</span></li><li><b>仕上げ（デジタル彩色）</b><span>lolroute ／ reboot China</span></li></ul>
 <a class="go" href="contact.html">作業を依頼する<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 <div class="sv mi">
+<div class="im"><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙が置かれた検査の机"></div>
 <div class="lg2"><strong>Check &amp;<br>More<small>検査・その他</small></strong><span>検査は<br>国内だけで行います</span></div>
 <ul><li><b>動画検査</b><span>lolroute（国内のみ）</span></li><li><b>色指定検査</b><span>lolroute（国内のみ）</span></li><li><b>レイアウト・作監・線撮</b><span>〇〇・条件つき</span></li></ul>
 <a class="go" href="plan.html">対応作業の一覧を見る<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
@@ -405,6 +431,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <div>
 <ul class="cl"><li>〇〇株式会社</li><li>〇〇スタジオ</li><li>株式会社〇〇</li><li>〇〇アニメーション</li></ul>
 <p class="cln">ほか（掲載許可を確認中）</p>
+<ul class="cbn" aria-label="参加作品の一部"><li><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"></li><li><img src="images/off/w012.jpg" alt="アニメ『中禅寺先生物怪講義録』"></li><li><img src="images/off/w013.jpg" alt="アニメ『謎解きはディナーのあとで』"></li><li><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"></li></ul>
 </div>
 </div>
 </section>
@@ -443,9 +470,9 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <div class="w so">
 <div><span class="eyb">News</span><h2 class="h2 sm" id="nwh">お知らせ<span class="kari">仮の文章</span></h2></div>
 <ul class="nwl">
-<li><a href="#nwh"><time datetime="2025-10-18">2025.10.18</time><span>会社の垣根をこえたフットサル大会を開催しました。</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-<li><a href="#nwh"><time>〇〇〇〇.〇〇.〇〇</time><span>国内スタジオでアニメーターを募集しています。</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
-<li><a href="#nwh"><time>〇〇〇〇.〇〇.〇〇</time><span>作品履歴を更新しました。</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+<li><a href="#nwh"><span class="th"><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></span><time datetime="2025-10-18">2025.10.18</time><span>会社の垣根をこえたフットサル大会を開催しました。</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+<li><a href="#nwh"><span class="th"><img src="images/gen/n2-e-news-pencils.jpg" alt="色鉛筆と動画用紙"></span><time>〇〇〇〇.〇〇.〇〇</time><span>国内スタジオでアニメーターを募集しています。</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+<li><a href="#nwh"><span class="th"><img src="images/off/w002.jpg" alt="ヴィジランテ -僕のヒーローアカデミア ILLEGALS-"></span><time>〇〇〇〇.〇〇.〇〇</time><span>作品履歴を更新しました。</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
 </ul>
 </div>
 </section>
@@ -464,6 +491,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </div>
 <p class="tel"><b>TEL 〇〇-〇〇〇〇-〇〇〇〇</b><span>受付 〇〇:〇〇〜〇〇:〇〇</span></p>
 <p class="rt">返信の目安：〇営業日以内</p>
+<div class="mph"><img src="images/gen/n2-e-contact-shelf.jpg" alt="カット袋が並ぶ棚と大きな机のあるスタジオの一角"></div>
 </div>
 </section>
 

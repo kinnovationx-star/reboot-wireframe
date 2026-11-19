@@ -344,6 +344,40 @@ a.fab{display:none}
 .fr nav{justify-content:flex-start}
 .fcr{flex-direction:column}
 }
+/* ===== 画像追加 ===== */
+.dsc{display:grid;grid-template-columns:88px minmax(0,1fr);column-gap:18px;align-items:start}
+.dsc b,.dsc>span:not(.dsi){grid-column:2}
+.dsi{grid-column:1;grid-row:1/span 2;display:block;aspect-ratio:1;overflow:hidden;background:#fff}
+.dsi img{display:block;width:100%;height:100%;object-fit:cover}
+.syp{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px;max-width:560px}
+.syp figure{margin:0}
+.syp img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
+.syp figcaption{margin-top:6px;font-family:var(--ds);font-size:12.5px;font-weight:500;color:var(--bd)}
+.clw{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:28px}
+.clw img{display:block;width:100%;aspect-ratio:40/21;object-fit:cover}
+.avc{padding-top:0;overflow:hidden}
+.avi{display:block;width:calc(100% + 24px);margin:0 -12px;aspect-ratio:4/3;overflow:hidden}
+.avi img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .8s var(--ease)}
+.avc:hover .avi img{transform:scale(1.04)}
+.tps{gap:12px}
+.tps a{flex-wrap:nowrap;align-items:center}
+.tpi{flex:0 0 96px;aspect-ratio:16/10;overflow:hidden}
+.tpi img{display:block;width:100%;height:100%;object-fit:cover}
+.tpx{display:flex;align-items:baseline;gap:.5em 1.2em;flex-wrap:wrap;min-width:0}
+.ctp{margin:0 0 28px}
+.ctp img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover}
+@media(max-width:860px){
+.dsc{grid-template-columns:72px minmax(0,1fr);column-gap:14px}
+.syp{gap:10px;margin-top:28px}
+.clw{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.avc{padding-top:0}
+.avi{grid-column:1/-1;width:calc(100% + 24px);aspect-ratio:16/7}
+.avc{grid-template-areas:"i i" "m s" "p p" "d d"}
+.avi{grid-area:i}
+.tps a{align-items:flex-start}
+.tpi{flex-basis:84px}
+.ctp img{aspect-ratio:16/9}
+}
 </style>
 </head>
 <body>
@@ -414,10 +448,10 @@ a.fab{display:none}
 <section class="asec" id="service" aria-labelledby="h-sv">
 <h2 class="ash" id="h-sv">Service<small>対応できる工程<span class="kari">仮の文章</span></small></h2>
 <div class="asc sl">
-<p class="dsc"><b>動画</b><span>担当：reboot China（中国）・lolroute（東京）</span></p>
-<p class="dsc"><b>仕上げ（デジタル彩色）</b><span>担当：reboot China（中国）・lolroute（東京）</span></p>
-<p class="dsc"><b>動画検査・色指定検査</b><span>担当：lolroute（東京）。国内作業のみです。</span></p>
-<p class="dsc"><b>レイアウト・作監・線撮</b><span>担当：〇〇。条件つき（海外動仕をいただける会社様を優先）。</span></p>
+<p class="dsc"><span class="dsi"><img src="images/gen/a15-inbetween-sheet.jpg" alt="中割りが描かれた動画用紙"></span><b>動画</b><span>担当：reboot China（中国）・lolroute（東京）</span></p>
+<p class="dsc"><span class="dsi"><img src="images/gen/a16-coloring-screen.jpg" alt="デジタル彩色の作業画面"></span><b>仕上げ（デジタル彩色）</b><span>担当：reboot China（中国）・lolroute（東京）</span></p>
+<p class="dsc"><span class="dsi"><img src="images/gen/p23-color-chips.jpg" alt="色指定表のカラーチップ"></span><b>動画検査・色指定検査</b><span>担当：lolroute（東京）。国内作業のみです。</span></p>
+<p class="dsc"><span class="dsi"><img src="images/gen/p07-hands-pencil.jpg" alt="トレス台で鉛筆を走らせる手元"></span><b>レイアウト・作監・線撮</b><span>担当：〇〇。条件つき（海外動仕をいただける会社様を優先）。</span></p>
 </div>
 <svg class="deco" viewBox="0 0 120 220" aria-hidden="true"><path d="M10 4 C30 60 2 96 34 132 C58 158 92 120 74 104 C56 90 40 140 60 170 C76 194 104 206 116 214"/></svg>
 </section>
@@ -432,6 +466,7 @@ a.fab{display:none}
 <li class="acb"><span class="acy">04</span><div class="acc"><b>納品</b><p>検査を通ったものを納品します。</p></div></li>
 </ol>
 <p class="anote">直営のため、数カ月に一度、社員が現地で直接指導しています。</p>
+<div class="syp"><figure><img src="images/off/g012.jpg" alt="reboot China の社内全景"><figcaption>reboot China</figcaption></figure><figure><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"><figcaption>lolroute</figcaption></figure></div>
 </div>
 </section>
 
@@ -461,6 +496,7 @@ a.fab{display:none}
 <div class="csc">
 <dl class="cln"><dt>アニメ制作会社</dt><dd>〇〇株式会社、〇〇株式会社、〇〇スタジオ、〇〇アニメーション ほか</dd><dt>グロス・協力会社</dt><dd>〇〇株式会社、〇〇スタジオ ほか</dd></dl>
 <p>※掲載許可を確認中です。</p>
+<ul class="clw"><li><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></li><li><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></li><li><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX"></li><li><img src="images/off/w004.jpg" alt="『炎炎ノ消防隊 参ノ章』"></li><li><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></li><li><img src="images/off/w020.jpg" alt="オリジナルアニメ『LAZARUS ラザロ』"></li></ul>
 </div>
 </div>
 </section>
@@ -471,9 +507,9 @@ a.fab{display:none}
 <div class="csh"><h2 id="h-pl">Plans</h2><p>作業プラン<span class="kari">仮の文章</span></p></div>
 <div class="csc">
 <ul class="avl">
-<li class="avc"><span class="avm">急ぎ対応<small>Rush</small></span><span class="avs" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></span><span class="avp">最短〇〇日<small>目安</small></span><span class="avd">放送・公開が迫った話数を、2拠点で振り分けて間に合わせます。</span></li>
-<li class="avc"><span class="avm">話数単位<small>Episode</small></span><span class="avs" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></span><span class="avp">1話〇〇枚〜<small>目安</small></span><span class="avd">1話ぶんの動画・仕上げを、まとめてお引き受けします。</span></li>
-<li class="avc rec"><span class="avm">継続・グロス<small>Series / Gross</small></span><span class="avs" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="avp">月〇〇,〇〇〇枚<small>目安</small></span><span class="avd">シリーズを通した継続や、グロスでのご相談に。</span></li>
+<li class="avc"><span class="avi"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></span><span class="avm">急ぎ対応<small>Rush</small></span><span class="avs" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></span><span class="avp">最短〇〇日<small>目安</small></span><span class="avd">放送・公開が迫った話数を、2拠点で振り分けて間に合わせます。</span></li>
+<li class="avc"><span class="avi"><img src="images/gen/n1-c-episode.jpg" alt="トレス台の上の動画用紙とカット袋"></span><span class="avm">話数単位<small>Episode</small></span><span class="avs" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/></svg></span><span class="avp">1話〇〇枚〜<small>目安</small></span><span class="avd">1話ぶんの動画・仕上げを、まとめてお引き受けします。</span></li>
+<li class="avc rec"><span class="avi"><img src="images/off/g016.jpg" alt="reboot China の社内"></span><span class="avm">継続・グロス<small>Series / Gross</small></span><span class="avs" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg></span><span class="avp">月〇〇,〇〇〇枚<small>目安</small></span><span class="avd">シリーズを通した継続や、グロスでのご相談に。</span></li>
 </ul>
 <p class="avg"><span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/></svg>プラン</span><span class="g"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3.5"/></svg>継続のご相談が多いプラン</span></p>
 <p style="margin-top:12px"><a class="more" href="plan.html">プランの詳細を見る<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
@@ -497,9 +533,9 @@ a.fab{display:none}
 <div class="csh"><h2>News</h2><p>お知らせ<span class="kari">仮の文章</span></p></div>
 <div class="csc">
 <ul class="tps">
-<li><a href="works.html"><time datetime="2025-10-01">2025.10.01</time><b>作品履歴に2025年の参加作品を追加しました</b></a></li>
-<li><a href="studio-overseas.html"><time datetime="2025-08-20">2025.08.20</time><b>reboot China にて、中国の美術大学と連携した作画トレーニングを行いました</b></a></li>
-<li><a href="studio-japan.html"><time datetime="2025-07-10">2025.07.10</time><b>lolroute、地域イベント「まちゼミ」でアニメ教室を開きました</b></a></li>
+<li><a href="works.html"><span class="tpi"><img src="images/off/w038.jpg" alt="TVアニメ「魔法使いの約束」"></span><span class="tpx"><time datetime="2025-10-01">2025.10.01</time><b>作品履歴に2025年の参加作品を追加しました</b></span></a></li>
+<li><a href="studio-overseas.html"><span class="tpi"><img src="images/gen/p21-art-students.jpg" alt="美大生への作画トレーニングの様子"></span><span class="tpx"><time datetime="2025-08-20">2025.08.20</time><b>reboot China にて、中国の美術大学と連携した作画トレーニングを行いました</b></span></a></li>
+<li><a href="studio-japan.html"><span class="tpi"><img src="images/off/g009.jpg" alt="まちゼミのアニメ教室の様子"></span><span class="tpx"><time datetime="2025-07-10">2025.07.10</time><b>lolroute、地域イベント「まちゼミ」でアニメ教室を開きました</b></span></a></li>
 </ul>
 </div>
 </div>
@@ -507,6 +543,7 @@ a.fab{display:none}
 <div class="cs" id="cta">
 <div class="csh"><h2>Contact</h2><p>作業のご依頼<span class="kari">仮の文章</span></p></div>
 <div class="csc">
+<figure class="ctp"><img src="images/gen/n1-c-contact.jpg" alt="窓辺の白い打ち合わせテーブル"></figure>
 <p class="ctx">動画・仕上げのご依頼・お見積りは、<br>受注窓口からお送りください。</p>
 <ul class="nts" style="margin-top:20px">
 <li>お急ぎの場合はお電話で。<span style="white-space:nowrap">TEL 〇〇-〇〇〇〇-〇〇〇〇</span><span style="white-space:nowrap">（受付 〇〇:〇〇〜〇〇:〇〇）</span></li>

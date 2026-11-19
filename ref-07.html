@@ -441,6 +441,25 @@ a.fab small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacin
 @media(min-width:600px) and (max-width:767px){.cal{grid-template-columns:repeat(2,minmax(0,1fr))}.pll{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
 <style>@media(max-width:600px){.bi .tx em.m{font-size:15px;white-space:normal;word-break:keep-all}.bi .tx{padding:0 12px 0 14px}}</style>
+<style data-img>
+/* 画像追加（トップ） */
+.svp{margin:-76px 0 64px;aspect-ratio:1100/380;overflow:hidden;border-bottom:1px solid var(--gray)}
+.svp img,.cbn img,.nwl .th img,.ctp img{display:block;width:100%;height:100%;object-fit:cover}
+.cbn{list-style:none;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;max-width:1000px;width:calc(100% - 80px);margin:40px auto 0;padding:0}
+.cbn li{aspect-ratio:40/21;overflow:hidden;background:#eee}
+.nwl .r{display:grid;grid-template-columns:120px auto auto minmax(0,1fr);padding:20px 50px 20px 0}
+.nwl .th{aspect-ratio:3/2;overflow:hidden}
+.ctp{margin:-33px 0 33px;aspect-ratio:1440/460;overflow:hidden}
+@media(max-width:1180px){.cbn{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:767px){
+.svp{margin:-48px 0 40px}
+.cbn{width:calc(100% - 14.4vw);gap:8px;margin-top:32px}
+.nwl .r{grid-template-columns:88px auto minmax(0,1fr);padding:16px 0;column-gap:12px}
+.nwl .th{grid-row:1/3;grid-column:1}.nwl .r time{grid-column:2;grid-row:1}.nwl .r .ct{grid-column:3;grid-row:1}.nwl .r p{grid-column:2/4;grid-row:2}
+.ctp{margin:0;aspect-ratio:375/240}
+}
+</style>
+
 </head>
 <body>
 <div class="pg" id="top">
@@ -504,6 +523,7 @@ a.fab small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacin
 <div class="kw">
 <!-- 2 数字で見るreboot（インクルードサービスの箱） -->
 <section class="sv" aria-labelledby="nmh">
+<div class="svp"><img src="images/gen/p02-studio-wide.jpg" alt="机が並ぶ明るいアニメスタジオの全景"></div>
 <h2 id="nmh">数字で見るreboot<span class="kari">仮の文章</span></h2>
 <ul class="svl">
 <li><b>〇〇,〇〇〇<small>枚</small></b><i class="ic" aria-hidden="true"></i><span>月間の対応枚数</span></li>
@@ -586,6 +606,7 @@ a.fab small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacin
 <li><i>06</i><span>〇〇ピクチャーズ</span></li>
 </ul>
 <p class="cln">ほか（五十音順・掲載許可を確認中）</p>
+<ul class="cbn" aria-label="参加作品の一部"><li><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"></li><li><img src="images/off/w004.jpg" alt="『炎炎ノ消防隊 参ノ章』"></li><li><img src="images/off/w012.jpg" alt="アニメ『中禅寺先生物怪講義録』"></li><li><img src="images/off/w013.jpg" alt="アニメ『謎解きはディナーのあとで』"></li><li><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"></li><li><img src="images/off/w021.jpg" alt="「ロックは淑女の嗜みでして」"></li></ul>
 </section>
 
 <!-- 7 作業プラン（プラン＆料金） -->
@@ -609,14 +630,15 @@ a.fab small{font-family:var(--mono);font-weight:400;font-size:10px;letter-spacin
 <section class="nw" aria-labelledby="nwh">
 <div class="hd2"><span class="sb" aria-hidden="true"><i style="--d:0.55s">N</i><i style="--d:0.44s">e</i><i style="--d:0.30s">w</i><i style="--d:0.73s">s</i></span><h2 class="mn" id="nwh">お知らせ<span class="kari">仮の文章</span></h2></div>
 <ul class="nwl">
-<li><div class="r"><time datetime="2026-11">2026.11</time><span class="ct">受付</span><p>〇月分の動画・仕上げのご依頼を受け付けています。</p></div></li>
-<li><div class="r"><time datetime="2026-10">2026.10</time><span class="ct">採用</span><p>国内スタジオ lolroute で作画スタッフを募集しています。</p></div></li>
-<li><div class="r"><time datetime="2026-09">2026.09</time><span class="ct">その他</span><p>サイトをリニューアルしました。</p></div></li>
+<li><div class="r"><span class="th"><img src="images/gen/n2-f-news-scanner.jpg" alt="スキャナと動画用紙のある仕上げの机"></span><time datetime="2026-11">2026.11</time><span class="ct">受付</span><p>〇月分の動画・仕上げのご依頼を受け付けています。</p></div></li>
+<li><div class="r"><span class="th"><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙の机"></span><time datetime="2026-10">2026.10</time><span class="ct">採用</span><p>国内スタジオ lolroute で作画スタッフを募集しています。</p></div></li>
+<li><div class="r"><span class="th"><img src="images/off/g000.jpg" alt="reboot の公式キャラクター4人のイラスト"></span><time datetime="2026-09">2026.09</time><span class="ct">その他</span><p>サイトをリニューアルしました。</p></div></li>
 </ul>
 </section>
 
 <!-- 10 最後の問い合わせ -->
 <section class="ct2" aria-labelledby="cth">
+<div class="ctp"><img src="images/gen/n2-f-contact-window.jpg" alt="大きな窓のある明るい作画スタジオ"></div>
 <div class="cti">
 <div class="dia" aria-hidden="true">
 <svg viewBox="0 0 560 640">
