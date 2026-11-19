@@ -1,5 +1,5 @@
 /* C案（参考：pulpo.jp）の動き。外部ライブラリなし。
-   ローディング → ファーストビューの文字と写真が弾んで出る／見出しの英字が1文字ずつ色つきで下から出て白に戻る／
+   ローディング → ファーストビューの文字と写真が弾んで出る／見出しの英字が1文字ずつ色つきで下から出て地の文字色に戻る／
    要素が下から弾んで出る（bounceInUp）／強みのカードが縦スクロールに合わせて横に流れる（PC）／
    スタジオの写真のパララックス／募集の写真が順に弾んで出る／右下 SCROLL の帯はフッターで消える */
 (function () {
@@ -20,7 +20,7 @@
     '.js .fl.-move>div{animation:bounceIn .8s forwards}',
     '.js .lt .letter{transform:translateY(200%)}',
     '.js .lt.-move .letter{transition:transform .6s cubic-bezier(.075,.82,.165,1),color .3s cubic-bezier(.6,.04,.98,.335)}',
-    '.ld{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#e2365d;transition:opacity .5s,visibility .5s}',
+    '.ld{position:fixed;inset:0;z-index:9999;display:flex;align-items:center;justify-content:center;background:#7fdc5a;transition:opacity .5s,visibility .5s}',
     '.ld.out{opacity:0;visibility:hidden}',
     '.ld svg{position:absolute;left:50%;top:50%;width:min(78vw,780px);aspect-ratio:1;translate:-50% -50%;animation:rot 50s linear infinite}',
     '.ld p{position:relative;color:#fff;font-family:Antonio,sans-serif;font-weight:700;font-size:clamp(56px,8.8vw,120px);line-height:1.2;letter-spacing:.02em}',
@@ -31,7 +31,7 @@
   d.head.appendChild(css);
   root.classList.add('js');
 
-  var COLORS = ['#f8f711', '#14f7f8', '#11f811', '#f816f8', '#ea1413', '#1616f7'];
+  var COLORS = ['#ffe14d', '#7fd8ff', '#ffffff', '#1a7f39', '#d4f56a', '#1f86a8'];
 
   /* 英字見出しを1文字ずつに分ける */
   d.querySelectorAll('.pg .lt').forEach(function (el) {
@@ -56,7 +56,7 @@
       s.style.transitionDelay = (i * 0.05) + 's, ' + (0.45 + i * 0.05) + 's';
       requestAnimationFrame(function () {
         s.style.transform = 'translateY(0)';
-        s.style.color = '#fff';
+        s.style.color = '';
       });
     });
   }
@@ -99,7 +99,7 @@
 
   if (reduce) {
     targets.forEach(function (el) {
-      if (el.classList.contains('lt')) { el.querySelectorAll('.letter').forEach(function (s) { s.style.transform = 'none'; s.style.color = '#fff'; }); }
+      if (el.classList.contains('lt')) { el.querySelectorAll('.letter').forEach(function (s) { s.style.transform = 'none'; s.style.color = ''; }); }
       el.classList.add('-move');
     });
     d.querySelectorAll('.pg .fl').forEach(function (el) { el.classList.add('-move'); });
@@ -111,7 +111,7 @@
     var ld = d.createElement('div');
     ld.className = 'ld';
     ld.setAttribute('aria-hidden', 'true');
-    ld.innerHTML = '<svg viewBox="0 0 1000 1000"><polygon fill="#cb1944" points="500,0 552,103 629,17 653,130 750,67 744,183 854,146 817,256 933,250 870,347 983,371 897,448 1000,500 897,552 983,629 870,653 933,750 817,744 854,854 744,817 750,933 653,870 629,983 552,897 500,1000 448,897 371,983 347,870 250,933 256,817 146,854 183,744 67,750 130,653 17,629 103,552 0,500 103,448 17,371 130,347 67,250 183,256 146,146 256,183 250,67 347,130 371,17 448,103"/></svg><p>LOADING<span>.</span><span>.</span><span>.</span></p>';
+    ld.innerHTML = '<svg viewBox="0 0 1000 1000"><polygon fill="#3ec76a" points="500,0 552,103 629,17 653,130 750,67 744,183 854,146 817,256 933,250 870,347 983,371 897,448 1000,500 897,552 983,629 870,653 933,750 817,744 854,854 744,817 750,933 653,870 629,983 552,897 500,1000 448,897 371,983 347,870 250,933 256,817 146,854 183,744 67,750 130,653 17,629 103,552 0,500 103,448 17,371 130,347 67,250 183,256 146,146 256,183 250,67 347,130 371,17 448,103"/></svg><p>LOADING<span>.</span><span>.</span><span>.</span></p>';
     pg.appendChild(ld);
     var done = false;
     var finish = function () {

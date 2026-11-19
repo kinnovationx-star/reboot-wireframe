@@ -10,8 +10,8 @@
 /* ===== E案：参考 miraiz-persol.jp（配色・書体・余白・動きを再現） ===== */
 body{margin:0}
 .pg *{box-sizing:border-box}
-.pg{--bl:#164fb8;--bl2:#4f88e5;--bll:#e6f3ff;--ln:#dce4ea;--tx:#212121;--gy:#62696d;--pk:#ef839b;--pkb:#f9a4b7;--pkl:#fef2f4;--pkd:#d34464;--gr:#2ccc95;--grt:#10b985;--grl:#ecfdf5;--grd:#05966c;--cy:#38bad8;--lm:#b6d336;--sky:#f2f8fc;
-font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height:2;letter-spacing:0;background:#fff radial-gradient(circle,#d9dee2 1px,transparent 1.6px) 0 0/24px 24px;overflow:clip}
+.pg{--bl:#17703d;--bl2:#3ec76a;--bll:#e4f6e8;--ln:#d4e7d9;--tx:#1f3d2b;--gy:#4f6656;--pk:#42710e;--pkb:#bfe68a;--pkl:#f4fbe7;--pkf:#a6e85a;--pkd:#8fd63f;--gr:#3ec76a;--grt:#167a3c;--grl:#eaf8ee;--grd:#5fd36f;--cy:#86dcea;--lm:#f5e46a;--sky:#f0faf2;
+font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height:2;letter-spacing:0;background:#fff radial-gradient(circle,#d2e8d7 1px,transparent 1.6px) 0 0/24px 24px;overflow:clip}
 :where(.pg) a{color:inherit;text-decoration:none}
 :where(.pg) :is(h1,h2,h3,p,ul,ol,figure,dl,dd){margin:0}
 :where(.pg) :is(ul,ol){list-style:none;padding:0}
@@ -28,7 +28,7 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 
 /* ---- top wordmark (over hero) ---- */
 .tw{position:absolute;z-index:5;left:40px;top:26px;display:flex;align-items:center;gap:24px;color:var(--tx)}
-.wm{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;letter-spacing:.32em;color:#8a9196;white-space:nowrap}
+.wm{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;letter-spacing:.32em;color:#6f8c78;white-space:nowrap}
 .wm i{font-style:normal;color:var(--bl);font-weight:700}
 .tw .wm{font-size:15px}
 .tw small{font-size:11px;line-height:1.5;color:var(--tx);letter-spacing:.02em}
@@ -68,11 +68,11 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .eb>span:not(.bg):not(.ci){position:relative}
 .eb small{display:block;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
 .eb b{display:block;margin-top:6px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:18px;font-weight:600;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}
-.eb .ar{width:54px;height:54px;border-radius:8px;color:#fff}
+.eb .ar{width:54px;height:54px;border-radius:8px;color:var(--tx)}
 .eb .ar svg{transition:rotate .3s,translate .3s}
 .eb:hover .ar svg{rotate:-19deg;translate:-1px 4px}
-.eb.pk{border-color:var(--pkb);color:var(--pk)}.eb.pk .bg{background:var(--pkl)}.eb.pk .ci{background:#ffe8ec}.eb.pk .ar{background:var(--pk)}
-.eb.gr{border-color:var(--gr);color:var(--grt)}.eb.gr .bg{background:var(--grl)}.eb.gr .ci{background:#d1f6e1}.eb.gr .ar{background:var(--gr)}
+.eb.pk{border-color:var(--pkb);color:var(--pk)}.eb.pk .bg{background:var(--pkl)}.eb.pk .ci{background:#e8f7cc}.eb.pk .ar{background:var(--pkf)}
+.eb.gr{border-color:var(--gr);color:var(--grt)}.eb.gr .bg{background:var(--grl)}.eb.gr .ci{background:#d3f2dc}.eb.gr .ar{background:var(--gr)}
 .eb:hover{border-color:currentColor}
 
 /* ===== header bar (sticky, under hero) ===== */
@@ -105,14 +105,14 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .hb,a.fab{display:none}
 
 /* ===== link with arrow square (くわしく見る) ===== */
-.mo{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:4px 0 12px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--bl);background:radial-gradient(circle,#b7c6d6 1px,transparent 1.5px) 0 100%/8px 4px repeat-x}
+.mo{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:4px 0 12px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--bl);background:radial-gradient(circle,#a3d4ae 1px,transparent 1.5px) 0 100%/8px 4px repeat-x}
 .mo>span:first-child{transition:translate .3s cubic-bezier(0,.75,.28,.96)}
 .mo .ar{position:relative;width:40px;height:40px;border-radius:8px;background:var(--bll);color:var(--bl);overflow:hidden}
-.mo .ar:before{content:"";position:absolute;inset:0;background:var(--bl);scale:0;border-radius:8px;transition:scale .3s cubic-bezier(0,.75,.28,.96)}
+.mo .ar:before{content:"";position:absolute;inset:0;background:var(--gr);scale:0;border-radius:8px;transition:scale .3s cubic-bezier(0,.75,.28,.96)}
 .mo .ar svg{position:relative;transition:color .3s}
 .mo:hover>span:first-child{translate:12px 0}
 .mo:hover .ar:before{scale:1}
-.mo:hover .ar svg{color:#fff}
+.mo:hover .ar svg{color:var(--tx)}
 .mo.s{font-size:14px;min-height:40px;padding-bottom:10px}.mo.s .ar{width:32px;height:32px}
 
 /* ===== appear (JS only) ===== */
@@ -123,7 +123,7 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .js [data-ap].on{opacity:1;scale:1;translate:0 0}
 
 /* ===== 2 studio : About panel + photo loop + Service cards ===== */
-.about{position:relative;margin:56px 36px 0;padding:120px 60px 0;border-radius:60px 60px 0 0;background:linear-gradient(#f2f8fb 28.85%,rgba(250,251,252,0))}
+.about{position:relative;margin:56px 36px 0;padding:120px 60px 0;border-radius:60px 60px 0 0;background:linear-gradient(#ecf8ef 28.85%,rgba(236,248,239,0))}
 .about .in{max-width:1248px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,612px);gap:24px 64px}
 .about .eyb{grid-column:1/-1}
 .about .h2{margin-top:-4px}
@@ -156,13 +156,13 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .sv ul{margin-top:40px;display:grid;gap:8px}
 .sv li{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 14px;min-height:55px;padding:8px 16px;background:#fff;border:1px solid var(--ln);border-radius:8px;font-size:18px;line-height:1.6;text-align:center}
 .sv li b{font-size:14px;font-weight:600;color:var(--gy)}
-.sv .go{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.02em;color:#fff;border-top:2px solid;transition:background .8s cubic-bezier(.01,.57,.28,.92)}
+.sv .go{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.02em;color:var(--tx);border-top:2px solid;transition:background .8s cubic-bezier(.01,.57,.28,.92)}
 .sv .go:before{content:"";position:absolute;left:50%;top:50%;width:135px;height:135px;margin:-67.5px 0 0 -67.5px;border-radius:50%;opacity:0;scale:.4;transition:opacity .3s cubic-bezier(0,.75,.28,.96),scale .3s cubic-bezier(0,.75,.28,.96)}
 .sv .go>*{position:relative}
 .sv .go svg{transition:rotate .3s,translate .3s}
 .sv .go:hover:before{opacity:1;scale:1.05}
 .sv .go:hover svg{rotate:-19deg;translate:-1px 4px}
-.sv.pk .go{background:var(--pk);border-color:var(--pkb)}.sv.pk .go:before{background:var(--pkd)}
+.sv.pk .go{background:var(--pkf);border-color:var(--pkb)}.sv.pk .go:before{background:var(--pkd)}
 .sv.gr .go{background:var(--gr);border-color:var(--gr)}.sv.gr .go:before{background:var(--grd)}
 
 /* ===== 3 strength (Hub panel) / 4 works (Coach panel) ===== */
@@ -219,14 +219,14 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .vlp{position:relative;margin:56px -96px 0;overflow:hidden;padding:24px 0 56px}
 .vlt{display:flex;justify-content:center;width:max-content;min-width:100%;will-change:transform}
 .js .vlt{justify-content:flex-start}
-.vq{position:relative;flex:0 0 auto;width:307px;min-height:396px;margin:0 12px;padding:96px 36px 32px;border:2px solid var(--ln);border-radius:28px;color:#fff;transition:scale .4s cubic-bezier(.19,1,.22,1)}
+.vq{position:relative;flex:0 0 auto;width:307px;min-height:396px;margin:0 12px;padding:96px 36px 32px;border:2px solid var(--ln);border-radius:28px;color:var(--tx);transition:scale .4s cubic-bezier(.19,1,.22,1)}
 .vq:hover{scale:1.03}
 .vq svg{position:absolute;left:36px;top:38px;width:61px;height:61px}
 .vq p{font-size:16px;font-weight:600;line-height:2}
-.vq small{display:block;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.5);font-size:12px;font-weight:600;line-height:1.7}
+.vq small{display:block;margin-top:16px;padding-top:12px;border-top:1px solid rgba(31,61,43,.3);font-size:12px;font-weight:600;line-height:1.7}
 .vq:nth-child(4n+1){background:var(--gr);rotate:-3deg;translate:0 -24px}
 .vq:nth-child(4n+2){background:var(--cy);rotate:2deg;translate:0 40px}
-.vq:nth-child(4n+3){background:var(--pk);rotate:-2deg;translate:0 0}
+.vq:nth-child(4n+3){background:var(--pkf);rotate:-2deg;translate:0 0}
 .vq:nth-child(4n+4){background:var(--lm);rotate:3deg;translate:0 48px}
 
 /* ===== 6 news (Article) ===== */
@@ -237,12 +237,12 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .nct{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:16px 0 4px}
 .nct::-webkit-scrollbar{display:none}
 .nc{position:relative;display:block;flex:0 0 400px;scroll-snap-align:start}
-.nc .im{overflow:hidden;aspect-ratio:400/267;border:2px solid var(--ln);border-radius:20px;background:#a7f3d2}
+.nc .im{overflow:hidden;aspect-ratio:400/267;border:2px solid var(--ln);border-radius:20px;background:#cdeed5}
 .nc img{display:block;width:100%;height:100%;object-fit:cover;transition:scale .5s cubic-bezier(.19,1,.22,1)}
 .nc:hover img{scale:1.05}
-.nc .tg{position:absolute;left:16px;top:0;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:12px;color:#fff;font-size:12px;font-weight:600;line-height:1;letter-spacing:-.02em}
-.nc .tg time{font-family:'Plus Jakarta Sans',sans-serif;padding-left:8px;border-left:1px solid rgba(255,255,255,.7)}
-.nc .tg.g{background:var(--grt)}.nc .tg.c{background:var(--cy)}.nc .tg.p{background:var(--pk)}
+.nc .tg{position:absolute;left:16px;top:0;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:12px;color:var(--tx);font-size:12px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.nc .tg time{font-family:'Plus Jakarta Sans',sans-serif;padding-left:8px;border-left:1px solid rgba(31,61,43,.4)}
+.nc .tg.g{background:var(--gr)}.nc .tg.c{background:var(--cy)}.nc .tg.p{background:var(--pkf)}
 .nc b{display:block;margin-top:16px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:20px;font-weight:600;line-height:1.6;letter-spacing:-.04em}
 .nc small{display:block;margin-top:12px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--gy)}
 .nc small i{font-style:normal;margin:0 8px;padding-left:12px;border-left:1px solid var(--gy)}
@@ -256,16 +256,16 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .so{padding:0 0 120px}
 .soin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,768px);gap:48px;padding:72px 0;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
 .soin .h3{margin-top:24px;font-size:30px}
-.bn{position:relative;overflow:hidden;display:grid;grid-template-columns:120px minmax(0,1fr) 54px;gap:24px;align-items:center;padding:24px 30px 24px 24px;background:#ecfaf2;border:1px solid #06c755;border-radius:20px;transition:background .3s}
+.bn{position:relative;overflow:hidden;display:grid;grid-template-columns:120px minmax(0,1fr) 54px;gap:24px;align-items:center;padding:24px 30px 24px 24px;background:#eef9f0;border:1px solid #3ec76a;border-radius:20px;transition:background .3s}
 .bn img{display:block;width:120px;height:120px;object-fit:cover;border-radius:16px}
-.bn b{display:block;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:20px;font-weight:600;line-height:1.6;letter-spacing:-.04em;color:#06a648}
+.bn b{display:block;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:20px;font-weight:600;line-height:1.6;letter-spacing:-.04em;color:#167a3c}
 .bn small{display:block;margin-top:6px;font-size:14px;line-height:1.6}
-.bn .ar{width:54px;height:54px;border-radius:8px;background:#fff;color:#06a648}
+.bn .ar{width:54px;height:54px;border-radius:8px;background:#fff;color:#167a3c}
 .bn .ar svg{transition:translate .3s}
-.bn:hover{background:#e0f7ea}
+.bn:hover{background:#dff4e4}
 .bn:hover .ar svg{translate:4px -2px}
 .sl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:32px}
-.sl a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 4px 8px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;letter-spacing:-.02em;background:radial-gradient(circle,#b7c6d6 1px,transparent 1.5px) 0 100%/8px 4px repeat-x;transition:color .3s}
+.sl a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 4px 8px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;letter-spacing:-.02em;background:radial-gradient(circle,#a3d4ae 1px,transparent 1.5px) 0 100%/8px 4px repeat-x;transition:color .3s}
 .sl a svg{color:var(--gy);transition:translate .3s,color .3s}
 .sl a:hover{color:var(--bl)}.sl a:hover svg{translate:4px -2px;color:var(--bl)}
 
@@ -281,7 +281,7 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .rt{margin-top:6px;font-size:14px;color:var(--gy)}
 .wr{position:absolute;width:190px;height:130px;display:grid;place-items:center;pointer-events:none;font-size:14px;font-weight:600;line-height:1.4;color:var(--gy)}
 .wr svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.wr path{fill:none;stroke:#cfd8d6;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.wr path{fill:none;stroke:#b3dcbf;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .wr span{position:relative}
 .wr.s1{left:2%;top:7%}.wr.s2{left:12%;top:30%}.wr.s3{left:3%;top:57%}.wr.s4{left:17%;top:78%}
 .wr.s5{right:13%;top:6%}.wr.s6{right:3%;top:30%}.wr.s7{right:14%;top:57%}.wr.s8{right:3%;top:78%}
@@ -294,7 +294,7 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .fbd{display:flex;justify-content:center;align-items:center;gap:20px;padding:32px 24px;margin:0 48px;border-bottom:1px solid var(--ln);font-size:14px;line-height:1.6;text-align:left}
 .fbd .wm{font-size:15px}
 .fmn{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;padding:96px 72px 88px}
-.fwm{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:56px;line-height:1.08;letter-spacing:.32em;color:#8a9196}
+.fwm{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:56px;line-height:1.08;letter-spacing:.32em;color:#6f8c78}
 .fwm i{display:block;font-style:normal;color:var(--bl);font-weight:700}
 .fi{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 24px;margin-top:40px;font-size:14px;line-height:1.7}
 .fi dt{font-weight:600;color:var(--gy)}
@@ -304,9 +304,9 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .fnv a:hover{color:var(--bl)}
 .fnt{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 24px;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);font-size:13px;font-weight:600;line-height:1.6}
 .fnt span{padding:4px 10px;border-radius:999px;background:var(--sky);font-size:12px;font-weight:500}
-.fbt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:36px 48px 44px;background:#98999b;color:#fff}
-.fbt .wm{color:#fff;font-size:26px;letter-spacing:.3em}
-.fbt .wm i{color:#fff}
+.fbt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:36px 48px 44px;background:#7fdc5a;color:var(--tx)}
+.fbt .wm{color:var(--tx);font-size:26px;letter-spacing:.3em}
+.fbt .wm i{color:#145a32}
 .fbt .cpy{font-family:'Noto Serif JP',serif;font-weight:500;font-size:34px;letter-spacing:.06em;line-height:1.3}
 .fbt small{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;line-height:1;letter-spacing:-.02em}
 
@@ -373,7 +373,7 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .nv>a:after,.dd>a:after{display:none}
 .nv>a.ob{margin:12px 0 0;justify-content:center;border-bottom:1px solid var(--bl)}
 .mt:checked~.nv .ddm{display:flex;position:static;border:0;padding:0 0 4px 16px;min-width:0}
-a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;padding:0 20px;background:var(--bl);color:#fff;font-size:15px;font-weight:600;border-radius:12px;box-shadow:0 6px 20px rgba(22,79,184,.25)}
+a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;padding:0 20px;background:var(--gr);color:var(--tx);font-size:15px;font-weight:600;border-radius:12px;box-shadow:0 6px 20px rgba(23,112,61,.25)}
 .about{margin:48px 0 0;padding:72px 24px 0;border-radius:40px 40px 0 0}
 .about .in{grid-template-columns:minmax(0,1fr);gap:24px}
 .lp{height:278px;margin-top:48px}
@@ -471,16 +471,16 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <img src="images/gen/re-hero-lounge.jpg" alt="作画用紙が並ぶ明るいスタジオのラウンジ">
 </div></div>
 <svg class="lines" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"><g>
-<path pathLength="1" stroke="#f9a4b7" d="M-10 92 C70 70 130 128 190 112"/>
-<path pathLength="1" stroke="#2ccc95" d="M310 160 C430 110 560 140 520 190 C480 240 330 200 380 150 C430 100 620 130 760 120"/>
-<path pathLength="1" stroke="#f0f27a" d="M-10 230 C120 210 200 280 300 255 S460 300 520 270"/>
-<path pathLength="1" stroke="#38bad8" d="M820 180 C900 120 1000 150 980 200 C960 250 860 220 900 180 C950 130 1120 170 1240 260"/>
-<path pathLength="1" stroke="#2ccc95" d="M1250 160 C1300 120 1380 140 1450 120"/>
-<path pathLength="1" stroke="#f9a4b7" d="M380 540 C420 640 560 700 700 640 C820 590 760 520 690 560 C620 600 700 700 860 700 S1080 660 1200 720"/>
-<path pathLength="1" stroke="#38bad8" d="M240 450 C300 400 380 470 330 510 C280 550 200 480 260 440 C340 390 520 480 600 460"/>
-<path pathLength="1" stroke="#2ccc95" d="M460 760 C600 720 760 800 880 760 C960 735 1000 760 1040 790"/>
-<path pathLength="1" stroke="#f0f27a" d="M1000 640 C1040 700 1020 740 960 760"/>
-<path pathLength="1" stroke="#f9a4b7" d="M1180 560 C1250 540 1330 600 1440 580"/>
+<path pathLength="1" stroke="#a6e85a" d="M-10 92 C70 70 130 128 190 112"/>
+<path pathLength="1" stroke="#3ec76a" d="M310 160 C430 110 560 140 520 190 C480 240 330 200 380 150 C430 100 620 130 760 120"/>
+<path pathLength="1" stroke="#f5e46a" d="M-10 230 C120 210 200 280 300 255 S460 300 520 270"/>
+<path pathLength="1" stroke="#86dcea" d="M820 180 C900 120 1000 150 980 200 C960 250 860 220 900 180 C950 130 1120 170 1240 260"/>
+<path pathLength="1" stroke="#3ec76a" d="M1250 160 C1300 120 1380 140 1450 120"/>
+<path pathLength="1" stroke="#a6e85a" d="M380 540 C420 640 560 700 700 640 C820 590 760 520 690 560 C620 600 700 700 860 700 S1080 660 1200 720"/>
+<path pathLength="1" stroke="#86dcea" d="M240 450 C300 400 380 470 330 510 C280 550 200 480 260 440 C340 390 520 480 600 460"/>
+<path pathLength="1" stroke="#3ec76a" d="M460 760 C600 720 760 800 880 760 C960 735 1000 760 1040 790"/>
+<path pathLength="1" stroke="#f5e46a" d="M1000 640 C1040 700 1020 740 960 760"/>
+<path pathLength="1" stroke="#a6e85a" d="M1180 560 C1250 540 1330 600 1440 580"/>
 </g></svg>
 <h1 class="cp"><span class="cpT"><span class="h">“動画・仕上げ”</span><span class="v">を東京と</span></span><span class="cpL"><span class="v">直営の中国</span><span class="h">スタジオで。<span class="kari">仮の文章</span></span></span></h1>
 </div>
@@ -518,11 +518,11 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 </div>
 <div class="lp" data-ap="up" data-loop="50" aria-label="スタジオの写真">
 <div class="lpt">
-<div class="bl b1"><div class="ph"><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#2ccc95" d="M70 10 C86 12 96 26 92 44"/></svg></div>
-<div class="bl b2"><div class="ph"><img src="images/off/g017.jpg" alt="lolroute で作画する国内スタッフ"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#f9a4b7" d="M44 6 C60 -2 74 6 72 18 C70 26 62 24 66 16"/><path stroke="#2ccc95" d="M78 14 C92 22 96 40 90 52"/></svg></div>
-<div class="bl b3"><div class="ph"><img src="images/off/g001.jpg" alt="reboot China の社名サイン"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#38bad8" d="M80 4 C92 14 94 30 86 40"/><path stroke="#f0f27a" d="M60 92 C76 98 92 90 96 78"/></svg></div>
-<div class="bl b4"><div class="ph"><img src="images/gen/s3-cn-floor.jpg" alt="reboot China の作業フロア"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#2ccc95" d="M4 30 C0 16 12 4 26 6"/></svg></div>
-<div class="bl b5"><div class="ph"><img src="images/off/l-m156.jpg" alt="lolroute：鉛筆で動画を描く手元"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#f9a4b7" d="M70 4 C88 6 98 22 94 36"/><path stroke="#38bad8" d="M6 80 C10 92 24 98 36 96"/></svg></div>
+<div class="bl b1"><div class="ph"><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#3ec76a" d="M70 10 C86 12 96 26 92 44"/></svg></div>
+<div class="bl b2"><div class="ph"><img src="images/off/g017.jpg" alt="lolroute で作画する国内スタッフ"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#a6e85a" d="M44 6 C60 -2 74 6 72 18 C70 26 62 24 66 16"/><path stroke="#3ec76a" d="M78 14 C92 22 96 40 90 52"/></svg></div>
+<div class="bl b3"><div class="ph"><img src="images/off/g001.jpg" alt="reboot China の社名サイン"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#86dcea" d="M80 4 C92 14 94 30 86 40"/><path stroke="#f5e46a" d="M60 92 C76 98 92 90 96 78"/></svg></div>
+<div class="bl b4"><div class="ph"><img src="images/gen/s3-cn-floor.jpg" alt="reboot China の作業フロア"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#3ec76a" d="M4 30 C0 16 12 4 26 6"/></svg></div>
+<div class="bl b5"><div class="ph"><img src="images/off/l-m156.jpg" alt="lolroute：鉛筆で動画を描く手元"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#a6e85a" d="M70 4 C88 6 98 22 94 36"/><path stroke="#86dcea" d="M6 80 C10 92 24 98 36 96"/></svg></div>
 </div>
 </div>
 <div class="w">
