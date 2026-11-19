@@ -5,518 +5,685 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>E案｜reboot デザイン</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Noto+Serif+JP:wght@500&display=swap" rel="stylesheet">
 <style>
+/* ===== E案：参考 miraiz-persol.jp（配色・書体・余白・動きを再現） ===== */
 body{margin:0}
 .pg *{box-sizing:border-box}
-.pg{font-family:'Noto Sans JP',sans-serif;color:#212121;line-height:1.9;font-size:15px;letter-spacing:.04em;background-color:#fff;background-image:radial-gradient(#b8ef8f 1.1px,transparent 1.4px);background-size:18px 18px;overflow:clip}
+.pg{--bl:#164fb8;--bl2:#4f88e5;--bll:#e6f3ff;--ln:#dce4ea;--tx:#212121;--gy:#62696d;--pk:#ef839b;--pkb:#f9a4b7;--pkl:#fef2f4;--pkd:#d34464;--gr:#2ccc95;--grt:#10b985;--grl:#ecfdf5;--grd:#05966c;--cy:#38bad8;--lm:#b6d336;--sky:#f2f8fc;
+font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height:2;letter-spacing:0;background:#fff radial-gradient(circle,#d9dee2 1px,transparent 1.6px) 0 0/24px 24px;overflow:clip}
 :where(.pg) a{color:inherit;text-decoration:none}
-:where(.pg) :is(h2,h3,h4,p,ul,ol,figure,dl,dd,address){margin:0}
+:where(.pg) :is(h1,h2,h3,p,ul,ol,figure,dl,dd){margin:0}
 :where(.pg) :is(ul,ol){list-style:none;padding:0}
-.en{font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif}
-.w{max-width:1200px;margin:0 auto;padding:0 48px}
+.pj{font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif}
+.w{max-width:1440px;margin:0 auto;padding:0 96px}
 .defs{position:absolute;width:0;height:0;overflow:hidden}
+.kari{display:inline-block;margin:0 0 0 .6em;padding:.2em .6em;font:600 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.04em;border:1px dashed currentColor;border-radius:4px;vertical-align:middle;white-space:nowrap;opacity:.75;writing-mode:horizontal-tb}
+.eyb{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:16px;line-height:1.4;letter-spacing:-.02em;color:var(--bl)}
+.h2{font-size:44px;font-weight:700;line-height:1.5;letter-spacing:.02em;color:var(--tx);overflow-wrap:anywhere}
+.h3{font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:32px;font-weight:600;line-height:1.4;letter-spacing:-.04em}
+.tx{font-size:16px;line-height:2}
+.tx+.tx{margin-top:16px}
+.ar{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
 
-/* header (floating card) */
-.hd{position:sticky;top:12px;z-index:40;padding:12px 16px 0}
-.hdc{max-width:1408px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;min-height:76px;padding:10px 20px 10px 26px;background:rgba(255,255,255,.94);border-radius:16px;border:1px solid #e3efd9}
-.lg{display:flex;align-items:center;gap:16px}
-.lg img{width:42px;height:42px;border-radius:50%;flex:0 0 auto}
-.lg b{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:19px;letter-spacing:.26em;color:#62696d}
-.lg b i{font-style:normal;color:#163300;font-weight:700}
-.lg small{font-size:11px;line-height:1.6;color:#383d40;letter-spacing:.04em;border-left:1px solid #dbf8ce;padding-left:16px}
-.lg small em{font-style:normal;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-weight:700;color:#163300}
-.nv{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:700}
-.nv>a,.dd>a{min-height:44px;padding:0 14px;display:inline-flex;align-items:center;position:relative;color:#212121}
-.nv>a:hover,.dd>a:hover{color:#2f6b0a}
-.nv>a.on{color:#163300}
-.nv>a.on:after{content:"";position:absolute;left:14px;right:14px;bottom:4px;height:2px;border-radius:2px;background:#6fd626}
-.nv>a.ob{border:1px solid #2f6b0a;color:#163300;border-radius:8px;padding:0 20px;margin:0 8px}
-.nv>a.ob:hover{background:#c8f56b;color:#163300}
+/* ---- top wordmark (over hero) ---- */
+.tw{position:absolute;z-index:5;left:40px;top:26px;display:flex;align-items:center;gap:24px;color:var(--tx)}
+.wm{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;letter-spacing:.32em;color:#8a9196;white-space:nowrap}
+.wm i{font-style:normal;color:var(--bl);font-weight:700}
+.tw .wm{font-size:15px}
+.tw small{font-size:11px;line-height:1.5;color:var(--tx);letter-spacing:.02em}
+
+/* ===== 1 hero ===== */
+.hv{position:relative;max-width:1600px;margin:0 auto;height:clamp(600px,62.5vw,900px)}
+.hvc{position:absolute;inset:0}
+.cloud{position:absolute;left:15%;right:12.5%;top:2%;bottom:9%}
+.cloud .sh,.cloud .sl{position:absolute;inset:0;clip-path:url(#hero-blob)}
+.cloud .sh{background:var(--ln);transform:translate(1%,1.6%)}
+.cloud .sl img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s linear,transform 4s linear;transform:scale(1.06)}
+.cloud .sl img:first-child{opacity:1;transform:none}
+.js .cloud .sl img:first-child{opacity:0;transform:scale(1.06)}
+.js .cloud .sl img.on{opacity:1;transform:none}
+.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.lines path{fill:none;stroke-width:3.2;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+.js .lines path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.4s cubic-bezier(.6,.1,.3,1) forwards}
+.js .lines path:nth-child(2){animation-delay:.2s}.js .lines path:nth-child(3){animation-delay:.4s}.js .lines path:nth-child(4){animation-delay:.6s}.js .lines path:nth-child(5){animation-delay:.8s}.js .lines path:nth-child(6){animation-delay:1s}.js .lines path:nth-child(7){animation-delay:1.2s}.js .lines path:nth-child(8){animation-delay:1.4s}
+.lines g{animation:drift 10s ease-in-out infinite alternate}
+.cp{font-family:'Noto Sans JP',sans-serif;font-weight:500;color:var(--bl);font-size:clamp(46px,7vw,108px);line-height:1;letter-spacing:-.02em}
+.cpT{position:absolute;z-index:3;right:1%;top:0;display:flex;flex-direction:column;align-items:flex-end}
+.cpT .h{display:block;white-space:nowrap}
+.cpT .v{display:block;writing-mode:vertical-rl;margin-top:.06em;letter-spacing:0}
+.cpL{position:absolute;z-index:3;left:.4%;bottom:8%;display:flex;flex-direction:column;align-items:flex-start}
+.cpL .v{display:block;writing-mode:vertical-rl;margin-bottom:.04em;letter-spacing:0}
+.cpL .h{display:block;white-space:nowrap}
+.cp .kari{font-size:12px;color:var(--bl);opacity:.9;background:#fff}
+.hbt{position:absolute;z-index:4;right:1.4%;bottom:9%;width:376px;display:flex;flex-direction:column;gap:8px}
+.js .hbt{opacity:0;translate:0 40px;transition:opacity .8s cubic-bezier(.33,.01,.08,.63) 1.6s,translate .8s cubic-bezier(.33,.01,.08,.63) 1.6s}
+.js .hbt.on{opacity:1;translate:0 0}
+/* entry button (pink / green) */
+.eb{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:72px;padding:9px 9px 9px 20px;border:1px solid;border-radius:12px;transition:border-color .3s cubic-bezier(.4,.4,0,1)}
+.eb .bg{position:absolute;left:0;bottom:0;width:100%;height:100%;transform-origin:left bottom;transition:scale .3s cubic-bezier(0,.75,.28,.96)}
+.eb .ci{position:absolute;left:-30px;bottom:-30px;width:100px;height:100px;border-radius:50%;opacity:0;transition:opacity .3s cubic-bezier(0,.75,.28,.96),scale .3s cubic-bezier(0,.75,.28,.96)}
+.eb:hover .bg{scale:1.4}
+.eb:hover .ci{opacity:1;scale:1.5}
+.eb>span:not(.bg):not(.ci){position:relative}
+.eb small{display:block;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;line-height:1.1;letter-spacing:-.02em}
+.eb b{display:block;margin-top:6px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:18px;font-weight:600;line-height:1.1;letter-spacing:-.02em;white-space:nowrap}
+.eb .ar{width:54px;height:54px;border-radius:8px;color:#fff}
+.eb .ar svg{transition:rotate .3s,translate .3s}
+.eb:hover .ar svg{rotate:-19deg;translate:-1px 4px}
+.eb.pk{border-color:var(--pkb);color:var(--pk)}.eb.pk .bg{background:var(--pkl)}.eb.pk .ci{background:#ffe8ec}.eb.pk .ar{background:var(--pk)}
+.eb.gr{border-color:var(--gr);color:var(--grt)}.eb.gr .bg{background:var(--grl)}.eb.gr .ci{background:#d1f6e1}.eb.gr .ar{background:var(--gr)}
+.eb:hover{border-color:currentColor}
+
+/* ===== header bar (sticky, under hero) ===== */
+.hd{position:sticky;top:0;z-index:40;padding:24px 32px 0}
+.js .hd{opacity:0;transition:opacity .5s cubic-bezier(.4,.4,0,1) 1s}
+.js .hd.on{opacity:1}
+.hdc{max-width:1376px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;column-gap:16px;min-height:80px;padding:0 15px 0 24px;background:#fff;border:1px solid var(--ln);border-radius:12px}
+.lg{display:flex;align-items:center;gap:14px;min-height:78px}
+.lg img{width:36px;height:36px;border-radius:50%;flex:0 0 auto}
+.lg .wm{font-size:17px}
+.lg small{font-size:11px;line-height:1.55;color:var(--tx);letter-spacing:.02em;padding-left:6px}
+.nv{display:flex;align-items:center;gap:0;font-size:13px;font-weight:600;letter-spacing:-.02em}
+.nv>a,.dd>a{position:relative;display:inline-flex;align-items:center;min-height:78px;padding:0 20px;color:var(--tx);transition:color .3s cubic-bezier(.4,.4,0,1)}
+.nv>a:after,.dd>a:after{content:"";position:absolute;left:50%;bottom:-1px;width:34px;height:4px;margin-left:-17px;background:var(--bl);scale:0 1;transition:scale .3s cubic-bezier(.4,.4,0,1)}
+.nv>a:hover,.dd>a:hover,.nv>a.on{color:var(--bl)}
+.nv>a:hover:after,.dd>a:hover:after,.nv>a.on:after{scale:1 1}
+.nv>a.ob{min-height:47px;margin:0 0 0 16px;padding:0 20px;border:1px solid var(--bl);border-radius:8px;color:var(--bl);overflow:hidden;transition:border-color .3s cubic-bezier(.19,1,.22,1)}
+.nv>a.ob:after{display:none}
+.nv>a.ob:before{content:"";position:absolute;left:-20px;bottom:-20px;width:60px;height:60px;border-radius:50%;background:var(--bll);opacity:0;transition:opacity .3s,scale .3s cubic-bezier(0,.75,.28,.96)}
+.nv>a.ob:hover{border-color:var(--bl2)}
+.nv>a.ob:hover:before{opacity:1;scale:1.4}
 .dd{position:relative}
 .dd>a svg{margin-left:6px}
-.ddm{display:none;position:absolute;top:100%;left:0;min-width:190px;flex-direction:column;background:#fff;border-radius:12px;border:1px solid #e3efd9;padding:8px;z-index:50}
-.ddm a{min-height:44px;padding:0 14px;display:flex;align-items:center;border-radius:8px;font-weight:700}
-.ddm a:hover{background:#effce9;color:#163300}
+.ddm{display:none;position:absolute;top:calc(100% - 8px);left:-8px;min-width:220px;flex-direction:column;padding:12px;background:#fff;border:1px solid var(--ln);border-radius:12px}
+.ddm a{display:flex;align-items:center;justify-content:space-between;min-height:44px;padding:0 10px;border-radius:6px;font-weight:600;color:var(--tx);transition:color .3s,background .3s}
+.ddm a:hover{color:var(--bl);background:var(--sky)}
+.ddm small{display:block;font-size:12px;font-weight:600;color:var(--bl);padding:0 10px 4px}
 .dd:hover .ddm,.dd:focus-within .ddm{display:flex}
 .mt{position:absolute;opacity:0;width:1px;height:1px}
 .hb,a.fab{display:none}
 
-/* ===== 1 hero (miraiz: cloud-cut photo + scribble lines + split copy + 2 entry buttons bottom-right) ===== */
-.hv{position:relative;max-width:1440px;margin:0 auto;height:clamp(600px,50vw,740px)}
-.hvc{position:absolute;inset:0;overflow:hidden}
-.cloud{position:absolute;left:19%;right:15%;top:2%;bottom:2%;clip-path:url(#moya);animation:breathe 9s ease-in-out infinite alternate}
-.cloud img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform-origin:50% 0;transform:scale(1.16)}
-.lines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.lines path{fill:none;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s cubic-bezier(.6,.1,.3,1) forwards}
-.lines path:nth-child(2){animation-delay:.25s}.lines path:nth-child(3){animation-delay:.5s}.lines path:nth-child(4){animation-delay:.75s}.lines path:nth-child(5){animation-delay:1s}.lines path:nth-child(6){animation-delay:1.2s}
-.lines g{animation:drift 12s ease-in-out infinite alternate}
-.cp{margin:0;font-weight:700;color:#163300;font-size:clamp(40px,5.6vw,84px);line-height:1.12;letter-spacing:0;text-shadow:0 0 2px #fff,0 0 6px #fff,0 0 14px #fff,0 0 26px rgba(255,255,255,.9)}
-.cpT{position:absolute;right:1.6%;top:4%;display:flex;flex-direction:column;align-items:flex-end;z-index:3}
-.cpT .h{display:block;white-space:nowrap;letter-spacing:-.02em}
-.cpT .v{display:block;writing-mode:vertical-rl;margin-top:.12em;margin-right:.02em}
-.cpL{position:absolute;left:1.6%;bottom:6%;display:flex;flex-direction:column;align-items:flex-start;z-index:3}
-.cpL .v{display:block;writing-mode:vertical-rl;margin-bottom:.06em}
-.cpL .h{display:block;white-space:nowrap}
-.cpT,.cpL{animation:rise 1.2s .3s ease-out both}
-.hbt{position:absolute;z-index:4;right:1.2%;bottom:6%;width:min(27%,380px);display:flex;flex-direction:column;gap:10px;animation:rise 1.2s .6s ease-out both}
-.eb{display:grid;grid-template-columns:minmax(0,1fr) 40px;align-items:center;gap:12px;min-height:62px;padding:8px 10px 8px 18px;border-radius:10px;border:1.5px solid;background:#fff;transition:transform .25s}
-.eb:hover{transform:translateY(-3px)}
-.eb small{display:block;font-size:11px;line-height:1.5;color:#383d40;letter-spacing:.02em}
-.eb b{display:block;font-size:15px;line-height:1.5;letter-spacing:.04em;color:#163300}
-.eb b.t{font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-weight:800;font-size:16px;letter-spacing:.02em;white-space:nowrap}
-.eb .ar{width:40px;height:40px;border-radius:8px;color:#163300}
-.eb.lm{background:#f7fde8;border-color:#a6f03c}.eb.lm .ar{background:#a6f03c}
-.eb.mi{background:#effbe6;border-color:#6fd626}.eb.mi .ar{background:#c8f56b}
+/* ===== link with arrow square (くわしく見る) ===== */
+.mo{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:4px 0 12px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--bl);background:radial-gradient(circle,#b7c6d6 1px,transparent 1.5px) 0 100%/8px 4px repeat-x}
+.mo>span:first-child{transition:translate .3s cubic-bezier(0,.75,.28,.96)}
+.mo .ar{position:relative;width:40px;height:40px;border-radius:8px;background:var(--bll);color:var(--bl);overflow:hidden}
+.mo .ar:before{content:"";position:absolute;inset:0;background:var(--bl);scale:0;border-radius:8px;transition:scale .3s cubic-bezier(0,.75,.28,.96)}
+.mo .ar svg{position:relative;transition:color .3s}
+.mo:hover>span:first-child{translate:12px 0}
+.mo:hover .ar:before{scale:1}
+.mo:hover .ar svg{color:#fff}
+.mo.s{font-size:14px;min-height:40px;padding-bottom:10px}.mo.s .ar{width:32px;height:32px}
 
-/* common */
-.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.8;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb;color:#163300}
-.sec{position:relative;padding:120px 0}
-.eyb{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:14px;line-height:1.6;color:#1f6e06;letter-spacing:.02em;margin:0 0 20px}
-.h2{margin:0;font-size:clamp(26px,2.5vw,36px);font-weight:700;line-height:1.6;letter-spacing:.04em;color:#212121;overflow-wrap:anywhere}
-.h2.c,.eyb.c{text-align:center}
-.ul{position:relative;display:inline-block;z-index:0}
-.ul svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.42em;z-index:-1;overflow:visible}
-.ul path{fill:none;stroke:#a6f03c;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.tx{margin:0 0 1.2em;font-size:15px;line-height:2.05;color:#212121}
-.tx:last-child{margin-bottom:0}
-.tx strong{font-weight:700}
-.ar{display:flex;align-items:center;justify-content:center;flex:0 0 auto;width:32px;height:32px;border-radius:6px;background:#e3f7d6;color:#1f6e06;transition:transform .25s}
-.lnk{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:48px;padding:6px 0;border-bottom:2px dotted #b8e89c;font-weight:700;font-size:14px;color:#1f6e06}
-.lnk:hover .ar{transform:translateX(4px)}
-.scr{position:absolute;pointer-events:none;overflow:visible}
-.scr path{fill:none;stroke-width:3;stroke-linecap:round;vector-effect:non-scaling-stroke}
+/* ===== appear (JS only) ===== */
+.js [data-ap=scale]{scale:.95;transform-origin:bottom center;transition:scale 2s cubic-bezier(0,.75,.28,.96)}
+.js [data-ap=up]{opacity:0;translate:0 60px;transition:opacity 2.5s cubic-bezier(0,.59,.23,.9),translate 2.5s cubic-bezier(0,.59,.23,.9)}
+.js [data-ap=pop]{opacity:0;scale:.85;transition:opacity .6s cubic-bezier(.19,1,.22,1),scale .6s cubic-bezier(.19,1,.22,1)}
+.js [data-ap=fade]{opacity:0;translate:0 24px;transition:opacity 1s cubic-bezier(0,.75,.28,.96),translate 1s cubic-bezier(0,.75,.28,.96)}
+.js [data-ap].on{opacity:1;scale:1;translate:0 0}
 
-/* ===== 2 studio = About panel (rounded-top tint, heading | text) + Service cards (bordered, white rows, full-width button) ===== */
-.about{background:linear-gradient(#f3faee,#f3faee 60%,rgba(243,250,238,0));border-radius:64px 64px 0 0;margin-top:40px}
-.ab{display:grid;grid-template-columns:5fr 6fr;gap:64px;align-items:start}
-.svs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-top:72px}
-.sv{display:flex;flex-direction:column;border-radius:24px;border:1.5px solid;padding:0 40px;overflow:hidden;background:#fff}
-.sv.lm{background:#f7fde8;border-color:#a6f03c}
-.sv.mi{background:#eefbe7;border-color:#6fd626}
-.sv .im{margin:0 -40px 32px;aspect-ratio:16/8;overflow:hidden}
-.sv .im img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.sv:hover .im img{transform:scale(1.04)}
-.sv .lg2{display:flex;align-items:center;gap:20px}
-.sv .lg2 strong{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:30px;line-height:1.05;letter-spacing:-.01em;color:#163300;white-space:nowrap}
-.sv .lg2 strong small{display:block;font-family:'Noto Sans JP',sans-serif;font-size:12px;letter-spacing:.06em;margin-top:8px}
-.sv .lg2 span{font-weight:700;font-size:16px;line-height:1.7;color:#1f6e06;padding-left:20px;border-left:1px solid #cdeebd}
-.sv ul{margin:28px 0 32px;display:grid;gap:10px}
-.sv li{display:flex;justify-content:center;flex-wrap:wrap;gap:0 14px;background:#fff;border-radius:8px;border:1px solid #e3efd9;padding:10px 16px;text-align:center;font-size:14px;line-height:1.7}
-.sv li b{font-weight:700;color:#1f6e06}
-.sv .go{display:flex;align-items:center;justify-content:center;gap:10px;margin:auto -40px 0;min-height:56px;font-weight:700;font-size:15px;color:#163300;transition:filter .2s}
-.sv.lm .go{background:#c8f56b}.sv.mi .go{background:#a6f03c}
-.sv .go:hover{filter:brightness(1.05)}
-.sv .go svg{transition:transform .25s}.sv .go:hover svg{transform:translateX(4px)}
+/* ===== 2 studio : About panel + photo loop + Service cards ===== */
+.about{position:relative;margin:56px 36px 0;padding:120px 60px 0;border-radius:60px 60px 0 0;background:linear-gradient(#f2f8fb 28.85%,rgba(250,251,252,0))}
+.about .in{max-width:1248px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,612px);gap:24px 64px}
+.about .eyb{grid-column:1/-1}
+.about .h2{margin-top:-4px}
+.lp{position:relative;height:364px;margin-top:64px;overflow:hidden}
+.lpt{display:flex;align-items:flex-start;width:max-content;height:100%;will-change:transform}
+.bl{position:relative;flex:0 0 auto;margin:0 0 0 -8px}
+.bl img{display:block;width:100%;height:100%;object-fit:cover}
+.bl .ph{position:absolute;overflow:hidden}
+.bl svg.sc{position:absolute;inset:-6%;width:112%;height:112%;overflow:visible;pointer-events:none}
+.bl svg.sc path{fill:none;stroke-width:3.5;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.bl.b1{width:390px;height:316px;margin-top:6px}.bl.b1 .ph{left:13%;top:12%;width:81%;height:83%;clip-path:url(#blob-a)}
+.bl.b2{width:354px;height:262px;margin-top:64px}.bl.b2 .ph{left:5%;top:0;width:84%;height:94%;clip-path:url(#blob-b)}
+.bl.b3{width:378px;height:323px;margin-top:0}.bl.b3 .ph{left:11%;top:8%;width:83%;height:87%;clip-path:url(#blob-c)}
+.bl.b4{width:382px;height:300px;margin-top:40px}.bl.b4 .ph{left:6%;top:6%;width:77%;height:90%;clip-path:url(#blob-a)}
+.bl.b5{width:360px;height:300px;margin-top:18px}.bl.b5 .ph{left:9%;top:4%;width:82%;height:92%;clip-path:url(#blob-b)}
+.svh{margin-top:120px;text-align:center}
+.svh .h2{margin-top:24px}
+.svs{max-width:1248px;margin:56px auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.sv{display:flex;flex-direction:column;border:2px solid;border-radius:28px;overflow:hidden}
+.sv .top{padding:40px 40px 40px;flex:1}
+.sv.pk{border-color:var(--pkb)}.sv.pk .top{background:var(--pkl)}
+.sv.gr{border-color:var(--gr)}.sv.gr .top{background:var(--grl)}
+.sv .hdl{display:flex;align-items:center;gap:22px}
+.mk{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;line-height:.92;letter-spacing:-.03em;white-space:nowrap}
+.sv .mk{font-size:38px}
+.sv .mk small{display:block;font-size:13px;letter-spacing:.12em;margin-bottom:6px;font-weight:800}
+.sv.pk .mk,.sv.pk .cc{color:var(--pk)}
+.sv.gr .mk,.sv.gr .cc{color:var(--grt)}
+.sv .cc{font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:24px;font-weight:600;line-height:1.4;letter-spacing:-.04em}
+.sv ul{margin-top:40px;display:grid;gap:8px}
+.sv li{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:0 14px;min-height:55px;padding:8px 16px;background:#fff;border:1px solid var(--ln);border-radius:8px;font-size:18px;line-height:1.6;text-align:center}
+.sv li b{font-size:14px;font-weight:600;color:var(--gy)}
+.sv .go{position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;min-height:56px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;letter-spacing:-.02em;color:#fff;border-top:2px solid;transition:background .8s cubic-bezier(.01,.57,.28,.92)}
+.sv .go:before{content:"";position:absolute;left:50%;top:50%;width:135px;height:135px;margin:-67.5px 0 0 -67.5px;border-radius:50%;opacity:0;scale:.4;transition:opacity .3s cubic-bezier(0,.75,.28,.96),scale .3s cubic-bezier(0,.75,.28,.96)}
+.sv .go>*{position:relative}
+.sv .go svg{transition:rotate .3s,translate .3s}
+.sv .go:hover:before{opacity:1;scale:1.05}
+.sv .go:hover svg{rotate:-19deg;translate:-1px 4px}
+.sv.pk .go{background:var(--pk);border-color:var(--pkb)}.sv.pk .go:before{background:var(--pkd)}
+.sv.gr .go{background:var(--gr);border-color:var(--gr)}.sv.gr .go:before{background:var(--grd)}
 
-/* ===== 3 strength / 4 works = Hub & Coach panels (inset rounded tint, text + white card | photo grid) ===== */
-.pn{position:relative;margin:0 max(24px,calc((100% - 1392px) / 2));border-radius:48px;padding:96px 0}
-.pn.lm{background:#f6fce6}
-.pn.mi{background:#eefad6}
-.pg2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:64px;align-items:start}
-.lc{margin-top:32px;background:#fff;border-radius:16px;border:1px solid #e3efd9;padding:12px 24px 4px}
-.lc li{padding:16px 0 18px;border-bottom:2px dotted #cdeebd}
-.lc li:last-child{border-bottom:0}
-.lc .lb{display:block;margin:0 0 10px;padding:2px 10px;border-radius:4px;background:#eefad6;text-align:center;font-size:12px;font-weight:700;color:#1f6e06;letter-spacing:.04em}
-.lc .rw{display:grid;grid-template-columns:72px minmax(0,1fr);gap:0 16px;align-items:start}
-.lc .d{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:34px;line-height:1.05;color:#163300;letter-spacing:0}
-.lc .d small{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;margin-top:6px}
-.lc b{display:block;font-size:15px;line-height:1.7}
-.lc p{margin:2px 0 0;font-size:13px;line-height:1.85;color:#383d40}
-.ph3{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.ph3 figure{position:relative;border-radius:16px;overflow:hidden}
-.ph3 img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .6s}
-.ph3 figure:hover img{transform:scale(1.04)}
-.ph3 .a{grid-column:1/-1;aspect-ratio:3/2}
-.ph3 .b{aspect-ratio:4/3}
-.ph3 figcaption{position:absolute;left:12px;bottom:12px;padding:2px 10px;border-radius:4px;background:#fff;color:#163300;font-size:12px;font-weight:700;line-height:1.7}
-.ph3 figcaption i{font-style:normal;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;margin-right:6px}
-.pn .lnk{margin-top:20px}
-.tiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:28px}
-.tile{background:#fff;border-radius:16px;padding:16px 10px 14px;text-align:center}
-.tile span{display:block;font-size:12px;font-weight:500;color:#383d40;line-height:1.5}
-.tile b{display:block;margin-top:4px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-weight:800;font-size:clamp(20px,2vw,28px);line-height:1.3;color:#163300;white-space:nowrap}
-.tile b small{font-family:'Noto Sans JP',sans-serif;font-size:12px;font-weight:700;margin-left:1px}
-.tnt{margin-top:8px;font-size:11px;color:#565d61}
-.cli{margin-top:24px;padding:16px 0 0;border-top:2px dotted #cdeebd}
-.cli dt{font-size:13px;font-weight:700;color:#1f6e06}
-.cli dd{margin:4px 0 0;font-size:14px;line-height:1.9}
-.wg{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
-.wk{display:block;position:relative;padding-top:12px}
-.wk.lgw{grid-column:1/-1}
-.wk .tg{position:absolute;left:10px;top:0;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:2px 10px;border-radius:4px;background:#a6f03c;color:#163300;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:11px;font-weight:700;line-height:1.7}
-.wk .tg i{font-style:normal;padding-left:8px;border-left:1px solid #163300}
-.wk .im{border-radius:16px;overflow:hidden;aspect-ratio:40/21;border:1px solid #e3efd9;background:#effce9}
-.wk img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.wk:hover img{transform:scale(1.05)}
-.wk b{display:block;margin-top:10px;font-size:14px;line-height:1.6}
-.wk.lgw b{font-size:16px}
-.wk small{display:block;margin-top:2px;color:#565d61;font-size:12px}
+/* ===== 3 strength (Hub panel) / 4 works (Coach panel) ===== */
+.pn{position:relative;margin:0 36px;padding:120px 60px;border-radius:60px}
+.pn.pk{background:var(--pkl)}
+.pn.gr{background:var(--grl)}
+.pnin{max-width:1248px;margin:0 auto;display:grid;grid-template-columns:minmax(0,453px) minmax(0,612px);justify-content:space-between;gap:64px}
+.pn .mk{font-size:52px}
+.pn .mk small{display:block;font-size:16px;letter-spacing:.14em;margin-bottom:8px}
+.pn.pk .mk{color:var(--pk)}
+.pn.gr .mk{color:var(--grt)}
+.pn .h3{margin-top:72px}
+.pn .tx{margin-top:24px}
+.evc{margin-top:56px;padding:28px 32px 8px;background:#fff;border:2px solid var(--ln);border-radius:20px}
+.evc>b{display:block;text-align:center;font-size:18px;font-weight:700;line-height:1.4}
+.evc li{padding:16px 0 0}
+.evc .lb{display:block;padding:4px 8px;border-radius:6px;background:var(--pkl);text-align:center;font-size:13px;font-weight:600;line-height:1;letter-spacing:.05em}
+.evc .rw{display:grid;grid-template-columns:132px minmax(0,1fr);gap:16px;margin-top:16px}
+.evc .n{font-family:'Plus Jakarta Sans',sans-serif;font-size:40px;font-weight:700;line-height:1;letter-spacing:-.04em}
+.evc .n small{display:block;margin-top:6px;font-size:22px;letter-spacing:0}
+.evc .rw b{display:block;font-size:13px;font-weight:600;line-height:1.4;letter-spacing:.05em}
+.evc .rw p{margin-top:4px;font-size:13px;line-height:1.5;letter-spacing:.05em}
+.evc .mo{margin-top:14px}
+.evc li:last-child .mo{background:none}
+.phg{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-content:start}
+.phg figure{position:relative;overflow:hidden;border-radius:24px}
+.phg figure.a{grid-column:1/-1;aspect-ratio:612/502}
+.phg figure.b{aspect-ratio:294/242}
+.phg img{display:block;width:100%;height:100%;object-fit:cover;transition:scale .4s cubic-bezier(.19,1,.22,1)}
+.phg figure:hover img{scale:1.04}
+.phg figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:12px;background:#fff;font-size:12px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.tl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
+.tl div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:120px;padding:12px;background:#fff;border:1px solid var(--bll);border-radius:20px;text-align:center}
+.tl span{font-size:16px;line-height:1;letter-spacing:.05em}
+.tl b{font-size:32px;font-weight:700;line-height:1;white-space:nowrap}
+.tl b small{font-size:16px;margin-left:2px}
+.tln{margin-top:12px;font-size:11px;line-height:1.4;color:var(--gy)}
+.cli{margin-top:32px}
+.cli dt{font-size:13px;font-weight:600;color:var(--grt);line-height:1.6}
+.cli dd{font-size:14px;line-height:1.8}
+.pn .mo{margin-top:40px}
+.wg{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-content:start}
+.wk{display:block}
+.wk.big{grid-column:1/-1}
+.wk .im{overflow:hidden;border-radius:20px;aspect-ratio:40/21;background:#fff}
+.wk.big .im{border-radius:24px}
+.wk img{display:block;width:100%;height:100%;object-fit:cover;transition:scale .4s cubic-bezier(.19,1,.22,1)}
+.wk:hover img{scale:1.05}
+.wk b{display:block;margin-top:10px;font-size:14px;font-weight:600;line-height:1.6;letter-spacing:-.02em}
+.wk.big b{font-size:18px}
+.wk small{display:block;font-size:12px;line-height:1.6;color:var(--gy);font-weight:600}
+/* voices (tilted colored cards, loop) */
+.vch{margin-top:120px;text-align:center}
+.vlp{position:relative;margin:56px -96px 0;overflow:hidden;padding:24px 0 56px}
+.vlt{display:flex;justify-content:center;width:max-content;min-width:100%;will-change:transform}
+.js .vlt{justify-content:flex-start}
+.vq{position:relative;flex:0 0 auto;width:307px;min-height:396px;margin:0 12px;padding:96px 36px 32px;border:2px solid var(--ln);border-radius:28px;color:#fff;transition:scale .4s cubic-bezier(.19,1,.22,1)}
+.vq:hover{scale:1.03}
+.vq svg{position:absolute;left:36px;top:38px;width:61px;height:61px}
+.vq p{font-size:16px;font-weight:600;line-height:2}
+.vq small{display:block;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.5);font-size:12px;font-weight:600;line-height:1.7}
+.vq:nth-child(4n+1){background:var(--gr);rotate:-3deg;translate:0 -24px}
+.vq:nth-child(4n+2){background:var(--cy);rotate:2deg;translate:0 40px}
+.vq:nth-child(4n+3){background:var(--pk);rotate:-2deg;translate:0 0}
+.vq:nth-child(4n+4){background:var(--lm);rotate:3deg;translate:0 48px}
 
-/* ===== 5 voice = "ご利用者の声" (tilted, overlapping colored quote cards) ===== */
-.vh{text-align:center;font-size:clamp(20px,1.8vw,24px);font-weight:700;line-height:1.6;letter-spacing:.04em}
-.vc{display:flex;justify-content:center;align-items:flex-start;margin:56px auto 0;max-width:1180px;padding:0 24px}
-.vq{position:relative;flex:0 1 380px;margin:0 -10px;padding:56px 30px 26px;border-radius:22px;color:#163300;transform:rotate(var(--r)) translateY(var(--y));transition:transform .4s cubic-bezier(.3,1.4,.5,1)}
-.vq:hover{transform:rotate(0deg) translateY(calc(var(--y) - 8px));z-index:2}
-.vq:before{content:"\201D";position:absolute;left:24px;top:-6px;font:800 92px/1 'Plus Jakarta Sans',sans-serif;color:rgba(255,255,255,.75)}
-.vq.v1{--r:-4deg;--y:24px;background:#c8f56b}
-.vq.v2{--r:3deg;--y:0px;background:#a6f03c;z-index:1}
-.vq.v3{--r:-2deg;--y:40px;background:#dcf7a8}
-.vq p{font-size:15px;font-weight:700;line-height:1.95}
-.vq .wi{display:grid;grid-template-columns:88px minmax(0,1fr);gap:12px;align-items:center;margin-top:20px;padding-top:16px;border-top:1px solid rgba(22,51,0,.25)}
-.vq .wi img{display:block;width:100%;aspect-ratio:40/21;object-fit:cover;border-radius:8px}
-.vq .wi span{font-size:12px;line-height:1.7}
-.vq .wi em{display:block;font-style:normal;font-size:11px;color:#2c4a12}
+/* ===== 6 news (Article) ===== */
+.nw{padding:160px 0 120px}
+.nwh{display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.nwh .h2{margin-top:24px;font-size:48px;letter-spacing:.02em}
+.ncw{position:relative;margin-top:40px}
+.nct{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:16px 0 4px}
+.nct::-webkit-scrollbar{display:none}
+.nc{position:relative;display:block;flex:0 0 400px;scroll-snap-align:start}
+.nc .im{overflow:hidden;aspect-ratio:400/267;border:2px solid var(--ln);border-radius:20px;background:#a7f3d2}
+.nc img{display:block;width:100%;height:100%;object-fit:cover;transition:scale .5s cubic-bezier(.19,1,.22,1)}
+.nc:hover img{scale:1.05}
+.nc .tg{position:absolute;left:16px;top:0;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:12px;color:#fff;font-size:12px;font-weight:600;line-height:1;letter-spacing:-.02em}
+.nc .tg time{font-family:'Plus Jakarta Sans',sans-serif;padding-left:8px;border-left:1px solid rgba(255,255,255,.7)}
+.nc .tg.g{background:var(--grt)}.nc .tg.c{background:var(--cy)}.nc .tg.p{background:var(--pk)}
+.nc b{display:block;margin-top:16px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:20px;font-weight:600;line-height:1.6;letter-spacing:-.04em}
+.nc small{display:block;margin-top:12px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;line-height:1;letter-spacing:-.02em;color:var(--gy)}
+.nc small i{font-style:normal;margin:0 8px;padding-left:12px;border-left:1px solid var(--gy)}
+.nav2{display:none}
+.js .ncw.of .nav2{display:inline-flex}
+.nav2{position:absolute;top:118px;z-index:3;align-items:center;justify-content:center;width:64px;height:64px;padding:0;border:1px solid var(--bl);border-radius:8px;background:#fff;color:var(--bl);cursor:pointer;transition:background .3s}
+.nav2:hover{background:var(--bll)}
+.nav2.pv{left:-32px}.nav2.nx{right:-32px}
 
-/* ===== 6 news = Article (heading row + card row w/ tag label) ===== */
-.hdrow{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:40px}
-.spk{position:relative;display:inline-block}
-.spk svg{position:absolute;right:-30px;top:-14px;width:28px;height:24px}
-.spk svg path{fill:none;stroke:#a6f03c;stroke-width:2.4;stroke-linecap:round}
-.nwg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 24px}
-.nc{display:block;position:relative;padding-top:12px}
-.nc .tg{position:absolute;left:10px;top:0;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:2px 10px;border-radius:4px;background:#a6f03c;color:#163300;font-size:11px;font-weight:700;line-height:1.7}
-.nc .tg time{font-family:'Plus Jakarta Sans',sans-serif;padding-left:8px;border-left:1px solid #163300}
-.nc .im{border-radius:16px;overflow:hidden;aspect-ratio:16/10;border:1px solid #e3efd9;background:#effce9}
-.nc img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.nc:hover img{transform:scale(1.05)}
-.nc b{display:block;margin-top:14px;font-size:15px;line-height:1.7}
-.nc:hover b{text-decoration:underline;text-decoration-color:#a6f03c;text-decoration-thickness:2px;text-underline-offset:5px}
-.nc small{display:block;margin-top:6px;color:#565d61;font-size:12px}
+/* ===== 7 recruit (Our Social) ===== */
+.so{padding:0 0 120px}
+.soin{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,768px);gap:48px;padding:72px 0;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln)}
+.soin .h3{margin-top:24px;font-size:30px}
+.bn{position:relative;overflow:hidden;display:grid;grid-template-columns:120px minmax(0,1fr) 54px;gap:24px;align-items:center;padding:24px 30px 24px 24px;background:#ecfaf2;border:1px solid #06c755;border-radius:20px;transition:background .3s}
+.bn img{display:block;width:120px;height:120px;object-fit:cover;border-radius:16px}
+.bn b{display:block;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:20px;font-weight:600;line-height:1.6;letter-spacing:-.04em;color:#06a648}
+.bn small{display:block;margin-top:6px;font-size:14px;line-height:1.6}
+.bn .ar{width:54px;height:54px;border-radius:8px;background:#fff;color:#06a648}
+.bn .ar svg{transition:translate .3s}
+.bn:hover{background:#e0f7ea}
+.bn:hover .ar svg{translate:4px -2px}
+.sl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:32px}
+.sl a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:52px;padding:0 4px 8px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;letter-spacing:-.02em;background:radial-gradient(circle,#b7c6d6 1px,transparent 1.5px) 0 100%/8px 4px repeat-x;transition:color .3s}
+.sl a svg{color:var(--gy);transition:translate .3s,color .3s}
+.sl a:hover{color:var(--bl)}.sl a:hover svg{translate:4px -2px;color:var(--bl)}
 
-/* ===== 7 recruit = Our Social (heading | big bordered banner + dotted link rows) ===== */
-.so{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
-.bn{display:grid;grid-template-columns:150px minmax(0,1fr) auto;gap:22px;align-items:center;padding:18px 20px 18px 18px;border-radius:16px;border:1.5px solid #6fd626;background:#effbe6;transition:transform .25s}
-.bn:hover{transform:translateY(-3px)}
-.bn:hover .ar{transform:translateX(4px)}
-.bn img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:12px}
-.bn b{display:block;font-size:17px;line-height:1.7;color:#163300}
-.bn small{display:block;font-size:13px;line-height:1.85;color:#383d40;margin-top:4px}
-.bn .ar{width:40px;height:40px;border-radius:8px;background:#a6f03c;color:#163300}
-.sl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px;margin-top:20px}
-.sl .lnk{color:#212121}
-
-/* ===== 8 contact = Message (full-width tint, centered lines, scribble circles w/ small words) ===== */
-.msg{background:#f3faee;text-align:center;overflow:hidden;padding:120px 0}
-.msg .h2{position:relative;z-index:1}
-.msg .h2 .cc{position:relative;display:inline-block}
-.msg .h2 .cc svg{position:absolute;left:-6%;top:-14%;width:112%;height:128%;overflow:visible;z-index:-1}
-.msg .h2 .cc path{fill:none;stroke:#6fd626;stroke-width:2.4;stroke-linecap:round;vector-effect:non-scaling-stroke;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.8s .4s ease-out forwards}
-.msg .tx{margin:28px 0 0;position:relative;z-index:1}
-.msg .eb{width:360px;max-width:100%;margin:36px auto 0;text-align:left;position:relative;z-index:1}
-.tel{margin:24px 0 0;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:4px 14px;color:#163300;position:relative;z-index:1}
-.tel b{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(22px,2vw,28px);letter-spacing:.04em;line-height:1.3}
-.tel span{font-size:13px;font-weight:500}
-.msg .rt{margin:8px 0 0;font-size:13px;font-weight:700;color:#163300;position:relative;z-index:1}
-.wr{position:absolute;width:150px;height:110px;display:grid;place-items:center;pointer-events:none;font-size:11px;line-height:1.6;color:#383d40;letter-spacing:.02em}
+/* ===== 8 contact (Message) ===== */
+.msg{position:relative;overflow:hidden;background:var(--sky);padding:120px 0;text-align:center}
+.msg .in{position:relative;z-index:1;max-width:720px;margin:0 auto;padding:0 24px}
+.msg .h2{margin-top:24px}
+.msg .tx{margin-top:32px;font-size:20px;line-height:1.8}
+.msg .eb{width:376px;max-width:100%;margin:40px auto 0;text-align:left}
+.tel{margin-top:28px;display:flex;flex-wrap:wrap;justify-content:center;align-items:baseline;gap:4px 16px}
+.tel b{font-family:'Plus Jakarta Sans',sans-serif;font-size:28px;font-weight:700;letter-spacing:.02em;line-height:1.3;color:var(--bl)}
+.tel span{font-size:14px}
+.rt{margin-top:6px;font-size:14px;color:var(--gy)}
+.wr{position:absolute;width:190px;height:130px;display:grid;place-items:center;pointer-events:none;font-size:14px;font-weight:600;line-height:1.4;color:var(--gy)}
 .wr svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
-.wr path{fill:none;stroke:#cdeebd;stroke-width:1.6;stroke-linecap:round}
+.wr path{fill:none;stroke:#cfd8d6;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
 .wr span{position:relative}
-.wr.s1{left:4%;top:9%}.wr.s2{right:5%;top:7%}.wr.s3{left:11%;top:40%}.wr.s4{right:11%;top:38%}.wr.s5{left:3%;bottom:16%}.wr.s6{right:4%;bottom:14%}
-.mph{position:relative;z-index:1;width:min(560px,100%);margin:48px auto 0;aspect-ratio:16/9}
-.mph img{display:block;width:100%;height:100%;object-fit:cover;clip-path:url(#moya)}
+.wr.s1{left:2%;top:7%}.wr.s2{left:12%;top:30%}.wr.s3{left:3%;top:57%}.wr.s4{left:17%;top:78%}
+.wr.s5{right:13%;top:6%}.wr.s6{right:3%;top:30%}.wr.s7{right:14%;top:57%}.wr.s8{right:3%;top:78%}
+.js .wr svg path{stroke-dasharray:1;stroke-dashoffset:1;transition:stroke-dashoffset 2.4s cubic-bezier(.6,.1,.3,1)}
+.js .msg.on .wr svg path{stroke-dashoffset:0}
 
-/* footer */
-.ft{padding:72px 0 24px}
-.fc{margin:0 max(24px,calc((100% - 1392px) / 2));background:#fff;border:1px solid #e3efd9;border-radius:24px;overflow:hidden}
-.fct{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;padding:64px 72px 56px}
-.fl{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:52px;line-height:1.05;letter-spacing:.2em;color:#62696d}
-.fl i{display:block;font-style:normal;color:#163300;font-weight:700}
-.fi{display:grid;grid-template-columns:auto minmax(0,1fr);gap:2px 20px;margin-top:28px;font-size:13px;line-height:1.9;color:#383d40}
-.fi dt{font-weight:700;color:#163300}
-.fi dd{margin:0}
-.ft nav{display:grid;grid-template-columns:repeat(2,auto);gap:4px 72px;align-content:start;font-size:14px;font-weight:700}
-.ft nav a{min-height:44px;display:inline-flex;align-items:center}
-.ft nav a:hover{color:#1f6e06;text-decoration:underline}
-.ft .nt{margin:0;padding:18px 72px;border-top:1px solid #e3efd9;font-size:12px;line-height:1.8;color:#383d40}
-.ft .cr{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:22px 72px;background:#c8f56b;color:#163300;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;letter-spacing:.08em}
-.ft .cr b{font-family:'Noto Sans JP',sans-serif;font-size:18px;letter-spacing:.1em;font-weight:700}
+/* ===== footer ===== */
+.ft{padding:72px 28px 28px}
+.fc{max-width:1384px;margin:0 auto;background:#fff;border:2px solid var(--ln);border-radius:28px;overflow:hidden}
+.fbd{display:flex;justify-content:center;align-items:center;gap:20px;padding:32px 24px;margin:0 48px;border-bottom:1px solid var(--ln);font-size:14px;line-height:1.6;text-align:left}
+.fbd .wm{font-size:15px}
+.fmn{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:48px;padding:96px 72px 88px}
+.fwm{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:56px;line-height:1.08;letter-spacing:.32em;color:#8a9196}
+.fwm i{display:block;font-style:normal;color:var(--bl);font-weight:700}
+.fi{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 24px;margin-top:40px;font-size:14px;line-height:1.7}
+.fi dt{font-weight:600;color:var(--gy)}
+.fnv{display:grid;grid-template-columns:repeat(2,minmax(160px,auto));gap:0 72px;align-content:start}
+.fnv b{display:block;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:16px;font-weight:600;line-height:1;letter-spacing:-.02em;padding:14px 0}
+.fnv a{display:flex;align-items:center;min-height:40px;font-family:'Plus Jakarta Sans','Noto Sans JP',sans-serif;font-size:14px;font-weight:600;letter-spacing:-.02em;transition:color .3s}
+.fnv a:hover{color:var(--bl)}
+.fnt{display:flex;justify-content:center;align-items:center;gap:12px;flex-wrap:wrap;padding:22px 24px;border-top:1px solid var(--ln);border-bottom:1px solid var(--ln);font-size:13px;font-weight:600;line-height:1.6}
+.fnt span{padding:4px 10px;border-radius:999px;background:var(--sky);font-size:12px;font-weight:500}
+.fbt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:36px 48px 44px;background:#98999b;color:#fff}
+.fbt .wm{color:#fff;font-size:26px;letter-spacing:.3em}
+.fbt .wm i{color:#fff}
+.fbt .cpy{font-family:'Noto Serif JP',serif;font-weight:500;font-size:34px;letter-spacing:.06em;line-height:1.3}
+.fbt small{position:absolute;left:0;right:0;bottom:12px;text-align:center;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;line-height:1;letter-spacing:-.02em}
 
 @keyframes draw{to{stroke-dashoffset:0}}
-@keyframes drift{from{transform:translate(0,0)}to{transform:translate(-14px,10px)}}
-@keyframes breathe{from{transform:scale(1)}to{transform:scale(1.018) translateY(-4px)}}
-@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes drift{from{transform:translate(0,0)}to{transform:translate(-12px,8px)}}
 @media (prefers-reduced-motion:reduce){
 .pg *,.pg *:before{animation:none !important;transition:none !important}
-.lines path,.msg .h2 .cc path{stroke-dashoffset:0}
+.js .lines path,.js .wr svg path{stroke-dashoffset:0}
 }
 
-@media(max-width:1180px){.lg small{display:none}.hbt{width:min(32%,360px)}}
+@media(max-width:1280px){
+.nv>a,.dd>a{padding:0 14px}
+.lg small{display:none}
+}
+@media(max-width:1200px){
+.w{padding:0 48px}
+.about,.pn{margin-left:20px;margin-right:20px;padding-left:40px;padding-right:40px}
+.vlp{margin-left:-88px;margin-right:-88px}
+.nav2.pv{left:-20px}.nav2.nx{right:-20px}
+.pnin{gap:48px}
+.sv .top{padding:32px 28px}
+.sv .mk{font-size:32px}
+.sv .cc{font-size:20px}
+.sv li{font-size:16px}
+.fmn{padding:72px 48px}
+.tw small{display:none}
+}
 @media(max-width:1100px){
-.pg2{gap:40px}
-.svs{gap:16px}
-.sv{padding:0 28px}.sv .im{margin:0 -28px 28px}.sv .go{margin:auto -28px 0}
-.sv .lg2{flex-direction:column;align-items:flex-start;gap:10px}
-.sv .lg2 span{padding-left:0;border-left:0}
-.vq{padding:52px 22px 22px}
-.nwg{gap:28px 16px}
+.hbt{width:340px}
+.nwh .h2,.h2{font-size:38px}
 }
 @media(max-width:860px){
-.w{padding:0 16px}
-.hd{padding:8px 8px 0;top:8px}
-.hdc{padding:8px 8px 8px 14px;min-height:64px}
-.lg{gap:10px}.lg img{width:36px;height:36px}.lg b{font-size:16px;letter-spacing:.2em}
-.hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:48px;height:48px;padding:0 13px;border:1px solid #2f6b0a;border-radius:10px;cursor:pointer;background:#fff}
-.hb span{display:block;height:2px;background:#2f6b0a;border-radius:2px}
-.mt:focus-visible+.hb{outline:3px solid #a6f03c;outline-offset:2px}
-.mt~.nv{display:none}
-.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:4px;padding:8px 0 6px;font-size:15px}
-.nv>a,.dd>a{width:100%;border-radius:8px}
-.nv>a.on:after{left:14px;right:auto;width:28px;bottom:6px}
-.nv>a.ob{margin:0;justify-content:center}
-.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding:0 0 0 16px;background:none}
-a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;padding:0 22px;background:#a6f03c;color:#163300;font-weight:700;font-size:15px;border-radius:999px;box-shadow:0 8px 24px rgba(111,214,38,.35)}
+.pg{font-size:15px}
+.w{padding:0 24px}
+.h2,.nwh .h2{font-size:28px;line-height:1.55}
+.svh .h2{font-size:23px}
+.msg .h2{font-size:25px}
+.msg .h2 br,.svh .h2 br{display:none}
+.h3{font-size:24px}
+.tw{left:16px;top:14px;gap:12px}.tw .wm{font-size:12px}
 .hv{height:auto}
-.hvc{position:relative;height:clamp(520px,140vw,640px)}
-.cloud{left:6%;right:4%;top:15%;bottom:13%}
-.cp{font-size:min(10vw,60px)}
-.cpT{right:3%;top:2%}
-.cpL{left:3%;bottom:2%}
-.hbt{position:relative;right:auto;bottom:auto;width:auto;margin:16px 16px 0}
-.sec{padding:72px 0}
-.about{border-radius:32px 32px 0 0;margin-top:48px}
-.ab,.so,.pg2{grid-template-columns:minmax(0,1fr);gap:24px}
-.svs{grid-template-columns:minmax(0,1fr);margin-top:40px}
-.sv{padding:0 18px;border-radius:20px}
-.sv .im{margin:0 -18px 22px}
-.sv .go{margin:auto -18px 0}
-.sv .lg2 strong{font-size:26px}
-.sv ul{margin:22px 0 24px}
-.pn{border-radius:28px;margin:0 8px;padding:56px 0}
-.lc{padding:8px 16px 2px}
-.lc .rw{grid-template-columns:56px minmax(0,1fr);gap:0 12px}
-.lc .d{font-size:28px}
-.ph3{gap:10px}
-.ph3 figcaption{left:6px;bottom:6px;font-size:11px;padding:1px 8px}
-.tiles{gap:8px}
-.wg{gap:20px 10px}
+.hvc{position:relative;height:172vw;max-height:900px}
+.cloud{left:0;right:2%;top:17%;bottom:16%}
+.cp{font-size:13.4vw}
+.cpT{right:2%;top:7.5%}
+.cpL{left:1%;bottom:2%}
+.hbt{position:relative;right:auto;bottom:auto;width:auto;margin:20px 16px 0;gap:16px}
+.eb{min-height:64px}
+.eb b{font-size:17px}
+.eb .ar{width:44px;height:44px}
+.hd{padding:12px 16px 0;margin-top:40px}
+.hdc{min-height:64px;padding:8px 8px 8px 16px}
+.lg{min-height:48px;flex-direction:column;align-items:flex-start;gap:2px}
+.lg img{display:none}
+.lg .wm{font-size:14px}
+.lg small{display:block;padding:0;font-size:10px}
+.hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:48px;height:48px;padding:0 12px;cursor:pointer}
+.hb span{display:block;height:2px;background:var(--bl);border-radius:2px}
+.mt:focus-visible+.hb{outline:2px solid var(--bl);outline-offset:2px}
+.mt~.nv{display:none}
+.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;padding:8px 0 12px;font-size:15px}
+.nv>a,.dd>a{min-height:52px;padding:0 8px;border-bottom:1px solid var(--ln)}
+.dd,.dd>a{width:100%}
+.nv>a:after,.dd>a:after{display:none}
+.nv>a.ob{margin:12px 0 0;justify-content:center;border-bottom:1px solid var(--bl)}
+.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding:0 0 4px 16px;min-width:0}
+a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;padding:0 20px;background:var(--bl);color:#fff;font-size:15px;font-weight:600;border-radius:12px;box-shadow:0 6px 20px rgba(22,79,184,.25)}
+.about{margin:48px 0 0;padding:72px 24px 0;border-radius:40px 40px 0 0}
+.about .in{grid-template-columns:minmax(0,1fr);gap:24px}
+.lp{height:278px;margin-top:48px}
+.bl{scale:.78;transform-origin:left top;margin-right:-84px}
+.svh{margin-top:72px}
+.svs{grid-template-columns:minmax(0,1fr);margin-top:40px;gap:16px}
+.sv{border-radius:20px}
+.sv .top{padding:28px 18px}
+.sv .hdl{gap:16px}
+.sv .mk{font-size:28px}.sv .mk small{font-size:11px}
+.sv .cc{font-size:17px}
+.sv ul{margin-top:24px}
+.sv li{font-size:15px;min-height:50px}
+.pn{margin:0;padding:72px 24px;border-radius:40px}
+.pnin{grid-template-columns:minmax(0,1fr);gap:40px}
+.pn .mk{font-size:40px}.pn .mk small{font-size:13px}
+.pn .h3{margin-top:40px}
+.evc{margin-top:40px;padding:24px 16px 8px}
+.evc .rw{grid-template-columns:84px minmax(0,1fr);gap:12px}
+.evc .n{font-size:34px}.evc .n small{font-size:16px}
+.phg,.wg{gap:12px}
+.phg figure,.wk .im{border-radius:16px}
+.tl{gap:10px;margin-top:32px}
+.tl div{min-height:100px}
+.tl b{font-size:24px}
 .wk b{font-size:13px}
-.vc{flex-direction:column;align-items:center;gap:20px;margin-top:36px;padding:0 16px}
-.vq{flex:none;width:100%;max-width:420px;margin:0;--y:0px !important;padding:48px 22px 22px}
-.vq:before{font-size:76px}
-.nwg{grid-template-columns:minmax(0,1fr);gap:0}
-.nc{display:grid;grid-template-columns:120px minmax(0,1fr);gap:4px 14px;align-items:start;padding:16px 0;border-bottom:2px dotted #cdeebd}
-.nc .tg{position:static;grid-column:2;justify-self:start}
-.nc .im{grid-column:1;grid-row:1/span 3;border-radius:10px}
-.nc b{grid-column:2;margin-top:2px;font-size:14px}
-.nc small{grid-column:2;margin-top:0}
-.hdrow{margin-bottom:28px}
-.bn{grid-template-columns:minmax(0,1fr) auto;gap:14px;padding:12px 14px 16px 12px}
-.bn img{grid-column:1/-1;aspect-ratio:16/9}
-.bn b{font-size:15px}
-.sl{grid-template-columns:minmax(0,1fr)}
-.msg{padding:80px 0}
-.msg .h2 br{display:none}
-.wr{width:96px;height:70px;font-size:9.5px}
-.wr.s1{left:-6px;top:2%}.wr.s2{right:-6px;top:3%}.wr.s3,.wr.s4{display:none}.wr.s5{left:-8px;bottom:3%}.wr.s6{right:-8px;bottom:2%}
+.vch{margin-top:72px}
+.vlp{margin:32px -24px 0;padding:16px 0 40px}
+.vlt{flex-direction:column;align-items:center;gap:16px;width:auto}
+.js .vlt{flex-direction:row;align-items:flex-start;gap:0;width:max-content}
+.vq{width:270px;min-height:340px;padding:84px 26px 26px}
+.vq svg{left:26px;top:30px;width:48px;height:48px}
+.vq:nth-child(n){translate:0 0}
+.js .vq:nth-child(4n+2){translate:0 24px}.js .vq:nth-child(4n+4){translate:0 28px}
+.nw{padding:96px 0 72px}
+.nc{flex:0 0 82%}
+.nc b{font-size:17px}
+.nav2{width:48px;height:48px;top:30%}
+.nav2.pv{left:-12px}.nav2.nx{right:-12px}
+.so{padding-bottom:72px}
+.soin{grid-template-columns:minmax(0,1fr);gap:28px;padding:48px 0}
+.soin .h3{font-size:24px}
+.bn{grid-template-columns:84px minmax(0,1fr);gap:16px;padding:16px}
+.bn img{width:84px;height:84px}
+.bn .ar{display:none}
+.bn b{font-size:17px}
+.sl{grid-template-columns:minmax(0,1fr);margin-top:16px}
+.msg{padding:88px 0 96px}
+.msg .tx{font-size:16px}
+.msg .tx br.pc{display:none}
+.wr{width:120px;height:84px;font-size:11px}
+.wr.s1{left:-14px;top:2%}.wr.s5{right:-14px;left:auto;top:3%}.wr.s4{left:-16px;top:auto;bottom:1%}.wr.s8{right:-16px;top:auto;bottom:2%}
+.wr.s2,.wr.s3,.wr.s6,.wr.s7{display:none}
+.msg .in{padding-top:56px;padding-bottom:56px}
+.tel b{font-size:24px}
 .ft{padding:48px 8px 96px}
-.fct{grid-template-columns:minmax(0,1fr);padding:40px 22px 32px;gap:24px}
-.fl{font-size:36px}
+.fc{border-radius:20px}
+.fbd{flex-direction:column;gap:8px;margin:0 20px;padding:24px 0;text-align:center;font-size:13px}
+.fmn{grid-template-columns:minmax(0,1fr);gap:40px;padding:48px 22px}
+.fwm{font-size:40px}
 .fi{grid-template-columns:minmax(0,1fr);gap:0}
-.fi dd{margin-bottom:6px}
-.ft nav{gap:0 32px}
-.ft .nt{padding:16px 22px}
-.ft .cr{padding:18px 22px}
+.fi dd{margin-bottom:8px}
+.fnv{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 20px}
+.fnt{padding:16px 20px;text-align:center}
+.fbt{flex-direction:column;align-items:flex-start;padding:28px 22px 44px}
+.fbt .wm{font-size:20px}
+.fbt .cpy{font-size:24px}
 }
-@media(min-width:600px) and (max-width:860px){.nwg{grid-template-columns:repeat(3,minmax(0,1fr))}.svs{grid-template-columns:repeat(2,minmax(0,1fr))}.tiles{grid-template-columns:repeat(4,minmax(0,1fr))}.nc{display:block;padding:12px 0 0;border:0}.nc .tg{position:absolute}.nc b{font-size:14px;margin-top:12px}.nc small{margin-top:6px}}
+@media(min-width:600px) and (max-width:860px){
+.cp{font-size:min(13.4vw,92px)}
+.hvc{height:min(172vw,1180px)}
+.svs{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tl{grid-template-columns:repeat(4,minmax(0,1fr))}
+.nc{flex-basis:46%}
+}
 </style>
 </head>
 <body>
 <div class="pg">
 
-<svg class="defs" aria-hidden="true" focusable="false"><defs><clipPath id="moya" clipPathUnits="objectBoundingBox">
-<path d="M0.34,0.06 C0.40,0.01 0.47,0.05 0.53,0.02 C0.60,-0.01 0.64,0.06 0.70,0.05 C0.78,0.03 0.84,0.10 0.82,0.16 C0.90,0.13 0.99,0.18 0.96,0.26 C0.94,0.32 0.86,0.31 0.90,0.37 C0.97,0.40 1.00,0.50 0.93,0.55 C0.99,0.60 0.98,0.70 0.90,0.71 C0.96,0.78 0.92,0.88 0.83,0.86 C0.80,0.95 0.70,0.99 0.62,0.94 C0.55,1.00 0.44,0.99 0.38,0.94 C0.30,0.99 0.18,0.97 0.17,0.89 C0.08,0.90 0.02,0.82 0.08,0.76 C0.00,0.72 0.00,0.62 0.07,0.60 C0.02,0.55 0.03,0.47 0.11,0.46 C0.06,0.40 0.10,0.31 0.18,0.32 C0.15,0.24 0.20,0.15 0.28,0.17 C0.27,0.11 0.30,0.07 0.34,0.06 Z"/>
-<path d="M0.14,0.40 C0.08,0.37 0.04,0.40 0.00,0.35 C0.02,0.45 0.08,0.48 0.14,0.47 Z"/>
-<path d="M0.80,0.13 C0.86,0.07 0.93,0.07 1.00,0.02 C0.96,0.11 0.90,0.17 0.84,0.19 Z"/>
-<path d="M0.22,0.91 C0.16,0.95 0.09,0.96 0.02,0.99 C0.09,0.91 0.15,0.87 0.22,0.86 Z"/>
-<path d="M0.92,0.62 C0.96,0.64 0.98,0.68 1.00,0.74 C0.95,0.71 0.92,0.69 0.89,0.68 Z"/>
-</clipPath></defs></svg>
+<svg class="defs" aria-hidden="true" focusable="false"><defs>
+<clipPath id="hero-blob" clipPathUnits="objectBoundingBox"><path d="M0.37,0.06 C0.40,0.00 0.50,0.00 0.55,0.03 C0.62,0.07 0.66,0.02 0.72,0.08 C0.77,0.13 0.70,0.18 0.78,0.22 C0.85,0.25 0.93,0.26 0.94,0.31 C0.95,0.37 0.86,0.36 0.80,0.38 C0.75,0.40 0.80,0.46 0.86,0.52 C0.92,0.57 0.99,0.62 0.96,0.67 C0.92,0.72 0.82,0.66 0.78,0.70 C0.74,0.75 0.80,0.83 0.73,0.89 C0.66,0.95 0.55,0.90 0.46,0.94 C0.36,0.98 0.22,0.97 0.15,0.91 C0.09,0.86 0.12,0.79 0.20,0.76 C0.26,0.73 0.24,0.68 0.16,0.66 C0.08,0.64 0.02,0.58 0.05,0.51 C0.08,0.44 0.20,0.47 0.26,0.43 C0.31,0.39 0.24,0.33 0.16,0.31 C0.09,0.29 0.12,0.22 0.22,0.21 C0.30,0.20 0.36,0.21 0.36,0.15 C0.36,0.11 0.34,0.09 0.37,0.06 Z"/></clipPath>
+<clipPath id="blob-a" clipPathUnits="objectBoundingBox"><path d="M0.30,0.05 C0.42,-0.02 0.58,0.04 0.66,0.06 C0.78,0.09 0.92,0.12 0.96,0.28 C1.00,0.42 0.93,0.52 0.97,0.66 C1.01,0.82 0.88,0.97 0.70,0.96 C0.56,0.95 0.48,1.00 0.34,0.97 C0.18,0.94 0.06,0.86 0.03,0.70 C0.00,0.56 0.08,0.48 0.05,0.36 C0.02,0.20 0.16,0.11 0.30,0.05 Z"/></clipPath>
+<clipPath id="blob-b" clipPathUnits="objectBoundingBox"><path d="M0.22,0.12 C0.34,0.02 0.46,0.08 0.56,0.03 C0.70,-0.03 0.86,0.06 0.92,0.22 C0.97,0.36 0.90,0.44 0.96,0.58 C1.02,0.74 0.92,0.92 0.74,0.95 C0.60,0.97 0.52,0.92 0.40,0.97 C0.24,1.02 0.06,0.92 0.03,0.74 C0.01,0.60 0.10,0.54 0.06,0.42 C0.02,0.30 0.12,0.20 0.22,0.12 Z"/></clipPath>
+<clipPath id="blob-c" clipPathUnits="objectBoundingBox"><path d="M0.40,0.03 C0.54,-0.01 0.64,0.06 0.76,0.08 C0.90,0.11 1.00,0.26 0.97,0.42 C0.95,0.54 0.88,0.58 0.92,0.72 C0.96,0.88 0.82,0.99 0.64,0.97 C0.52,0.96 0.44,0.92 0.30,0.95 C0.14,0.98 0.02,0.86 0.04,0.70 C0.06,0.58 0.14,0.54 0.10,0.40 C0.06,0.24 0.20,0.08 0.40,0.03 Z"/></clipPath>
+</defs></svg>
 
-<header class="hd">
+<!-- 1 ファーストビュー（参考：ヒーロー＝雲形に切り抜いた写真のフェード切り替え＋手描き線＋分割コピー＋右下の2ボタン） -->
+<section id="top" class="hv" aria-label="メインビジュアル">
+<div class="hvc">
+<div class="tw"><span class="wm">RE <i>BOOT</i></span><small>動画・仕上げの依頼はrebootへ　リブート</small></div>
+<div class="cloud"><span class="sh"></span><div class="sl" data-fade>
+<img src="images/gen/re-hero-glass.jpg" alt="明るい作画フロアの通路に立つスタッフの後ろ姿">
+<img src="images/gen/re-hero-desks.jpg" alt="トレス台と液晶タブレットが並ぶ作業フロア">
+<img src="images/gen/re-hero-lounge.jpg" alt="作画用紙が並ぶ明るいスタジオのラウンジ">
+</div></div>
+<svg class="lines" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true"><g>
+<path pathLength="1" stroke="#f9a4b7" d="M-10 92 C70 70 130 128 190 112"/>
+<path pathLength="1" stroke="#2ccc95" d="M310 160 C430 110 560 140 520 190 C480 240 330 200 380 150 C430 100 620 130 760 120"/>
+<path pathLength="1" stroke="#f0f27a" d="M-10 230 C120 210 200 280 300 255 S460 300 520 270"/>
+<path pathLength="1" stroke="#38bad8" d="M820 180 C900 120 1000 150 980 200 C960 250 860 220 900 180 C950 130 1120 170 1240 260"/>
+<path pathLength="1" stroke="#2ccc95" d="M1250 160 C1300 120 1380 140 1450 120"/>
+<path pathLength="1" stroke="#f9a4b7" d="M380 540 C420 640 560 700 700 640 C820 590 760 520 690 560 C620 600 700 700 860 700 S1080 660 1200 720"/>
+<path pathLength="1" stroke="#38bad8" d="M240 450 C300 400 380 470 330 510 C280 550 200 480 260 440 C340 390 520 480 600 460"/>
+<path pathLength="1" stroke="#2ccc95" d="M460 760 C600 720 760 800 880 760 C960 735 1000 760 1040 790"/>
+<path pathLength="1" stroke="#f0f27a" d="M1000 640 C1040 700 1020 740 960 760"/>
+<path pathLength="1" stroke="#f9a4b7" d="M1180 560 C1250 540 1330 600 1440 580"/>
+</g></svg>
+<h1 class="cp"><span class="cpT"><span class="h">“動画・仕上げ”</span><span class="v">を東京と</span></span><span class="cpL"><span class="v">直営の中国</span><span class="h">スタジオで。<span class="kari">仮の文章</span></span></span></h1>
+</div>
+<div class="hbt" data-in>
+<a class="eb pk" href="contact.html"><span class="bg"></span><span class="ci"></span><span><small>動画・仕上げのご依頼・お見積り</small><b>作業を依頼する</b></span><span class="ar"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<a class="eb gr" href="contact.html"><span class="bg"></span><span class="ci"></span><span><small>受付 〇〇:〇〇〜〇〇:〇〇</small><b>TEL 〇〇-〇〇〇〇-〇〇〇〇</b></span><span class="ar"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M5.5 3h2.4l1.2 3.6-1.8 1.2c.8 1.8 1.8 2.8 3.6 3.6l1.2-1.8 3.6 1.2v2.4c0 1-.8 1.8-1.8 1.8C8 14.8 5.2 12 3.8 5c0-1 .7-2 1.7-2z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></span></a>
+</div>
+</section>
+
+<header class="hd" data-in>
 <div class="hdc">
-<a class="lg" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ"><b class="en">re<i>boot</i></b><small>アニメの動画・仕上げ リブート<br><em>TEL 〇〇-〇〇〇〇-〇〇〇〇</em>（受付 〇〇:〇〇〜〇〇:〇〇）</small></a>
+<a class="lg" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ"><span class="wm">RE <i>BOOT</i></span><small>動画・仕上げの依頼はrebootへ<br>株式会社reboot</small></a>
 <input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label><a class="fab" href="contact.html"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M2 4h12v8H2zM2 4l6 5 6-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>お問い合わせ</a>
 <nav class="nv" aria-label="メインメニュー">
 <a class="on" href="#top" aria-current="page">トップ</a>
-<a class="ob" href="contact.html">受注窓口</a>
 <a href="works.html">作品履歴</a>
-<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
+<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ<svg viewBox="0 0 12 12" width="10" height="10" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a><div class="ddm"><small>Studio</small><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
 <a href="plan.html">プラン</a>
+<a class="ob" href="contact.html">受注窓口</a>
 </nav>
 </div>
 </header>
 
-<!-- 1 ファーストビュー（参考：ヒーロー） -->
-<section id="top" class="hv" aria-label="メインビジュアル">
-<div class="hvc">
-<div class="cloud"><img src="images/gen/s3-cn-row.jpg" alt="仕上げ作業をするスタッフ"></div>
-<svg class="lines" viewBox="0 0 1440 720" preserveAspectRatio="none" aria-hidden="true"><g>
-<path pathLength="1" stroke="#6fd626" d="M-20 150 C180 40 360 250 560 120 S900 -30 1100 90 S1360 210 1460 70"/>
-<path pathLength="1" stroke="#c8f56b" d="M-20 600 C160 520 300 680 520 620 S860 500 1040 640 S1300 700 1460 590"/>
-<path pathLength="1" stroke="#a6f03c" d="M180 740 C320 610 520 700 700 650 S1000 540 1220 680"/>
-<path pathLength="1" stroke="#4fb814" d="M620 -10 C720 120 640 260 780 300 S990 210 1110 340 S1250 520 1460 470"/>
-<path pathLength="1" stroke="#6fd626" d="M-20 400 C110 310 250 440 360 350 S520 230 660 310"/>
-<path pathLength="1" stroke="#c8f56b" d="M900 30 C980 120 1120 60 1180 160 S1300 260 1460 200"/>
-</g></svg>
-<h1 class="cp"><span class="cpT"><span class="h">“動画・仕上げ”</span><span class="v">を、東京と</span></span><span class="cpL"><span class="v">直営の中国</span><span class="h">スタジオで。<span class="kari">仮の文章</span></span></span></h1>
+<!-- 2 スタジオ（参考：About の角丸パネル＋雲形写真のループ＋Service の2枚カード） -->
+<section id="studio" aria-labelledby="sth">
+<div class="about" data-ap="scale">
+<div class="in">
+<span class="eyb">Studio</span>
+<h2 class="h2" id="sth">東京と中国、<br>2つのスタジオで<br>受けています。<span class="kari">仮の文章</span></h2>
+<div>
+<p class="tx">東京・杉並の国内スタジオ lolroute と、2016年に設立した直営の海外スタジオ reboot China。<strong>動画・仕上げを、2つの拠点で</strong>お引き受けしています。</p>
+<p class="tx">reboot China は rebootの仕事だけを行うスタジオです。社員が数カ月に一度現地で直接指導し、国内のマルチリンガルの作画スタッフがフィードバックをつないでいます。</p>
 </div>
-<div class="hbt">
-<a class="eb lm" href="contact.html"><span><small>動画・仕上げのご依頼・お見積り</small><b>作業を依頼する</b></span><span class="ar"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-<a class="eb mi" href="contact.html"><span><small>受付 〇〇:〇〇〜〇〇:〇〇</small><b class="t">TEL 〇〇-〇〇〇〇-〇〇〇〇</b></span><span class="ar"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M4.5 2h2l1 3-1.5 1c.7 1.5 1.5 2.3 3 3l1-1.5 3 1v2c0 .8-.7 1.5-1.5 1.5C6.5 12 4 9.5 3 4c0-.8.7-2 1.5-2z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg></span></a>
 </div>
-</section>
-
-<!-- 2 スタジオ（参考：About の角丸パネル＋Service の2枚カード） -->
-<section id="studio" class="sec about" aria-labelledby="sth">
+</div>
+<div class="lp" data-ap="up" data-loop="50" aria-label="スタジオの写真">
+<div class="lpt">
+<div class="bl b1"><div class="ph"><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#2ccc95" d="M70 10 C86 12 96 26 92 44"/></svg></div>
+<div class="bl b2"><div class="ph"><img src="images/off/g017.jpg" alt="lolroute で作画する国内スタッフ"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#f9a4b7" d="M44 6 C60 -2 74 6 72 18 C70 26 62 24 66 16"/><path stroke="#2ccc95" d="M78 14 C92 22 96 40 90 52"/></svg></div>
+<div class="bl b3"><div class="ph"><img src="images/off/g001.jpg" alt="reboot China の社名サイン"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#38bad8" d="M80 4 C92 14 94 30 86 40"/><path stroke="#f0f27a" d="M60 92 C76 98 92 90 96 78"/></svg></div>
+<div class="bl b4"><div class="ph"><img src="images/gen/s3-cn-floor.jpg" alt="reboot China の作業フロア"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#2ccc95" d="M4 30 C0 16 12 4 26 6"/></svg></div>
+<div class="bl b5"><div class="ph"><img src="images/off/l-m156.jpg" alt="lolroute：鉛筆で動画を描く手元"></div><svg class="sc" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><path stroke="#f9a4b7" d="M70 4 C88 6 98 22 94 36"/><path stroke="#38bad8" d="M6 80 C10 92 24 98 36 96"/></svg></div>
+</div>
+</div>
 <div class="w">
-<div class="ab">
-<div><span class="eyb">Studio</span><h2 class="h2" id="sth">東京と中国、<br><span class="ul">2つのスタジオ<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12 C40 4 70 18 110 9 S170 6 198 13"/></svg></span>で受けます<span class="kari">仮の文章</span></h2></div>
-<div>
-<p class="tx">東京・杉並の国内スタジオ <strong>lolroute</strong> と、2016年に設立した直営の海外スタジオ <strong>reboot China</strong>。</p>
-<p class="tx">reboot China は rebootの仕事だけを行うスタジオです。<strong>社員が数カ月に一度、現地で直接指導</strong>し、国内のスタッフとフィードバックをつないでいます。</p>
-</div>
-</div>
+<div class="svh" data-ap="fade"><span class="eyb">Our Studios</span><h2 class="h2">枚数と納期に合わせて選べる、<br>ふたつの“拠点”</h2></div>
 <div class="svs">
-<div class="sv lm">
-<div class="im"><img src="images/off/g002.jpg" alt="東京・杉並の国内スタジオ lolroute の入口"></div>
-<div class="lg2"><strong>lolroute<small>国内スタジオ（ルート）</small></strong><span>海外上がりの検査・リテイク・<br>急ぎを担う国内拠点</span></div>
-<ul><li><b>設立</b><span>2021年</span></li><li><b>所在地</b><span>東京都杉並区</span></li><li><b>出社スタッフの正社員率</b><span>100%</span></li></ul>
-<a class="go" href="studio-japan.html">国内スタジオを見る<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<div class="sv pk" data-ap="fade">
+<div class="top">
+<div class="hdl"><span class="mk"><small>TOKYO</small>lol<br>route</span><span class="cc">検査・リテイク・急ぎを<br>担う国内スタジオ</span></div>
+<ul><li><b>設立</b>2021年</li><li><b>所在地</b>東京都杉並区</li><li><b>出社スタッフの正社員率</b>100%</li></ul>
 </div>
-<div class="sv mi">
-<div class="im"><img src="images/gen/s3-cn-floor.jpg" alt="reboot China の作業フロア"></div>
-<div class="lg2"><strong>reboot<br>China<small>直営の海外スタジオ</small></strong><span>rebootの仕事だけを行う<br>直営のスタジオ</span></div>
-<ul><li><b>設立</b><span>2016年</span></li><li><b>運営</b><span>rebootの直営</span></li><li><b>指導</b><span>社員が数カ月に一度、現地で</span></li></ul>
-<a class="go" href="studio-overseas.html">海外スタジオを見る<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a class="go" href="studio-japan.html"><span>国内スタジオを見てみる！</span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
+<div class="sv gr" data-ap="fade">
+<div class="top">
+<div class="hdl"><span class="mk"><small>CHINA</small>reboot<br>China</span><span class="cc">rebootの仕事だけを行う<br>直営の海外スタジオ</span></div>
+<ul><li><b>設立</b>2016年</li><li><b>運営</b>rebootの直営</li><li><b>指導</b>社員が数カ月に一度、現地で</li></ul>
+</div>
+<a class="go" href="studio-overseas.html"><span>海外スタジオを見てみる！</span><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
 </div>
 </div>
 </div>
 </section>
 
-<!-- 3 強み（参考：MIRAIZ Hub のパネル） -->
-<section class="sec" aria-labelledby="srh" style="padding-top:24px">
-<div class="pn lm">
-<div class="w pg2">
+<!-- 3 強み（参考：MIRAIZ Hub のピンクのパネル＝イベント一覧カード＋写真3枚） -->
+<section aria-labelledby="srh" style="padding-top:120px">
+<div class="pn pk" data-ap="scale">
+<div class="pnin">
 <div>
-<span class="eyb">Strength</span>
-<h2 class="h2" id="srh">rebootに任せる<br><span class="ul">3つの理由<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12 C40 4 70 18 110 9 S170 6 198 13"/></svg></span><span class="kari">仮の文章</span></h2>
-<p class="tx" style="margin-top:20px">枚数が多い話数も、急ぎの話数も。2つの拠点と国内での検査で、同じ基準のまま納品します。</p>
-<ol class="lc">
-<li><span class="lb">枚数と納期に合わせて</span><div class="rw"><span class="d">01<small>Studio</small></span><div><b>国内と直営海外の2拠点で振り分け</b><p>量の多い分は reboot China、急ぎや直しは lolroute。話数ごとに担当を組みます。</p></div></div></li>
-<li><span class="lb">動画検査・色指定検査は国内のみ</span><div class="rw"><span class="d">02<small>Check</small></span><div><b>海外の作業も、国内で検査してから納品</b><p>上がりはすべて東京で確かめてからお渡しします。</p></div></div></li>
-<li><span class="lb">ご連絡はひとつの窓口で</span><div class="rw"><span class="d">03<small>Order</small></span><div><b>動画から仕上げまで、窓口ひとつ</b><p>工程ごとに別の会社へ頼む手間がありません。</p></div></div></li>
+<span class="mk"><small>STRENGTH</small>3 REASONS</span>
+<h2 class="h3" id="srh">rebootに任せると、<br>“同じ基準”のまま納品できる<span class="kari">仮の文章</span></h2>
+<p class="tx">枚数が多い話数も、急ぎの話数も。2つの拠点と国内での検査で、同じ基準のまま動画・仕上げをお戻しします。</p>
+<div class="evc">
+<b>rebootが選ばれている3つの理由</b>
+<ol>
+<li><span class="lb">枚数と納期に合わせて</span><div class="rw"><span class="n">01<small>Studio</small></span><div><b>国内と直営海外の2拠点で振り分け</b><p>量の多い分は reboot China、急ぎや直しは lolroute。話数ごとに担当を組みます。</p></div></div><a class="mo s" href="studio-overseas.html"><span>くわしく見る</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+<li><span class="lb">動画検査・色指定検査は国内のみ</span><div class="rw"><span class="n">02<small>Check</small></span><div><b>海外の作業も、国内で検査してから納品</b><p>上がりはすべて東京で確かめてからお渡しします。</p></div></div><a class="mo s" href="studio-japan.html"><span>くわしく見る</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
+<li><span class="lb">ご連絡はひとつの窓口で</span><div class="rw"><span class="n">03<small>Order</small></span><div><b>動画から仕上げまで、窓口ひとつ</b><p>工程ごとに別の会社へ頼む手間がありません。</p></div></div><a class="mo s" href="plan.html"><span>プランと対応作業を見る</span><span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a></li>
 </ol>
-<a class="lnk" href="plan.html">プランと対応作業を見る<span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </div>
-<div class="ph3">
-<figure class="a"><img style="object-position:50% 0" src="images/gen/s3-cn-desk.jpg" alt="reboot China で作画するスタッフ"><figcaption><i>01</i>2拠点で振り分け</figcaption></figure>
-<figure class="b"><img src="images/off/l-m167.jpg" alt="lolroute：トレス台で作画するスタッフの手元"><figcaption><i>02</i>国内で検査</figcaption></figure>
-<figure class="b"><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"><figcaption><i>03</i>窓口ひとつ</figcaption></figure>
+</div>
+<div class="phg">
+<figure class="a"><img src="images/gen/s3-cn-desk.jpg" alt="reboot China で作画するスタッフ"><figcaption>01　2拠点で振り分け</figcaption></figure>
+<figure class="b"><img src="images/off/l-m167.jpg" alt="lolroute：トレス台で作画するスタッフの手元"><figcaption>02　国内で検査</figcaption></figure>
+<figure class="b"><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"><figcaption>03　窓口ひとつ</figcaption></figure>
 </div>
 </div>
 </div>
 </section>
 
-<!-- 4 実績＋5 お客様の声（参考：MIRAIZキャリアコーチのパネル＋ご利用者の声） -->
-<div class="pn mi" style="margin-top:0">
-<section aria-labelledby="wkh">
-<div class="w pg2">
+<!-- 4 実績＋5 お客様の声（参考：MIRAIZキャリアコーチの緑のパネル＝数字タイル＋写真／ご利用者の声のループ） -->
+<div class="pn gr" data-ap="scale" style="margin-top:96px">
+<section class="pnin" aria-labelledby="wkh">
 <div>
-<span class="eyb">Works</span>
-<h2 class="h2" id="wkh">参加作品と<br><span class="ul">これまでの実績<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12 C40 4 70 18 110 9 S170 6 198 13"/></svg></span><span class="kari">仮の文章</span></h2>
-<p class="tx" style="margin-top:20px">2023〜2025年に、165本以上の作品に参加しました。TVシリーズから劇場作品まで、動画・仕上げを中心に担当しています。</p>
-<div class="tiles">
-<div class="tile"><span>参加作品</span><b>165<small>本以上</small></b></div>
-<div class="tile"><span>月間の対応枚数</span><b>〇〇,〇〇〇<small>枚</small></b></div>
-<div class="tile"><span>スタッフ</span><b>〇〇<small>名</small></b></div>
-<div class="tile"><span>拠点</span><b>2<small>拠点</small></b></div>
+<span class="mk"><small>WORKS</small>165 TITLES</span>
+<h2 class="h3" id="wkh">参加作品と、<br>これまでの実績<span class="kari">仮の文章</span></h2>
+<p class="tx">2023〜2025年に、165本以上の作品に参加しました。TVシリーズから劇場作品まで、動画・仕上げを中心に担当しています。</p>
+<div class="tl">
+<div><span>参加作品</span><b>165<small>本以上</small></b></div>
+<div><span>月間の対応枚数</span><b>〇〇,〇〇〇<small>枚</small></b></div>
+<div><span>スタッフ</span><b>〇〇<small>名</small></b></div>
+<div><span>拠点</span><b>2<small>拠点</small></b></div>
 </div>
-<p class="tnt">※参加作品は公式の作品履歴（2023〜2025年）の件数</p>
+<p class="tln">※参加作品は公式の作品履歴（2023〜2025年）の件数</p>
 <dl class="cli"><dt>主な取引先</dt><dd>〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</dd></dl>
-<a class="lnk" href="works.html">作品履歴をすべて見る（165作品）<span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<a class="mo" href="works.html"><span>作品履歴をすべて見る（165作品）</span><span class="ar"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </div>
 <div class="wg">
-<a class="wk lgw" href="works.html"><span class="tg">2025<i>担当：〇〇</i></span><div class="im"><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></div><b>TVアニメ『WIND BREAKER』</b></a>
-<a class="wk" href="works.html"><span class="tg">2025<i>担当：〇〇</i></span><div class="im"><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></div><b>TVアニメ『SAKAMOTO DAYS』</b></a>
-<a class="wk" href="works.html"><span class="tg">2025<i>担当：〇〇</i></span><div class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></div><b>機動戦士Gundam GQuuuuuuX（ジークアクス）</b></a>
-<a class="wk" href="works.html"><span class="tg">2025<i>担当：〇〇</i></span><div class="im"><img src="images/off/w004.jpg" alt="『炎炎ノ消防隊 参ノ章』"></div><b>『炎炎ノ消防隊 参ノ章』</b></a>
-<a class="wk" href="works.html"><span class="tg">2025<i>担当：〇〇</i></span><div class="im"><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></div><b>TVアニメ「チ。 ―地球の運動について―」</b></a>
-<a class="wk" href="works.html"><span class="tg">2025<i>担当：〇〇</i></span><div class="im"><img src="images/off/w020.jpg" alt="オリジナルアニメ『LAZARUS ラザロ』"></div><b>オリジナルアニメ『LAZARUS ラザロ』</b></a>
-<a class="wk" href="works.html"><span class="tg">2024<i>担当：〇〇</i></span><div class="im"><img src="images/off/w057.jpg" alt="怪獣８号"></div><b>怪獣８号</b></a>
-</div>
+<a class="wk big" href="works.html"><div class="im"><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></div><b>TVアニメ『WIND BREAKER』</b><small>2025｜担当：〇〇</small></a>
+<a class="wk" href="works.html"><div class="im"><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></div><b>TVアニメ『SAKAMOTO DAYS』</b><small>2025｜担当：〇〇</small></a>
+<a class="wk" href="works.html"><div class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></div><b>機動戦士Gundam GQuuuuuuX（ジークアクス）</b><small>2025｜担当：〇〇</small></a>
+<a class="wk" href="works.html"><div class="im"><img src="images/off/w004.jpg" alt="『炎炎ノ消防隊 参ノ章』"></div><b>『炎炎ノ消防隊 参ノ章』</b><small>2025｜担当：〇〇</small></a>
+<a class="wk" href="works.html"><div class="im"><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></div><b>TVアニメ「チ。 ―地球の運動について―」</b><small>2025｜担当：〇〇</small></a>
+<a class="wk" href="works.html"><div class="im"><img src="images/off/w020.jpg" alt="オリジナルアニメ『LAZARUS ラザロ』"></div><b>オリジナルアニメ『LAZARUS ラザロ』</b><small>2025｜担当：〇〇</small></a>
+<a class="wk" href="works.html"><div class="im"><img src="images/off/w057.jpg" alt="怪獣８号"></div><b>怪獣８号</b><small>2024｜担当：〇〇</small></a>
 </div>
 </section>
 
-<section aria-labelledby="vch" style="margin-top:112px">
-<h2 class="vh" id="vch">お客様の声<span class="kari">仮の文章</span></h2>
-<div class="vc">
-<figure class="vq v1"><p>急ぎの話数でも、国内で検査してから上げてくれるので安心して任せられます。</p><figcaption class="wi"><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"><span>〇〇株式会社 制作プロデューサー 〇〇様<em>（掲載許可を確認中）</em></span></figcaption></figure>
-<figure class="vq v2"><p>動画と仕上げをまとめて頼めるので、やり取りの窓口がひとつで済みます。</p><figcaption class="wi"><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"><span>〇〇スタジオ 制作進行 〇〇様<em>（掲載許可を確認中）</em></span></figcaption></figure>
-<figure class="vq v3"><p>枚数の多い話数を、2つのスタジオで振り分けてもらえて助かりました。</p><figcaption class="wi"><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"><span>株式会社〇〇 ライン・プロデューサー 〇〇様<em>（掲載許可を確認中）</em></span></figcaption></figure>
+<section aria-labelledby="vch">
+<h2 class="h3 vch" id="vch">お客様の声<span class="kari">仮の文章</span></h2>
+<div class="vlp" data-loop="30" data-pause>
+<div class="vlt">
+<figure class="vq"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M6 12h20v20c0 9-5 15-14 17l-2-6c5-2 7-5 7-9H6zM34 12h20v20c0 9-5 15-14 17l-2-6c5-2 7-5 7-9H34z" fill="#fff" fill-opacity=".45"/></svg><p>急ぎの話数でも、国内で検査してから上げてくれるので安心して任せられます。</p><small>〇〇株式会社 制作プロデューサー 〇〇様（掲載許可を確認中）</small></figure>
+<figure class="vq"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M6 12h20v20c0 9-5 15-14 17l-2-6c5-2 7-5 7-9H6zM34 12h20v20c0 9-5 15-14 17l-2-6c5-2 7-5 7-9H34z" fill="#fff" fill-opacity=".45"/></svg><p>動画と仕上げをまとめて頼めるので、やり取りの窓口がひとつで済みます。</p><small>〇〇スタジオ 制作進行 〇〇様（掲載許可を確認中）</small></figure>
+<figure class="vq"><svg viewBox="0 0 60 60" aria-hidden="true"><path d="M6 12h20v20c0 9-5 15-14 17l-2-6c5-2 7-5 7-9H6zM34 12h20v20c0 9-5 15-14 17l-2-6c5-2 7-5 7-9H34z" fill="#fff" fill-opacity=".45"/></svg><p>枚数の多い話数を、2つのスタジオで振り分けてもらえて助かりました。</p><small>株式会社〇〇 ライン・プロデューサー 〇〇様（掲載許可を確認中）</small></figure>
+</div>
 </div>
 </section>
 </div>
 
-<!-- 6 お知らせ（参考：Article 記事から探す未来のヒント） -->
-<section class="sec" aria-labelledby="nwh">
+<!-- 6 お知らせ（参考：Article 記事から探す未来のヒント＝タグ付きカードのスライダー） -->
+<section class="nw" aria-labelledby="nwh">
 <div class="w">
-<div class="hdrow"><div><span class="eyb">News</span><h2 class="h2" id="nwh"><span class="spk">お知らせ<svg viewBox="0 0 28 24" aria-hidden="true"><path d="M4 22 L9 12 M14 20 L18 4 M20 22 L26 14"/></svg></span><span class="kari">仮の文章</span></h2></div></div>
-<div class="nwg">
-<a class="nc" href="#nwh"><span class="tg">イベント<time datetime="2025-10-18">2025.10.18</time></span><div class="im"><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></div><b>会社の垣根をこえたフットサル大会を開催しました</b><small>#取り組み</small></a>
-<a class="nc" href="#nwh"><span class="tg">採用<time>〇〇〇〇.〇〇.〇〇</time></span><div class="im"><img src="images/off/l-m217.jpg" alt="LIR（ルート・イン・リブート）のバナー"></div><b>国内スタジオ lolroute でアニメーターを募集しています</b><small>#lolroute　#採用</small></a>
-<a class="nc" href="#nwh"><span class="tg">活動<time>〇〇〇〇.〇〇.〇〇</time></span><div class="im"><img src="images/off/g011.jpg" alt="専門学校での授業の様子"></div><b>日本電子専門学校で作画の授業を行いました</b><small>#アニメを作る楽しさを広める活動</small></a>
+<div class="nwh"><div><span class="eyb">News</span><h2 class="h2" id="nwh">お知らせ<span class="kari">仮の文章</span></h2></div></div>
+<div class="ncw" data-slider>
+<button class="nav2 pv" type="button" aria-label="前へ"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path d="M10 3L5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+<div class="nct">
+<a class="nc" href="#nwh" data-ap="pop"><span class="tg g">イベント<time datetime="2025-10-18">25.10.18</time></span><div class="im"><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></div><b>会社の垣根をこえたフットサル大会を開催しました</b><small>#取り組み<i></i>#交流</small></a>
+<a class="nc" href="#nwh" data-ap="pop"><span class="tg p">採用<time>〇〇.〇〇.〇〇</time></span><div class="im"><img src="images/off/l-m217.jpg" alt="LIR（ルート・イン・リブート）のバナー"></div><b>国内スタジオ lolroute でアニメーターを募集しています</b><small>#lolroute<i></i>#採用</small></a>
+<a class="nc" href="#nwh" data-ap="pop"><span class="tg c">活動<time>〇〇.〇〇.〇〇</time></span><div class="im"><img src="images/off/g011.jpg" alt="専門学校での授業の様子"></div><b>日本電子専門学校で作画の授業を行いました</b><small>#アニメを作る楽しさを広める活動</small></a>
+</div>
+<button class="nav2 nx" type="button" aria-label="次へ"><svg viewBox="0 0 16 16" width="18" height="18" aria-hidden="true"><path d="M6 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 </div>
 </div>
 </section>
 
-<!-- 7 アニメーター募集（参考：Our Social） -->
-<section class="sec" aria-labelledby="rch" style="padding-top:0">
-<div class="w so">
-<div><span class="eyb">Recruit</span><h2 class="h2" id="rch">アニメーターを<br><span class="ul">募集しています<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M2 12 C40 4 70 18 110 9 S170 6 198 13"/></svg></span><span class="kari">仮の文章</span></h2></div>
+<!-- 7 アニメーター募集（参考：Our Social＝見出し｜大きな枠付きバナー＋点線のリンク2本） -->
+<section class="so" aria-labelledby="rch">
+<div class="w">
+<div class="soin">
+<div><span class="eyb">Recruit</span><h2 class="h3" id="rch">アニメーターを<br>募集しています<span class="kari">仮の文章</span></h2></div>
 <div>
-<a class="bn" href="studio-japan.html#recruit"><img src="images/off/g021.jpg" alt="国内スタッフが作画している様子"><span><b>国内スタジオ lolroute でアニメーター募集中</b><small>出社して作画しているスタッフの正社員率は100%。動画・仕上げの職種（〇〇）で募集しています。</small></span><span class="ar"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<a class="bn" href="studio-japan.html#recruit"><img src="images/off/g021.jpg" alt="lolroute で作画している国内スタッフ"><span><b>国内スタジオ lolroute でアニメーター募集中</b><small>出社して作画しているスタッフの正社員率は100%。<br>動画・仕上げの職種（〇〇）で募集しています。</small></span><span class="ar"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 15c3-6 7-7 9-4s-2 5-3 2 4-7 12-5M17 4l4 4-5 2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <div class="sl">
-<a class="lnk" href="studio-japan.html#recruit">募集要項を見る<span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-<a class="lnk" href="contact.html">専門学校のご担当者様もご連絡ください<span class="ar"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<a href="studio-japan.html#recruit"><span>募集要項を見る</span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 15c3-6 7-7 9-4s-2 5-3 2 4-7 12-5M17 4l4 4-5 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<a href="contact.html"><span>専門学校のご担当者様もご連絡ください</span><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M3 15c3-6 7-7 9-4s-2 5-3 2 4-7 12-5M17 4l4 4-5 2" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+</div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- 8 お問い合わせ（参考：Message） -->
-<section class="sec msg" aria-labelledby="cth">
-<div class="wr s1" aria-hidden="true"><svg viewBox="0 0 150 110"><path d="M75 8 C30 6 6 40 14 66 S70 108 112 96 S150 50 128 26 S70 2 40 30 S30 88 84 90 S136 58 110 36"/></svg><span>急ぎの話数が<br>ある…</span></div>
-<div class="wr s2" aria-hidden="true"><svg viewBox="0 0 150 110"><path d="M60 12 C20 20 8 62 36 86 S110 104 132 72 S124 14 80 10 S22 44 44 74 S112 86 118 54"/></svg><span>枚数がまだ<br>読めない</span></div>
-<div class="wr s3" aria-hidden="true"><svg viewBox="0 0 150 110"><path d="M90 10 C40 2 4 36 18 70 S86 110 124 88 S146 30 104 16 S36 36 50 70 S118 80 116 46"/></svg><span>仕上げだけ<br>頼みたい</span></div>
-<div class="wr s4" aria-hidden="true"><svg viewBox="0 0 150 110"><path d="M70 6 C24 12 4 52 26 80 S98 110 130 80 S138 18 92 10 S30 40 48 72 S120 76 112 40"/></svg><span>検査まで<br>任せたい</span></div>
-<div class="wr s5" aria-hidden="true"><svg viewBox="0 0 150 110"><path d="M75 8 C30 6 6 40 14 66 S70 108 112 96 S150 50 128 26 S70 2 40 30 S30 88 84 90 S136 58 110 36"/></svg><span>海外の上がりが<br>心配…</span></div>
-<div class="wr s6" aria-hidden="true"><svg viewBox="0 0 150 110"><path d="M60 12 C20 20 8 62 36 86 S110 104 132 72 S124 14 80 10 S22 44 44 74 S112 86 118 54"/></svg><span>話数が<br>決まっていない</span></div>
-<div class="w">
+<!-- 8 お問い合わせ（参考：Message＝淡い青の帯、中央の文章、まわりにぐるぐる線と小さな言葉） -->
+<section class="msg" aria-labelledby="cth" data-in>
+<div class="wr s1" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M96 10 C40 6 6 44 18 80 S96 128 150 112 S188 52 160 28 S88 4 52 34 S40 104 108 106 S176 70 140 42 S70 30 66 70"/></svg><span>急ぎの話数が<br>ある…</span></div>
+<div class="wr s2" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M80 14 C26 22 8 70 44 102 S146 124 170 86 S160 16 104 12 S26 52 56 88 S150 100 154 62 S100 30 80 56"/></svg><span>枚数がまだ<br>読めない</span></div>
+<div class="wr s3" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M116 12 C52 2 4 40 22 82 S112 130 160 104 S186 34 132 18 S44 42 64 84 S152 94 148 54 S96 34 90 64"/></svg><span>仕上げだけ<br>頼みたい</span></div>
+<div class="wr s4" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M90 8 C30 14 4 62 32 96 S124 128 166 94 S176 22 118 12 S38 46 60 86 S154 90 144 48 S96 34 92 62"/></svg><span>検査まで<br>任せたい</span></div>
+<div class="wr s5" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M96 10 C40 6 6 44 18 80 S96 128 150 112 S188 52 160 28 S88 4 52 34 S40 104 108 106 S176 70 140 42 S70 30 66 70"/></svg><span>海外の上がりが<br>心配…</span></div>
+<div class="wr s6" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M80 14 C26 22 8 70 44 102 S146 124 170 86 S160 16 104 12 S26 52 56 88 S150 100 154 62 S100 30 80 56"/></svg><span>話数が<br>決まっていない</span></div>
+<div class="wr s7" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M116 12 C52 2 4 40 22 82 S112 130 160 104 S186 34 132 18 S44 42 64 84 S152 94 148 54 S96 34 90 64"/></svg><span>どこまで頼めるか<br>分からない</span></div>
+<div class="wr s8" aria-hidden="true"><svg viewBox="0 0 190 130"><path pathLength="1" d="M90 8 C30 14 4 62 32 96 S124 128 166 94 S176 22 118 12 S38 46 60 86 S154 90 144 48 S96 34 92 62"/></svg><span>見積もりだけ<br>先に欲しい</span></div>
+<div class="in">
 <span class="eyb">Contact</span>
-<h2 class="h2" id="cth">まずは、<span class="cc">枚数と納期<svg viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path pathLength="1" d="M30 52 C6 46 2 18 40 8 S170 2 192 20 S170 58 100 56 S20 50 18 30"/></svg></span>だけでも<br>ご相談ください。<span class="kari">仮の文章</span></h2>
-<p class="tx">作品名や話数が決まっていなくても大丈夫です。<br>わかる範囲でお知らせください。</p>
-<a class="eb lm" href="contact.html"><span><small>動画・仕上げのご依頼・お見積り</small><b>作業を依頼する</b></span><span class="ar"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
+<h2 class="h2" id="cth">まずは、枚数と納期だけでも<br>ご相談ください。<span class="kari">仮の文章</span></h2>
+<p class="tx">作品名や話数が決まっていなくても大丈夫です。<br class="pc">わかる範囲でお知らせください。</p>
+<a class="eb pk" href="contact.html"><span class="bg"></span><span class="ci"></span><span><small>動画・仕上げのご依頼・お見積り</small><b>作業を依頼する</b></span><span class="ar"><svg viewBox="0 0 20 20" width="20" height="20" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 <p class="tel"><b>TEL 〇〇-〇〇〇〇-〇〇〇〇</b><span>受付 〇〇:〇〇〜〇〇:〇〇</span></p>
 <p class="rt">返信の目安：〇営業日以内</p>
-<div class="mph"><img src="images/gen/s3-jp-desk.jpg" alt="トレス台と液晶タブレットの並ぶ作画机"></div>
 </div>
 </section>
 
 <footer class="ft">
 <div class="fc">
-<div class="fct">
+<p class="fbd"><span class="wm">RE <i>BOOT</i></span><span>アニメの「動画」「仕上げ」を受託する、<br>株式会社rebootのサイトです。</span></p>
+<div class="fmn">
 <div>
-<a class="fl" href="#top">RE<i>BOOT</i></a>
+<a class="fwm" href="#top">RE<i>BOOT</i></a>
 <dl class="fi"><dt>会社名</dt><dd>株式会社reboot</dd><dt>設立</dt><dd>2014年</dd><dt>所在地</dt><dd>東京都杉並区上荻1-5-8 直長ビル6F</dd><dt>事業内容</dt><dd>アニメーション制作・作画・仕上げ</dd><dt>代表取締役</dt><dd>佐藤 光成</dd></dl>
 </div>
-<nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="studio-japan.html">国内スタジオ</a><a href="contact.html">受注窓口</a><a href="studio-overseas.html">海外スタジオ</a><a href="works.html">作品履歴</a><a href="plan.html">プラン</a></nav>
+<nav class="fnv" aria-label="フッターメニュー">
+<div><b>Menu</b><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="plan.html">プラン</a></div>
+<div><b>Studio</b><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div>
+</nav>
 </div>
-<p class="nt">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
-<div class="cr"><span>© reboot Inc. All Rights Reserved.</span><b>アニメをもっと楽しく！</b></div>
+<p class="fnt"><span>ご注意</span>※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
+<div class="fbt"><span class="wm">RE <i>BOOT</i></span><span class="cpy">アニメをもっと楽しく！</span><small>© reboot Inc. All Rights Reserved.</small></div>
 </div>
 </footer>
 
 </div>
-<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+<style>.dc-back{position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px;text-decoration:none}@media(max-width:767px){.dc-back{left:8px;bottom:8px;padding:6px 10px;font-size:11px;opacity:.85}}</style><a class="dc-back" href="index.html">← 一覧へ戻る</a>
+<script src="js/ref-06.js" defer></script>
 </body>
 </html>

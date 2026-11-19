@@ -5,527 +5,616 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>C案｜reboot デザイン</title>
-<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700;800&family=Outfit:wght@300..700&family=Unbounded:wght@800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap" rel="stylesheet">
 <style>
 body{margin:0}
 .pg *{box-sizing:border-box}
-/* 参考：yejji.net（イラストレーターのポートフォリオ）。
-   トップのキービジュアル → 1、About ページ（斜めに切った本文パネル＋右の固定画像） → 2・3、Works ページ → 4、
-   Goods ページ → 5、Contact ページ（点線で区切った行・左に英字見出し・右60%） → 6・7・8。
-   色の置きかえ：キービジュアルの色パネル→明るい黄緑、About の黒い本文パネル→ごく淡い黄緑（黒い面は作らない） */
-.pg{--ink:#163300;--g:#2f6b0a;--pale:#eefad6;--pale2:#f6fdea;--bk:#1e1e1e;--bd:#4f4f4f;--lime:#a6f03c;--rail:30px;--dash:repeating-linear-gradient(to right,currentColor 0 4px,transparent 4px 8px);--ease:cubic-bezier(.16,1,.3,1);--ds:'Outfit','Noto Sans JP',sans-serif;font-family:'Hanken Grotesk','Noto Sans JP',sans-serif;color:var(--bk);background:#fff;font-size:15px;line-height:1.6;display:flex;align-items:flex-start;overflow-x:clip;-webkit-font-smoothing:antialiased}
+/* 参考：pulpo.jp（メディアプルポ）トップページの忠実再現。
+   色：ロゴの赤 #e2365d（固定背景）／濃い赤 #cb1944（セクション背景）／黒 #262626／グレー #e9e9e9・#a9a9a9／黄 #f8f711
+   書体：英字 gotham-condensed → Antonio 700、和文 ryo-gothic-plusn → Zen Kaku Gothic New 900
+   寸法：参考と同じく PC は 1366px 幅、スマホは 400px 幅を基準に画面幅で伸縮 */
+.pg{--red:#e2365d;--red2:#cb1944;--bk:#262626;--g1:#f8f8f8;--g2:#e9e9e9;--g3:#a9a9a9;--yl:#f8f711;--u:calc(100vw / 1366);--en:'Antonio','Zen Kaku Gothic New',sans-serif;--ease:cubic-bezier(.075,.82,.165,1);
+  position:relative;font-family:'Zen Kaku Gothic New',sans-serif;font-weight:500;font-feature-settings:"palt" on;letter-spacing:.02em;line-height:1.6;color:#fff;background:var(--red);overflow-x:clip;-webkit-font-smoothing:antialiased;word-break:normal;line-break:strict}
 :where(.pg) a{color:inherit;text-decoration:none}
 :where(.pg) :where(h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote){margin:0;padding:0}
 :where(.pg) :where(ul,ol){list-style:none}
-.pg ::selection{background:var(--ink);color:#fff}
-.pg a:focus-visible,.pg label:focus-visible{outline:2px solid var(--g);outline-offset:3px}
-.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap;text-transform:none;writing-mode:horizontal-tb}
+.pg img{display:block;max-width:100%}
+.pg a:focus-visible,.pg label:focus-visible{outline:3px solid var(--yl);outline-offset:3px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.kari{display:inline-block;margin:0 0 0 .7em;padding:.2em .7em;font:700 11px/1.3 'Zen Kaku Gothic New',sans-serif;letter-spacing:.04em;border:1px solid currentColor;border-radius:100px;vertical-align:middle;opacity:.85;white-space:nowrap}
 .nw{white-space:nowrap}
-.arw{width:.8em;height:.8em;flex:none}
+.en{font-family:var(--en);font-weight:700;letter-spacing:.02em;text-transform:uppercase;line-height:.8}
 
-/* ===== 左の細い帯（参考：下層ページ共通の左端 1.875rem の帯。縦書きロゴ・現在地） ===== */
-.rail{position:sticky;top:0;flex:none;width:var(--rail);height:min(100vh,1000px);border-right:1px solid var(--bk);background:#fff;z-index:40;display:flex;flex-direction:column;align-items:center;padding:16px 0 12px}
-.rl{display:block;writing-mode:vertical-rl;font-family:'Unbounded',sans-serif;font-weight:900;font-size:19px;letter-spacing:-.04em;line-height:1}
-.rt{margin-top:18px;writing-mode:vertical-rl;font-family:var(--ds);font-size:13px;font-weight:500;white-space:nowrap}
-.rm{margin-top:auto;writing-mode:vertical-rl;font-family:var(--ds);font-size:13px;font-weight:500;letter-spacing:.02em}
-.rr{margin-top:8px;font-size:12px;letter-spacing:.3em;font-family:var(--ds)}
-.mt{position:absolute;opacity:0;width:1px;height:1px}
-.hb{display:none}
-a.fab{display:none}
-.mn{flex:1;min-width:0;position:relative}
+/* ===== 固定背景（参考：.p_top_bg 赤地＋ゆっくり回る星形の文字の輪） ===== */
+.bgf{position:fixed;inset:0 0 auto 0;height:min(100vh,1000px);overflow:hidden;pointer-events:none;z-index:0}
+.bgf svg{position:absolute;left:50%;top:50%;width:calc(var(--u) * 923);aspect-ratio:1;translate:-50% -50%;animation:rot 50s linear infinite}
+.bgf text{font-family:'Antonio',sans-serif;font-weight:700;font-size:118px;letter-spacing:4px}
 
-/* ===== 1 ファーストビュー（参考：トップの全画面キービジュアル。左に斜めに切った色パネル・縦のメニュー・左下の Topics・右端のひし形） ===== */
-.kv{position:relative;height:max(700px,min(100vh,900px));overflow:hidden;background:#fff}
-.kvi{position:absolute;inset:0 0 0 30%;overflow:hidden}
-.kvi img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;display:block;animation:kb 22s ease-in-out infinite alternate}
-.side{position:relative;z-index:2;width:calc(41.4vw - var(--rail));min-width:430px;height:100%;color:var(--ink);animation:slideIn 1.1s var(--ease) both}
-.side:before{content:"";position:absolute;inset:0;background:var(--lime);clip-path:polygon(0 0,100% 0,80% 100%,0 100%);z-index:-1}
-.ct{height:100%;padding:20px 40px 20px 20px;display:flex;flex-direction:column;position:relative}
-.lg{display:flex;align-items:center;gap:12px;margin-left:-4px}
-.lg span{font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(52px,5.9vw,92px);line-height:.95;letter-spacing:-.055em;transform:scaleY(.8);transform-origin:left center}
-.lg img{width:clamp(38px,3.4vw,54px);height:clamp(38px,3.4vw,54px);border-radius:50%;flex:none;border:1px solid var(--ink)}
-.sub{display:flex;justify-content:space-between;align-items:baseline;gap:14px;margin-top:16px;padding-right:4%}
-.sub span{font-family:var(--ds);font-size:14px;font-weight:500}
-.sub small{font-size:13px;font-weight:500;white-space:nowrap}
-.cpy{margin:18px 0 0;max-width:13em;font-family:'Noto Sans JP',sans-serif;font-weight:800;font-size:clamp(24px,2.2vw,33px);line-height:1.35;letter-spacing:.04em}
-.nv{margin-top:clamp(18px,3.4vh,40px);display:flex;flex-direction:column;align-items:flex-start}
-.ml{display:inline-flex;align-items:baseline;gap:.6em;min-height:46px}
-.ml b{position:relative;font-family:'Noto Sans JP',sans-serif;font-weight:500;font-size:clamp(21px,1.9vw,28px);letter-spacing:.04em;line-height:1.45;transition:opacity 60ms ease-out}
-.ml b:after{content:"";position:absolute;left:0;right:0;top:calc(100% - 3px);height:1px;background-image:var(--dash)}
-.ml small{font-family:var(--ds);font-size:13px;font-weight:500}
-.ml:hover b,.ml:focus-visible b{opacity:.5}
-.ml.on b:before{content:"";position:absolute;left:-15px;top:50%;width:7px;height:7px;margin-top:-4px;background:var(--ink);transform:rotate(45deg)}
-.dd{display:flex;flex-direction:column}
-.ddm{display:none;flex-direction:column;padding:2px 0 6px 18px}
-.dd:hover .ddm,.dd:focus-within .ddm{display:flex}
-.ddm a{min-height:40px;display:inline-flex;align-items:center;gap:10px;font-size:15px;font-weight:500}
-.ddm a:before{content:"";width:14px;height:1px;background-image:var(--dash)}
-.ddm a:hover{opacity:.55}
-/* 左下：参考の「Topics」欄（小さな英字ラベル＋下線リンク）の位置に、依頼ボタンと電話 */
-.tp{position:absolute;left:20px;bottom:20px;max-width:calc(80% - 40px)}
-.tp>p:first-child{font-family:var(--ds);font-size:15px;font-weight:500}
-.tp .hbtn{margin-top:8px;display:inline-flex;align-items:center;gap:12px;min-height:48px;padding:8px 30px;border:1px solid var(--ink);border-radius:100vh;background:#fff;color:var(--ink);font-size:15px;font-weight:700;letter-spacing:.06em;transition:background-color 60ms ease-out,color 60ms ease-out}
-.tp .hbtn:hover{background:var(--ink);color:#fff}
-.tel{margin-top:10px;font-size:13px;font-weight:500;line-height:1.6}
-.tel b{font-family:var(--ds);font-size:22px;font-weight:500;letter-spacing:.01em;margin:0 .25em}
-.mk{position:absolute;right:20px;top:0;bottom:0;margin:auto 0;height:fit-content;z-index:3;display:flex;flex-direction:column;gap:10px}
-.mk a{position:relative;display:flex;align-items:center;justify-content:center;width:16px;height:16px;transform:rotate(45deg)}
-.mk a:before{content:"";position:absolute;inset:0;border:1px solid #fff;transform:scale(0);transition:transform .6s var(--ease)}
-.mk a span{display:block;width:8px;height:8px;background:#fff;opacity:.6;box-shadow:0 0 0 1px rgba(22,51,0,.35)}
-.mk a.on:before,.mk a:hover:before{transform:none}
-.mk a.on span{opacity:1}
+/* ===== ヘッダー（参考：.l_header 白い角丸の帯・丸いロゴ・英字メニュー・黒い CONTACT） ===== */
+.mt{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.hd{position:fixed;left:22px;top:36px;z-index:100;height:64px;display:flex;align-items:center;background:#fff;border:2px solid var(--g2);border-radius:100px;color:var(--bk)}
+.hl{display:flex;align-items:center;justify-content:center;width:96px;height:96px;margin-left:-4px;background:#fff;border-radius:50%;box-shadow:0 0 30px 0 rgba(0,0,0,.15);flex:none}
+.hl img{width:66px;height:66px;border-radius:50%}
+.hn{display:flex;align-items:center;padding-left:24px}
+.hn>ul{display:flex;gap:20px;font-size:16px;font-weight:900;letter-spacing:.04em}
+.hn>ul>li{position:relative}
+.hn>ul>li>a{display:flex;align-items:center;height:44px;transition:color .4s}
+.hn>ul>li>a:after{content:"";width:6px;aspect-ratio:1;margin:-.96em 0 0 .1em;border-radius:10px;background:currentColor;opacity:0;transition:opacity .2s}
+.hn>ul>li>a:hover,.hn>ul>li.on>a{color:var(--red)}
+.hn>ul>li>a:hover:after,.hn>ul>li.on>a:after{opacity:1}
+.dd>a svg{width:9px;height:9px;margin-left:5px}
+.ddm{position:absolute;left:50%;top:100%;translate:-50% 0;padding-top:12px;display:none}
+.ddm ul{background:#fff;border:2px solid var(--g2);border-radius:15px;padding:8px 6px;min-width:168px}
+.ddm a{display:flex;align-items:center;min-height:44px;padding:0 16px;border-radius:100px;font-size:15px;font-weight:900;white-space:nowrap;transition:color .3s}
+.ddm a:hover{color:var(--red)}
+.dd:hover .ddm,.dd:focus-within .ddm{display:block}
+.hc{display:inline-flex;align-items:center;justify-content:center;width:148px;height:64px;margin:0 -3px 0 22px;border-radius:100px;background:var(--bk);color:#fff;font-family:var(--en);font-size:18px;letter-spacing:.04em;transition:background-color .3s}
+.hc:hover{background:var(--red)}
+.mb,.fm,a.fab{display:none}
 
-/* ===== 2・3（参考：About ページ。淡い本文パネルを右下へ斜めに切り、右に固定の画像。プロフィール→Links→Overview→Achievements の順） ===== */
-.ab{position:relative;background:#fff;overflow:clip}
-.abi{position:absolute;top:0;right:0;bottom:0;width:44%;z-index:0}
-.abs{position:sticky;top:0;height:min(100vh,900px);overflow:hidden}
-.abs img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
-.abs img+img{animation:xf 14s ease-in-out infinite}
-.abb{position:relative;z-index:1;width:64%;background:var(--pale);color:var(--ink);clip-path:polygon(0 0,90% 0,100% 100%,0 100%);padding-bottom:140px}
-.ptl{position:absolute;top:20px;right:calc(10% + 20px);font-family:var(--ds);font-weight:450;font-size:clamp(30px,2.6vw,40px);letter-spacing:-.03em;line-height:1}
-.itr{display:flex;align-items:center;gap:12px;padding:120px 30px 0}
-.itr img{width:64px;height:64px;border-radius:50%;flex:none;border:1px solid var(--ink)}
-.itr b{font-family:var(--ds);font-size:28px;font-weight:500;letter-spacing:-.01em}
-.itr b small{margin-left:.4em;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;letter-spacing:0}
-.itr span{display:block;margin-top:5px;font-size:13px}
-.mls{display:flex;justify-content:flex-end;gap:4px 28px;padding:56px calc(10% + 36px) 0 30px;flex-wrap:wrap}
-.mls a{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-family:'Noto Sans JP',sans-serif;font-weight:700;font-size:16px;letter-spacing:.04em;transition:opacity 60ms ease-out;position:relative}
-.mls a:after{content:"";position:absolute;left:0;right:0;bottom:6px;height:1px;background-image:var(--dash)}
-.mls a:hover{opacity:.5}
-.mls svg{width:12px;height:12px}
-.abc{margin-top:120px;padding:0 calc(10% + 36px) 0 40px}
-.asec{display:flex;flex-direction:column;position:relative}
-.asec+.asec{margin-top:160px}
-.ash{font-family:var(--ds);font-size:24px;font-weight:450;letter-spacing:-.01em;line-height:1.3}
-.ash small{display:block;margin-top:4px;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:700;letter-spacing:.04em}
-.asc{width:fit-content;max-width:78%;margin-top:80px;margin-left:auto}
-/* ななめの辺に沿わせて、行ごとに少しずつ右へ（参考の Overview） */
-.sl>*{transform:translateX(calc(var(--i,0) * 8px))}
-.sl>*:nth-child(2){--i:1}.sl>*:nth-child(3){--i:2}
-/* 2 スタジオ：Overview の説明文に写真を添える */
-.stu{display:grid;grid-template-columns:200px minmax(0,1fr);gap:0 26px;max-width:620px;align-items:start}
-.stu+.stu{margin-top:64px}
-.stu figure{grid-row:1/span 4;overflow:hidden}
-.stu img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;transition:transform .8s var(--ease)}
-.stu:hover img{transform:scale(1.04)}
-.stu h3{font-family:var(--ds);font-size:22px;font-weight:500;letter-spacing:-.01em;line-height:1.3}
-.stu h3 small{margin-left:.5em;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;letter-spacing:.02em}
-.stu dl{margin-top:10px;display:grid;grid-template-columns:auto 1fr;gap:2px 16px;font-size:13.5px;line-height:1.7}
-.stu dt{font-weight:700}
-.stu p{margin-top:10px;font-size:14px;line-height:1.8}
-.stu a{margin-top:6px;justify-self:start;display:inline-flex;align-items:center;gap:.5em;min-height:40px;font-size:14px;font-weight:700;text-decoration:underline 1px;text-underline-offset:4px}
-.stu a:hover{text-decoration:none}
-/* 3 強み：Achievements の年表（左に番号・中に本文・右に写真） */
-.acb{display:grid;grid-template-columns:72px minmax(0,1fr) 168px;gap:0 22px;max-width:640px;font-size:14px;align-items:start}
-.acb+.acb{margin-top:56px}
-.acy{font-family:var(--ds);font-weight:500;font-size:15px;line-height:1.1;padding-top:4px}
-.acc b{display:block;font-weight:700;font-size:16.5px;line-height:1.55}
-.acc p{margin-top:6px;line-height:1.8}
-.acb figure{overflow:hidden}
-.acb img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover}
-.anote{margin-top:48px;max-width:640px;font-size:13px;line-height:1.8;padding-top:12px;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px}
+/* hoverUp（参考：js-hoverUp 文字が上に送られて入れ替わる） */
+.hu{display:block;height:1.3em;line-height:1.3;overflow:hidden}
+.hu>span{display:block;transition:transform .8s var(--ease)}
+.hu>span:after{content:attr(data-t);display:block}
+a:hover .hu>span{transform:translateY(-50%)}
 
-/* ===== 4 実績（参考：Works ページ。右上の英字タイトルと絞り込み、受付状況の升目、高さ違いで横に流れる絵、下の目盛り） ===== */
-.wk{position:relative;padding:20px 0 48px;border-top:1px solid var(--bk)}
-.pth{display:flex;flex-direction:column;align-items:flex-end;padding:0 20px;text-align:right}
-.pth .pt{font-family:var(--ds);font-weight:450;font-size:clamp(30px,2.6vw,40px);letter-spacing:-.03em;line-height:1}
-.pth h2{margin-top:6px;font-size:14px;font-weight:700;letter-spacing:.06em;display:flex;align-items:center;gap:8px;justify-content:flex-end;flex-wrap:wrap}
-.flt{display:flex;gap:10px;margin-top:8px;font-family:var(--ds);font-size:13px;font-weight:500}
-.flt span:first-child{background-image:linear-gradient(currentColor,currentColor);background-size:100% 1px;background-repeat:no-repeat;background-position:0 100%}
-/* 数字：Contact ページ「Current Availability」の升目（淡い色の升・上に月、下に記号）を数字に */
-.nm{display:flex;gap:5px;padding:40px 40px 0;max-width:1000px}
-.nmc{flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 10px 18px;border-radius:4px;background:var(--pale2);text-align:center;color:var(--ink);transition:background .3s}
-.nmc:hover{background:var(--pale)}
-.nmc.f{background:var(--pale)}
-.nmc span{font-size:13px;font-weight:700;letter-spacing:.04em}
-.nmc b{font-family:var(--ds);font-weight:450;font-size:clamp(24px,2.2vw,32px);letter-spacing:-.02em;line-height:1.1;white-space:nowrap}
-.nmc b small{margin-left:.15em;font-family:'Noto Sans JP',sans-serif;font-size:13px;font-weight:500;letter-spacing:0}
-.nmc em{font-style:normal;font-size:12px;color:var(--bd)}
-.gal{display:flex;align-items:flex-start;gap:clamp(24px,3vw,48px);overflow-x:auto;scrollbar-width:none;padding:48px 40px 10px;scroll-snap-type:x proximity}
-.gal::-webkit-scrollbar{display:none}
-.gi{flex:none;display:flex;flex-direction:column;align-items:center;scroll-snap-align:start;width:clamp(280px,26vw,400px)}
-.gi:nth-child(4n+1){margin-top:20px}
-.gi:nth-child(4n+2){width:clamp(330px,32vw,480px)}
-.gi:nth-child(4n+3){margin-top:70px}
-.gi:nth-child(4n){margin-top:10px;width:clamp(300px,28vw,420px)}
-.gi figure{width:100%;overflow:hidden}
-.gi img{display:block;width:100%;height:auto;aspect-ratio:40/21;object-fit:cover;transition:transform .8s var(--ease)}
-.gi:hover img{transform:scale(1.04)}
-.gi b{margin-top:14px;font-size:15px;font-weight:700;letter-spacing:.04em;text-align:center}
-.gi small{margin-top:2px;font-family:var(--ds);font-size:12.5px;font-weight:500;color:var(--bd)}
-.tik{display:flex;justify-content:center;align-items:flex-end;gap:5px;height:18px;margin:24px 0 0}
-.tik i{display:block;width:1px;height:12px;background:var(--bk);opacity:.45}
-.tik i.on{height:18px;opacity:1}
-.wkf{display:flex;justify-content:space-between;align-items:center;gap:16px 28px;flex-wrap:wrap;padding:24px 40px 0}
-.wkf p{font-size:14px;line-height:1.7}
-.wkf p b{font-weight:700;margin-right:.8em}
-.wkf p small{display:block;font-size:12.5px;color:var(--bd)}
-.more{display:inline-flex;align-items:center;gap:.5em;min-height:44px;font-size:14px;font-weight:700;text-decoration:underline 1px;text-underline-offset:4px}
-.more:hover{text-decoration:none}
+/* ボタン（参考：.p_top_btn 黒い角丸＋グレーの丸い矢印。ホバーで黒が伸びる） */
+.btn{--bh:max(52px,calc(var(--u) * 80));position:relative;isolation:isolate;display:inline-flex;align-items:center;width:100%;height:var(--bh);padding-right:var(--bh);color:#fff;font-weight:900;font-size:max(14px,calc(var(--u) * 18))}
+.btn.sm{--bh:max(46px,calc(var(--u) * 56));width:max(220px,calc(var(--u) * 260));font-size:max(13px,calc(var(--u) * 15))}
+.btn:after{content:"";position:absolute;left:0;top:0;z-index:1;height:100%;width:calc(100% - var(--bh));background:var(--bk);border-radius:100px;transition:width .5s cubic-bezier(.075,.82,.35,1)}
+.btn:hover:after{width:100%}
+.btt{position:relative;z-index:2;flex:1;display:flex;justify-content:center;padding:0 .8em;text-align:center}
+.ic{position:absolute;right:0;top:0;width:var(--bh);height:var(--bh);border-radius:50%;background:var(--g2);display:flex;align-items:center;justify-content:center}
+.ic svg{position:relative;z-index:3;width:30%;height:30%;color:var(--bk);transition:color .3s}
+.btn:hover .ic svg{color:#fff}
 
-/* ===== 5 お客様の声（参考：Goods ページ。影のついた絵を中央に大きく、左右に小さく。下に題名と日付、目盛り） ===== */
-.gd{position:relative;padding:20px 40px 56px;border-top:1px solid var(--bk);background:#fff}
-.gd .pth{padding:0}
-.gdl{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.15fr) minmax(0,.8fr);align-items:start;gap:clamp(24px,3.4vw,56px);margin-top:48px}
-.gdi{display:flex;flex-direction:column;align-items:center;text-align:center}
-.gdi:nth-child(odd){margin-top:90px}
-.gdi figure{width:100%;box-shadow:8px 10px 20px rgba(0,0,0,.28);overflow:hidden}
-.gdi img{display:block;width:100%;aspect-ratio:40/21;object-fit:cover;transition:transform .8s var(--ease)}
-.gdi:hover img{transform:scale(1.04)}
-.gdi blockquote{margin-top:30px;font-size:clamp(15px,1.25vw,17px);font-weight:500;line-height:1.85;letter-spacing:.03em;text-align:left}
-.gdi cite{margin-top:12px;font-style:normal;font-size:13px;font-weight:700;letter-spacing:.02em}
-.gdi small{margin-top:2px;font-family:var(--ds);font-size:12.5px;font-weight:500;color:var(--bd)}
+/* 文字の出方（参考：js-lettersfadeInUp。JS が1文字ずつ色つきで下から出す） */
+.lt .ltw{display:inline-block;overflow:hidden;padding:.12em 0 .1em;margin-bottom:-.1em;line-height:.8;vertical-align:top}
+.lt .letter{display:inline-block}
 
-/* ===== 6・7・8（参考：Contact ページ。点線で区切り、左に英字見出し・右60%に内容。右上に言語切替のピル） ===== */
-.cp{position:relative;padding:20px 40px 24px;border-top:1px solid var(--bk)}
-.cp>.pth{padding:0;margin-bottom:56px}
-.lang{display:flex;justify-content:flex-end;gap:8px;margin-bottom:12px;flex-wrap:wrap}
-.lang a{display:inline-flex;align-items:center;min-height:36px;border:1px solid var(--bk);border-radius:100vh;padding:4px 24px;font-size:13px;font-weight:500;transition:background .3s ease-out,color .3s ease-out}
-.lang a.on,.lang a:hover{background:var(--lime);border-color:var(--ink);color:var(--ink)}
-.cs{display:flex;justify-content:space-between;gap:40px;padding:20px 0;background-image:var(--dash);background-repeat:no-repeat;background-size:100% 1px}
-.cs+.cs{margin-top:80px}
-.csh{flex:none}
-.csh h2{font-family:var(--ds);font-size:24px;font-weight:450;letter-spacing:-.01em;line-height:1.3}
-.csh p{margin-top:5px;font-size:13px;font-weight:700;letter-spacing:.04em}
-.csc{width:60%;max-width:800px;padding-top:10px}
-/* 6 お知らせ：トップ左下 Topics のリンク（下線＋外部アイコン） */
-.tps{display:flex;flex-direction:column;gap:14px}
-.tps a{display:flex;align-items:center;gap:18px;min-height:44px;font-size:14.5px;font-weight:500}
-.tpi{flex:0 0 112px;aspect-ratio:16/10;overflow:hidden}
-.tpi img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
-.tps a:hover .tpi img{transform:scale(1.05)}
-.tpx{display:flex;flex-direction:column;gap:2px;min-width:0}
-.tpx span{display:flex;gap:12px;align-items:baseline;font-size:12.5px;color:var(--bd)}
-.tpx time{font-family:var(--ds);font-size:13px;font-weight:500}
-.tpx b{font-weight:500;text-decoration:underline 1px;text-underline-offset:3px;line-height:1.6}
-.tps a:hover b{text-decoration:none}
-/* 7 アニメーター募集 */
-.rcw{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);gap:0 32px;align-items:start}
-.rcw figure{overflow:hidden}
-.rcw img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;transition:transform .8s var(--ease)}
-.rcw a:hover img{transform:scale(1.04)}
-.rcl{font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:.03em;line-height:1.7}
-.nts{margin-top:18px;font-size:14.5px;line-height:1.7}
-.nts li{position:relative;padding-left:1em}
-.nts li:before{content:"";position:absolute;left:0;top:calc(.5lh - 2px);width:4px;height:4px;background:currentColor;opacity:.8}
-.nts li+li{margin-top:.5lh}
-.rcs{margin-top:22px;display:grid;grid-template-columns:1fr;gap:6px}
-.rcs img{aspect-ratio:3/2}
-.rcs figcaption{font-family:var(--ds);font-size:12.5px;font-weight:500;color:var(--bd)}
-/* 8 お問い合わせ：送信ボタン */
-.ctp{margin:0 0 28px;overflow:hidden}
-.ctp img{display:block;width:100%;aspect-ratio:16/7;object-fit:cover}
-.ctx{font-size:clamp(18px,1.6vw,22px);font-weight:700;letter-spacing:.03em;line-height:1.7}
-.sbt{display:flex;flex-direction:column;align-items:center;gap:14px;margin-top:40px}
-.pg a.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:10px 56px;border:1px solid var(--ink);border-radius:100vh;background:var(--lime);color:var(--ink);font-weight:700;font-size:15px;letter-spacing:.06em;transition:color 60ms ease-out,background-color 60ms ease-out}
-.pg a.btn:hover{background:#fff}
-.btn svg{width:13px;height:13px}
-.sbt small{font-size:13px}
+/* ===== 1 ファーストビュー（参考：.p_top_mv 赤地に写真が下から上へ流れ続け、中央に白い太字のコピー） ===== */
+.mv{--h:max(640px,min(100vh,1000px));position:relative;z-index:1;height:var(--h);overflow:hidden}
+.fl{--d:calc(var(--h) + 420px);position:absolute;top:0;left:calc(var(--u) * var(--x));width:calc(var(--u) * var(--w));transform:translateY(calc(var(--h) - var(--d) * var(--q)));animation:up 34s linear infinite;animation-delay:calc(-34s * var(--q))}
+.fl>div{border-radius:calc(var(--u) * 15);overflow:hidden;filter:drop-shadow(0 calc(var(--u) * 30) 0 rgba(0,0,0,.15))}
+.fl img{width:100%;aspect-ratio:var(--ar,3/2);object-fit:cover}
+.mvc{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding-top:40px}
+.mvt{font-weight:900;font-size:calc(var(--u) * 66);line-height:1.3;letter-spacing:.06em;text-shadow:0 calc(var(--u) * 5) 0 rgba(150,10,45,.35)}
+.mvt .kari{font-size:12px;text-shadow:none;margin-top:.4em}
+.mvb{margin-top:calc(var(--u) * 40);width:calc(var(--u) * 340)}
+.tel{margin-top:calc(var(--u) * 18);font-size:15px;font-weight:700;line-height:1.6;text-shadow:0 1px 0 rgba(120,0,30,.4)}
+.tel b{font-family:var(--en);font-size:calc(var(--u) * 30);letter-spacing:.04em;margin:0 .3em;vertical-align:-.08em}
 
-/* ===== footer（参考：About ページ下の大きなロゴと注記／各ページ最下部の ©） ===== */
-.ft{padding:120px 40px 30px 20px;border-top:1px solid var(--bk);display:flex;justify-content:space-between;align-items:flex-end;gap:28px;flex-wrap:wrap}
-.flo{flex:1 1 auto;min-width:0;display:block;font-family:'Unbounded',sans-serif;font-weight:900;font-size:clamp(70px,12vw,190px);line-height:.85;letter-spacing:-.06em;transform:scaleY(.8);transform-origin:left bottom;color:var(--ink)}
-.fr{flex:0 1 480px;text-align:right;font-size:13px;line-height:1.7}
-.fr nav{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0 18px;margin-bottom:12px}
-.fr nav a{min-height:40px;display:inline-flex;align-items:center;font-weight:500;text-decoration:underline 1px;text-underline-offset:3px}
-.fr nav a:hover{text-decoration:none}
-.fr dl{display:grid;grid-template-columns:auto auto;justify-content:end;gap:0 14px;text-align:left}
-.fr dt{font-weight:700}
-.fnote{margin-top:12px;font-weight:700}
-.fcr{flex-basis:100%;display:flex;justify-content:space-between;gap:12px;font-family:var(--ds);font-size:12px;font-weight:500;color:var(--bd)}
+/* SCROLL の帯（参考：.c_navi_scroll 右下の白い角丸に SCROLL↓ が流れる） */
+.nsc{position:fixed;right:20px;bottom:20px;z-index:90;width:264px;height:40px;border:2px solid var(--g2);border-radius:100px;background:#fff;overflow:hidden;transition:opacity .3s;color:var(--bk)}
+.nsc.is-hidden{opacity:0;pointer-events:none}
+.nsc a{display:flex;align-items:center;height:100%;white-space:nowrap;width:max-content;animation:tk 9s linear infinite}
+.nsc span{display:inline-flex;align-items:center;gap:8px;padding-right:14px;font-family:var(--en);font-size:17px;letter-spacing:.03em}
+.nsc i{font-style:normal;font-family:sans-serif;font-weight:700;font-size:16px}
 
-@keyframes slideIn{from{transform:translateX(-30%);opacity:0}to{transform:none;opacity:1}}
-@keyframes kb{from{transform:scale(1.03)}to{transform:scale(1.1) translateY(-1.5%)}}
-@keyframes xf{0%,40%{opacity:0}50%,90%{opacity:1}100%{opacity:0}}
-@media (prefers-reduced-motion:reduce){.pg *,.pg *:before,.pg *:after{animation:none!important;transition:none!important}.abs img+img{opacity:0}}
+/* ===== 2 スタジオ（参考：.p_top_about 写真を敷いた大きな角丸の箱・巨大英字・左にコピー・右に黒いボタンの列） ===== */
+.ab{position:relative;z-index:1;padding:calc(var(--u) * 186) calc(var(--u) * 20) 0}
+.abx{position:relative;overflow:hidden;border-radius:calc(var(--u) * 30);min-height:calc(var(--u) * 1180);padding:0 calc(var(--u) * 72) calc(var(--u) * 420)}
+.abg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.abg img{width:100%;height:120%;object-fit:cover;object-position:50% 70%;transform:translateY(-8%)}
+.abg:after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(38,38,38,.66) 0%,rgba(38,38,38,.5) 55%,rgba(38,38,38,0) 88%)}
+.ab .en.big{position:relative;z-index:1;display:block;text-align:center;font-size:calc(var(--u) * 200);padding-top:calc(var(--u) * 70)}
+.abb{position:relative;z-index:1;display:flex;justify-content:space-between;gap:calc(var(--u) * 60);margin-top:calc(var(--u) * 80)}
+.lead{font-weight:900;font-size:calc(var(--u) * 56);line-height:1.3;letter-spacing:.05em}
+.abl{flex:1;min-width:0}
+.sts{margin-top:calc(var(--u) * 48);display:flex;flex-direction:column;gap:calc(var(--u) * 28)}
+.st{display:flex;gap:calc(var(--u) * 28);align-items:flex-start}
+.st figure{flex:0 0 calc(var(--u) * 200);aspect-ratio:164/109;border-radius:10px;overflow:hidden}
+.st img{width:100%;height:100%;object-fit:cover;transition:transform 2s cubic-bezier(.01,.67,.58,1)}
+.st:hover img{transform:scale(1.08)}
+.st h3{font-weight:900;font-size:max(16px,calc(var(--u) * 24));line-height:1.4}
+.st h3 small{display:block;font-family:var(--en);font-size:max(12px,calc(var(--u) * 15));letter-spacing:.06em;color:var(--yl)}
+.st p{margin-top:6px;font-size:max(13px,calc(var(--u) * 15));line-height:1.75}
+.abn{flex:0 0 calc(var(--u) * 456)}
+.abn ul{display:flex;flex-direction:column;gap:calc(var(--u) * 24)}
 
-@media(max-width:1100px){
-.side{min-width:390px}
-.abb{width:70%}
-.abi{width:38%}
-.asc{max-width:88%}
-.stu{grid-template-columns:150px minmax(0,1fr)}
-.acb{grid-template-columns:52px minmax(0,1fr) 130px;gap:0 16px}
-.csc{width:64%}
-.gdl{grid-template-columns:minmax(0,1fr) minmax(0,1.15fr) minmax(0,1fr)}
-}
-/* ===== スマホ（参考のスマホ版：左の細い帯は残し、トップは絵が上・色パネルが下で、上の辺を斜めに切る） ===== */
-@media(max-width:860px){
-.rail{padding:12px 0}
-.rl{font-size:16px}
-.rt{font-size:10px}
-.hb{display:flex;position:relative;width:var(--rail);height:48px;margin-top:auto;cursor:pointer}
-.hb span{position:absolute;left:0;right:0;margin:auto;top:0;bottom:0;width:15px;height:1px;background:var(--bk)}
-.hb span:nth-child(1){transform:translateY(-6px)}.hb span:nth-child(3){transform:translateY(6px)}
-.rm{margin-top:auto;font-size:11px}
-.rr{display:none}
-.kv{height:auto;min-height:0;display:flex;flex-direction:column}
-.kvi{position:relative;inset:auto;height:min(62vh,520px)}
-.kvi img{animation:none}
-.side{width:auto;min-width:0;height:auto;margin-top:-90px;animation:none}
-.side:before{clip-path:polygon(0 0,100% 90px,100% 100%,0 100%)}
-.ct{padding:110px 16px 24px 20px}
-.lg{order:9;margin-top:22px}
-.lg span{font-size:clamp(46px,15vw,84px)}
-.sub{order:8;margin-top:28px;padding-right:0}
-.sub span{font-size:12.5px}
-.cpy{order:1;margin:0;font-size:clamp(24px,7vw,30px)}
-.nv{order:2;margin-top:24px}
-.ml{min-height:44px}
-.ml b{font-size:22px}
-.ml.on b:before{left:-13px}
-.mt:checked~.nv{position:fixed;z-index:80;top:0;bottom:0;left:var(--rail);width:min(80vw,420px);margin:0;padding:30px 20px;background:#fff;box-shadow:0 0 16px rgba(0,0,0,.08);overflow-y:auto}
-.mt:checked~.nv .ddm{display:flex}
-.mt:focus-visible~.nv{outline:2px solid var(--g)}
-.tp{order:3;position:static;max-width:none;margin-top:22px}
-.tel b{font-size:20px}
-.mk{top:16px;bottom:auto;right:12px;margin:0}
-.pg a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;bottom:16px;z-index:60;min-height:52px;padding:0 26px;border-radius:100vh;background:var(--lime);color:var(--ink);font-weight:700;font-size:15px;border:1px solid var(--ink);box-shadow:0 4px 14px rgba(0,0,0,.18)}
-.fab svg{width:12px;height:12px}
-.abi{display:none}
-.abb{width:100%;clip-path:none;padding-bottom:80px}
-.ptl{right:16px;top:16px;font-size:32px}
-.itr{padding:90px 16px 0}
-.itr img{width:56px;height:56px}
-.itr b{font-size:24px}
-.mls{justify-content:flex-start;padding:32px 16px 0;gap:4px 24px}
-.abc{margin-top:72px;padding:0 16px}
-.asec+.asec{margin-top:88px}
-.ash{font-size:20px}
-.asc{width:100%;max-width:100%;margin-top:36px;padding-left:12px}
-.sl>*{transform:none}
-.stu{grid-template-columns:minmax(0,1fr);max-width:none}
-.stu figure{grid-row:auto;margin-bottom:16px}
-.stu+.stu{margin-top:48px}
-.acb{grid-template-columns:40px minmax(0,1fr);max-width:none}
-.acb figure{grid-column:2;margin-top:14px}
-.acb+.acb{margin-top:44px}
-.wk{padding:16px 0 32px}
-.pth{padding:0 16px}
-.nm{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));padding:28px 16px 0}
-.gal{padding:28px 16px 10px;gap:20px}
-.gi:nth-child(n){width:78vw;margin-top:0}
-.gi:nth-child(2n){margin-top:36px}
-.wkf{padding:16px 16px 0}
-.gd{padding:16px 16px 48px}
-.gdl{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;gap:20px;margin:32px -16px 0;padding:0 16px 20px}
-.gdl::-webkit-scrollbar{display:none}
-.gdi{flex:0 0 80vw;scroll-snap-align:center}
-.gdi:nth-child(odd){margin-top:0}
-.gdi figure{box-shadow:5px 6px 14px rgba(0,0,0,.24)}
-.gdi blockquote{margin-top:22px}
-.cp{padding:16px 16px 20px}
-.cp>.pth{margin-bottom:36px}
-.cs{display:block}
-.cs+.cs{margin-top:64px}
-.csh{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
-.csh h2{font-size:20px}
-.csc{width:100%;margin-top:24px;padding:0 0 0 12px}
-.tps a{align-items:flex-start;gap:14px}
-.tpi{flex-basis:88px}
-.rcw{grid-template-columns:minmax(0,1fr)}
-.rcw>a figure img{aspect-ratio:4/3}
-.rcw>div{margin-top:24px}
-.ctp img{aspect-ratio:16/9}
-.ctx br{display:none}
-.stu figure{max-width:380px}
-.acb figure{max-width:340px}
-.rcw>a figure,.rcs{max-width:440px}
-.ctp{max-width:560px}
-.ft{padding:80px 16px 96px 12px;flex-direction:column;align-items:stretch}
-.flo{width:100%;font-size:clamp(56px,18vw,110px)}
-.fr{text-align:left;flex:none}
-.fr nav{justify-content:flex-start}
-.fr dl{justify-content:start}
-.fcr{flex-direction:column}
+/* ===== 濃い赤の地（参考：.p_top_bg_red と見出しの巨大な円） ===== */
+.rd{position:relative;z-index:2;margin-top:calc(var(--u) * 120);background:linear-gradient(to bottom,transparent calc(var(--u) * 420),var(--red2) calc(var(--u) * 420));overflow-x:clip}
+
+/* ===== 3 強み（参考：.p_top_service 巨大英字＋黄色いギザギザのバッジ、ハートの上にコピー、横に流れる写真カード） ===== */
+.ha{position:relative;text-align:center;padding-top:calc(var(--u) * 56);min-height:calc(var(--u) * 500)}
+.ha:after{content:"";position:absolute;left:50%;top:6vw;width:calc(var(--u) * 1992);aspect-ratio:1;border-radius:50%;background:var(--red2);translate:-50% 0;z-index:0}
+.ha>*{position:relative;z-index:1}
+.ha .en{display:inline-block;font-size:calc(var(--u) * 200);margin-top:calc(var(--u) * 150)}
+.bdg{position:absolute;left:calc(50% + var(--u) * 260);top:calc(var(--u) * 300);width:calc(var(--u) * 104);aspect-ratio:1;display:flex;align-items:center;justify-content:center;color:var(--bk);font-family:var(--en);font-size:calc(var(--u) * 26)}
+.bdg svg{position:absolute;inset:0;width:100%;height:100%;fill:var(--yl);animation:rot 10s linear infinite}
+.bdg b{position:relative;font-weight:700}
+.hzw{position:relative;margin-top:calc(var(--u) * -80)}
+.hzs{padding:calc(var(--u) * 120) 0 calc(var(--u) * 100)}
+.hz{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:calc(var(--u) * 48) calc(var(--u) * 32);padding-inline:calc(var(--u) * 112);will-change:transform}
+.hrt{position:absolute;left:calc(var(--u) * -100);top:50%;width:calc(var(--u) * 744);translate:0 -46.4%;color:var(--red);pointer-events:none}
+.hrt svg{display:block;width:100%;height:auto}
+.svl{position:relative;z-index:1;flex:0 0 calc(var(--u) * 520)}
+.svl .kari{margin:14px 0 0}
+.svc{position:relative;z-index:1;display:flex;gap:calc(var(--u) * 32)}
+.svc li{flex:none;width:calc(var(--u) * 358)}
+.svc a{position:relative;display:block;border-radius:calc(var(--u) * 30);overflow:hidden;aspect-ratio:358/500;color:#fff}
+.svc img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 2s cubic-bezier(.01,.67,.58,1)}
+.svc a:hover img{transform:scale(1.08)}
+.svc a:before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(to bottom,rgba(20,20,20,.72),rgba(20,20,20,.35) 48%,rgba(20,20,20,0) 70%)}
+.svb{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;padding:calc(var(--u) * 32)}
+.svb h3{font-weight:900;font-size:max(16px,calc(var(--u) * 27));line-height:1.45;letter-spacing:.02em}
+.svb p{margin-top:calc(var(--u) * 12);font-size:max(12px,calc(var(--u) * 15));line-height:1.75}
+.svn{position:absolute;left:calc(var(--u) * -15);bottom:calc(var(--u) * -20);font-family:var(--en);font-weight:700;font-size:calc(var(--u) * 220);line-height:.8;color:var(--red);letter-spacing:.02em}
+.svi{margin:auto 0 0 auto;width:calc(var(--u) * 80);aspect-ratio:1;border:2px solid #fff;border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background-color .3s}
+.svi svg{width:30%;height:30%}
+.svc a:hover .svi{background:#fff;color:var(--bk)}
+.svnote{padding:0 calc(var(--u) * 112);font-size:13px;line-height:1.8;opacity:.9;max-width:calc(var(--u) * 1000 + 224px)}
+
+/* ===== 4 実績（参考：.p_top_works 中央に巨大英字とボタン、まわりを作品カードが下から上へ流れ続ける） ===== */
+.wk{--h:max(780px,min(100vh,960px));position:relative;height:var(--h);overflow:hidden;margin-top:calc(var(--u) * 120)}
+.wkc{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:0 calc(var(--u) * 400)}
+.wkc .en{font-size:calc(var(--u) * 150)}
+.wkt{margin-top:calc(var(--u) * 22);font-weight:900;font-size:max(16px,calc(var(--u) * 24))}
+.nums{margin-top:calc(var(--u) * 30);display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:calc(var(--u) * 18) calc(var(--u) * 40)}
+.nums li{display:flex;flex-direction:column;align-items:center;font-size:13px;font-weight:700}
+.nums b{font-family:var(--en);font-size:calc(var(--u) * 50);line-height:1.1;letter-spacing:.03em;white-space:nowrap}
+.nums b.o{font-family:'Zen Kaku Gothic New',sans-serif;font-weight:900;font-size:calc(var(--u) * 34);line-height:1.6;letter-spacing:0}
+.nums b small{font-family:'Zen Kaku Gothic New',sans-serif;font-size:14px;font-weight:900;margin-left:.2em}
+.cli{margin-top:calc(var(--u) * 24);font-size:13px;line-height:1.7}
+.cli b{font-weight:900;margin-right:.6em}
+.wkb{margin-top:calc(var(--u) * 30);width:max(300px,calc(var(--u) * 400))}
+.wf{--d:calc(var(--h) + 260px);position:absolute;top:0;left:calc(var(--u) * var(--x));width:calc(var(--u) * var(--w));transform:translateY(calc(var(--h) - var(--d) * var(--q)));animation:up2 40s linear infinite;animation-delay:calc(-40s * var(--q));z-index:1}
+.wf a{display:block;background:#fff;color:var(--bk);border-radius:calc(var(--u) * 15);overflow:hidden;filter:drop-shadow(0 calc(var(--u) * 20) 0 rgba(0,0,0,.15));opacity:.97}
+.wf img{width:100%;aspect-ratio:40/21;object-fit:cover}
+.wf span{display:block;padding:8px 12px 10px;font-size:12.5px;font-weight:900;line-height:1.45}
+.wf small{display:block;margin-top:2px;font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.04em;color:#707070}
+.wf small i{font-style:normal;font-family:'Zen Kaku Gothic New',sans-serif}
+
+/* ===== 5・6 お客様の声／お知らせ（参考：.p_top_topics 白い角丸の箱、上を英字の帯が流れる。左に見出し、右に一覧） ===== */
+.tp{position:relative;z-index:2;padding:calc(var(--u) * 140) calc(var(--u) * 112) 0}
+.tp+.tp{padding-top:calc(var(--u) * 100)}
+.tpb{position:relative;overflow:hidden;background:#fff;color:var(--bk);border-radius:calc(var(--u) * 30);padding:calc(var(--u) * 205) calc(var(--u) * 100) calc(var(--u) * 80)}
+.tk{position:absolute;left:0;right:0;top:calc(var(--u) * 24);height:calc(var(--u) * 140);display:flex;align-items:center;overflow:hidden}
+.tk>div{display:flex;width:max-content;animation:tk2 24s linear infinite}
+.tk span{display:inline-flex;align-items:center;gap:calc(var(--u) * 30);padding-right:calc(var(--u) * 30);font-family:var(--en);font-weight:700;font-size:calc(var(--u) * 92);line-height:1;letter-spacing:.02em;white-space:nowrap}
+.tk i{display:inline-flex;align-items:center;justify-content:center;width:calc(var(--u) * 66);aspect-ratio:1;border-radius:50%;font-style:normal;font-size:calc(var(--u) * 44);color:var(--bk)}
+.tk i:nth-of-type(4n+1){background:#ea1413}
+.tk i:nth-of-type(4n+2){background:#14f7f8}
+.tk i:nth-of-type(4n+3){background:#11f811}
+.tk i:nth-of-type(4n){background:#f816f8}
+.tpg{display:flex;justify-content:space-between;gap:calc(var(--u) * 40)}
+.tpl{width:40%}
+.h2{font-weight:900;font-size:max(22px,calc(var(--u) * 40));line-height:1.3;letter-spacing:.04em}
+.tpl p{margin-top:calc(var(--u) * 24);font-size:14px;line-height:1.8;color:#555}
+.tpl .kari{margin:16px 0 0}
+.nl{width:59%;display:flex;flex-direction:column;gap:calc(var(--u) * 28)}
+.nl a,.nl>li>div{display:flex;align-items:flex-start;gap:calc(var(--u) * 32)}
+.ni{flex:0 0 30%;aspect-ratio:164/109;border-radius:10px;overflow:hidden}
+.ni img{width:100%;height:100%;object-fit:cover;transition:transform 2s cubic-bezier(.01,.67,.58,1)}
+.nl a:hover .ni img{transform:scale(1.08)}
+.nb{flex:1;min-width:0}
+.nm{display:flex;align-items:center;flex-wrap:wrap;gap:4px 0;margin-bottom:6px}
+.cat{display:inline-block;margin-right:1em;padding:.32em .8em;border-radius:100px;background:var(--yl);font-size:12px;font-weight:700;line-height:1.1;white-space:nowrap}
+.cat.c1{background:#14f7f8}.cat.c2{background:#1616f7;color:#fff}.cat.c3{background:#ea1413;color:#fff}
+.dt{font-family:var(--en);font-size:16px;color:#8a8a8a;letter-spacing:.03em}
+.nt{font-weight:900;font-size:max(14px,calc(var(--u) * 18));line-height:1.55}
+.nl a:hover .nt{color:var(--red2)}
+.cite{display:block;margin-top:6px;font-size:13px;font-weight:700;color:#666;line-height:1.6}
+
+/* ===== 7 アニメーター募集（参考：.p_top_recruit 巨大英字、左にコピー、大きな丸い矢印、傾いた写真が弾んで出る） ===== */
+.rc{position:relative;z-index:2;height:calc(var(--u) * 1180);overflow:hidden;padding:calc(var(--u) * 60) calc(var(--u) * 112) calc(var(--u) * 100)}
+.rc .en.big{display:block;text-align:center;font-size:calc(var(--u) * 200);position:relative;z-index:1}
+.rcb{position:relative;z-index:2;margin-top:calc(var(--u) * 140);padding-left:calc(var(--u) * 172);width:fit-content}
+.rcb p.tx{margin-top:calc(var(--u) * 24);max-width:calc(var(--u) * 420);font-size:max(13px,calc(var(--u) * 16));font-weight:700;line-height:1.85;text-shadow:0 1px 6px rgba(120,0,30,.5)}
+.rcb .kari{margin:12px 0 0}
+.cb{display:block;width:fit-content;margin:calc(var(--u) * 26) 0 0 auto}
+.cb i{display:flex;align-items:center;justify-content:center;width:calc(var(--u) * 163);aspect-ratio:1;border-radius:50%;background:var(--g2);color:var(--bk);transition:transform .4s}
+.cb i svg{width:calc(var(--u) * 56);height:calc(var(--u) * 56)}
+.cb:hover i{animation:bsu .6s forwards}
+.ri{position:absolute;z-index:1;left:calc(var(--u) * var(--x));top:calc(var(--u) * var(--y));width:calc(var(--u) * var(--w));rotate:var(--r)}
+.ri>div{border-radius:calc(var(--u) * 30);overflow:hidden}
+.ri img{width:100%;aspect-ratio:456/563;object-fit:cover}
+
+/* ===== 8 お問い合わせ（参考：.l_footer_contact 巨大英字・丸い矢印・黄色い指が押す） ===== */
+.ct{position:relative;z-index:3;border-top:1px solid rgba(255,255,255,.35);padding:calc(var(--u) * 60) calc(var(--u) * 112) calc(var(--u) * 150);overflow:hidden}
+.ctb{display:flex;justify-content:space-between;align-items:center;gap:40px;position:relative}
+.ct .en.big{display:block;font-size:calc(var(--u) * 200);line-height:1.13}
+.ctt{font-weight:900;font-size:max(17px,calc(var(--u) * 26));letter-spacing:.03em;line-height:1.4}
+.cti{margin-top:calc(var(--u) * 26);font-size:15px;font-weight:700;line-height:1.9}
+.cti b{font-family:var(--en);font-size:calc(var(--u) * 30);letter-spacing:.04em;margin:0 .3em;vertical-align:-.06em}
+.ctb .btn{margin-top:calc(var(--u) * 36);width:calc(var(--u) * 360)}
+.cr{position:relative;flex:none;margin-right:calc(var(--u) * 60)}
+.cr .cb{margin:0}
+.hand{position:absolute;right:calc(var(--u) * -230);top:calc(var(--u) * 70);width:calc(var(--u) * 300);pointer-events:none;animation:click 2s ease-in-out infinite alternate;transform-origin:20% 10%}
+.hand svg{display:block;width:100%;height:auto;fill:var(--yl)}
+.cr:hover .cb i{animation:bsu .6s forwards}
+
+/* ===== フッター（参考：.l_footer 濃い赤から白い大きな円がせり上がる・中央にロゴとメニュー） ===== */
+.ft{position:relative;z-index:3;background:var(--red2);overflow:hidden;padding-top:12.7vw;color:var(--bk)}
+.ft:after{content:"";position:absolute;left:50%;top:5vw;width:calc(var(--u) * 1992);aspect-ratio:1;border-radius:50%;background:#fff;translate:-50% 0;z-index:0}
+.ft:before{content:"";position:absolute;left:0;right:0;bottom:0;top:calc(5vw + var(--u) * 996);background:#fff;z-index:0}
+.fti{position:relative;z-index:1;padding:0 20px 20px}
+.flo{display:flex;flex-direction:column;align-items:center;width:fit-content;margin:0 auto;color:var(--red)}
+.flo b{font-family:var(--en);font-weight:700;font-size:64px;line-height:.9;letter-spacing:.02em}
+.flo small{font-family:var(--en);font-size:13px;letter-spacing:.3em;margin-top:6px;color:var(--bk)}
+.fnv{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:12px 0;margin-top:3vw}
+.fnv ul{display:flex;flex-wrap:wrap;justify-content:center;gap:4px calc(var(--u) * 32);font-weight:900;font-size:17px}
+.fnv li a{display:flex;align-items:center;min-height:44px;transition:color .4s}
+.fnv li a:after{content:"";width:7px;aspect-ratio:1;margin:-.96em 0 0 .1em;border-radius:10px;background:currentColor;opacity:0;transition:opacity .2s}
+.fnv li.on a,.fnv li a:hover{color:var(--red)}
+.fnv li.on a:after,.fnv li a:hover:after{opacity:1}
+.fnv .fc{display:inline-flex;align-items:center;justify-content:center;width:200px;height:64px;margin-left:calc(var(--u) * 32);border-radius:100px;background:var(--bk);color:#fff;font-family:var(--en);font-size:22px;letter-spacing:.04em;transition:background-color .3s}
+.fnv .fc:hover{background:var(--red)}
+.fco{margin:calc(var(--u) * 56) auto 0;width:fit-content;max-width:100%;display:grid;grid-template-columns:auto auto;gap:4px 22px;font-size:13.5px;line-height:1.7}
+.fco dt{font-weight:900}
+.fnote{margin-top:18px;text-align:center;font-size:13px;font-weight:700}
+.fbt{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:calc(var(--u) * 80)}
+.fbt small{font-family:var(--en);font-size:12px;letter-spacing:.04em}
+.ptp{display:inline-flex;align-items:center;gap:6px;height:40px;padding-left:20px;border-radius:100px;background:var(--g1);font-family:var(--en);font-size:15px;letter-spacing:.03em}
+.ptp i{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--g2)}
+.ptp svg{width:16px;height:16px}
+
+@keyframes rot{to{rotate:1turn}}
+@keyframes up{from{transform:translateY(var(--h))}to{transform:translateY(calc(var(--h) - var(--d)))}}
+@keyframes up2{from{transform:translateY(var(--h))}to{transform:translateY(calc(var(--h) - var(--d)))}}
+@keyframes tk{to{transform:translateX(-50%)}}
+@keyframes tk2{to{transform:translateX(-50%)}}
+@keyframes bounceIn{0%,20%,40%,60%,80%,to{animation-timing-function:cubic-bezier(.215,.61,.355,1)}0%{opacity:0;transform:scale3d(.3,.3,.3)}20%{transform:scale3d(1.1,1.1,1.1)}40%{transform:scale3d(.9,.9,.9)}60%{opacity:1;transform:scale3d(1.03,1.03,1.03)}80%{transform:scale3d(.97,.97,.97)}to{opacity:1;transform:none}}
+@keyframes bounceInUp{0%{opacity:0;transform:translateY(50px);animation-timing-function:cubic-bezier(.215,.61,.355,1)}60%{opacity:1;transform:translateY(-10px);animation-timing-function:cubic-bezier(.76,.14,1,1)}to{opacity:1;transform:none}}
+@keyframes bsu{0%{transform:scale(1)}40%{transform:scale(1.12)}70%{transform:scale(.96)}to{transform:scale(1.05)}}
+@keyframes click{0%{animation-timing-function:cubic-bezier(1,.11,.78,1.01);transform:translate3d(28%,3%,0)}85%{animation-timing-function:ease;transform:none}90%{animation-timing-function:ease;transform:rotate(-8deg)}95%,to{transform:none}}
+@media (prefers-reduced-motion:reduce){.pg *,.pg *:before,.pg *:after{animation:none!important;transition:none!important}}
+
+/* ===== スマホ（参考のスマホ版：400px 幅基準。ヘッダーは白い帯＋右上の黒い MENU、メニューは上から降りてくる） ===== */
+@media (max-width:767px){
+.pg{--u:calc(100vw / 400)}
+.hd{position:absolute;left:0;top:0;width:100%;height:80px;border:0;border-radius:0 0 15px 15px;padding:10px 20px;justify-content:flex-start}
+.hl{width:auto;height:auto;margin:0;box-shadow:none;gap:10px;background:none}
+.hl img{width:48px;height:48px}
+.hl:after{content:"reboot";font-family:'Antonio',sans-serif;font-weight:700;font-size:30px;color:var(--red);letter-spacing:.02em}
+.hn{display:none}
+.mb{display:flex;align-items:center;justify-content:center;gap:12px;position:fixed;right:16px;top:16px;z-index:120;height:48px;padding:0 20px;border-radius:100px;background:var(--bk);color:#fff;font-family:var(--en);font-size:20px;letter-spacing:.04em;cursor:pointer}
+.mb i{position:relative;width:14px;height:14px}
+.mb i span{position:absolute;inset:0;margin:auto;width:100%;height:2px;border-radius:1px;transition:.3s}
+.mb i span:nth-child(1){background:#14f7f8;transform:translateY(-6px)}
+.mb i span:nth-child(2){background:#f8f711}
+.mb i span:nth-child(3){background:#f816f8;transform:translateY(6px)}
+.mt:checked~.mb i span{background:var(--g3)}
+.mt:checked~.mb i span:nth-child(1){transform:rotate(45deg)}
+.mt:checked~.mb i span:nth-child(2){opacity:0}
+.mt:checked~.mb i span:nth-child(3){transform:rotate(-45deg)}
+.mt:focus-visible~.mb{outline:3px solid var(--yl);outline-offset:3px}
+.fm{display:block;position:fixed;left:0;top:0;width:100%;max-height:100vh;overflow-y:auto;z-index:110;transform:translate3d(0,-110%,0);transition:transform .6s cubic-bezier(.23,1,.32,1);visibility:hidden}
+.mt:checked~.fm{transform:none;visibility:visible}
+.fmc{background:#fff;color:var(--bk);border-radius:0 0 30px 30px;padding:96px 30px 44px}
+.fmc ul{display:flex;flex-direction:column;align-items:center}
+.fmc li>a{display:flex;flex-direction:column;align-items:center;min-height:44px;padding:6px 0;text-align:center}
+.fmc li>a b{font-family:var(--en);font-size:38px;line-height:1.1;letter-spacing:.02em}
+.fmc li>a small{font-size:12px;font-weight:700}
+.fmc li.on>a{color:var(--red)}
+.fmc .sub{display:flex;gap:10px;justify-content:center;margin:2px 0 4px}
+.fmc .sub a{display:flex;align-items:center;min-height:44px;padding:0 16px;border:2px solid var(--g2);border-radius:100px;font-size:14px;font-weight:900}
+.fmc .fmb{display:flex;align-items:center;justify-content:center;width:240px;height:64px;margin:24px auto 0;border-radius:100px;background:var(--bk);color:#fff;font-family:var(--en);font-size:30px;letter-spacing:.03em}
+.pg a.fab{display:inline-flex;align-items:center;gap:10px;position:fixed;right:16px;bottom:16px;z-index:95;height:56px;padding:0 8px 0 24px;border-radius:100px;background:var(--bk);color:#fff;font-weight:900;font-size:15px;box-shadow:0 6px 0 rgba(0,0,0,.15)}
+.fab i{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--g2);color:var(--bk)}
+.fab svg{width:14px;height:14px}
+.nsc{display:none}
+.mv{--h:max(640px,min(100vh,860px))}
+.fl{--d:calc(var(--h) + 360px);left:calc(var(--u) * var(--sx));width:calc(var(--u) * var(--sw))}
+.fl>div{border-radius:10px;filter:drop-shadow(0 calc(var(--u) * 20) 0 rgba(0,0,0,.15))}
+.mvc{padding:80px 20px 0}
+.mvt{font-size:calc(var(--u) * 38)}
+.mvb{width:280px;margin-top:28px}
+.btn{--bh:56px;font-size:15px}
+.btn.sm{--bh:48px;width:240px;font-size:14px}
+.tel{font-size:14px;margin-top:14px}
+.tel b{font-size:24px;display:inline-block}
+.ab{padding:calc(var(--u) * 108) 0 0}
+.abx{border-radius:15px;min-height:0;padding:0 20px 360px}
+.abg img{object-position:50% 85%}
+.abg:after{background:linear-gradient(to bottom,rgba(38,38,38,.7),rgba(38,38,38,.55) 60%,rgba(38,38,38,0) 85%)}
+.ab .en.big{font-size:calc(var(--u) * 86);padding-top:calc(var(--u) * 60)}
+.abb{flex-direction:column;margin-top:calc(var(--u) * 50);gap:36px}
+.lead{font-size:calc(var(--u) * 36)}
+.st{flex-direction:column;gap:12px}
+.st figure{flex:none;width:100%;max-width:360px}
+.st h3{font-size:19px}
+.st h3 small{font-size:13px}
+.st p{font-size:14px}
+.abn{flex:none}
+.abn ul{gap:16px}
+.abn .btn{width:100%}
+.rd{margin-top:60px;background:linear-gradient(to bottom,transparent calc(var(--u) * 300),var(--red2) calc(var(--u) * 300))}
+.ha{min-height:calc(var(--u) * 360);padding-top:calc(var(--u) * 120)}
+.ha:after{top:37vw;width:calc(var(--u) * 592)}
+.ha .en{font-size:calc(var(--u) * 86);margin-top:calc(var(--u) * 40)}
+.bdg{width:calc(var(--u) * 64);left:calc(50% + var(--u) * 110);top:calc(var(--u) * 132);font-size:calc(var(--u) * 18)}
+.hzw{margin-top:calc(var(--u) * -120)}
+.hzs{padding:0 0 40px}
+.hz{display:block;padding-inline:20px}
+.hrt{left:calc(var(--u) * -120);top:calc(var(--u) * -24);width:calc(var(--u) * 439);translate:none}
+.svl{flex:none;padding-top:calc(var(--u) * 70);min-height:calc(var(--u) * 330)}
+.svc{flex-direction:column;gap:16px;margin-top:calc(var(--u) * 20)}
+.svc li{width:auto}
+.svc a{border-radius:15px;aspect-ratio:360/470}
+.svb{padding:28px}
+.svb h3{font-size:24px}
+.svb p{font-size:14px}
+.svn{font-size:calc(var(--u) * 180);left:-14px;bottom:-14px}
+.svi{width:72px}
+.svnote{padding:0 20px}
+.wk{height:auto;margin-top:72px}
+.wkc{height:auto;padding:0 20px}
+.wkc .en{font-size:calc(var(--u) * 86)}
+.wkt{font-size:18px;margin-top:16px}
+.nums{gap:16px 20px;margin-top:24px}
+.nums b{font-size:34px}
+.nums b.o{font-size:22px}
+.wkb{width:100%;max-width:340px;margin-top:24px}
+.wfs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 14px;padding:36px 20px 0}
+.wf{position:static;width:auto;transform:none;animation:none}
+.wf a{border-radius:10px;filter:drop-shadow(0 10px 0 rgba(0,0,0,.15))}
+.wf span{padding:7px 9px 9px;font-size:12px}
+.wf small{font-size:11px}
+.tp{padding:calc(var(--u) * 80) 20px 0}
+.tp+.tp{padding-top:48px}
+.tpb{border-radius:15px;padding:calc(var(--u) * 120) calc(var(--u) * 26) calc(var(--u) * 48)}
+.tk{top:0;height:calc(var(--u) * 120)}
+.tk>div{animation-duration:12s}
+.tk span{font-size:calc(var(--u) * 62);gap:16px;padding-right:16px}
+.tk i{width:calc(var(--u) * 44);font-size:calc(var(--u) * 30)}
+.tpg{flex-direction:column;gap:28px}
+.tpl,.nl{width:100%}
+.h2{font-size:calc(var(--u) * 28)}
+.nl{gap:24px}
+.nl a,.nl>li>div{gap:16px}
+.ni{flex-basis:31%}
+.nt{font-size:14px}
+.dt{font-size:14px}
+.cat{font-size:11px}
+.rc{height:auto;padding:40px 20px calc(var(--u) * 520)}
+.rc .en.big{font-size:calc(var(--u) * 86)}
+.rcb{margin-top:calc(var(--u) * 60);padding-left:0;width:auto}
+.rcb p.tx{max-width:none;font-size:14px}
+.cb i{width:calc(var(--u) * 120)}
+.cb i svg{width:calc(var(--u) * 48);height:calc(var(--u) * 48)}
+.ri{left:calc(var(--u) * var(--sx));top:auto;bottom:calc(var(--u) * var(--sy));width:calc(var(--u) * var(--sw));rotate:var(--sr)}
+.ri>div{border-radius:15px}
+.ct{padding:48px 20px calc(var(--u) * 200)}
+.ctb{flex-direction:column;align-items:center;text-align:center;gap:24px}
+.ct .en.big{font-size:calc(var(--u) * 86)}
+.ctt{font-size:19px}
+.cti{font-size:14px}
+.cti b{font-size:20px;white-space:nowrap}
+.ctb .btn{width:280px}
+.cr{margin:0}
+.hand{right:auto;left:50%;top:auto;bottom:calc(var(--u) * -150);width:calc(var(--u) * 170);translate:-10% 0}
+.ft{padding-top:51vw}
+.ft:after{top:23.6vw;width:calc(var(--u) * 592)}
+.ft:before{top:calc(23.6vw + var(--u) * 296)}
+.fti{padding:0 20px 96px}
+.flo b{font-size:52px}
+.fnv{flex-direction:column;gap:20px;margin-top:28px}
+.fnv ul{gap:0 20px}
+.fnv .fc{margin:0}
+.fco{grid-template-columns:auto 1fr;margin-top:32px}
+.fbt{flex-direction:column-reverse;align-items:center;margin-top:32px}
 }
 </style>
 </head>
 <body>
 <div class="pg" id="top">
 
-<div class="rail">
-<span class="rl" aria-hidden="true">reboot</span>
-<span class="rt" aria-hidden="true">Animation Studio</span>
-<label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label>
-<span class="rm" aria-hidden="true">TOP</span>
-<span class="rr" aria-hidden="true">‹›</span>
+<div class="bgf" aria-hidden="true">
+<svg viewBox="0 0 1000 1000"><polygon points="500,0 552,103 629,17 653,130 750,67 744,183 854,146 817,256 933,250 870,347 983,371 897,448 1000,500 897,552 983,629 870,653 933,750 817,744 854,854 744,817 750,933 653,870 629,983 552,897 500,1000 448,897 371,983 347,870 250,933 256,817 146,854 183,744 67,750 130,653 17,629 103,552 0,500 103,448 17,371 130,347 67,250 183,256 146,146 256,183 250,67 347,130 371,17 448,103" fill="#cb1944" opacity=".35"/><defs><path id="ring" d="M500,500 m-372,0 a372,372 0 1,1 744,0 a372,372 0 1,1 -744,0"/></defs><text fill="#cb1944"><textPath href="#ring" textLength="2320">REBOOT ANIMATION ・ REBOOT ANIMATION ・</textPath></text></svg>
 </div>
 
-<main class="mn">
-
-<!-- 1 ファーストビュー -->
-<section class="kv" aria-label="メインビジュアル">
-<div class="kvi"><img src="images/off/g029.jpg" alt="reboot の公式イラスト（青い背景の女の子）"></div>
-<header class="side">
-<div class="ct">
-<a class="lg" href="#top" aria-label="reboot トップへ"><span>reboot</span><img src="images/reboot-logo.png" alt="reboot ロゴ"></a>
-<p class="sub"><span>Animation Studio — Tokyo &amp; China</span><small>（リブート）</small></p>
-<h1 class="cpy">動画・仕上げを、東京と直営の中国スタジオで。<span class="kari">仮の文章</span></h1>
 <input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉">
-<a class="fab" href="contact.html">お問い合わせ<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-<nav class="nv" aria-label="メインメニュー">
-<a class="ml on" href="#top" aria-current="page"><b>トップ</b><small>Top</small></a>
-<a class="ml" href="contact.html"><b>受注窓口</b><small>Contact</small></a>
-<a class="ml" href="works.html"><b>作品履歴</b><small>Works</small></a>
-<div class="dd"><a class="ml" href="#studio" aria-haspopup="true"><b>スタジオ</b><small>Studio</small></a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
-<a class="ml" href="plan.html"><b>プラン</b><small>Plan</small></a>
+<header class="hd">
+<a class="hl" href="#top" aria-label="reboot トップへ"><img src="images/reboot-logo.png" alt="reboot ロゴ"></a>
+<nav class="hn" aria-label="メインメニュー">
+<ul>
+<li class="on"><a href="#top" aria-current="page"><span class="hu"><span data-t="トップ">トップ</span></span></a></li>
+<li><a href="contact.html"><span class="hu"><span data-t="受注窓口">受注窓口</span></span></a></li>
+<li><a href="works.html"><span class="hu"><span data-t="作品履歴">作品履歴</span></span></a></li>
+<li class="dd"><a href="#studio" aria-haspopup="true"><span class="hu"><span data-t="スタジオ">スタジオ</span></span><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="2"/></svg></a><div class="ddm"><ul><li><a href="studio-japan.html">国内スタジオ</a></li><li><a href="studio-overseas.html">海外スタジオ</a></li></ul></div></li>
+<li><a href="plan.html"><span class="hu"><span data-t="プラン">プラン</span></span></a></li>
+</ul>
+<a class="hc" href="contact.html">CONTACT</a>
 </nav>
-<div class="tp">
-<p>Contact</p>
-<a class="hbtn" href="contact.html">作業を依頼する<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-<p class="tel">TEL<b>〇〇-〇〇〇〇-〇〇〇〇</b><br>受付 〇〇:〇〇〜〇〇:〇〇</p>
-</div>
-</div>
 </header>
-<nav class="mk" aria-label="ページ内の項目">
-<a class="on" href="#top" aria-label="トップ"><span></span></a>
-<a href="#studio" aria-label="スタジオ"><span></span></a>
-<a href="#strength" aria-label="rebootの強み"><span></span></a>
-<a href="#works" aria-label="実績"><span></span></a>
-<a href="#voice" aria-label="お客様の声"><span></span></a>
-<a href="#contact" aria-label="お問い合わせ"><span></span></a>
+<label for="mn" class="mb" aria-hidden="true">MENU<i><span></span><span></span><span></span></i></label>
+<div class="fm" aria-label="メニュー">
+<div class="fmc">
+<ul>
+<li class="on"><a href="#top"><b>TOP</b><small>トップ</small></a></li>
+<li><a href="contact.html"><b>CONTACT</b><small>受注窓口</small></a></li>
+<li><a href="works.html"><b>WORKS</b><small>作品履歴</small></a></li>
+<li><a href="#studio"><b>STUDIO</b><small>スタジオ</small></a><div class="sub"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></li>
+<li><a href="plan.html"><b>PLAN</b><small>プラン</small></a></li>
+</ul>
+<a class="fmb" href="contact.html">CONTACT</a>
+</div>
+</div>
+<a class="fab" href="contact.html">お問い合わせ<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></i></a>
+<nav class="nsc" aria-label="スクロール"><a href="#studio"><span>SCROLL<i style="color:#f816f8">↓</i></span><span>SCROLL<i style="color:#11c811">↓</i></span><span>SCROLL<i style="color:#1616f7">↓</i></span><span>SCROLL<i style="color:#14c8f8">↓</i></span><span aria-hidden="true">SCROLL<i style="color:#f816f8">↓</i></span><span aria-hidden="true">SCROLL<i style="color:#11c811">↓</i></span><span aria-hidden="true">SCROLL<i style="color:#1616f7">↓</i></span><span aria-hidden="true">SCROLL<i style="color:#14c8f8">↓</i></span></a></nav>
+
+<main>
+
+<!-- 1 ファーストビュー（参考：.p_top_mv） -->
+<section class="mv" id="mv" aria-label="メインビジュアル">
+<div class="fl" style="--x:-84;--w:476;--q:.63;--sx:-137;--sw:332"><div><img src="images/off/l-m156.jpg" alt="鉛筆で動画を描く手元"></div></div>
+<div class="fl" style="--x:847;--w:362;--q:.32;--sx:222;--sw:238"><div><img src="images/gen/p01-desk-lighttable.jpg" alt="トレス台と動画用紙の机"></div></div>
+<div class="fl" style="--x:1036;--w:373;--q:.78;--sx:265;--sw:192;--ar:1/1"><div><img src="images/off/l-m167.jpg" alt="トレス台で作画するスタッフの手元"></div></div>
+<div class="fl" style="--x:278;--w:195;--q:.30;--sx:-20;--sw:163;--ar:3/4"><div><img src="images/off/g021.jpg" alt="国内スタジオで作画中のスタッフ"></div></div>
+<div class="fl" style="--x:-124;--w:432;--q:.05;--sx:-98;--sw:294"><div><img src="images/gen/a16-coloring-screen.jpg" alt="仕上げ作業中のモニターとペン"></div></div>
+<div class="fl" style="--x:209;--w:358;--q:.90;--sx:17;--sw:224;--ar:1/1"><div><img src="images/gen/p22-sketch-flatlay.jpg" alt="スケッチブックと色鉛筆"></div></div>
+<div class="fl" style="--x:424;--w:255;--q:.47;--sx:204;--sw:116;--ar:16/9"><div><img src="images/off/l-m157.jpg" alt="紙に描いた作画とマスコット"></div></div>
+<div class="fl" style="--x:893;--w:508;--q:.06;--sx:142;--sw:320"><div><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></div></div>
+<div class="mvc">
+<h1 class="mvt bi">動画・仕上げを、<br>東京と直営の<br>中国スタジオで。<br><span class="kari">仮の文章</span></h1>
+<div class="mvb rv"><a class="btn" href="contact.html"><span class="btt"><span class="hu"><span data-t="作業を依頼する">作業を依頼する</span></span></span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></a></div>
+<p class="tel rv">TEL<b>〇〇-〇〇〇〇-〇〇〇〇</b><span class="nw">（受付 〇〇:〇〇〜〇〇:〇〇）</span></p>
+</div>
+</section>
+
+<!-- 2 スタジオ（参考：.p_top_about） -->
+<section class="ab" id="studio" aria-labelledby="h-st">
+<div class="abx">
+<div class="abg" aria-hidden="true"><img src="images/gen/s3-jp-floor.jpg" alt=""></div>
+<p class="en big lt" aria-hidden="true">STUDIO</p>
+<div class="abb">
+<div class="abl">
+<h2 class="lead" id="h-st">東京と中国、<br>2つのスタジオで<br>描いています。</h2>
+<span class="kari">仮の文章</span>
+<ul class="sts">
+<li class="st rv"><figure><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"></figure><div><h3><small>DOMESTIC STUDIO</small>国内スタジオ lolroute（ルート）</h3><p>2021年設立・東京。出社して作画しているスタッフの正社員率100%。検査・リテイク・急ぎの話数を受け持つ国内拠点です。</p></div></li>
+<li class="st rv"><figure><img src="images/off/g001.jpg" alt="reboot China の社名サイン"></figure><div><h3><small>OVERSEAS STUDIO</small>直営海外スタジオ reboot China</h3><p>2016年設立。rebootの仕事だけを行う直営スタジオで、数カ月に一度、社員が現地で直接指導・会議を行っています。</p></div></li>
+</ul>
+</div>
+<nav class="abn" aria-label="スタジオのページ">
+<ul>
+<li class="rv"><a class="btn" href="studio-japan.html"><span class="btt"><span class="hu"><span data-t="国内スタジオを見る">国内スタジオを見る</span></span></span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></a></li>
+<li class="rv"><a class="btn" href="studio-overseas.html"><span class="btt"><span class="hu"><span data-t="海外スタジオを見る">海外スタジオを見る</span></span></span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></a></li>
+<li class="rv"><a class="btn" href="plan.html"><span class="btt"><span class="hu"><span data-t="作業プランを見る">作業プランを見る</span></span></span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></a></li>
+</ul>
 </nav>
-</section>
-
-<!-- 2 スタジオ ／ 3 強み（About ページの作り） -->
-<div class="ab">
-<div class="abi" aria-hidden="true"><div class="abs"><img src="images/gen/s3-jp-floor.jpg" alt="国内スタジオの作業フロア"><img src="images/gen/s3-cn-floor.jpg" alt="reboot China の作業フロア"></div></div>
-<div class="abb" id="studio">
-<p class="ptl" aria-hidden="true">About</p>
-<div class="itr"><img src="images/off/g045.jpg" alt="rebootの木の看板"><p><b>reboot<small>（リブート）</small></b><span>lolroute (Tokyo) ＋ reboot China</span></p></div>
-<p class="mls"><a href="studio-japan.html">国内スタジオ lolroute<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a><a href="studio-overseas.html">海外スタジオ reboot China<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
-<div class="abc">
-
-<section class="asec" aria-labelledby="h-st">
-<h2 class="ash" id="h-st">Studio<small>東京と中国、2つのスタジオ<span class="kari">仮の文章</span></small></h2>
-<div class="asc sl">
-<div class="stu">
-<figure><img src="images/off/g002.jpg" alt="国内スタジオ lolroute の入口"></figure>
-<h3>lolroute<small>国内スタジオ（ルート）</small></h3>
-<dl><dt>設立</dt><dd>2021年</dd><dt>場所</dt><dd>東京</dd><dt>正社員率</dt><dd>出社スタッフの100%</dd></dl>
-<p>検査・リテイク・急ぎの話数を受け持つ国内拠点です。名前は「lol＝笑」「route＝道」から。</p>
-<a href="studio-japan.html">国内スタジオを見る<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-</div>
-<div class="stu">
-<figure><img src="images/off/g001.jpg" alt="reboot China の社名サイン"></figure>
-<h3>reboot China<small>直営の海外スタジオ</small></h3>
-<dl><dt>設立</dt><dd>2016年</dd><dt>形態</dt><dd>直営（rebootの仕事だけを行う）</dd><dt>指導</dt><dd>数カ月に一度、社員が現地で</dd></dl>
-<p>中国の美術大学と連携して育てたスタッフが、動画・仕上げを担当します。</p>
-<a href="studio-overseas.html">海外スタジオを見る<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
 </div>
 </div>
 </section>
 
-<section class="asec" id="strength" aria-labelledby="h-sg">
-<h2 class="ash" id="h-sg">Strength<small>rebootの強み<span class="kari">仮の文章</span></small></h2>
-<div class="asc">
-<ol>
-<li class="acb"><span class="acy">01</span><div class="acc"><b>2拠点で、枚数と納期に合わせて振り分け</b><p>国内と直営の海外スタジオで作業を分け、枚数の多い話数も、急ぎの話数も受けられます。</p></div><figure><img src="images/gen/p14-online-call.jpg" alt="海外スタジオとのオンライン会議"></figure></li>
-<li class="acb"><span class="acy">02</span><div class="acc"><b>海外の作業も、国内で検査してから納品</b><p>中国で上がった動画・仕上げは、東京の国内スタジオで確かめてからお届けします。</p></div><figure><img src="images/gen/p23-color-chips.jpg" alt="色指定表のカラーチップ"></figure></li>
-<li class="acb"><span class="acy">03</span><div class="acc"><b>動画から仕上げまで、窓口ひとつ</b><p>動画・仕上げ・検査をまとめてご相談いただけます。やりとりは受注窓口ひとつです。</p></div><figure><img src="images/gen/n1-c-episode.jpg" alt="トレス台の上の動画用紙とカット袋"></figure></li>
+<div class="rd">
+
+<!-- 3 強み（参考：.p_top_service） -->
+<section class="sv" id="strength" aria-labelledby="h-sg">
+<div class="ha">
+<h2 id="h-sg"><span class="en lt" aria-hidden="true">STRENGTH</span><span class="vh">rebootの強み</span></h2>
+<span class="bdg bi" aria-hidden="true"><svg viewBox="0 0 100 100"><polygon points="50,0 57,10 67,3 70,14 82,12 81,24 93,25 89,36 99,41 91,50 99,59 89,64 93,75 81,76 82,88 71,86 67,97 57,90 50,100 43,90 33,97 29,86 18,88 19,76 7,75 11,64 1,59 9,50 1,41 11,36 7,25 19,24 18,12 30,14 33,3 43,10"/></svg><b>03</b></span>
+</div>
+<div class="hzw">
+<div class="hzs">
+<div class="hz">
+<div class="hrt bi" aria-hidden="true"><svg viewBox="0 0 744 674"><path fill="currentColor" d="M372 668C330 630 0 430 0 205 0 85 95 0 210 0c72 0 130 38 162 92C404 38 462 0 534 0c115 0 210 85 210 205 0 225-330 425-372 463z"/></svg></div>
+<div class="svl rv"><p class="lead">2つの拠点で、<br>確かに、<br>速く上げる。</p><span class="kari">仮の文章</span></div>
+<ol class="svc">
+<li class="rv"><a href="studio-overseas.html"><img src="images/gen/p14-online-call.jpg" alt="海外スタジオとのオンライン会議"><span class="svb"><span class="svn" aria-hidden="true">01</span><h3>枚数と納期で、<br>2拠点に振り分け</h3><p>国内と直営の海外スタジオで作業を分け、枚数の多い話数も急ぎの話数も受けられます。</p><span class="svi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></span></a></li>
+<li class="rv"><a href="studio-japan.html"><img src="images/gen/s1-inspection.jpg" alt="動画用紙を赤鉛筆で検査する手元"><span class="svb"><span class="svn" aria-hidden="true">02</span><h3>海外の作業も、<br>国内で検査して納品</h3><p>中国で上がった動画・仕上げは、東京の国内スタジオで確かめてからお届けします。</p><span class="svi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></span></a></li>
+<li class="rv"><a href="contact.html"><img src="images/gen/n1-c-episode.jpg" alt="トレス台の上の動画用紙とカット袋"><span class="svb"><span class="svn" aria-hidden="true">03</span><h3>動画から仕上げまで、<br>窓口ひとつ</h3><p>動画・仕上げ・検査をまとめてご相談いただけます。やりとりは受注窓口ひとつです。</p><span class="svi" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></span></a></li>
 </ol>
-<p class="anote">動画検査・色指定検査は国内作業のみです。国内作業やレイアウト・作監・動画検査・色指定検査・線撮は、海外動仕をいただける会社様を優先してお引き受けしております。</p>
 </div>
+</div>
+</div>
+<p class="svnote">※動画検査・色指定検査は国内作業のみです。国内作業やレイアウト・作監・動画検査・色指定検査・線撮は、海外動仕をいただける会社様を優先してお引き受けしております。</p>
 </section>
 
-</div>
-</div>
-</div>
-
-<!-- 4 実績（Works ページの作り） -->
+<!-- 4 実績（参考：.p_top_works） -->
 <section class="wk" id="works" aria-labelledby="h-wk">
-<div class="pth"><p class="pt" aria-hidden="true">Works</p><h2 id="h-wk">実績<span class="kari">仮の文章</span></h2><p class="flt" aria-hidden="true"><span>2025</span><span>2024</span><span>2023</span></p></div>
-<ul class="nm">
-<li class="nmc f"><span>参加作品</span><b>165<small>本以上</small></b><em>2023〜2025年</em></li>
-<li class="nmc"><span>月間の対応枚数</span><b>〇〇,〇〇〇<small>枚</small></b><em>2拠点の合計</em></li>
-<li class="nmc"><span>スタッフ</span><b>〇〇<small>名</small></b><em>国内・海外</em></li>
-<li class="nmc"><span>拠点</span><b>2<small>拠点</small></b><em>東京・中国</em></li>
+<div class="wkc">
+<h2 id="h-wk"><span class="en lt" aria-hidden="true">WORKS</span><span class="vh">実績</span></h2>
+<p class="wkt rv">これまでに参加した作品。<span class="kari">仮の文章</span></p>
+<ul class="nums rv">
+<li><b>165<small>本以上</small></b>参加作品（2023〜2025年）</li>
+<li><b class="o">〇〇,〇〇〇<small>枚</small></b>月間の対応枚数</li>
+<li><b class="o">〇〇<small>名</small></b>スタッフ（国内・海外）</li>
+<li><b>2<small>拠点</small></b>東京・中国</li>
 </ul>
-<div class="gal">
-<a class="gi" href="works.html"><figure><img src="images/off/w000.jpg" alt="映画『それいけ！アンパンマン チャポンのヒーロー！』"></figure><b>映画『それいけ！アンパンマン チャポンのヒーロー！』</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"></figure><b>TVアニメ「ある魔女が死ぬまで」</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"></figure><b>TVアニメ『小市民シリーズ』</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"></figure><b>TVアニメ「日々は過ぎれど飯うまし」</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w021.jpg" alt="「ロックは淑女の嗜みでして」"></figure><b>「ロックは淑女の嗜みでして」</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w026.jpg" alt="TVアニメ『キン肉マン』完璧超人始祖編"></figure><b>TVアニメ『キン肉マン』完璧超人始祖編</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w017.jpg" alt="プリンセッション・オーケストラ"></figure><b>プリンセッション・オーケストラ</b><small>2025 ／ 担当：〇〇</small></a>
-<a class="gi" href="works.html"><figure><img src="images/off/w011.jpg" alt="スライム倒して300年、知らないうちにレベルMAXになってました ～そのに～"></figure><b>スライム倒して300年、知らないうちにレベルMAXになってました ～そのに～</b><small>2025 ／ 担当：〇〇</small></a>
+<p class="cli rv"><b>主な取引先</b>〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</p>
+<div class="wkb rv"><a class="btn sm" href="works.html" style="width:100%"><span class="btt"><span class="hu"><span data-t="作品履歴をすべて見る（165作品）">作品履歴をすべて見る（165作品）</span></span></span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></a></div>
 </div>
-<div class="tik" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i class="on"></i></div>
-<div class="wkf"><p><b>主な取引先</b>〇〇株式会社、〇〇スタジオ ほか<small>（掲載許可を確認中）</small></p><a class="more" href="works.html">作品履歴をすべて見る（165作品）<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
+<ul class="wfs">
+<li class="wf" style="--x:40;--w:290;--q:.2"><a href="works.html"><img src="images/off/w000.jpg" alt="映画『それいけ！アンパンマン チャポンのヒーロー！』"><span>映画『それいけ！アンパンマン チャポンのヒーロー！』<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:1050;--w:280;--q:.1"><a href="works.html"><img src="images/off/w001.jpg" alt="TVアニメ「ある魔女が死ぬまで」"><span>TVアニメ「ある魔女が死ぬまで」<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:80;--w:270;--q:.42"><a href="works.html"><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"><span>TVアニメ『小市民シリーズ』<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:1010;--w:300;--q:.33"><a href="works.html"><img src="images/off/w016.jpg" alt="TVアニメ「日々は過ぎれど飯うまし」"><span>TVアニメ「日々は過ぎれど飯うまし」<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:30;--w:300;--q:.64"><a href="works.html"><img src="images/off/w021.jpg" alt="「ロックは淑女の嗜みでして」"><span>「ロックは淑女の嗜みでして」<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:1060;--w:270;--q:.56"><a href="works.html"><img src="images/off/w026.jpg" alt="TVアニメ『キン肉マン』完璧超人始祖編"><span>TVアニメ『キン肉マン』完璧超人始祖編<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:90;--w:270;--q:.86"><a href="works.html"><img src="images/off/w017.jpg" alt="プリンセッション・オーケストラ"><span>プリンセッション・オーケストラ<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+<li class="wf" style="--x:1020;--w:300;--q:.79"><a href="works.html"><img src="images/off/w011.jpg" alt="スライム倒して300年、知らないうちにレベルMAXになってました ～そのに～"><span>スライム倒して300年、知らないうちにレベルMAXになってました ～そのに～<small>2025 <i>／ 担当：〇〇</i></small></span></a></li>
+</ul>
 </section>
 
-<!-- 5 お客様の声（Goods ページの作り） -->
-<section class="gd" id="voice" aria-labelledby="h-vc">
-<div class="pth"><p class="pt" aria-hidden="true">Voice</p><h2 id="h-vc">お客様の声<span class="kari">仮の文章</span></h2></div>
-<ul class="gdl">
-<li class="gdi"><figure><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></figure><blockquote>「急ぎの話数でも、国内で検査してから上げてくれるので安心して任せられます。」</blockquote><cite>〇〇株式会社 制作プロデューサー 〇〇様</cite><small>（掲載許可を確認中）</small></li>
-<li class="gdi"><figure><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></figure><blockquote>「枚数の多い話数を相談したら、2拠点で振り分けて納期どおりに上げてもらえました。」</blockquote><cite>〇〇スタジオ 制作進行 〇〇様</cite><small>（掲載許可を確認中）</small></li>
-<li class="gdi"><figure><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></figure><blockquote>「動画から仕上げまで窓口がひとつなので、やりとりが少なくて助かっています。」</blockquote><cite>〇〇株式会社 ラインプロデューサー 〇〇様</cite><small>（掲載許可を確認中）</small></li>
+<!-- 5 お客様の声（参考：.p_top_topics） -->
+<section class="tp" id="voice" aria-labelledby="h-vc">
+<div class="tpb rv">
+<div class="tk" aria-hidden="true"><div><span>VOICE<i>!</i>VOICE<i>!</i>VOICE<i>!</i>VOICE<i>!</i></span><span>VOICE<i>!</i>VOICE<i>!</i>VOICE<i>!</i>VOICE<i>!</i></span></div></div>
+<div class="tpg">
+<div class="tpl"><h2 class="h2" id="h-vc">制作会社の方の<br>「声」をご紹介。</h2><p>動画・仕上げをご依頼いただいている制作会社の方からいただいた声です。</p><span class="kari">仮の文章</span></div>
+<ul class="nl">
+<li><div><span class="ni"><img src="images/off/w003.jpg" alt="TVアニメ『WIND BREAKER』"></span><span class="nb"><span class="nm"><span class="cat">制作プロデューサー</span></span><p class="nt">「急ぎの話数でも、国内で検査してから上げてくれるので安心して任せられます。」</p><span class="cite">〇〇株式会社 制作プロデューサー 〇〇様（掲載許可を確認中）</span></span></div></li>
+<li><div><span class="ni"><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></span><span class="nb"><span class="nm"><span class="cat c1">制作進行</span></span><p class="nt">「枚数の多い話数を相談したら、2拠点で振り分けて納期どおりに上げてもらえました。」</p><span class="cite">〇〇スタジオ 制作進行 〇〇様（掲載許可を確認中）</span></span></div></li>
+<li><div><span class="ni"><img src="images/off/w007.jpg" alt="TVアニメ『九龍ジェネリックロマンス』"></span><span class="nb"><span class="nm"><span class="cat c2">ラインプロデューサー</span></span><p class="nt">「動画から仕上げまで窓口がひとつなので、やりとりが少なくて助かっています。」</p><span class="cite">〇〇株式会社 ラインプロデューサー 〇〇様（掲載許可を確認中）</span></span></div></li>
 </ul>
-<div class="tik" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+</div>
+</div>
 </section>
 
-<!-- 6・7・8（Contact ページの作り） -->
-<section class="cp" id="contact" aria-label="お知らせ・募集・お問い合わせ">
-<div class="pth"><p class="pt" aria-hidden="true">Contact</p></div>
-<p class="lang" aria-hidden="true"><a class="on" href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="plan.html">プラン</a></p>
-
-<div class="cs" id="news">
-<div class="csh"><h2>News</h2><p>お知らせ<span class="kari">仮の文章</span></p></div>
-<div class="csc">
-<ul class="tps">
-<li><a href="works.html"><span class="tpi"><img src="images/off/w038.jpg" alt="TVアニメ「魔法使いの約束」"></span><span class="tpx"><span><time datetime="2025-10-01">2025.10.01</time>作品履歴</span><b>作品履歴に2025年の参加作品を追加しました</b></span></a></li>
-<li><a href="studio-overseas.html"><span class="tpi"><img src="images/off/g008.jpg" alt="まちゼミ（地域のアニメ教室）の様子1"></span><span class="tpx"><span><time datetime="2025-08-20">2025.08.20</time>海外スタジオ</span><b>reboot China で、美術大学と連携した作画トレーニングを行いました</b></span></a></li>
-<li><a href="studio-japan.html"><span class="tpi"><img src="images/off/g009.jpg" alt="まちゼミのアニメ教室の様子"></span><span class="tpx"><span><time datetime="2025-07-10">2025.07.10</time>国内スタジオ</span><b>lolroute が、地域イベント「まちゼミ」でアニメ教室を開きました</b></span></a></li>
+<!-- 6 お知らせ（参考：.p_top_topics） -->
+<section class="tp" id="news" aria-labelledby="h-nw">
+<div class="tpb rv">
+<div class="tk" aria-hidden="true"><div><span>NEWS<i>!</i>NEWS<i>!</i>NEWS<i>!</i>NEWS<i>!</i>NEWS<i>!</i></span><span>NEWS<i>!</i>NEWS<i>!</i>NEWS<i>!</i>NEWS<i>!</i>NEWS<i>!</i></span></div></div>
+<div class="tpg">
+<div class="tpl"><h2 class="h2" id="h-nw">rebootの<br>「今」をお届け。</h2><span class="kari">仮の文章</span></div>
+<ul class="nl">
+<li><a href="works.html"><span class="ni"><img src="images/off/w038.jpg" alt="TVアニメ「魔法使いの約束」"></span><span class="nb"><span class="nm"><span class="cat c1">作品履歴</span><time class="dt" datetime="2025-10-01">2025.10.1</time></span><span class="nt">作品履歴に2025年の参加作品を追加しました</span></span></a></li>
+<li><a href="studio-overseas.html"><span class="ni"><img src="images/gen/p21-art-students.jpg" alt="中国の美大生への作画トレーニング"></span><span class="nb"><span class="nm"><span class="cat c2">海外スタジオ</span><time class="dt" datetime="2025-08-20">2025.8.20</time></span><span class="nt">reboot China で、美術大学と連携した作画トレーニングを行いました</span></span></a></li>
+<li><a href="studio-japan.html"><span class="ni"><img src="images/off/g008.jpg" alt="まちゼミ（地域のアニメ教室）の様子"></span><span class="nb"><span class="nm"><span class="cat c3">国内スタジオ</span><time class="dt" datetime="2025-07-10">2025.7.10</time></span><span class="nt">lolroute が、地域イベント「まちゼミ」でアニメ教室を開きました</span></span></a></li>
 </ul>
 </div>
 </div>
+</section>
 
-<div class="cs" id="recruit">
-<div class="csh"><h2>Recruit</h2><p>アニメーター募集<span class="kari">仮の文章</span></p></div>
-<div class="csc rcw">
-<a href="studio-japan.html#recruit"><figure><img src="images/off/g017.jpg" alt="国内スタジオの机で作画するスタッフ"></figure></a>
+<!-- 7 アニメーター募集（参考：.p_top_recruit） -->
+<section class="rc" id="recruit" aria-labelledby="h-rc">
+<p class="en big lt" aria-hidden="true">RECRUIT</p>
+<div class="rcb">
+<h2 class="lead" id="h-rc">描く毎日を、<br>lolrouteで、<br>さあ一緒に。</h2>
+<p class="tx">国内スタジオ lolroute でアニメーターを募集しています。出社して作画しているスタッフの正社員率は100%。専門学校のご担当者様からのご連絡も歓迎しています。</p>
+<span class="kari">仮の文章</span>
+<a class="cb" href="studio-japan.html#recruit" aria-label="アニメーター募集について見る"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></i></a>
+</div>
+<div class="ri bu" style="--x:686;--y:338;--w:456;--r:-10deg;--sx:200;--sy:250;--sw:204;--sr:10deg"><div><img src="images/off/g017.jpg" alt="国内スタジオの机で作画するスタッフ"></div></div>
+<div class="ri bu" style="--x:1278;--y:282;--w:243;--r:19deg;--sx:290;--sy:40;--sw:150;--sr:19deg"><div><img src="images/off/g011.jpg" alt="専門学校での授業の様子"></div></div>
+<div class="ri bu" style="--x:69;--y:731;--w:216;--r:11deg;--sx:115;--sy:-30;--sw:125;--sr:-17deg"><div><img src="images/off/g009.jpg" alt="まちゼミのアニメ教室の様子"></div></div>
+<div class="ri bu" style="--x:1241;--y:711;--w:215;--r:-17deg;--sx:-41;--sy:120;--sw:176;--sr:11deg"><div><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></div></div>
+<div class="ri bu" style="--x:-66;--y:245;--w:291;--r:-15deg;--sx:-60;--sy:330;--sw:120;--sr:-15deg"><div><img src="images/off/g010.jpg" alt="懇親会の様子"></div></div>
+</section>
+
+<!-- 8 お問い合わせ（参考：.l_footer_contact） -->
+<section class="ct" id="contact" aria-labelledby="h-ct">
+<div class="ctb">
 <div>
-<p class="rcl">lolroute で、アニメーターを募集しています。</p>
-<ul class="nts">
-<li>出社して作画しているスタッフの正社員率は100%です。</li>
-<li>雇用形態・職種：〇〇</li>
-<li>専門学校のご担当者様からのご連絡も歓迎しています。</li>
-</ul>
-<figure class="rcs"><img src="images/off/g011.jpg" alt="専門学校での授業の様子"><figcaption>日本電子専門学校での授業</figcaption></figure>
-<p style="margin-top:12px"><a class="more" href="studio-japan.html#recruit">採用について見る<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M2 12 12 2M4 2h8v8" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></p>
+<p class="en big lt" aria-hidden="true">CONTACT</p>
+<h2 class="ctt" id="h-ct">まずは、枚数と納期だけでもご相談ください。<span class="kari">仮の文章</span></h2>
+<p class="cti">お急ぎの場合はお電話で。TEL<b>〇〇-〇〇〇〇-〇〇〇〇</b><span class="nw">（受付 〇〇:〇〇〜〇〇:〇〇）</span><br>返信の目安：〇営業日以内</p>
+<a class="btn" href="contact.html"><span class="btt"><span class="hu"><span data-t="作業を依頼する">作業を依頼する</span></span></span><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></span></a>
 </div>
-</div>
-</div>
-
-<div class="cs" id="cta">
-<div class="csh"><h2>Contact</h2><p>作業のご依頼<span class="kari">仮の文章</span></p></div>
-<div class="csc">
-<figure class="ctp"><img src="images/gen/s3-jp-desk.jpg" alt="トレス台と液晶タブレットの並ぶ作画机"></figure>
-<p class="ctx">まずは、枚数と納期だけでも<br>ご相談ください。</p>
-<ul class="nts">
-<li>お急ぎの場合はお電話で。<span class="nw">TEL 〇〇-〇〇〇〇-〇〇〇〇</span><span class="nw">（受付 〇〇:〇〇〜〇〇:〇〇）</span></li>
-<li>返信の目安：〇営業日以内</li>
-</ul>
-<div class="sbt"><a class="btn" href="contact.html">作業を依頼する<svg viewBox="0 0 14 14" aria-hidden="true"><path d="M1 7h12M8 2l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a><small>受注窓口のフォームへ進みます</small></div>
+<div class="cr">
+<a class="cb" href="contact.html" aria-label="受注窓口へ"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v5H3v4h11v5l8-7z" fill="currentColor"/></svg></i></a>
+<span class="hand" aria-hidden="true"><svg viewBox="0 0 300 300"><path d="M38 20c14-8 30-3 37 10l42 74 6-4c12-7 27-4 35 7l3 4 6-3c12-6 26-2 33 9l3 5 5-2c13-5 27 0 34 12l33 60c22 40 9 90-30 112l-30 17c-34 19-76 13-103-15L22 216c-8-9-7-23 2-31 9-7 22-7 31 1l30 26L30 57c-7-14-6-30 8-37z"/></svg></span>
 </div>
 </div>
 </section>
+
+</div>
+</main>
 
 <footer class="ft">
-<span class="flo" aria-hidden="true">reboot</span>
-<div class="fr">
-<nav aria-label="フッターメニュー"><a href="#top">トップ</a><a href="contact.html">受注窓口</a><a href="works.html">作品履歴</a><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a><a href="plan.html">プラン</a></nav>
-<dl><dt>会社名</dt><dd>株式会社reboot</dd><dt>設立</dt><dd>2014年</dd><dt>所在地</dt><dd>東京都杉並区上荻1-5-8 直長ビル6F</dd><dt>事業内容</dt><dd>アニメーション制作・作画・仕上げ</dd><dt>代表取締役</dt><dd>佐藤 光成</dd></dl>
+<div class="fti">
+<a class="flo" href="#top" aria-label="reboot トップへ"><b>reboot</b><small>ANIMATION STUDIO</small></a>
+<nav class="fnv" aria-label="フッターメニュー">
+<ul>
+<li class="on"><a href="#top">トップ</a></li>
+<li><a href="contact.html">受注窓口</a></li>
+<li><a href="works.html">作品履歴</a></li>
+<li><a href="studio-japan.html">国内スタジオ</a></li>
+<li><a href="studio-overseas.html">海外スタジオ</a></li>
+<li><a href="plan.html">プラン</a></li>
+</ul>
+<a class="fc" href="contact.html">CONTACT</a>
+</nav>
+<dl class="fco"><dt>会社名</dt><dd>株式会社reboot</dd><dt>設立</dt><dd>2014年</dd><dt>所在地</dt><dd>東京都杉並区上荻1-5-8 直長ビル6F</dd><dt>事業内容</dt><dd>アニメーション制作・作画・仕上げ</dd><dt>代表取締役</dt><dd>佐藤 光成</dd></dl>
 <p class="fnote">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
+<div class="fbt"><small>© reboot Inc.</small><a class="ptp" href="#top">PAGE TOP<i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10h4v9h2v-9h4l-5-5z" fill="currentColor"/></svg></i></a></div>
 </div>
-<div class="fcr"><span>© reboot Inc.</span><span>All images may not be copied without permission.</span></div>
 </footer>
 
-</main>
 </div>
-<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+<style>.dc-back{position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px;text-decoration:none}@media(max-width:767px){.dc-back{left:8px;bottom:8px;padding:6px 10px;font-size:11px;opacity:.85}}</style><a class="dc-back" href="index.html">← 一覧へ戻る</a>
+<script src="js/ref-04.js" defer></script>
 </body>
 </html>

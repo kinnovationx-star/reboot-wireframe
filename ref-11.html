@@ -5,440 +5,577 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex">
 <title>I案｜reboot デザイン</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
+/* I案：参考 corporate.beforward.jp/recruit（オレンジのグラデーション地・白文字・かすれた筆跡） */
 body{margin:0}
 .pg *{box-sizing:border-box}
-.pg{--bg:#a6f03c;--ink:#163300;--dg:#2c6e00;--ez:cubic-bezier(.22,1,.36,1);font-family:'Noto Sans JP','Hiragino Kaku Gothic Pro',Meiryo,sans-serif;color:#163300;background:var(--bg);background-image:linear-gradient(90deg,#c8f56b 0,#c8f56b 38%,rgba(200,245,107,0) 62%);line-height:1.8;overflow:hidden;position:relative}
+.pg{--o:#db680f;--o2:#d45608;--k:#282828;--cr:#f9e6d7;--ln:#e8e1da;--tr:cubic-bezier(.22,1,.36,1);--ac:#fff;--cc:#fff;--ct:#db680f;
+font-family:'Noto Sans JP','Hiragino Kaku Gothic Pro',Meiryo,sans-serif;font-feature-settings:"palt";letter-spacing:.04em;line-height:1.5;color:#fff;
+background:linear-gradient(270deg,#d45608 43%,#db680f 61.5%);overflow:hidden;position:relative;isolation:isolate;font-size:16px}
 :where(.pg) a{color:inherit;text-decoration:none}
-:where(.pg) :where(p,h1,h2,h3,ul,ol,figure){margin:0}
+:where(.pg) :where(p,h1,h2,h3,ul,ol,dl,dd,figure){margin:0}
 :where(.pg) :where(ul,ol){padding:0;list-style:none}
 .pg img{display:block;max-width:100%}
-.w{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:0 40px}
-.in{padding-left:176px}
+.pg button{font:inherit}
+.sec{position:relative;padding:0 80px}
+.si{position:relative;max-width:1200px;margin:0 auto}
+.en{font-family:Inter,sans-serif}
 
-/* header (BF header) */
-.hd{position:relative;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:28px;height:96px;max-width:1440px;margin:0 auto;padding:0 2rem}
-.lg{display:flex;align-items:center;gap:12px;flex:none}
-.lg img{width:46px;height:46px;border-radius:50%;object-fit:cover;border:2px solid #fff}
-.lg b{font-family:Inter,sans-serif;font-weight:900;font-size:28px;letter-spacing:-.02em;line-height:1}
-.lg small{font-size:15px;font-weight:500;margin-left:6px}
+/* 文字の下線ホバー（.txt-hover / .txt-line-hover） */
+.th,.tl{background-image:linear-gradient(90deg,currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:0 1px;padding-bottom:.01em;transition:background-size .35s cubic-bezier(.215,.61,.355,1)}
+.tl{background-size:100% 1px}
+a:hover .th,a.th:hover{background-size:100% 1px}
+a:hover .tl,a.tl:hover{background-position:100% 100%;background-size:0 1px}
+
+/* 見出し・英字タグ */
+.h2{font-weight:900;font-size:65px;line-height:1.1;color:#fff;letter-spacing:.04em}
+.tag{display:inline-flex;margin-top:4px;background:#fff;color:var(--o);font:900 14px/1 Inter,sans-serif;padding:0 8px;letter-spacing:.04em}
+.tag.p{background:var(--o);color:#fff}
+.kari{display:inline-block;margin-left:.7em;padding:3px 8px;font:700 11px/1.3 'Noto Sans JP',sans-serif;letter-spacing:.06em;color:#fff;border:1px solid rgba(255,255,255,.7);vertical-align:middle;white-space:nowrap}
+.h2 .kari{vertical-align:.7em}
+.kari.p{color:var(--o);border-color:var(--o)}
+
+/* リンク（.link-block：白い4pxの線、ホバーで濃い線が左から） */
+.lb{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:320px;padding-bottom:16px;font-weight:900;font-size:18px;line-height:1.5;color:#fff;transition:color .3s}
+.lb:before,.lb:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:4px;background:#fff}
+.lb:after{background:var(--k);transform:scaleX(0);transform-origin:top right;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.lb:hover{color:var(--k)}
+.lb:hover:after{transform:scaleX(1);transform-origin:top left}
+.lb svg{flex:none;width:13px;height:14px}
+.lbs{display:grid;gap:40px}
+
+/* ボタン（.button：塗りが左から入れ替わる） */
+.bt{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;width:100%;min-height:70px;padding:0 28px;border:3px solid var(--o);border-radius:2px;background:var(--o);color:#fff;font-size:18px;font-weight:900;overflow:hidden;transition:color .3s}
+.bt:after{content:"";position:absolute;inset:0;background:#fff;transform:scaleX(0);transform-origin:top right;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.bt>*{position:relative;z-index:1}
+.bt svg{width:14px;height:5px;flex:none}
+.bt:hover{color:var(--o)}
+.bt:hover:after{transform:scaleX(1);transform-origin:top left}
+.bt.w{background:#fff;border-color:#fff;color:var(--o);min-height:60px;padding:0 16px;font-size:15px}
+.bt.w:after{background:var(--o)}
+.bt.w:hover{color:#fff}
+.ar{display:inline-flex;gap:8px;align-items:center;font-weight:900;font-size:15px}
+.ar svg{width:12px;height:14px;flex:none;margin-top:2px}
+
+/* かすれた筆跡（参考の bg 画像を横線の重なりで再現） */
+.bru{position:absolute;display:flex;flex-direction:column;pointer-events:none;z-index:-1}
+.bru i{display:block;flex:none;-webkit-mask:repeating-linear-gradient(180deg,#000 0 2px,rgba(0,0,0,.72) 2px 3px);mask:repeating-linear-gradient(180deg,#000 0 2px,rgba(0,0,0,.72) 2px 3px)}
+
+/* ===== ヘッダー（.header） ===== */
+.hd{position:absolute;left:0;top:0;width:100%;z-index:100;transition:all .3s cubic-bezier(.4,0,.2,1)}
+.hdi{display:flex;align-items:center;justify-content:space-between;gap:28px;height:80px;padding:0 32px}
+.lg{display:flex;align-items:center;gap:12px;flex:none;color:var(--ac)}
+.lg img{width:48px;height:48px;border-radius:50%;object-fit:cover}
+.lg b{font:900 30px/1 Inter,sans-serif;letter-spacing:-.01em}
+.lg small{font-size:15px;font-weight:500;margin-left:4px;letter-spacing:.04em}
 .nv{display:flex;align-items:center;justify-content:flex-end;gap:28px;flex:1 1 0%}
-.nl{display:flex;gap:24px;align-items:center;font-size:15px;font-weight:600}
-.nl>a,.dd>a{position:relative;display:inline-flex;align-items:center;gap:6px;min-height:96px;background-image:linear-gradient(#163300,#163300);background-repeat:no-repeat;background-position:0 70%;background-size:0 1px;transition:background-size .3s}
-.nl>a:hover,.dd>a:hover{background-size:100% 1px}
-.nl>a.on:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:#163300}
+.nl{display:flex;gap:24px;align-items:center}
+.nl>a,.dd>a{position:relative;display:flex;align-items:center;gap:6px;height:80px;color:var(--ac);font-size:15px;font-weight:600}
+.nl>a.on:before{content:"";position:absolute;left:0;top:0;width:100%;height:3px;background:var(--ac)}
 .dd{position:relative}
-.dd svg{width:10px;height:10px}
-.ddm{display:none;position:absolute;top:calc(100% - 14px);left:-20px;min-width:200px;flex-direction:column;background:#fff;padding:8px 0;box-shadow:0 10px 30px rgba(22,51,0,.15)}
-.ddm a{min-height:48px;display:flex;align-items:center;padding:0 20px;font-size:14px;font-weight:700}
-.ddm a:hover{color:var(--dg);background:#f6fdea}
+.dd>a svg{width:10px;height:10px}
+.ddm{display:none;position:absolute;top:66px;left:-24px;min-width:190px;flex-direction:column;background:#fff;padding:10px 0;border-top:3px solid var(--o)}
+.ddm a{display:flex;align-items:center;min-height:46px;padding:0 24px;color:var(--o);font-size:14px;font-weight:700}
 .dd:hover .ddm,.dd:focus-within .ddm{display:flex}
-.cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px}
-.cb{display:flex;align-items:center;justify-content:center;min-height:50px;min-width:130px;padding:0 18px;border:3px solid #fff;border-radius:2px;background:#fff;color:#163300;font-size:15px;font-weight:700;transition:background .2s,border-color .2s}
-.pg a.cb:hover{background:#eefad6;border-color:#eefad6}
+.cta{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.cb{position:relative;display:flex;align-items:center;justify-content:center;min-height:50px;min-width:130px;padding:0 24px;border:3px solid var(--cc);border-radius:2px;background:var(--cc);color:var(--ct);font-size:15px;font-weight:900;overflow:hidden;transition:color .3s}
+.cb:after{content:"";position:absolute;inset:0;background:var(--ct);transform:scaleX(0);transform-origin:top right;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.cb span{position:relative;z-index:1}
+.cb:hover{color:var(--cc)}
+.cb:hover:after{transform:scaleX(1);transform-origin:top left}
 .mt{position:absolute;opacity:0;width:1px;height:1px}
 .hb,a.fab{display:none}
+/* JS ありの時：固定ヘッダー、下スクロールで隠れ、上スクロールで白地で出る */
+.js .hd{position:fixed}
+.js .hd.sc{opacity:0;visibility:hidden}
+.js .hd.sc.up{opacity:1;visibility:visible;background:#fff}
+.js .hd.setc{--ac:#db680f;--cc:#db680f;--ct:#fff}
 
-/* glitch brush (BF .brush) */
-.gl{position:absolute;display:flex;flex-direction:column;gap:3px;pointer-events:none;z-index:1}
-.gl span{display:block;flex:none;animation:gx 4.2s steps(1) infinite}
-.gl span:nth-child(3n){animation-delay:-1.3s;animation-duration:3.1s}
-.gl span:nth-child(4n+1){animation-delay:-2.2s;animation-duration:5.3s}
-@keyframes gx{0%,100%{transform:translateX(0)}12%{transform:translateX(-14px)}14%{transform:translateX(9px)}16%{transform:translateX(0)}58%{transform:translateX(22px)}60%{transform:translateX(0)}}
-@keyframes fin{from{opacity:0;transform:translateX(-60px)}to{opacity:1;transform:none}}
+/* ===== 1 ファーストビュー（.top-visual） ===== */
+.hero{position:relative;display:flex;justify-content:flex-end;padding:84px 5% 0 4%;margin-bottom:192px;z-index:1}
+.hph{position:relative;width:clamp(700px,59vw,59vw);aspect-ratio:806/719;z-index:2}
+.hph .ph{position:absolute;inset:0;clip-path:polygon(0.0% 0.8%,1.7% 0.4%,3.3% 1.7%,5.0% 0.2%,6.7% 1.4%,8.3% 1.0%,10.0% 0.2%,11.7% 1.3%,13.3% 0.1%,15.0% 1.1%,16.7% 0.2%,18.3% 0.2%,20.0% 1.1%,21.7% 2.1%,23.3% 0.3%,25.0% 0.6%,26.7% 1.6%,28.3% 2.5%,30.0% 1.5%,31.7% 1.0%,33.3% 2.5%,35.0% 0.1%,36.7% 2.2%,38.3% 0.8%,40.0% 0.4%,41.7% 0.3%,43.3% 0.8%,45.0% 2.1%,46.7% 0.5%,48.3% 1.5%,50.0% 1.7%,51.7% 1.0%,53.3% 1.4%,55.0% 0.2%,56.7% 0.2%,58.3% 0.5%,60.0% 1.8%,61.7% 1.1%,63.3% 0.8%,65.0% 1.5%,66.7% 1.2%,68.3% 0.8%,70.0% 2.1%,71.7% 1.8%,73.3% 0.6%,75.0% 1.5%,76.7% 1.4%,78.3% 2.3%,80.0% 1.9%,81.7% 0.7%,83.3% 2.5%,85.0% 0.3%,86.7% 1.1%,88.3% 2.0%,90.0% 0.4%,91.7% 1.3%,93.3% 0.1%,95.0% 1.7%,96.7% 2.0%,98.3% 1.5%,100.0% 2.3%,99.0% 2.5%,97.8% 5.0%,98.1% 7.5%,98.1% 10.0%,98.5% 12.5%,97.3% 15.0%,97.0% 17.5%,98.5% 20.0%,97.9% 22.5%,99.8% 25.0%,97.8% 27.5%,97.9% 30.0%,96.8% 32.5%,97.4% 35.0%,99.1% 37.5%,98.8% 40.0%,97.9% 42.5%,99.9% 45.0%,98.5% 47.5%,99.5% 50.0%,99.6% 52.5%,99.8% 55.0%,97.5% 57.5%,99.6% 60.0%,99.2% 62.5%,98.7% 65.0%,97.2% 67.5%,99.7% 70.0%,98.6% 72.5%,98.2% 75.0%,97.2% 77.5%,97.4% 80.0%,97.2% 82.5%,99.1% 85.0%,98.7% 87.5%,98.9% 90.0%,97.2% 92.5%,96.9% 95.0%,99.5% 97.5%,99.4% 100.0%,98.3% 99.4%,96.7% 99.4%,95.0% 98.7%,93.3% 98.5%,91.7% 99.3%,90.0% 100.0%,88.3% 98.9%,86.7% 99.0%,85.0% 98.5%,83.3% 97.5%,81.7% 98.2%,80.0% 98.7%,78.3% 98.4%,76.7% 98.2%,75.0% 99.9%,73.3% 97.7%,71.7% 98.0%,70.0% 97.7%,68.3% 97.9%,66.7% 99.0%,65.0% 99.0%,63.3% 99.7%,61.7% 98.4%,60.0% 99.8%,58.3% 99.8%,56.7% 99.5%,55.0% 99.6%,53.3% 99.1%,51.7% 99.9%,50.0% 100.0%,48.3% 99.6%,46.7% 99.7%,45.0% 99.1%,43.3% 99.9%,41.7% 97.7%,40.0% 98.4%,38.3% 99.6%,36.7% 99.3%,35.0% 99.1%,33.3% 99.1%,31.7% 99.7%,30.0% 97.8%,28.3% 97.4%,26.7% 98.8%,25.0% 98.7%,23.3% 99.8%,21.7% 99.7%,20.0% 99.1%,18.3% 99.3%,16.7% 97.8%,15.0% 99.6%,13.3% 99.9%,11.7% 97.5%,10.0% 98.6%,8.3% 99.6%,6.7% 98.6%,5.0% 99.9%,3.3% 98.6%,1.7% 97.5%,0.0% 97.8%,2.2% 97.5%,0.8% 95.0%,1.2% 92.5%,0.5% 90.0%,2.5% 87.5%,1.7% 85.0%,2.5% 82.5%,1.1% 80.0%,0.7% 77.5%,2.6% 75.0%,3.2% 72.5%,2.7% 70.0%,2.6% 67.5%,2.6% 65.0%,2.4% 62.5%,0.7% 60.0%,1.7% 57.5%,1.1% 55.0%,0.1% 52.5%,0.1% 50.0%,0.9% 47.5%,0.8% 45.0%,2.2% 42.5%,3.1% 40.0%,1.4% 37.5%,3.0% 35.0%,3.2% 32.5%,3.1% 30.0%,1.2% 27.5%,0.7% 25.0%,0.7% 22.5%,0.6% 20.0%,0.7% 17.5%,2.0% 15.0%,2.9% 12.5%,2.7% 10.0%,1.5% 7.5%,2.1% 5.0%,2.6% 2.5%)}
+.hph img{width:100%;height:100%;object-fit:cover;object-position:40% 50%}
+.hph .gli{position:absolute;left:-2%;top:36%;width:42%;z-index:3;opacity:.55;mix-blend-mode:screen}
+.hph .gli2{position:absolute;right:-3%;top:62%;width:30%;z-index:3;opacity:.5;mix-blend-mode:screen}
+.hin{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:100%;max-width:clamp(1480px,90%,100%);z-index:20;padding-left:3%}
+.cp{width:clamp(350px,31vw,520px);font-weight:900;font-size:clamp(34px,3.5vw,54px);line-height:1;letter-spacing:.02em;color:var(--o);position:relative}
+.cp span{position:relative;display:block;width:fit-content;white-space:nowrap;background:var(--cr);padding:.2em .32em .22em;margin-bottom:.24em}
+.cp span:nth-child(1){margin-left:1.1em;clip-path:polygon(0.0% 2.0%,5.6% 8.7%,11.1% 1.1%,16.7% 6.3%,22.2% 0.8%,27.8% 2.2%,33.3% 9.0%,38.9% 1.9%,44.4% 5.8%,50.0% 4.1%,55.6% 4.1%,61.1% 4.5%,66.7% 1.7%,72.2% 7.5%,77.8% 0.8%,83.3% 2.1%,88.9% 0.2%,94.4% 2.4%,100.0% 3.7%,98.6% 25.0%,99.4% 50.0%,99.8% 75.0%,99.6% 100.0%,94.4% 91.1%,88.9% 99.4%,83.3% 94.4%,77.8% 96.6%,72.2% 94.1%,66.7% 97.0%,61.1% 93.8%,55.6% 95.5%,50.0% 94.2%,44.4% 91.9%,38.9% 94.8%,33.3% 98.7%,27.8% 99.4%,22.2% 91.5%,16.7% 95.6%,11.1% 98.3%,5.6% 91.5%,0.0% 94.8%,1.2% 75.0%,1.4% 50.0%,0.5% 25.0%)}
+.cp span:nth-child(2){clip-path:polygon(0.0% 4.2%,5.6% 3.4%,11.1% 1.2%,16.7% 7.8%,22.2% 0.1%,27.8% 4.5%,33.3% 8.1%,38.9% 0.7%,44.4% 5.0%,50.0% 5.5%,55.6% 0.4%,61.1% 3.4%,66.7% 6.3%,72.2% 4.1%,77.8% 6.5%,83.3% 1.4%,88.9% 2.1%,94.4% 1.0%,100.0% 4.6%,98.5% 25.0%,99.1% 50.0%,98.8% 75.0%,99.4% 100.0%,94.4% 93.3%,88.9% 99.1%,83.3% 97.4%,77.8% 93.9%,72.2% 93.5%,66.7% 96.2%,61.1% 99.2%,55.6% 97.6%,50.0% 98.1%,44.4% 97.5%,38.9% 92.7%,33.3% 98.2%,27.8% 92.0%,22.2% 92.1%,16.7% 99.5%,11.1% 96.6%,5.6% 95.6%,0.0% 99.8%,0.7% 75.0%,1.5% 50.0%,0.2% 25.0%)}
+.cp span:nth-child(3){margin-left:.9em;clip-path:polygon(0.0% 5.1%,5.6% 3.9%,11.1% 5.2%,16.7% 1.9%,22.2% 7.3%,27.8% 7.4%,33.3% 5.9%,38.9% 1.4%,44.4% 4.7%,50.0% 2.9%,55.6% 2.2%,61.1% 8.6%,66.7% 9.0%,72.2% 0.4%,77.8% 7.7%,83.3% 5.4%,88.9% 3.4%,94.4% 2.6%,100.0% 6.1%,99.3% 25.0%,98.9% 50.0%,98.9% 75.0%,99.8% 100.0%,94.4% 93.1%,88.9% 91.2%,83.3% 91.3%,77.8% 94.5%,72.2% 99.6%,66.7% 100.0%,61.1% 98.8%,55.6% 91.5%,50.0% 97.3%,44.4% 96.7%,38.9% 91.9%,33.3% 97.2%,27.8% 95.1%,22.2% 96.1%,16.7% 99.4%,11.1% 94.7%,5.6% 92.4%,0.0% 98.6%,0.4% 75.0%,0.7% 50.0%,0.1% 25.0%)}
+.cp .ln{position:absolute;height:6px;background:var(--cr)}
+.hm{margin-top:52px;padding-left:80px;max-width:520px}
+.hm p.tx{font-size:15px;line-height:1.8;color:#fff}
+.hbt{display:flex;gap:12px;margin-top:24px;max-width:430px}
+.hlk{margin-top:24px;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px}
+.hlk small{font-size:13px;font-weight:700}
+.hero .bru{z-index:-1}
+.ha{left:0;top:150px;width:300px}
+.hb2{left:0;bottom:40px;width:761px;transform:translateY(100%)}
+.hc2{right:-80px;top:60px;width:691px}
+.hd2{left:51%;bottom:-40px;width:clamp(621px,41vw,41vw);transform:translateX(-50%)}
+/* 出方（JS）：左から .6s でスライドイン */
+.js .hero .h-a{opacity:0;transform:translateX(-60px);transition:opacity .5s var(--tr),transform .7s var(--tr)}
+.js .hero .h-a.on{opacity:1;transform:none}
+.js .hero .hd2.h-a{transform:translateX(calc(-50% - 100px))}
+.js .hero .hd2.h-a.on{transform:translateX(-50%)}
+.js .hero .hb2.h-a{transform:translate(-80px,100%)}
+.js .hero .hb2.h-a.on{transform:translateY(100%)}
 
-/* BF parts */
-.h2{margin:0;font-weight:900;font-size:65px;line-height:1.3;letter-spacing:0}
-.h2.m{font-size:48px}
-.tag{display:inline-flex;margin:4px 0 0;background:#fff;color:#163300;font-family:Inter,sans-serif;font-weight:900;font-size:14px;line-height:1;padding:1px 8px 2px;letter-spacing:.01em}
-.kari{display:inline-block;margin:0 0 0 .6em;padding:.15em .55em;font:700 11px/1.4 'Noto Sans JP',sans-serif;letter-spacing:.05em;border:1px dashed currentColor;border-radius:3px;vertical-align:middle;opacity:.85;white-space:nowrap}
-.h2 .kari{vertical-align:.6em}
-.lb{position:relative;display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:320px;padding-bottom:16px;font-weight:900;font-size:18px;line-height:1.5}
-.lb:before,.lb:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:4px;background:#fff}
-.lb:after{background:#163300;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ez)}
-.lb:hover:after{transform:scaleX(1);transform-origin:left}
-.lb svg,.arw{flex:none;width:14px;height:14px;transition:transform .3s}
-.lb:hover svg{transform:translateX(4px)}
-.lbs{display:flex;flex-direction:column;gap:28px}
-.lbr{display:flex;justify-content:flex-end;margin-top:48px}
-.bt{position:relative;white-space:nowrap;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:60px;padding:0 16px;border:3px solid #fff;border-radius:2px;background:#fff;color:#163300;font-size:15px;font-weight:900;overflow:hidden}
-.bt span,.bt svg{position:relative;z-index:1}
-.bt:after{content:"";position:absolute;inset:0;background:#c8f56b;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ez)}
-.bt:hover:after{transform:scaleX(1);transform-origin:left}
-.bt svg{width:14px;height:8px}
-.ul{display:inline-flex;align-items:center;gap:8px;font-weight:900;font-size:15px;line-height:1.5;background-image:linear-gradient(currentColor,currentColor);background-repeat:no-repeat;background-position:0 100%;background-size:100% 1px;padding-bottom:2px}
-.ul:hover{background-size:0 1px;background-position:100% 100%;transition:background-size .4s var(--ez)}
-.ul svg{width:10px;height:12px;flex:none}
+/* 背景の筆跡の出方（.bg-animate / .bg-animate-right） */
+.js .ba{opacity:0;transform:translateX(-50px);transition:all 1s var(--tr) .2s}
+.js .ba.on{opacity:1;transform:none}
+.js .bar{opacity:0;transition:all 1s var(--tr) .4s}
+.js .bar.on{opacity:1;transform:translateX(50px)}
 
-/* 1 hero (BF .top-visual) */
-.hero{position:relative;max-width:1440px;margin:0 auto;padding:12px 4% 0;min-height:760px}
-.hph{position:absolute;right:0;top:0;width:min(59vw,860px);aspect-ratio:806/700;z-index:2;animation:fin .8s var(--ez) both .15s}
-.hpi{display:block;width:100%;height:100%;overflow:hidden}
-.hph img{width:100%;height:100%;object-fit:cover;object-position:55% 50%;transform:scale(1.1);transform-origin:85% 15%}
-.hero .g1{right:-40px;top:70px;width:200px;z-index:3}
-.hero .g2{left:-60px;bottom:-40px;width:48%;z-index:3}
-.hero .g3{left:-2%;top:300px;width:260px;z-index:1}
-.hc{position:relative;z-index:5;padding-top:72px;max-width:720px}
-.cp{font-weight:900;font-size:clamp(36px,4.4vw,64px);line-height:1;letter-spacing:.02em}
-.cp span{display:block;width:fit-content;white-space:nowrap;background:#fff;padding:.16em .34em .2em;margin-bottom:.14em;clip-path:polygon(0 9%,4% 0,19% 7%,36% 1%,53% 6%,71% 0,87% 7%,100% 2%,98% 31%,100% 56%,97% 81%,100% 100%,83% 93%,65% 100%,47% 94%,29% 100%,12% 93%,0 100%,2% 70%,0 46%,3% 22%);animation:fin .7s var(--ez) both}
-.cp span:nth-child(1){margin-left:1.1em;animation-delay:.3s}
-.cp span:nth-child(2){animation-delay:.45s}
-.cp span:nth-child(3){margin-left:1.5em;animation-delay:.6s}
-.hm{margin-top:44px;padding-left:3rem;max-width:520px;animation:fin .6s var(--ez) both .8s}
-.hm .sub{font-size:15px;line-height:1.8;font-weight:700}
-.hbtn{display:grid;grid-template-columns:minmax(0,260px);gap:12px;margin-top:24px}
-.hlk{margin-top:22px;display:flex;flex-direction:column;align-items:flex-start;gap:2px}
-.hlk small{font-size:13px;font-weight:700;padding-left:2px}
-
-/* 2 studio (BF About) */
-.ab{position:relative;padding-top:120px}
-.abg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:start;margin-top:56px}
-.abt{padding-left:176px}
-.abt h3{font-size:26px;font-weight:900;line-height:1.45}
-.abt h3 small{display:block;font-size:15px;font-weight:700;margin-bottom:6px}
-.abt p.tx{margin-top:20px;font-size:16px;line-height:2;font-weight:500}
-.abt .lbs{margin-top:40px}
-.abn{display:flex;align-items:flex-end;justify-content:flex-end;gap:8px;font-weight:900;line-height:1}
-.abn small{font-size:18px;padding-bottom:10px}
-.abn b{font-family:Inter,sans-serif;font-size:64px;letter-spacing:-.04em}
-.abn b i{font-style:normal;font-size:30px;margin-left:2px}
-.abm{margin-top:18px;position:relative}
-.abm img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:50% 40%}
-.ab2{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:72px;align-items:center;margin-top:120px}
-.col{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:0;margin-left:calc(-1 * max(40px,(100vw - 1280px)/2 + 40px))}
-.col img{width:100%;height:100%;object-fit:cover}
-.col span{display:block;overflow:hidden;aspect-ratio:4/3}
+/* ===== 2 スタジオ（About BE FORWARD） ===== */
+.h2.ab{font-size:54px}
+.abg{display:flex;gap:48px;margin-top:52px;padding-left:176px}
+.abl{flex:0 0 380px}
+.abl h3,.ab2 h3{font-size:24px;font-weight:900;line-height:1.4}
+.abl h3 small,.ab2 h3 small{display:block;font-size:15px;font-weight:700;margin-bottom:6px}
+.abl p.tx,.ab2 p.tx{margin-top:18px;font-size:18px;line-height:1.75;text-align:justify}
+.abl .lb{margin-top:40px}
+.abr{flex:1;min-width:0}
+.abn{display:flex;flex-direction:column;align-items:center;margin:-84px -36px 0 0}
+.num{font-weight:900;line-height:1.1;white-space:nowrap}
+.num small{font-size:18px}
+.num b{font:900 64px/1.1 Inter,sans-serif;letter-spacing:-.04em;margin-left:4px}
+.num i{font-style:normal;font-size:26px;margin-left:2px}
+.abn figure{margin-top:12px;width:100%;aspect-ratio:628/400;overflow:hidden}
+.abn img{width:100%;height:100%;object-fit:cover}
+.ab2{position:relative;margin-top:110px;padding-left:76px;min-height:calc(50vw * 444 / 680)}
+.ab2 .num{margin-bottom:14px}
+.ab2 .lbs{margin-top:36px;max-width:382px}
+.col{position:absolute;left:0;top:0;width:50vw;aspect-ratio:680/444;transform:translateX(-100%);display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:1fr 1fr}
+.col span{overflow:hidden}
 .col span:nth-child(-n+3){grid-column:span 2}
-.col span:nth-child(n+4){grid-column:span 3;aspect-ratio:3/2}
-.col span img{transition:transform .6s var(--ez)}
-.col span:hover img{transform:scale(1.05)}
-.ab2r .abn{justify-content:flex-start;margin-bottom:22px}
-.ab2r h3{font-size:26px;font-weight:900;line-height:1.45}
-.ab2r h3 small{display:block;font-size:15px;font-weight:700;margin-bottom:6px}
-.ab2r p.tx{margin-top:18px;font-size:16px;line-height:2;font-weight:500}
-.ab2r .lbs{margin-top:36px;max-width:380px}
+.col span:nth-child(n+4){grid-column:span 3}
+.col img{width:100%;height:100%;object-fit:cover}
 
-/* 3 strengths (BF 社員インタビュー) */
-.iv{position:relative;padding-top:260px}
-.iv .g4{left:-3%;top:110px;width:340px}
-.ivg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:56px;padding-left:176px}
-.ivg li{position:relative}
-.ivg .im{display:block;aspect-ratio:1/1;overflow:hidden}
-.ivg img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ez)}
-.ivg li:hover img{transform:scale(1.04)}
-.ivg small{display:block;margin-top:22px;font-size:14px;font-weight:900;line-height:1.5}
-.ivg strong{display:block;margin-top:8px;font-size:19px;font-weight:900;line-height:1.6}
-.ivg p{margin-top:12px;font-size:14px;line-height:1.85;font-weight:500}
-.ivg .nm2{display:flex;justify-content:flex-end;margin-top:16px;font-size:13px;font-weight:700;line-height:1.3}
-.ivg .nm2 i{font-style:normal;margin-right:8px;padding-right:8px;border-right:1px solid #163300}
+/* ===== 3 強み（仕事紹介：左に見出し、右に線で区切った一覧） ===== */
+.jb{padding-top:332px}
+.jbf{display:flex;justify-content:space-between;gap:64px}
+.jbl{flex:1;max-width:760px}
+.jbl ul{border-top:2px solid #fff}
+.jbl li a{position:relative;display:flex;align-items:center;gap:32px;padding:28px 0;color:#fff;transition:color .3s}
+.jbl li a:before,.jbl li a:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--ln)}
+.jbl li a:after{background:var(--k);transform:scaleX(0);transform-origin:top right;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.jbl li a:hover{color:var(--k)}
+.jbl li a:hover:after{transform:scaleX(1);transform-origin:top left}
+.jbl .im{flex:none;width:112px;aspect-ratio:1;overflow:hidden}
+.jbl .im img{width:100%;height:100%;object-fit:cover}
+.jbl .t{flex:1;display:flex;flex-direction:column}
+.jbl .t small{font:900 14px/1.3 Inter,'Noto Sans JP',sans-serif;letter-spacing:.06em}
+.jbl .t b{margin-top:6px;font-size:24px;font-weight:700;line-height:1.4}
+.jbl .t span{margin-top:12px;font-size:16px;line-height:1.7}
+.jbl li a>svg{flex:none;width:14px;height:5px}
+.jbr{display:flex;justify-content:flex-end;margin-top:60px}
+.s1{left:0;top:-30px;width:886px;height:auto}
+.s2{right:0;top:-85px;width:513px}
 
-/* 4 works (BF クロストーク + About number) */
-.ct{position:relative;padding-top:180px}
-.nmg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 40px;margin-top:56px;padding-left:176px}
-.nmg p{display:flex;flex-direction:column;font-weight:900;line-height:1.2}
-.nmg small{font-size:16px}
-.nmg b{font-family:Inter,'Noto Sans JP',sans-serif;font-size:clamp(34px,3.6vw,52px);letter-spacing:-.04em;line-height:1.1;white-space:nowrap;margin-top:6px}
-.nmg b i{font-style:normal;font-family:'Noto Sans JP',sans-serif;font-size:17px;letter-spacing:0;margin-left:4px}
-.nmg span{margin-top:12px;padding-top:12px;border-top:4px solid #fff;font-size:13px;font-weight:700}
-.ctg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 32px;margin-top:80px;padding-left:176px}
-.ctg a{display:block}
-.ctg .im{display:block;aspect-ratio:40/21;overflow:hidden}
-.ctg img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ez)}
-.ctg a:hover img{transform:scale(1.04)}
-.ctg strong{display:block;margin-top:18px;font-size:16px;font-weight:900;line-height:1.55}
-.ctg span.d{display:flex;margin-top:8px;font-size:14px;line-height:1.5;font-weight:700}
-.ctg span.d i{font-style:normal;font-family:Inter,sans-serif;margin-right:10px;padding-right:10px;border-right:1px solid #163300}
-.cli{display:flex;gap:24px;margin:64px 0 0 176px;padding-top:20px;border-top:1px solid #fff;font-size:15px;font-weight:500;line-height:1.8}
-.cli b{flex:none;font-weight:900}
+/* ===== 4 実績（社員インタビュー＋クロストーク） ===== */
+.iv{padding-top:260px}
+.nmg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 40px;margin-top:64px;padding-left:176px}
+.nmg p{display:flex;flex-direction:column;border-top:4px solid #fff;padding-top:16px}
+.nmg .num b{font-size:clamp(30px,3vw,46px)}
+.nmg .num i{font-size:18px}
+.nmg span.d{white-space:normal;margin-top:6px;font-size:13px;font-weight:500}
+.ivg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:72px;padding-left:176px}
+.ivg a{display:block;color:#fff;transition:color .3s}
+.ivg a:hover{color:var(--k)}
+.ivg .im{display:block;aspect-ratio:40/21;overflow:hidden}
+.ivg img{width:100%;height:100%;object-fit:cover}
+.ivg small{display:block;margin-top:24px;font-size:14px;font-weight:900}
+.ivg .tt{margin-top:12px;font-size:18px;font-weight:900;line-height:1.3}
+.ivg .mt2{display:flex;justify-content:flex-end;margin-top:24px;font-size:14px;line-height:1.1}
+.ivg .mt2 span:first-child{margin-right:8px;padding-right:8px;border-right:1px solid #fcad83}
+.ivm{margin-top:52px;padding-left:176px}
+.ivm .jbr{margin-top:0}
+.ivm h3{margin-top:16px;font-size:32px;font-weight:900;line-height:1.1}
+.ivm p.tx{margin-top:32px;font-size:16px;line-height:1.8;max-width:760px}
+.w1{left:0;top:-300px;width:969px}
+.w2{right:0;top:80px;width:391px}
 
-/* 5 voice (BF 10の質問) */
-.qa{position:relative;padding:230px 0 40px}
-.qa .bgq{position:absolute;left:50%;top:360px;transform:translateX(-50%);font-family:Inter,sans-serif;font-weight:900;font-size:240px;line-height:1;letter-spacing:-.02em;color:rgba(22,51,0,.1);white-space:nowrap;pointer-events:none}
-.qaw{position:relative;min-height:660px}
-.qac{position:relative;z-index:2;width:440px;margin:0 auto;padding-top:120px;text-align:center}
-.qac .ey{font-size:20px;font-weight:900;line-height:1.4}
-.qac .h2{font-size:80px;line-height:1.15;margin-top:6px}
-.qac .h2 .kari{display:block;width:fit-content;margin:10px auto 0;vertical-align:0}
-.qac p.tx{margin-top:22px;font-size:14px;line-height:1.9;font-weight:500;text-align:left}
-.qac .lb{margin-top:28px;min-width:0}
-.bb{position:absolute;z-index:3;width:330px;transform:rotate(var(--r,0deg));transition:transform .4s var(--ez);--c:#fff}
-.bb .bi{display:block;padding:26px 28px 28px;background:var(--c);clip-path:polygon(0 2%,8% 0,22% 3%,40% 0,58% 2%,76% 0,92% 3%,100% 0,99% 30%,100% 62%,98% 100%,80% 97%,62% 100%,44% 98%,26% 100%,10% 97%,0 100%,1% 64%,0 32%)}
-.bb:hover{transform:rotate(0deg) translateY(-4px)}
-.bb:after{content:"";position:absolute;bottom:-20px;left:var(--tx,40%);width:30px;height:22px;background:var(--c);clip-path:polygon(0 0,100% 0,30% 100%)}
-.bb .q{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:900;line-height:1.4}
-.bb .q i{flex:none;display:flex;align-items:center;justify-content:center;width:38px;height:38px;border:3px solid #163300;font-style:normal;font-family:Inter,sans-serif;font-size:17px}
-.bb strong{display:block;margin-top:14px;font-size:21px;font-weight:900;line-height:1.5}
-.bb p{margin-top:12px;font-size:12px;line-height:1.7;font-weight:700}
-.bv1{left:0;top:10px;--r:-2deg;--tx:60%}
-.bv2{left:40px;top:380px;--r:2deg;--c:#eefad6;--tx:30%}
-.bv3{right:0;top:170px;--r:-1.5deg;--c:#f6fdea;--tx:66%}
+/* ===== 5 お客様の声（10の質問） ===== */
+.qa{margin-top:100px}
+.qai{position:relative;padding:24px 0 92px}
+.qbg{position:absolute;left:50%;top:38%;transform:translate(-50%,-50%);z-index:-1;font:900 250px/1 Inter,sans-serif;letter-spacing:-.02em;color:#c2530a;opacity:.55;white-space:nowrap}
+.qac{position:relative;z-index:10;width:370px;margin:0 auto}
+.qh{display:flex;flex-direction:column;align-items:center;font-weight:900;line-height:1.1;white-space:nowrap}
+.qh .s{font-size:26px;letter-spacing:.05em}
+.qh .b{line-height:1}
+.qh .b .en{position:relative;margin-left:-.05em;font-size:124px}
+.qh .b .no{margin-left:-.1em;font-size:56px;font-weight:700;letter-spacing:-.2em}
+.qh .b .k{font-size:104px;font-weight:700;letter-spacing:-.1em}
+.qh .kari{margin:10px 0 0}
+.qac p.tx{margin-top:28px;font-size:16px;line-height:1.8;letter-spacing:.1em;text-align:justify}
+.qac .lbw{margin-top:48px}
+.qac .lb{min-width:0}
+.qs{position:absolute;top:50%;transform:translateY(-50%);width:349px;height:505px}
+.qs.l{left:0}.qs.r{right:0}
+.bb{position:absolute;width:236px;color:#fff;transform:rotate(var(--r,0deg));transition:transform .4s var(--tr)}
+.bb:hover{transform:rotate(0deg)}
+.bb .bi{display:block;padding:22px 20px 24px;background:var(--c);clip-path:polygon(0.0% 1.1%,10.0% 1.4%,20.0% 2.3%,30.0% 1.2%,40.0% 1.3%,50.0% 1.5%,60.0% 0.5%,70.0% 1.3%,80.0% 1.6%,90.0% 2.0%,100.0% 0.2%,99.2% 12.5%,99.8% 25.0%,98.0% 37.5%,98.3% 50.0%,99.9% 62.5%,97.5% 75.0%,97.6% 87.5%,98.4% 100.0%,90.0% 98.5%,80.0% 99.6%,70.0% 100.0%,60.0% 98.7%,50.0% 99.9%,40.0% 99.5%,30.0% 99.4%,20.0% 99.9%,10.0% 98.8%,0.0% 98.9%,2.1% 87.5%,1.3% 75.0%,1.6% 62.5%,1.2% 50.0%,1.7% 37.5%,1.1% 25.0%,0.7% 12.5%)}
+.bb:after{content:"";position:absolute;bottom:-26px;left:var(--tx,30%);width:34px;height:28px;background:var(--c);clip-path:polygon(0 0,100% 0,var(--tp,20%) 100%)}
+.bb .q{display:block;font-size:12px;font-weight:900;line-height:1.4}
+.bb strong{display:block;margin-top:8px;font-size:19px;font-weight:900;line-height:1.35;letter-spacing:.02em}
+.bb p{margin-top:10px;font-size:11px;line-height:1.6;font-weight:700;opacity:.92}
+.bv1{left:0;top:0;--c:#a91901;--r:-3deg;--tx:58%}
+.bv2{left:70px;top:255px;--c:#843bc6;--r:2deg;--tx:24%;--tp:80%}
+.bv3{right:10px;top:0;--c:#1d6e40;--r:2deg;--tx:24%;width:250px}
+.bv4{right:60px;top:300px;--c:#4a51b0;--r:-2deg;--tx:60%;width:200px}
+.bv4 strong{font-size:16px}
+.q1{right:0;bottom:-152px;width:368px}
 
-/* 6 news (BF 選考について) */
-.sl{position:relative;padding-top:230px}
-.sl .g5{left:-3%;top:60px;width:380px}
-.slg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;margin-top:56px;padding-left:176px}
-.slg a{position:relative;display:flex;align-items:center;gap:16px;height:100%;padding:16px 0;border-top:1px solid #fff;border-bottom:1px solid #fff}
-.slg a:after{content:"";position:absolute;left:0;bottom:-1px;width:100%;height:1px;background:#163300;transform:scaleX(0);transform-origin:right;transition:transform .45s var(--ez)}
-.slg a:hover:after{transform:scaleX(1);transform-origin:left}
-.slg .im{flex:none;width:100px;height:100px;overflow:hidden}
-.slg img{width:100%;height:100%;object-fit:cover}
-.slg .tx{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+/* ===== 6 お知らせ（選考について） ===== */
+.sl{padding-top:300px;padding-bottom:200px}
+.slg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:80px;padding-left:176px}
+.slg a{position:relative;display:block;color:#fff;transition:color .3s}
+.slg a:hover{color:var(--k)}
+.slg .bh{position:relative;display:block;height:1px}
+.slg .bh:before,.slg .bh:after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--ln)}
+.slg .bh:after{background:var(--k);transform:scaleX(0);transform-origin:top right;transition:transform .3s cubic-bezier(.4,0,.2,1)}
+.slg a:hover .bh:after{transform:scaleX(1);transform-origin:top left}
+.slg .rw{display:flex;align-items:center;gap:20px;padding:16px 0}
+.slg .im{flex:none;width:100px;aspect-ratio:1;overflow:hidden}
+.slg .im img{width:100%;height:100%;object-fit:cover}
+.slg .tx{flex:1;display:flex;flex-direction:column;gap:6px;min-width:0}
 .slg .mta{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:700}
-.slg .mta em{font-style:normal;font-family:Inter,sans-serif;font-size:13px}
-.slg .mta .tag{margin:0;font-family:'Noto Sans JP',sans-serif;font-size:11px;padding:2px 6px}
-.slg strong{font-size:15px;font-weight:900;line-height:1.55}
-.slg .arw{width:12px;height:12px}
+.slg .mta em{font:500 13px/1 Inter,sans-serif;font-style:normal}
+.slg .mta .tag{margin:0;white-space:nowrap;font:900 11px/1.4 'Noto Sans JP',sans-serif;padding:0 6px}
+.slg strong{font-size:17px;font-weight:900;line-height:1.3}
+.slg .rw>svg{flex:none;width:14px;height:5px}
+.n1{left:0;top:80px;width:899px}
+@media(max-width:1400px){.slg{padding-left:64px}}
 
-/* 7 recruit (BF 働く環境) */
-.ev{position:relative;padding-top:200px}
-.bp{position:relative;height:560px}
-.bp img{width:100%;height:100%;object-fit:cover;object-position:50% 45%}
-.bp .gl{z-index:3}
-.bp .ga{left:-40px;bottom:-60px;width:52%}
-.bp .gb{right:-30px;top:-50px;width:36%}
-.evf{display:flex;justify-content:space-between;gap:48px;margin-top:110px}
-.evl{flex:none;width:44%}
-.evl p.tx{margin-top:32px;padding-left:116px;font-size:15px;line-height:1.9;font-weight:500}
+/* ===== 7 アニメーター募集（全幅写真＋働く環境＋スライダー） ===== */
+.band{position:relative;z-index:1;margin-top:60px}
+.band>picture{display:block;height:622px}
+.band>picture img{width:100%;height:100%;object-fit:cover;object-position:50% 55%}
+.band .bru{z-index:2}
+.b1{left:0;top:0;width:530px;transform:translateY(-100%)}
+.b2{right:0;top:40px;width:691px;transform:translateY(-100%)}
+.b3{left:0;bottom:70px;width:931px;transform:translateY(100%);z-index:3!important}
+.js .band .ba{transform:translate(-50px,-100%)}
+.js .band .ba.on{transform:translateY(-100%)}
+.js .band .b3.ba{transform:translate(-50px,100%)}
+.js .band .b3.ba.on{transform:translateY(100%)}
+.js .band .bar.on{transform:translate(50px,-100%)}
+.js .band .bar{transform:translateY(-100%)}
+.ev{margin-top:200px;padding:0}
+.evf{display:flex;align-items:center;justify-content:space-between}
+.evl{flex:1;display:flex;justify-content:flex-end;padding-left:80px}
+.evl>div{width:100%;max-width:650px}
+.evl p.tx{margin-top:40px;padding:0 76px 0 176px;font-size:16px;line-height:1.8}
 .evl p.tx b{font-weight:900}
-.evl .lbs{margin-top:36px;padding-left:116px}
+.evl .lbs{margin-top:40px;padding:0 76px 0 176px}
 .evl .lb{min-width:0}
-.evr{position:relative;flex:1;margin-right:-40px}
-.evr img{width:100%;aspect-ratio:680/444;object-fit:cover;object-position:50% 35%}
-.gal{position:relative;margin-top:56px}
-.gal .tk{display:flex;gap:16px;width:max-content;animation:gm 40s linear infinite alternate}
-.gal .tk img{flex:none;width:300px;height:200px;object-fit:cover}
-@keyframes gm{from{transform:translateX(0)}to{transform:translateX(calc(-100% + 100vw - 32px))}}
+.evr{position:relative;flex:1;aspect-ratio:900/562;width:50vw;max-width:50vw}
+.evr img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.gal{margin-top:72px}
+.gal .vp{overflow:hidden}
+.gal .tk{display:flex;width:max-content;animation:gm 112s linear infinite}
+.gal .tk span{flex:none;width:400px;margin-right:25px;aspect-ratio:420/267;overflow:hidden}
+.gal .tk img{width:100%;height:100%;object-fit:cover}
+@keyframes gm{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 .gal input{position:absolute;opacity:0;width:1px;height:1px}
 .gal input:checked~.vp .tk{animation-play-state:paused}
-.gal .vp{overflow:hidden}
-.gal label{display:flex;width:fit-content;margin:24px auto 0;padding:2px 8px;border:2px solid #163300;font-size:12px;font-weight:900;cursor:pointer;line-height:1.5}
-.gal label .on{display:none}
-.gal input:checked~label .on{display:inline}
-.gal input:checked~label .off{display:none}
-.gal input:focus-visible~label{outline:3px solid #fff;outline-offset:2px}
+.gbw{display:flex;justify-content:center;margin-top:36px}
+.sb{position:relative;display:inline-flex;align-items:center;min-height:30px;min-width:104px;padding:0 28px 0 12px;border:3px solid #fff;border-radius:2px;color:#fff;font-size:14px;font-weight:900;cursor:pointer;transition:all .1s}
+.sb:before,.sb:after{content:"";position:absolute;top:50%;transform:translateY(-50%);width:3px;height:12px;background:currentColor}
+.sb:before{right:12px}.sb:after{right:18px}
+.sb .on{display:none}
+.gal input:checked~.gbw .sb:before{display:none}
+.gal input:checked~.gbw .sb:after{right:12px;width:8px;clip-path:polygon(0 0,100% 50%,0 100%)}
+.gal input:checked~.gbw .sb .on{display:inline}
+.gal input:checked~.gbw .sb .off{display:none}
+.sb:hover{border-color:var(--k);color:var(--k)}
+.gal input:focus-visible~.gbw .sb{outline:3px solid #fff;outline-offset:3px}
 
-/* 8 contact (BF JOIN OUR TEAM) */
-.jn{position:relative;z-index:5;margin-top:220px}
-.jnb{position:relative;background:#fff;color:var(--dg);padding:150px 0 170px;clip-path:polygon(0 4%,6% 2.6%,13% 4.2%,22% 1.8%,31% 3.6%,42% 2%,50% 3.4%,61% 0,70% 2.8%,79% 1%,88% 3.6%,94% 1.6%,100% 3%,100% 97%,93% 98.4%,84% 96.8%,75% 99%,66% 97.4%,55% 99.4%,46% 97.6%,37% 100%,27% 97.8%,17% 99.2%,8% 97%,0 98.6%)}
-.jn .gl{z-index:6}
-.jn .ga{right:-30px;top:-30px;width:44%}
-.jn .gb{left:-40px;bottom:-30px;width:38%}
-.jn .gc{left:-50px;top:40%;width:200px}
-.jn .h2{font-size:42px;line-height:1.4;color:var(--dg)}
-.jn .tag{background:var(--bg);color:#163300}
-.jng{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin-top:40px;padding-left:160px}
-.jng p.tx{font-size:16px;line-height:1.9;font-weight:500}
-.jng .bts{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;max-width:300px}
-.jng .bt{background:var(--bg);border-color:var(--bg);min-height:64px;font-size:17px}
-.jng .bt:after{background:#c8f56b}
-.jr{display:flex;flex-direction:column;gap:6px;margin-top:4px;font-size:14px;font-weight:700}
-.jnr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;margin:48px 0 0 160px;padding-top:32px;border-top:1px solid #dfe9cf}
-.jnr p{font-size:16px;font-weight:500}
-.jtel{display:flex;flex-direction:column;gap:4px}
-.jtel a{font-family:Inter,'Noto Sans JP',sans-serif;font-weight:900;font-size:28px;line-height:1.3;letter-spacing:.02em}
-.jtel span{font-size:14px;font-weight:500}
+/* ===== 8 お問い合わせ（JOIN OUR TEAM：白地、ちぎれた上下） ===== */
+.jn{position:relative;z-index:20;margin-top:220px;color:var(--o)}
+.jnb{position:relative;background:#fff;padding:150px 80px 196px;clip-path:polygon(0.0% 1.52%,1.1% 2.10%,2.2% 2.13%,3.3% 0.46%,4.4% 0.03%,5.6% 1.20%,6.7% 0.88%,7.8% 2.59%,8.9% 2.21%,10.0% 1.92%,11.1% 1.79%,12.2% 2.12%,13.3% 0.46%,14.4% 1.41%,15.6% 0.52%,16.7% 2.90%,17.8% 0.19%,18.9% 2.62%,20.0% 0.24%,21.1% 2.20%,22.2% 1.08%,23.3% 1.29%,24.4% 2.70%,25.6% 0.06%,26.7% 0.19%,27.8% 2.93%,28.9% 1.63%,30.0% 0.29%,31.1% 3.16%,32.2% 3.03%,33.3% 0.36%,34.4% 1.35%,35.6% 0.43%,36.7% 1.00%,37.8% 1.99%,38.9% 0.52%,40.0% 2.23%,41.1% 0.16%,42.2% 0.55%,43.3% 2.61%,44.4% 1.28%,45.6% 1.34%,46.7% 1.91%,47.8% 1.53%,48.9% 1.23%,50.0% 0.10%,51.1% 2.32%,52.2% 3.10%,53.3% 3.12%,54.4% 2.12%,55.6% 1.14%,56.7% 1.16%,57.8% 2.21%,58.9% 2.16%,60.0% 0.36%,61.1% 0.75%,62.2% 1.16%,63.3% 1.64%,64.4% 2.59%,65.6% 1.60%,66.7% 0.09%,67.8% 2.63%,68.9% 1.38%,70.0% 1.66%,71.1% 0.71%,72.2% 1.37%,73.3% 1.24%,74.4% 2.47%,75.6% 0.33%,76.7% 1.76%,77.8% 0.57%,78.9% 2.23%,80.0% 0.12%,81.1% 0.88%,82.2% 1.10%,83.3% 2.04%,84.4% 0.17%,85.6% 1.47%,86.7% 0.67%,87.8% 0.90%,88.9% 1.52%,90.0% 3.07%,91.1% 1.54%,92.2% 3.06%,93.3% 0.54%,94.4% 2.96%,95.6% 1.17%,96.7% 0.61%,97.8% 2.40%,98.9% 2.92%,100.0% 0.02%,100.0% 99.14%,98.9% 97.53%,97.8% 98.91%,96.7% 99.23%,95.6% 99.97%,94.4% 99.87%,93.3% 98.02%,92.2% 96.85%,91.1% 96.80%,90.0% 98.39%,88.9% 99.92%,87.8% 98.97%,86.7% 97.48%,85.6% 97.34%,84.4% 97.95%,83.3% 99.27%,82.2% 98.31%,81.1% 98.47%,80.0% 97.99%,78.9% 99.16%,77.8% 96.97%,76.7% 97.14%,75.6% 99.48%,74.4% 99.07%,73.3% 97.21%,72.2% 99.11%,71.1% 96.98%,70.0% 98.35%,68.9% 97.77%,67.8% 97.74%,66.7% 99.31%,65.6% 99.09%,64.4% 99.18%,63.3% 97.81%,62.2% 97.78%,61.1% 99.58%,60.0% 97.16%,58.9% 98.65%,57.8% 99.23%,56.7% 98.61%,55.6% 96.87%,54.4% 98.21%,53.3% 98.00%,52.2% 97.06%,51.1% 96.92%,50.0% 97.57%,48.9% 98.66%,47.8% 98.12%,46.7% 97.12%,45.6% 97.47%,44.4% 98.14%,43.3% 98.89%,42.2% 98.82%,41.1% 97.65%,40.0% 98.20%,38.9% 99.95%,37.8% 97.73%,36.7% 97.11%,35.6% 97.45%,34.4% 97.13%,33.3% 97.09%,32.2% 98.29%,31.1% 97.47%,30.0% 98.79%,28.9% 99.69%,27.8% 98.87%,26.7% 99.00%,25.6% 97.01%,24.4% 97.79%,23.3% 98.27%,22.2% 98.01%,21.1% 99.60%,20.0% 98.29%,18.9% 97.76%,17.8% 98.74%,16.7% 99.21%,15.6% 98.70%,14.4% 98.96%,13.3% 97.81%,12.2% 99.55%,11.1% 99.71%,10.0% 99.00%,8.9% 97.77%,7.8% 97.57%,6.7% 97.89%,5.6% 97.01%,4.4% 98.83%,3.3% 99.90%,2.2% 98.44%,1.1% 98.58%,0.0% 99.43%)}
+.jn .h2{font-size:50px;line-height:1.1;color:var(--o)}
+.jng{display:flex;align-items:flex-start;justify-content:space-between;gap:80px;margin-top:36px;padding-left:160px}
+.jng p.tx{max-width:344px;font-size:18px;line-height:1.7;text-align:justify}
+.jng .r{flex:1;max-width:590px}
+.jng .bts{display:flex;gap:12px}
+.jng .ar{margin-top:24px;color:var(--o)}
+.jnd{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 40px;margin:36px 0 0 160px;padding-top:36px;border-top:1px solid #d0b8a5}
+.jnd dt{font-size:18px}
+.jnd dd{flex:1;max-width:590px;display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px;padding-top:2px}
+.jnd .tel{font:900 28px/1.2 Inter,'Noto Sans JP',sans-serif;letter-spacing:.02em}
+.jnd dd span{font-size:14px;font-weight:700}
+.jn .bru{z-index:2}
+.j1{right:0;top:-72px;width:774px}
+.j2{left:0;bottom:-87px;width:1058px}
+.j3{left:0;top:-14px;width:100%;opacity:.9}
+.j4{right:0;bottom:-12px;width:100%;opacity:.9}
 
-/* footer (BF footer) */
-.ft{padding:72px 0 40px}
-.flo{font-family:Inter,sans-serif;font-weight:900;font-size:44px;line-height:1;letter-spacing:-.02em}
-.fn{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px;margin-top:48px}
-.fn div{display:flex;flex-direction:column;align-items:flex-start;gap:6px}
-.fn .t{font-size:16px;font-weight:900;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:2px;margin-bottom:12px;min-height:32px;display:inline-flex;align-items:center}
-.fn .s{font-size:14px;font-weight:500;min-height:32px;display:inline-flex;align-items:center}
-.fn a:hover{text-decoration:underline}
-.fco{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 24px;margin-top:56px;font-size:13px;font-weight:500;line-height:1.7}
+/* ===== フッター（.footer） ===== */
+.ft{padding:140px 80px 0}
+.fti{max-width:1200px;margin:0 auto}
+.flo{display:inline-flex;align-items:baseline;gap:10px;font:900 40px/1 Inter,sans-serif;letter-spacing:-.01em}
+.flo small{font:700 13px/1 'Noto Sans JP',sans-serif;letter-spacing:.04em}
+.fn{display:flex;gap:80px;margin-top:60px}
+.fn>div{flex:1}
+.fn .t{font-size:20px;font-weight:700}
+.fn ul{display:grid;gap:16px;margin-top:24px}
+.fn li a{font-size:16px}
+.fco{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 24px;margin-top:64px;font-size:14px;line-height:1.7}
 .fco dt{font-weight:900}
-.fco dd{margin:0}
-.fno{margin-top:28px;font-size:13px;font-weight:700;line-height:1.8}
-.cr{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-top:24px;padding-top:24px;border-top:1px solid #fff;font-size:13px;font-weight:700;line-height:1.5}
-.cr small{font-family:Inter,sans-serif;font-size:12px;letter-spacing:.04em}
+.fno{margin-top:24px;font-size:13px;font-weight:700;line-height:1.8}
+.fbt{display:flex;align-items:center;gap:44px;margin-top:40px;padding:32px 0 36px;border-top:2px solid #e5e7eb}
+.fbt p{font-size:14px;line-height:1.3}
+.fbt small{flex:1;display:flex;justify-content:flex-end;font-size:12px;line-height:1.6}
 
-@media(max-width:1180px){
-.nl{gap:16px;font-size:14px}
-.cb{min-width:110px;padding:0 12px;font-size:14px}
+@media(max-width:1280px){
+.hc2{right:-160px}
+}
+@media(max-width:1200px){
+.nl{gap:16px}
+.nl>a,.dd>a{font-size:14px}
+.cb{min-width:0;padding:0 14px;font-size:14px}
 .lg small{display:none}
-.in,.abt,.ivg,.ctg,.slg,.nmg{padding-left:0}
-.cli,.jng,.jnr{margin-left:0;padding-left:0}
-.nmg{grid-template-columns:repeat(2,minmax(0,1fr))}
-.slg{grid-template-columns:minmax(0,1fr);gap:0}
-.slg li+li a{border-top:0}
-.qaw{min-height:0;display:flex;flex-direction:column;gap:28px}
-.qac{width:auto;max-width:560px;padding:0 0 12px}
-.bb{position:relative;left:auto;right:auto;top:auto;width:auto;max-width:560px}
-.bv2{align-self:flex-end}
-.evl p.tx,.evl .lbs{padding-left:0}
+.abg,.nmg,.ivg,.slg,.ivm{padding-left:0}
+.jng,.jnd{padding-left:0;margin-left:0}
+.abl{flex-basis:340px}
+.evl p.tx,.evl .lbs{padding-left:60px}
 }
-@media(max-width:1024px){
-.hph{width:min(52vw,860px)}
-.hc{max-width:520px}
-.abg{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
-.ab2{gap:40px}
-.ivg{gap:28px}
-}
-@media(max-width:860px){
-.hd{height:72px;padding:0 5.33%;flex-wrap:wrap}
+@media(max-width:1023px){
+.pg{font-size:14px}
+.sec{padding:0 5%}
+.hd{position:absolute!important;opacity:1!important;visibility:visible!important;background:none!important;--ac:#fff!important}
+.hdi{height:68px;padding:0 20px}
 .lg img{width:40px;height:40px}
 .lg b{font-size:24px}
-.hb{display:flex;flex-direction:column;justify-content:center;gap:6px;width:52px;height:52px;padding:0 13px;background:#fff;cursor:pointer}
-.hb span{display:block;height:2px;background:#163300}
+.hb{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;width:60px;height:60px;border-radius:2px;background:var(--k);color:#fff;font-size:11px;font-weight:700;cursor:pointer;position:relative;z-index:120}
+.hb .l{position:relative;display:block;width:26px;height:2px;margin:8px 0;background:#fff;transition:all .2s}
+.hb .l:before,.hb .l:after{content:"";position:absolute;left:0;width:100%;height:2px;background:#fff;transition:all .2s}
+.hb .l:before{top:-8px}.hb .l:after{bottom:-8px}
+.hb .c{display:none}
+.mt:checked+.hb .l{background:transparent}
+.mt:checked+.hb .l:before{transform:translateY(8px) rotate(30deg)}
+.mt:checked+.hb .l:after{transform:translateY(-8px) rotate(-30deg)}
+.mt:checked+.hb .o{display:none}
+.mt:checked+.hb .c{display:inline}
+.mt:checked+.hb{position:fixed;right:20px;top:4px}
 .mt:focus-visible+.hb{outline:3px solid #fff;outline-offset:2px}
-.mt~.nv{display:none}
-.mt:checked~.nv{display:flex;flex-direction:column;align-items:stretch;width:100%;gap:16px;background:#fff;padding:20px 16px 28px;box-shadow:0 12px 24px rgba(22,51,0,.15)}
-.mt:checked~.nv .nl{flex-direction:column;align-items:stretch;gap:0;font-size:16px;font-weight:700}
-.nl>a,.dd>a{min-height:52px;width:100%;border-bottom:1px solid #e5f8ca;background:none}
-.nl>a.on:before{display:none}
-.nl>a.on{color:var(--dg)}
-.mt:checked~.nv .ddm{display:flex;position:static;box-shadow:none;padding:0 0 0 18px;min-width:0}
-.dd svg{display:none}
-.cta{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
-.cb{border-color:#163300}
-a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:60;min-height:56px;padding:0 22px;background:#fff;color:#163300;font-weight:900;font-size:15px;border:2px solid #163300;box-shadow:0 6px 18px rgba(22,51,0,.15)}
-.w{padding:0 5.33%}
-.hero{display:flex;flex-direction:column;min-height:0;padding:8px 5.33% 0}
-.hph{position:relative;right:auto;width:100%;aspect-ratio:4/3.4}
-.hero .g1{right:-24px;top:30px;width:110px}
-.hero .g2{left:-30px;bottom:auto;top:24%;width:50%}
-.hero .g3{display:none}
-.hc{padding-top:0;margin-top:-48px;max-width:none}
-.cp{font-size:clamp(26px,8vw,48px)}
-.hm{padding-left:0;margin-top:28px}
-.hm .sub{font-size:14px}
-.hbtn{grid-template-columns:minmax(0,1fr);max-width:420px}
-.hlk .ul{font-size:14px}
-.h2{font-size:32px}
-.h2.m{font-size:28px}
+.nv{display:none}
+.mt:checked~.nv{display:flex;position:fixed;inset:0;z-index:110;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:40px;background:#fff;padding:110px 5.33% 120px;overflow:auto;border-top:68px solid #fff;box-shadow:inset 0 2px 0 var(--ln)}
+.mt:checked~.nv .nl{flex-direction:column;align-items:stretch;gap:28px}
+.mt:checked~.nv .nl>a,.mt:checked~.nv .dd>a{height:auto;color:var(--o);font-size:16px;font-weight:700}
+.mt:checked~.nv .nl>a.on:before{display:none}
+.mt:checked~.nv .ddm{display:flex;position:static;border:0;padding:12px 0 0 16px;min-width:0;gap:4px}
+.mt:checked~.nv .ddm a{min-height:36px;padding:0;font-size:14px}
+.dd>a svg{display:none}
+.mt:checked~.nv .cta{--cc:#db680f;--ct:#fff;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.mt:checked~.nv .cb{min-height:56px}
+a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;bottom:16px;z-index:90;min-height:56px;padding:0 20px;background:#fff;color:var(--o);font-weight:900;font-size:15px;border:3px solid #fff;border-radius:2px;box-shadow:0 4px 14px rgba(120,40,0,.25)}
+a.fab svg{width:18px;height:18px}
+.h2{font-size:30px}
+.h2.ab{font-size:30px}
 .tag{font-size:12px}
+.kari{font-size:10px;padding:2px 6px}
 .lb{min-width:0;font-size:16px}
-.lbr{margin-top:32px}
-.lbr .lb{width:100%}
-.ab{padding-top:110px}
-.abg{grid-template-columns:minmax(0,1fr);gap:32px;margin-top:32px}
-.abt h3,.ab2r h3{font-size:21px}
-.abt p.tx,.ab2r p.tx{font-size:14px}
-.abn b{font-size:48px}
-.abn small{font-size:15px;padding-bottom:6px}
-.abn{justify-content:flex-start}
-.abm{margin:14px -5.33% 0 0}
-.ab2{grid-template-columns:minmax(0,1fr);gap:32px;margin-top:72px}
-.col{margin-left:-5.6%}
-.iv{padding-top:170px}
-.iv .g4{width:170px;top:40px}
-.ivg{grid-template-columns:minmax(0,1fr);gap:44px;margin-top:32px}
-.ivg .im{aspect-ratio:16/9}
-.ivg strong{font-size:17px}
-.ivg p{font-size:14px}
-.ct{padding-top:130px}
-.nmg{gap:28px 20px;margin-top:32px}
-.nmg small{font-size:13px}
-.nmg b{font-size:30px}
-.nmg b i{font-size:13px}
-.nmg span{font-size:12px;margin-top:8px;padding-top:8px}
-.ctg{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;margin-top:44px}
-.ctg strong{font-size:14px;margin-top:10px}
-.ctg span.d{font-size:12px;margin-top:4px}
-.cli{flex-direction:column;gap:4px;margin-top:40px;font-size:14px}
-.qa{padding:150px 0 20px}
-.qa .bgq{font-size:100px;top:200px}
-.qac .ey{font-size:16px}
-.qac .h2{font-size:44px}
-.bb .bi{padding:22px 20px 24px}
-.bb strong{font-size:18px}
-.sl{padding-top:150px}
-.sl .g5{width:170px;top:20px}
-.slg{margin-top:32px}
-.slg .im{width:76px;height:76px}
-.slg strong{font-size:14px}
-.ev{padding-top:130px}
-.bp{height:auto;aspect-ratio:375/250;margin:0 -5.33%}
-.evf{flex-direction:column;gap:32px;margin-top:56px}
-.evl{width:auto}
-.evl p.tx{font-size:14px;margin-top:20px}
-.evr{margin:0 -5.33% 0 0}
-.gal{margin-top:36px}
-.gal .tk img{width:200px;height:134px}
-.gal .tk{gap:10px}
-.jn{margin-top:130px}
-.jnb{padding:90px 0 110px;clip-path:polygon(0 1.6%,10% .6%,22% 1.8%,36% .4%,50% 1.4%,64% 0,78% 1.2%,90% .2%,100% 1.4%,100% 98.6%,88% 99.6%,74% 98.4%,60% 100%,46% 98.8%,32% 99.8%,18% 98.6%,0 99.6%)}
-.jn .h2{font-size:25px}
-.jng{grid-template-columns:minmax(0,1fr);gap:28px;margin-top:28px}
-.jng p.tx{font-size:14px}
-.jng .bts{max-width:none}
-.jnr{grid-template-columns:minmax(0,1fr);gap:12px;margin-top:32px;padding-top:24px}
-.jnr p{font-size:14px}
-.jtel a{font-size:22px}
-.jn .ga{width:60%;top:-40px;transform:scaleY(.55);transform-origin:top}
-.jn .gb{width:60%;bottom:-40px;transform:scaleY(.5);transform-origin:bottom}
-.jn .gc{display:none}
-.ft{padding:56px 0 110px}
-.flo{font-size:34px}
-.fn{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px;margin-top:36px}
-.fn .t{font-size:15px;margin-bottom:4px}
-.fn .s{font-size:13px}
-.fco{grid-template-columns:minmax(0,1fr);gap:0;margin-top:40px}
+.lbs{gap:24px}
+.bt{min-height:60px;font-size:15px;padding:0 16px}
+/* hero */
+.hero{flex-direction:column;padding:68px 5.33% 0;margin-bottom:120px}
+.hph{order:-1;width:101vw;margin-left:-5.33%;aspect-ratio:806/719}
+.bru{max-height:110px;overflow:hidden}
+.hph .bru{max-height:60px}
+.hin{position:relative;left:auto;top:auto;transform:none;max-width:450px;width:100%;margin:-40px auto 0;padding-left:0}
+.cp{width:auto;font-size:clamp(28px,8.2vw,46px);transform:translateX(-4%)}
+.js .hero .cp.h-a{transform:translateX(-12%)}
+.js .hero .cp.h-a.on{transform:translateX(-4%)}
+.hm{margin-top:12px;padding-left:0}
+.hm p.tx{font-size:14px}
+.hbt{max-width:none}
+.ha{top:40px;width:180px}
+.hb2{width:88vw;max-width:450px;bottom:0;transform:translateY(40%)}
+.hc2{right:0;top:20px;width:59vw;max-width:290px;transform:translate(20%,-40%)}
+.hd2{display:none}
+.hph .gli{width:60%}
+/* studio */
+.abg{flex-direction:column;gap:24px;margin-top:32px}
+.abl{flex:none;padding-left:0}
+.abl h3,.ab2 h3{font-size:20px}
+.abl p.tx,.ab2 p.tx{font-size:15px}
+.abn{margin:24px 0 0}
+.num small{font-size:15px}
+.num b{font-size:48px}
+.num i{font-size:20px}
+.ab2{margin-top:48px;padding-left:0;min-height:0}
+.col{position:relative;transform:none;width:auto;margin:0 -5.6% 32px;aspect-ratio:680/444}
+.ab2 .lbs{max-width:none}
+/* strengths */
+.jb{padding-top:180px}
+.jbf{flex-direction:column;gap:40px}
+.jbl li a{gap:16px;padding:22px 0;align-items:flex-start}
+.jbl .im{width:84px}
+.jbl .t b{font-size:18px}
+.jbl .t span{font-size:14px;margin-top:8px}
+.jbl li a>svg{display:none}
+.jbr{margin-top:32px}
+.s1{width:316px;top:40px}
+.s2{width:224px;top:-20px}
+/* works */
+.iv{padding-top:228px}
+.nmg{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;margin-top:40px}
+.nmg .num b{font-size:clamp(24px,7vw,34px)}
+.nmg .num small{font-size:13px}
+.nmg .num i{font-size:13px}
+.ivg{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;margin-top:40px}
+.ivg small{margin-top:14px;font-size:11px}
+.ivg .tt{margin-top:8px;font-size:14px}
+.ivg .mt2{justify-content:flex-start;margin-top:10px;font-size:11px}
+.ivm{margin-top:40px}
+.ivm h3{margin-top:52px;font-size:26px}
+.ivm p.tx{font-size:14px;margin-top:24px}
+.w1{width:335px;top:-50px}
+.w2{width:173px;top:120px}
+/* voice */
+.qbg{display:none}
+.qai{display:flex;flex-direction:column;gap:20px;padding-bottom:40px}
+.qac{width:auto;max-width:400px;order:-1}
+.qh .s{font-size:14px;margin-bottom:-8px}
+.qh .b .en{font-size:78px}
+.qh .b .no{font-size:31px}
+.qh .b .k{font-size:58px}
+.qac p.tx{margin-top:28px;font-size:14px}
+.qac .lbw{margin-top:40px}
+.qs{position:relative;top:auto;transform:none;width:100%;max-width:400px;height:auto;margin:0 auto;display:flex;flex-direction:column;gap:44px;padding:20px 8px 26px}
+.bb,.bv3,.bv4{position:relative;left:auto;right:auto;top:auto;width:82%}
+.bv2,.bv4{align-self:flex-end}
+.q1{width:160px;bottom:-52px}
+/* news */
+.sl{padding-top:160px;padding-bottom:100px}
+.slg{grid-template-columns:minmax(0,1fr);gap:0;margin-top:40px;padding-left:15%}
+.slg li+li .bh.t{display:none}
+.slg .im{width:60px}
+.slg strong{font-size:15px}
+.n1{width:470px;top:48px}
+/* recruit */
+.band{margin-top:80px}
+.band>picture{height:auto;aspect-ratio:375/211}
+.b1{width:400px;top:80px}
+.b2{width:320px;top:20px}
+.b3{width:400px;bottom:24px}
+.ev{margin-top:130px;padding:0 5%}
+.evf{flex-direction:column;align-items:stretch;gap:36px}
+.evl{padding-left:0;justify-content:flex-start}
+.evl>div{max-width:none}
+.evl p.tx{padding:0 0 0 15%;margin-top:28px;font-size:14px}
+.evl .lbs{padding:0 0 0 15%;margin-top:32px}
+.evr{flex:none;width:auto;max-width:none;margin:0 -5.6%}
+.gal{margin-top:52px}
+.gal .tk span{width:246px;margin-right:20px}
+.gal .tk{animation-duration:70s}
+.gbw{justify-content:flex-end;padding:0 5.33%;margin-top:24px}
+/* contact */
+.jn{margin-top:140px}
+.jnb{padding:72px 5% 120px;clip-path:polygon(0.0% 0.36%,2.5% 0.96%,5.0% 0.96%,7.5% 1.19%,10.0% 0.26%,12.5% 0.32%,15.0% 0.21%,17.5% 0.32%,20.0% 1.03%,22.5% 0.18%,25.0% 0.74%,27.5% 0.30%,30.0% 0.41%,32.5% 0.60%,35.0% 1.17%,37.5% 0.85%,40.0% 0.02%,42.5% 0.39%,45.0% 0.21%,47.5% 1.22%,50.0% 1.13%,52.5% 1.13%,55.0% 1.16%,57.5% 1.04%,60.0% 1.33%,62.5% 1.11%,65.0% 0.36%,67.5% 1.19%,70.0% 0.68%,72.5% 1.06%,75.0% 0.79%,77.5% 0.60%,80.0% 0.51%,82.5% 0.60%,85.0% 0.44%,87.5% 0.16%,90.0% 1.15%,92.5% 1.12%,95.0% 1.38%,97.5% 0.97%,100.0% 0.78%,100.0% 98.95%,97.5% 99.81%,95.0% 99.05%,92.5% 99.38%,90.0% 99.75%,87.5% 99.72%,85.0% 99.27%,82.5% 99.65%,80.0% 99.36%,77.5% 99.15%,75.0% 99.45%,72.5% 99.82%,70.0% 99.31%,67.5% 99.67%,65.0% 99.67%,62.5% 99.73%,60.0% 99.49%,57.5% 99.90%,55.0% 99.09%,52.5% 98.66%,50.0% 99.45%,47.5% 98.99%,45.0% 98.69%,42.5% 99.94%,40.0% 99.80%,37.5% 98.87%,35.0% 98.83%,32.5% 99.11%,30.0% 99.78%,27.5% 99.42%,25.0% 98.78%,22.5% 98.76%,20.0% 98.88%,17.5% 99.72%,15.0% 98.80%,12.5% 99.48%,10.0% 99.00%,7.5% 99.81%,5.0% 98.64%,2.5% 99.16%,0.0% 98.99%)}
+.jn .h2{font-size:30px}
+.jng{flex-direction:column;gap:24px;margin-top:24px}
+.jng p.tx{font-size:14px;max-width:none}
+.jng .r{max-width:none;width:100%}
+.jng .bts{gap:16px}
+.jnd{flex-direction:column;margin-top:32px;padding-top:28px}
+.jnd dt{font-size:14px}
+.jnd .tel{font-size:22px}
+.j1{width:100%;max-width:375px;top:-40px}
+.j2{width:100%;max-width:400px;bottom:-40px}
+/* footer */
+.ft{padding:88px 5.33% 0}
+.flo{font-size:32px}
+.fn{flex-direction:column;gap:40px;margin-top:44px}
+.fn .t{font-size:16px}
+.fn ul{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:20px}
+.fn li a{font-size:13px}
+.fco{grid-template-columns:minmax(0,1fr);gap:0;margin-top:44px;font-size:13px}
 .fco dd{margin-bottom:8px}
+.fbt{flex-direction:column;align-items:flex-start;gap:8px;margin-top:40px;padding:20px 0 110px}
+.fbt p{font-size:12px}
+.fbt small{justify-content:flex-start}
 }
-@media(min-width:601px) and (max-width:860px){
-.ivg{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
-.ivg .im{aspect-ratio:1/1}
-.ivg strong{font-size:15px}
-.ivg p{font-size:13px}
+@media(min-width:600px) and (max-width:1023px){
+.jbl li a>svg{display:block}
+.qs{max-width:560px}
+.qac{max-width:560px}
+.ivg{grid-template-columns:repeat(3,minmax(0,1fr))}
+.nmg{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hin{max-width:560px}
+}
+@media(max-width:420px){
+.hbt{flex-direction:column}
+.jng .bts{flex-direction:column}
 }
 @media(prefers-reduced-motion:reduce){
-.pg *{animation:none!important;transition:none!important}
+.pg *,.pg *:before,.pg *:after{animation:none!important;transition:none!important}
 }
 </style>
 </head>
 <body>
 <div class="pg" id="top">
 
-<header class="hd">
+<!-- ヘッダー：BF .header（白文字の横並びメニュー＋白い四角ボタン2つ） -->
+<header class="hd" id="hd">
+<div class="hdi">
 <a class="lg" href="#top"><img src="images/reboot-logo.png" alt="reboot ロゴ"><b>reboot</b><small>アニメーション制作</small></a>
-<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span></span><span></span><span></span></label><a class="fab" href="contact.html"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 7 9-7"></path></svg>お問い合わせ</a>
+<input type="checkbox" id="mn" class="mt" aria-label="メニューを開閉"><label for="mn" class="hb" aria-hidden="true"><span class="l"></span><span class="o">メニュー</span><span class="c">閉じる</span></label>
 <nav class="nv" aria-label="メインメニュー">
 <div class="nl">
-<a class="on" href="#top">トップ</a>
-<a href="contact.html">受注窓口</a>
-<a href="works.html">作品履歴</a>
-<div class="dd"><a href="#studio" aria-haspopup="true">スタジオ<svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg></a><div class="ddm"><a href="studio-japan.html">国内スタジオ</a><a href="studio-overseas.html">海外スタジオ</a></div></div>
-<a href="plan.html">プラン</a>
+<a class="on" href="#top"><span class="th">トップ</span></a>
+<a href="contact.html"><span class="th">受注窓口</span></a>
+<a href="works.html"><span class="th">作品履歴</span></a>
+<div class="dd"><a href="#studio" aria-haspopup="true"><span class="th">スタジオ</span><svg viewBox="0 0 10 10" aria-hidden="true"><path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"></path></svg></a><div class="ddm"><a href="studio-japan.html"><span class="th">国内スタジオ</span></a><a href="studio-overseas.html"><span class="th">海外スタジオ</span></a></div></div>
+<a href="plan.html"><span class="th">プラン</span></a>
 </div>
-<div class="cta"><a class="cb" href="plan.html">作業プラン</a><a class="cb" href="contact.html">ご依頼・ご相談</a></div>
+<div class="cta"><a class="cb" href="plan.html"><span>作業プラン</span></a><a class="cb" href="contact.html"><span>ご依頼・ご相談</span></a></div>
 </nav>
+</div>
 </header>
+<a class="fab" href="contact.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 7 9-7"></path></svg>お問い合わせ</a>
 
-<!-- 1 ファーストビュー：BF top-visual -->
+<!-- 1 ファーストビュー：BF .top-visual（ちぎれた紙のコピー、右に破れた写真、四隅の筆跡） -->
 <section class="hero" aria-label="メインビジュアル">
-<div class="hph"><span class="hpi"><img src="images/gen/s3-cn-desk.jpg" alt="reboot China で作画するスタッフ"></span>
-<div class="gl g1" aria-hidden="true"><span style="width:81%;height:12px;background:#9cea2e;margin-left:14%"></span><span style="width:89%;height:12px;background:#5fdf16;margin-left:5%"></span><span style="width:89%;height:10px;background:#3f9a10;margin-left:25%"></span><span style="width:47%;height:4px;background:#9cea2e;margin-left:9%"></span><span style="width:42%;height:4px;background:#e9fbb4;margin-left:25%"></span><span style="width:29%;height:12px;background:#ffffff;margin-left:30%"></span><span style="width:81%;height:16px;background:#3f9a10;margin-left:20%"></span><span style="width:44%;height:12px;background:#8dee54;margin-left:26%"></span><span style="width:91%;height:4px;background:#8dee54;margin-left:1%"></span><span style="width:48%;height:6px;background:#3f9a10;margin-left:0%"></span><span style="width:83%;height:8px;background:#9cea2e;margin-left:18%"></span><span style="width:49%;height:12px;background:#5fdf16;margin-left:20%"></span><span style="width:61%;height:10px;background:#8dee54;margin-left:21%"></span><span style="width:34%;height:10px;background:#78eb35;margin-left:13%"></span><span style="width:94%;height:4px;background:#78eb35;margin-left:10%"></span><span style="width:53%;height:12px;background:#78eb35;margin-left:0%"></span></div>
-<div class="gl g2" aria-hidden="true"><span style="width:84%;height:8px;background:#e9fbb4;margin-left:21%"></span><span style="width:68%;height:6px;background:#ffffff;margin-left:0%"></span><span style="width:71%;height:10px;background:#78eb35;margin-left:20%"></span><span style="width:82%;height:16px;background:#3f9a10;margin-left:7%"></span><span style="width:95%;height:4px;background:#3f9a10;margin-left:4%"></span><span style="width:80%;height:8px;background:#b7ed45;margin-left:10%"></span><span style="width:50%;height:4px;background:#3f9a10;margin-left:26%"></span><span style="width:49%;height:4px;background:#e9fbb4;margin-left:21%"></span><span style="width:67%;height:16px;background:#ffffff;margin-left:25%"></span><span style="width:35%;height:4px;background:#8dee54;margin-left:26%"></span><span style="width:89%;height:6px;background:#4fba12;margin-left:13%"></span><span style="width:80%;height:4px;background:#ffffff;margin-left:4%"></span><span style="width:93%;height:8px;background:#3f9a10;margin-left:17%"></span><span style="width:44%;height:16px;background:#8dee54;margin-left:17%"></span></div>
-</div>
-<div class="gl g3" aria-hidden="true"><span style="width:57%;height:8px;background:#b7ed45;margin-left:20%"></span><span style="width:53%;height:16px;background:#b7ed45;margin-left:27%"></span><span style="width:52%;height:16px;background:#b7ed45;margin-left:4%"></span><span style="width:33%;height:12px;background:#5fdf16;margin-left:23%"></span><span style="width:61%;height:4px;background:#ffffff;margin-left:4%"></span><span style="width:25%;height:8px;background:#b7ed45;margin-left:2%"></span><span style="width:57%;height:10px;background:#ffffff;margin-left:30%"></span><span style="width:41%;height:8px;background:#97ea2d;margin-left:27%"></span><span style="width:53%;height:10px;background:#e9fbb4;margin-left:18%"></span><span style="width:78%;height:16px;background:#97ea2d;margin-left:28%"></span><span style="width:79%;height:16px;background:#97ea2d;margin-left:20%"></span><span style="width:39%;height:8px;background:#3f9a10;margin-left:25%"></span><span style="width:57%;height:16px;background:#9cea2e;margin-left:17%"></span><span style="width:41%;height:10px;background:#9cea2e;margin-left:17%"></span><span style="width:46%;height:8px;background:#5fdf16;margin-left:5%"></span><span style="width:90%;height:8px;background:#78eb35;margin-left:11%"></span><span style="width:82%;height:8px;background:#3f9a10;margin-left:8%"></span><span style="width:74%;height:6px;background:#3f9a10;margin-left:15%"></span></div>
-<div class="hc">
-<h1 class="cp"><span>動画・仕上げを、</span><span>東京と直営の</span><span>中国スタジオで。</span></h1>
-<div class="hm">
-<p class="sub">動画・仕上げの依頼はrebootへ。国内スタジオ lolroute と直営の reboot China で、枚数と納期に合わせてお受けします。<span class="kari">仮の文章</span></p>
-<div class="hbtn"><a class="bt" href="contact.html"><span>作業を依頼する</span><svg viewBox="0 0 14 8" aria-hidden="true"><path d="M0 7h12L7 2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a></div>
-<p class="hlk"><a class="ul" href="tel:00-0000-0000">TEL 〇〇-〇〇〇〇-〇〇〇〇<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M1 1l8 5-8 5z" fill="currentColor"/></svg></a><small>受付 〇〇:〇〇〜〇〇:〇〇</small></p>
+<div class="hin">
+<h1 class="cp h-a" data-d="400"><span>動画・仕上げを、</span><span>東京と直営の</span><span>中国スタジオで。</span><i class="ln" style="left:-40px;top:31%;width:62%"></i><i class="ln" style="left:52%;top:33%;width:30%;height:4px"></i><i class="ln" style="left:-90px;top:64%;width:30%;height:4px"></i><i class="ln" style="right:-6%;bottom:-2%;width:18px;height:14px"></i></h1>
+<div class="hm h-a" data-d="400">
+<p class="tx">動画・仕上げの依頼はrebootへ。<br>国内スタジオ lolroute と直営の reboot China で、<br>枚数と納期に合わせてお受けします。<span class="kari">仮の文章</span></p>
+<div class="hbt"><a class="bt w" href="contact.html"><span>作業を依頼する</span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a><a class="bt w" href="plan.html"><span>プランを見る</span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a></div>
+<p class="hlk"><a class="ar" href="tel:00-0000-0000"><span class="tl">TEL 〇〇-〇〇〇〇-〇〇〇〇</span><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M1 1l10 6-10 6 3-6z" fill="currentColor"/></svg></a><small>受付 〇〇:〇〇〜〇〇:〇〇</small></p>
 </div>
 </div>
+<div class="hph h-a" data-d="500"><span class="ph"><img src="images/gen/s3-cn-desk.jpg" alt="作画スタジオで液晶タブレットに描くスタッフ"></span>
+<div class="bru gli" aria-hidden="true"><i style="width:19%;height:3px;margin:0px 0 0 6%;background:linear-gradient(90deg,#b04de8 70%,transparent 73%)"></i><i style="width:78%;height:5px;margin:-3px 0 0 3%;background:linear-gradient(90deg,#b04de8 60%,transparent 73%)"></i><i style="width:50%;height:10px;margin:-1px 0 0 2%;background:linear-gradient(90deg,#b04de8 88%,transparent 90%)"></i><i style="width:56%;height:2px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#b04de8 70%,transparent 79%)"></i><i style="width:11%;height:6px;margin:-3px 0 0 38%;background:linear-gradient(90deg,#b04de8 61%,transparent 84%)"></i><i style="width:14%;height:2px;margin:-1px 0 0 76%;background:linear-gradient(90deg,#b04de8 81%,transparent 83%)"></i><i style="width:91%;height:6px;margin:0px 0 0 2%;background:linear-gradient(90deg,#b04de8 90%,transparent 92%)"></i><i style="width:75%;height:2px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#b04de8 86%,transparent 91%)"></i><i style="width:12%;height:6px;margin:-2px 0 0 44%;background:linear-gradient(90deg,#e0447a 92%,transparent 97%)"></i><i style="width:7%;height:3px;margin:0px 0 0 43%;background:linear-gradient(90deg,#e0447a 92%,transparent 97%)"></i><i style="width:41%;height:16px;margin:-1px 0 0 4%;background:linear-gradient(90deg,#b04de8 71%,transparent 96%)"></i><i style="width:22%;height:6px;margin:-2px 0 0 4%;background:linear-gradient(90deg,#5cbf3a 75%,transparent 98%)"></i><i style="width:37%;height:4px;margin:0px 0 0 4%;background:linear-gradient(90deg,#e3b100 91%,transparent 96%)"></i><i style="width:46%;height:20px;margin:-6px 0 0 6%;background:linear-gradient(90deg,#b04de8 66%,transparent 76%)"></i></div>
+<div class="bru r gli2" aria-hidden="true"><i style="width:20%;height:4px;margin:0px 40% 0 auto;background:linear-gradient(270deg,#e0447a 61%,transparent 78%)"></i><i style="width:98%;height:10px;margin:-6px 0% 0 auto;background:linear-gradient(270deg,#8f8a12 76%,transparent 97%)"></i><i style="width:41%;height:8px;margin:0px 12% 0 auto;background:linear-gradient(270deg,#c02a1e 76%,transparent 90%)"></i><i style="width:42%;height:6px;margin:-2px 14% 0 auto;background:linear-gradient(270deg,#a83030 72%,transparent 98%)"></i><i style="width:94%;height:26px;margin:-13px 0% 0 auto;background:linear-gradient(270deg,#8f8a12 83%,transparent 90%)"></i><i style="width:21%;height:3px;margin:0px 14% 0 auto;background:linear-gradient(270deg,#f39a3d 77%,transparent 86%)"></i><i style="width:47%;height:5px;margin:-1px 13% 0 auto;background:linear-gradient(270deg,#f39a3d 60%,transparent 72%)"></i><i style="width:69%;height:8px;margin:0px 4% 0 auto;background:linear-gradient(270deg,#f39a3d 68%,transparent 99%)"></i><i style="width:19%;height:3px;margin:-1px 11% 0 auto;background:linear-gradient(270deg,#f39a3d 88%,transparent 95%)"></i><i style="width:82%;height:6px;margin:-3px 6% 0 auto;background:linear-gradient(270deg,#f39a3d 77%,transparent 91%)"></i><i style="width:45%;height:16px;margin:-8px 5% 0 auto;background:linear-gradient(270deg,#8f8a12 72%,transparent 80%)"></i><i style="width:83%;height:10px;margin:-3px 8% 0 auto;background:linear-gradient(270deg,#f39a3d 90%,transparent 100%)"></i><i style="width:89%;height:6px;margin:-2px 2% 0 auto;background:linear-gradient(270deg,#a83030 84%,transparent 92%)"></i><i style="width:67%;height:4px;margin:-2px 0% 0 auto;background:linear-gradient(270deg,#e0447a 71%,transparent 71%)"></i></div>
+</div>
+<div class="bru ha h-a" data-d="300" aria-hidden="true"><i style="width:87%;height:12px;margin:0px 0 0 6%;background:linear-gradient(90deg,#8a3ad0 73%,transparent 76%)"></i><i style="width:87%;height:2px;margin:0px 0 0 3%;background:linear-gradient(90deg,#e3b100 66%,transparent 86%)"></i><i style="width:17%;height:3px;margin:0px 0 0 54%;background:linear-gradient(90deg,#8a3ad0 61%,transparent 94%)"></i><i style="width:59%;height:8px;margin:-4px 0 0 4%;background:linear-gradient(90deg,#e3b100 61%,transparent 87%)"></i><i style="width:45%;height:6px;margin:-1px 0 0 11%;background:linear-gradient(90deg,#8a3ad0 92%,transparent 98%)"></i><i style="width:93%;height:20px;margin:-3px 0 0 6%;background:linear-gradient(90deg,#8a3ad0 62%,transparent 92%)"></i><i style="width:76%;height:4px;margin:-1px 0 0 12%;background:linear-gradient(90deg,#e3b100 83%,transparent 85%)"></i><i style="width:80%;height:16px;margin:-9px 0 0 0%;background:linear-gradient(90deg,#8a3ad0 62%,transparent 81%)"></i><i style="width:94%;height:4px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#e3b100 72%,transparent 89%)"></i><i style="width:74%;height:16px;margin:-8px 0 0 5%;background:linear-gradient(90deg,#8a3ad0 89%,transparent 93%)"></i><i style="width:46%;height:16px;margin:-7px 0 0 3%;background:linear-gradient(90deg,#f9e6d7 87%,transparent 87%)"></i><i style="width:82%;height:16px;margin:-8px 0 0 6%;background:linear-gradient(90deg,#b04de8 82%,transparent 82%)"></i><i style="width:33%;height:20px;margin:-1px 0 0 8%;background:linear-gradient(90deg,#b04de8 71%,transparent 98%)"></i><i style="width:5%;height:6px;margin:-2px 0 0 1%;background:linear-gradient(90deg,#4f9a2e 77%,transparent 84%)"></i><i style="width:53%;height:20px;margin:-8px 0 0 2%;background:linear-gradient(90deg,#4f9a2e 70%,transparent 78%)"></i><i style="width:88%;height:6px;margin:-2px 0 0 7%;background:linear-gradient(90deg,#f9e6d7 67%,transparent 68%)"></i><i style="width:54%;height:10px;margin:-4px 0 0 14%;background:linear-gradient(90deg,#f9e6d7 92%,transparent 95%)"></i><i style="width:9%;height:2px;margin:-1px 0 0 20%;background:linear-gradient(90deg,#f9e6d7 88%,transparent 99%)"></i></div>
+<div class="bru hb2 h-a" data-d="750" aria-hidden="true"><i style="width:51%;height:8px;margin:0px 0 0 13%;background:linear-gradient(90deg,#2f8f3a 79%,transparent 87%)"></i><i style="width:50%;height:26px;margin:-14px 0 0 6%;background:linear-gradient(90deg,#2d6fd1 92%,transparent 97%)"></i><i style="width:89%;height:8px;margin:-1px 0 0 6%;background:linear-gradient(90deg,#2f8f3a 70%,transparent 87%)"></i><i style="width:52%;height:2px;margin:0px 0 0 8%;background:linear-gradient(90deg,#2d6fd1 92%,transparent 97%)"></i><i style="width:76%;height:16px;margin:-6px 0 0 5%;background:linear-gradient(90deg,#e6c21a 88%,transparent 90%)"></i><i style="width:92%;height:5px;margin:-3px 0 0 7%;background:linear-gradient(90deg,#e6c21a 92%,transparent 97%)"></i><i style="width:88%;height:16px;margin:-9px 0 0 3%;background:linear-gradient(90deg,#e6c21a 70%,transparent 98%)"></i><i style="width:69%;height:12px;margin:-5px 0 0 4%;background:linear-gradient(90deg,#2d6fd1 73%,transparent 88%)"></i><i style="width:31%;height:8px;margin:-4px 0 0 11%;background:linear-gradient(90deg,#2d6fd1 66%,transparent 69%)"></i><i style="width:43%;height:26px;margin:-6px 0 0 8%;background:linear-gradient(90deg,#9aa21a 77%,transparent 84%)"></i><i style="width:37%;height:2px;margin:0px 0 0 3%;background:linear-gradient(90deg,#2f8f3a 61%,transparent 66%)"></i><i style="width:77%;height:2px;margin:0px 0 0 5%;background:linear-gradient(90deg,#2f8f3a 71%,transparent 87%)"></i><i style="width:6%;height:2px;margin:-1px 0 0 44%;background:linear-gradient(90deg,#2f8f3a 67%,transparent 85%)"></i><i style="width:35%;height:20px;margin:-3px 0 0 13%;background:linear-gradient(90deg,#9aa21a 69%,transparent 99%)"></i><i style="width:70%;height:26px;margin:-15px 0 0 0%;background:linear-gradient(90deg,#2f8f3a 68%,transparent 93%)"></i><i style="width:63%;height:8px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#1f9c8f 61%,transparent 96%)"></i><i style="width:12%;height:2px;margin:-1px 0 0 31%;background:linear-gradient(90deg,#9aa21a 74%,transparent 96%)"></i><i style="width:59%;height:3px;margin:-1px 0 0 11%;background:linear-gradient(90deg,#9aa21a 83%,transparent 91%)"></i><i style="width:18%;height:3px;margin:0px 0 0 14%;background:linear-gradient(90deg,#9aa21a 92%,transparent 93%)"></i><i style="width:53%;height:2px;margin:-1px 0 0 3%;background:linear-gradient(90deg,#9aa21a 61%,transparent 94%)"></i><i style="width:56%;height:5px;margin:0px 0 0 6%;background:linear-gradient(90deg,#2d6fd1 92%,transparent 92%)"></i><i style="width:91%;height:3px;margin:-1px 0 0 8%;background:linear-gradient(90deg,#2d6fd1 67%,transparent 90%)"></i><i style="width:14%;height:3px;margin:0px 0 0 86%;background:linear-gradient(90deg,#9aa21a 61%,transparent 89%)"></i><i style="width:7%;height:2px;margin:-1px 0 0 36%;background:linear-gradient(90deg,#9aa21a 61%,transparent 84%)"></i></div>
+<div class="bru r hc2 h-a" data-d="750" aria-hidden="true"><i style="width:90%;height:20px;margin:0px 1% 0 auto;background:linear-gradient(270deg,#8f8a12 60%,transparent 90%)"></i><i style="width:54%;height:5px;margin:-1px 8% 0 auto;background:linear-gradient(270deg,#8f8a12 90%,transparent 96%)"></i><i style="width:96%;height:4px;margin:-2px 0% 0 auto;background:linear-gradient(270deg,#8f8a12 64%,transparent 74%)"></i><i style="width:64%;height:2px;margin:-1px 11% 0 auto;background:linear-gradient(270deg,#8f8a12 87%,transparent 93%)"></i><i style="width:11%;height:4px;margin:-2px 86% 0 auto;background:linear-gradient(270deg,#8f8a12 87%,transparent 99%)"></i><i style="width:74%;height:10px;margin:-5px 9% 0 auto;background:linear-gradient(270deg,#e0447a 74%,transparent 84%)"></i><i style="width:50%;height:20px;margin:-10px 8% 0 auto;background:linear-gradient(270deg,#c02a1e 66%,transparent 79%)"></i><i style="width:38%;height:3px;margin:0px 7% 0 auto;background:linear-gradient(270deg,#f39a3d 65%,transparent 87%)"></i><i style="width:32%;height:4px;margin:-2px 13% 0 auto;background:linear-gradient(270deg,#f39a3d 67%,transparent 69%)"></i><i style="width:72%;height:20px;margin:-4px 8% 0 auto;background:linear-gradient(270deg,#c02a1e 75%,transparent 76%)"></i><i style="width:11%;height:6px;margin:0px 37% 0 auto;background:linear-gradient(270deg,#f39a3d 76%,transparent 80%)"></i><i style="width:78%;height:4px;margin:-1px 6% 0 auto;background:linear-gradient(270deg,#8a3ad0 66%,transparent 98%)"></i><i style="width:68%;height:5px;margin:-2px 8% 0 auto;background:linear-gradient(270deg,#f39a3d 79%,transparent 96%)"></i><i style="width:9%;height:2px;margin:-1px 81% 0 auto;background:linear-gradient(270deg,#f39a3d 81%,transparent 95%)"></i><i style="width:6%;height:2px;margin:-1px 47% 0 auto;background:linear-gradient(270deg,#8a3ad0 76%,transparent 96%)"></i><i style="width:10%;height:4px;margin:-1px 47% 0 auto;background:linear-gradient(270deg,#f39a3d 76%,transparent 85%)"></i><i style="width:46%;height:2px;margin:-1px 10% 0 auto;background:linear-gradient(270deg,#f39a3d 77%,transparent 84%)"></i><i style="width:15%;height:4px;margin:0px 28% 0 auto;background:linear-gradient(270deg,#f39a3d 88%,transparent 100%)"></i><i style="width:57%;height:26px;margin:-3px 4% 0 auto;background:linear-gradient(270deg,#f39a3d 74%,transparent 99%)"></i><i style="width:70%;height:5px;margin:-2px 9% 0 auto;background:linear-gradient(270deg,#f39a3d 71%,transparent 98%)"></i><i style="width:40%;height:26px;margin:-9px 9% 0 auto;background:linear-gradient(270deg,#f39a3d 68%,transparent 94%)"></i><i style="width:83%;height:26px;margin:-6px 0% 0 auto;background:linear-gradient(270deg,#8a3ad0 86%,transparent 88%)"></i><i style="width:95%;height:20px;margin:-12px 3% 0 auto;background:linear-gradient(270deg,#f39a3d 62%,transparent 91%)"></i><i style="width:73%;height:16px;margin:-3px 1% 0 auto;background:linear-gradient(270deg,#f39a3d 78%,transparent 81%)"></i><i style="width:55%;height:16px;margin:-7px 9% 0 auto;background:linear-gradient(270deg,#f39a3d 63%,transparent 63%)"></i><i style="width:32%;height:5px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#8f8a12 67%,transparent 88%)"></i><i style="width:91%;height:16px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#f39a3d 74%,transparent 80%)"></i><i style="width:46%;height:6px;margin:-2px 0% 0 auto;background:linear-gradient(270deg,#c02a1e 85%,transparent 86%)"></i><i style="width:97%;height:20px;margin:0px 0% 0 auto;background:linear-gradient(270deg,#c02a1e 80%,transparent 80%)"></i><i style="width:91%;height:3px;margin:-1px 1% 0 auto;background:linear-gradient(270deg,#c02a1e 92%,transparent 99%)"></i><i style="width:74%;height:3px;margin:-1px 9% 0 auto;background:linear-gradient(270deg,#c02a1e 79%,transparent 90%)"></i><i style="width:22%;height:2px;margin:0px 48% 0 auto;background:linear-gradient(270deg,#c02a1e 65%,transparent 76%)"></i></div>
+<div class="bru hd2 h-a" data-d="600" aria-hidden="true"><i style="width:7%;height:2px;margin:0px 0 0 51%;background:linear-gradient(90deg,#f39a3d 78%,transparent 79%)"></i><i style="width:76%;height:16px;margin:-3px 0 0 5%;background:linear-gradient(90deg,#f39a3d 66%,transparent 82%)"></i><i style="width:14%;height:4px;margin:-2px 0 0 80%;background:linear-gradient(90deg,#f2c230 83%,transparent 85%)"></i><i style="width:94%;height:10px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#f39a3d 77%,transparent 79%)"></i><i style="width:67%;height:2px;margin:-1px 0 0 13%;background:linear-gradient(90deg,#e6c21a 92%,transparent 95%)"></i><i style="width:85%;height:6px;margin:0px 0 0 4%;background:linear-gradient(90deg,#f39a3d 76%,transparent 77%)"></i><i style="width:65%;height:26px;margin:-6px 0 0 11%;background:linear-gradient(90deg,#f39a3d 81%,transparent 85%)"></i><i style="width:86%;height:5px;margin:-1px 0 0 5%;background:linear-gradient(90deg,#f39a3d 80%,transparent 100%)"></i><i style="width:65%;height:5px;margin:-2px 0 0 1%;background:linear-gradient(90deg,#f2c230 81%,transparent 86%)"></i><i style="width:66%;height:3px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#f2c230 80%,transparent 89%)"></i><i style="width:39%;height:20px;margin:-2px 0 0 12%;background:linear-gradient(90deg,#c84a00 88%,transparent 92%)"></i><i style="width:50%;height:20px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#f39a3d 62%,transparent 91%)"></i><i style="width:67%;height:8px;margin:0px 0 0 3%;background:linear-gradient(90deg,#f39a3d 87%,transparent 90%)"></i><i style="width:51%;height:2px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#f39a3d 62%,transparent 96%)"></i><i style="width:97%;height:3px;margin:0px 0 0 3%;background:linear-gradient(90deg,#6aa52a 72%,transparent 87%)"></i><i style="width:18%;height:6px;margin:-1px 0 0 31%;background:linear-gradient(90deg,#f39a3d 87%,transparent 100%)"></i><i style="width:61%;height:6px;margin:-2px 0 0 6%;background:linear-gradient(90deg,#f2c230 76%,transparent 80%)"></i><i style="width:44%;height:8px;margin:-3px 0 0 14%;background:linear-gradient(90deg,#f2c230 62%,transparent 93%)"></i><i style="width:51%;height:5px;margin:-1px 0 0 7%;background:linear-gradient(90deg,#f2c230 80%,transparent 93%)"></i><i style="width:13%;height:3px;margin:-1px 0 0 5%;background:linear-gradient(90deg,#6aa52a 85%,transparent 89%)"></i></div>
 </section>
 
-<!-- 2 スタジオ：BF About -->
-<section class="ab" id="studio" aria-labelledby="ab-h">
-<div class="w">
-<h2 class="h2" id="ab-h">東京と中国、<br>2つの自社スタジオ<span class="kari">仮の文章</span></h2>
+<!-- 2 スタジオ：BF About BE FORWARD（見出し→本文＋大きな数字と図、写真の寄せ集めを左端まで） -->
+<section class="sec" id="studio" aria-labelledby="ab-h">
+<div class="si">
+<h2 class="h2 ab" id="ab-h">東京と中国、<br>2つの自社スタジオで<span class="kari">仮の文章</span></h2>
 <p class="tag">OUR STUDIOS</p>
 <div class="abg">
-<div class="abt">
+<div class="abl">
 <h3><small>国内スタジオ｜2021年設立・東京</small>lolroute（ルート）</h3>
-<p class="tx">「lol＝笑」「route＝道」。アニメーターの生活が安定し、みんなが笑顔でいられるようにと名づけた国内スタジオです。海外上がりの検査やリテイク、急ぎのカットを受け持つ国内の拠点です。</p>
-<div class="lbs"><a class="lb" href="studio-japan.html">国内スタジオ lolroute<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></div>
+<p class="tx">「lol＝笑」「route＝道」。アニメーターの生活が安定し、みんなが笑顔でいられるようにと名づけた国内スタジオです。海外上がりの検査やリテイク、急ぎのカットを受け持ちます。</p>
+<a class="lb" href="studio-japan.html"><span>国内スタジオ lolroute</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a>
 </div>
-<div>
-<p class="abn"><small>出社スタッフの正社員率</small><b>100<i>%</i></b></p>
-<figure class="abm"><img src="images/gen/s3-jp-floor.jpg" alt="国内スタジオの作業フロア"></figure>
-</div>
+<div class="abr">
+<div class="abn">
+<p class="num"><small>出社スタッフの正社員率</small><b>100</b><i>%</i></p>
+<figure><img src="images/gen/s3-jp-floor.jpg" alt="国内スタジオの作業フロア"></figure>
 </div>
 <div class="ab2">
 <div class="col">
@@ -446,152 +583,175 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <span><img src="images/gen/s3-cn-row.jpg" alt="仕上げ作業をするスタッフ"></span>
 <span><img src="images/gen/s3-cn-team.jpg" alt="reboot China で作業するチーム"></span>
 <span><img src="images/gen/s3-cn-floor.jpg" alt="reboot China の作業フロア"></span>
-<span><img src="images/gen/s3-cn-aisle.jpg" alt="reboot China の作業フロア"></span>
+<span><img src="images/gen/s3-cn-aisle.jpg" alt="reboot China の作業フロアの通路"></span>
 </div>
-<div class="ab2r">
-<p class="abn"><small>設立</small><b>2016<i>年</i></b></p>
+<p class="num"><small>設立</small><b>2016</b><i>年</i></p>
 <h3><small>直営海外スタジオ｜中国</small>reboot China</h3>
 <p class="tx">rebootの仕事だけを行う直営のスタジオです。数カ月に一度、社員が現地で直接指導と会議を行い、中国の美術大学と連携して作画スタッフを育てています。</p>
-<div class="lbs"><a class="lb" href="studio-overseas.html">海外スタジオ reboot China<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></div>
+<div class="lbs"><a class="lb" href="studio-overseas.html"><span>海外スタジオ reboot China</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a></div>
+</div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- 3 強み：BF 社員インタビュー -->
-<section class="iv" aria-labelledby="iv-h">
-<div class="gl g4" aria-hidden="true"><span style="width:45%;height:10px;background:#ffffff;margin-left:20%"></span><span style="width:60%;height:10px;background:#5fdf16;margin-left:25%"></span><span style="width:84%;height:12px;background:#b7ed45;margin-left:16%"></span><span style="width:91%;height:6px;background:#8dee54;margin-left:0%"></span><span style="width:71%;height:12px;background:#ffffff;margin-left:2%"></span><span style="width:42%;height:6px;background:#5fdf16;margin-left:22%"></span><span style="width:29%;height:10px;background:#ffffff;margin-left:19%"></span><span style="width:80%;height:4px;background:#97ea2d;margin-left:17%"></span><span style="width:87%;height:16px;background:#4fba12;margin-left:20%"></span><span style="width:71%;height:4px;background:#b7ed45;margin-left:23%"></span><span style="width:35%;height:4px;background:#8dee54;margin-left:14%"></span><span style="width:44%;height:12px;background:#97ea2d;margin-left:12%"></span><span style="width:86%;height:6px;background:#b7ed45;margin-left:21%"></span><span style="width:28%;height:10px;background:#5fdf16;margin-left:2%"></span></div>
-<div class="w">
-<h2 class="h2" id="iv-h">rebootの強み<span class="kari">仮の文章</span></h2>
+<!-- 3 強み：BF 仕事紹介（左に見出し、右に白線で区切った一覧） -->
+<section class="sec jb" aria-labelledby="jb-h">
+<div class="si">
+<div class="jbf">
+<hgroup>
+<h2 class="h2" id="jb-h">rebootの強み<span class="kari">仮の文章</span></h2>
 <p class="tag">STRENGTH</p>
-<ol class="ivg">
-<li><span class="im"><img src="images/gen/p14-online-call.jpg" alt="海外スタジオとのオンライン会議"></span><small>01｜2拠点の振り分け</small><strong>枚数と納期に合わせて、東京と中国で分担します</strong><p>国内の lolroute と直営の reboot China。カットの量や納期を見て、どちらで何を作業するかを決めて進めます。</p><span class="nm2"><i>lolroute</i>reboot China</span></li>
-<li><span class="im"><img src="images/off/l-m167.jpg" alt="lolroute：トレス台で作画するスタッフの手元"></span><small>02｜国内で検査してから納品</small><strong>海外の作業も、国内で確かめてからお渡しします</strong><p>動画検査・色指定検査は国内のみで行います。海外で上がった素材も、lolroute で検査してから納品します。</p><span class="nm2"><i>検査</i>国内のみ</span></li>
-<li><span class="im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></span><small>03｜窓口ひとつ</small><strong>動画から仕上げまで、窓口ひとつでお受けします</strong><p>動画・仕上げ・検査をまとめてご依頼いただけます。進み具合のご連絡も、同じ窓口から差し上げます。</p><span class="nm2"><i>動画</i>仕上げ</span></li>
-</ol>
-<div class="lbr"><a class="lb" href="plan.html">プランを見る<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></div>
+</hgroup>
+<div class="jbl">
+<ul>
+<li><a href="studio-overseas.html"><span class="im"><img src="images/gen/p14-online-call.jpg" alt="海外スタジオとのオンライン会議"></span><span class="t"><small>01</small><b>国内と直営海外の2拠点で振り分け</b><span>枚数と納期を見て、東京の lolroute と直営の reboot China のどちらで何を作業するかを決めて進めます。</span></span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a></li>
+<li><a href="studio-japan.html"><span class="im"><img src="images/off/l-m167.jpg" alt="トレス台で作画するスタッフの手元"></span><span class="t"><small>02</small><b>海外の作業も、国内で検査してから納品</b><span>動画検査・色指定検査は国内のみで行います。海外で上がった素材も、国内で確かめてからお渡しします。</span></span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a></li>
+<li><a href="plan.html"><span class="im"><img src="images/gen/p15-cut-folders.jpg" alt="棚に並ぶカット袋"></span><span class="t"><small>03</small><b>動画から仕上げまで、窓口ひとつ</b><span>動画・仕上げ・検査をまとめてご依頼いただけます。進み具合のご連絡も、同じ窓口から差し上げます。</span></span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a></li>
+</ul>
+<div class="jbr"><a class="lb" href="plan.html"><span>プランを詳しく見る</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a></div>
 </div>
+</div>
+</div>
+<div class="bru s1 ba" aria-hidden="true"><i style="width:87%;height:12px;margin:0px 0 0 3%;background:linear-gradient(90deg,#f9e6d7 71%,transparent 96%)"></i><i style="width:42%;height:4px;margin:-1px 0 0 1%;background:linear-gradient(90deg,#c84a00 62%,transparent 100%)"></i><i style="width:50%;height:26px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#c84a00 63%,transparent 65%)"></i><i style="width:71%;height:12px;margin:-4px 0 0 3%;background:linear-gradient(90deg,#f39a3d 74%,transparent 94%)"></i><i style="width:65%;height:26px;margin:-10px 0 0 14%;background:linear-gradient(90deg,#c84a00 65%,transparent 81%)"></i><i style="width:43%;height:3px;margin:0px 0 0 4%;background:linear-gradient(90deg,#f39a3d 84%,transparent 86%)"></i><i style="width:90%;height:2px;margin:0px 0 0 6%;background:linear-gradient(90deg,#d2232a 64%,transparent 100%)"></i><i style="width:18%;height:2px;margin:0px 0 0 17%;background:linear-gradient(90deg,#f5c400 75%,transparent 97%)"></i><i style="width:22%;height:3px;margin:0px 0 0 57%;background:linear-gradient(90deg,#d2232a 92%,transparent 95%)"></i><i style="width:44%;height:10px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#d2232a 77%,transparent 95%)"></i><i style="width:9%;height:3px;margin:-1px 0 0 56%;background:linear-gradient(90deg,#d2232a 76%,transparent 76%)"></i><i style="width:56%;height:3px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#b9d22a 83%,transparent 94%)"></i><i style="width:91%;height:20px;margin:-10px 0 0 2%;background:linear-gradient(90deg,#b9d22a 84%,transparent 89%)"></i><i style="width:61%;height:5px;margin:-3px 0 0 10%;background:linear-gradient(90deg,#b9d22a 72%,transparent 93%)"></i><i style="width:21%;height:4px;margin:-1px 0 0 30%;background:linear-gradient(90deg,#f39a3d 85%,transparent 93%)"></i><i style="width:52%;height:16px;margin:-8px 0 0 2%;background:linear-gradient(90deg,#f39a3d 74%,transparent 89%)"></i><i style="width:57%;height:6px;margin:-2px 0 0 11%;background:linear-gradient(90deg,#f39a3d 61%,transparent 65%)"></i><i style="width:14%;height:4px;margin:-1px 0 0 67%;background:linear-gradient(90deg,#f39a3d 68%,transparent 73%)"></i><i style="width:72%;height:12px;margin:0px 0 0 8%;background:linear-gradient(90deg,#f39a3d 68%,transparent 70%)"></i><i style="width:32%;height:2px;margin:-1px 0 0 7%;background:linear-gradient(90deg,#f5c400 64%,transparent 83%)"></i><i style="width:39%;height:3px;margin:-1px 0 0 11%;background:linear-gradient(90deg,#f39a3d 62%,transparent 70%)"></i><i style="width:90%;height:26px;margin:0px 0 0 6%;background:linear-gradient(90deg,#f39a3d 61%,transparent 92%)"></i><i style="width:8%;height:4px;margin:-2px 0 0 53%;background:linear-gradient(90deg,#b9d22a 81%,transparent 93%)"></i><i style="width:40%;height:16px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#b9d22a 79%,transparent 98%)"></i><i style="width:93%;height:3px;margin:-1px 0 0 4%;background:linear-gradient(90deg,#e6326e 60%,transparent 83%)"></i><i style="width:55%;height:20px;margin:-3px 0 0 10%;background:linear-gradient(90deg,#f39a3d 88%,transparent 95%)"></i><i style="width:18%;height:3px;margin:-1px 0 0 27%;background:linear-gradient(90deg,#f39a3d 84%,transparent 91%)"></i><i style="width:93%;height:4px;margin:0px 0 0 0%;background:linear-gradient(90deg,#f39a3d 64%,transparent 81%)"></i><i style="width:65%;height:12px;margin:-7px 0 0 6%;background:linear-gradient(90deg,#f39a3d 91%,transparent 96%)"></i><i style="width:65%;height:2px;margin:-1px 0 0 2%;background:linear-gradient(90deg,#f39a3d 77%,transparent 95%)"></i><i style="width:32%;height:20px;margin:-12px 0 0 7%;background:linear-gradient(90deg,#f39a3d 72%,transparent 72%)"></i><i style="width:44%;height:2px;margin:0px 0 0 8%;background:linear-gradient(90deg,#e6326e 83%,transparent 85%)"></i><i style="width:5%;height:6px;margin:-1px 0 0 68%;background:linear-gradient(90deg,#f39a3d 62%,transparent 73%)"></i><i style="width:99%;height:8px;margin:-3px 0 0 0%;background:linear-gradient(90deg,#f39a3d 74%,transparent 76%)"></i><i style="width:5%;height:6px;margin:-3px 0 0 70%;background:linear-gradient(90deg,#c84a00 92%,transparent 97%)"></i><i style="width:42%;height:5px;margin:-1px 0 0 12%;background:linear-gradient(90deg,#f39a3d 67%,transparent 80%)"></i></div>
+<div class="bru r s2 bar" aria-hidden="true"><i style="width:5%;height:4px;margin:0px 61% 0 auto;background:linear-gradient(270deg,#e6326e 77%,transparent 97%)"></i><i style="width:48%;height:2px;margin:0px 2% 0 auto;background:linear-gradient(270deg,#6a2fc0 81%,transparent 87%)"></i><i style="width:73%;height:26px;margin:-1px 13% 0 auto;background:linear-gradient(270deg,#c42d8f 65%,transparent 66%)"></i><i style="width:18%;height:3px;margin:0px 69% 0 auto;background:linear-gradient(270deg,#6a2fc0 80%,transparent 99%)"></i><i style="width:40%;height:16px;margin:-9px 10% 0 auto;background:linear-gradient(270deg,#8a3ad0 90%,transparent 97%)"></i><i style="width:40%;height:2px;margin:-1px 10% 0 auto;background:linear-gradient(270deg,#6a2fc0 76%,transparent 87%)"></i><i style="width:62%;height:3px;margin:0px 5% 0 auto;background:linear-gradient(270deg,#e6326e 92%,transparent 100%)"></i><i style="width:34%;height:10px;margin:-3px 10% 0 auto;background:linear-gradient(270deg,#6a2fc0 87%,transparent 87%)"></i><i style="width:43%;height:20px;margin:0px 2% 0 auto;background:linear-gradient(270deg,#6a2fc0 64%,transparent 81%)"></i><i style="width:74%;height:12px;margin:-5px 0% 0 auto;background:linear-gradient(270deg,#6a2fc0 92%,transparent 99%)"></i><i style="width:88%;height:6px;margin:-2px 3% 0 auto;background:linear-gradient(270deg,#6a2fc0 70%,transparent 84%)"></i><i style="width:30%;height:5px;margin:0px 2% 0 auto;background:linear-gradient(270deg,#6a2fc0 75%,transparent 100%)"></i><i style="width:99%;height:8px;margin:0px 0% 0 auto;background:linear-gradient(270deg,#c42d8f 80%,transparent 88%)"></i><i style="width:94%;height:16px;margin:-7px 5% 0 auto;background:linear-gradient(270deg,#6a2fc0 76%,transparent 97%)"></i><i style="width:35%;height:20px;margin:-12px 10% 0 auto;background:linear-gradient(270deg,#c42d8f 88%,transparent 99%)"></i><i style="width:96%;height:6px;margin:-2px 0% 0 auto;background:linear-gradient(270deg,#6a2fc0 61%,transparent 69%)"></i><i style="width:55%;height:5px;margin:0px 3% 0 auto;background:linear-gradient(270deg,#6a2fc0 76%,transparent 100%)"></i><i style="width:41%;height:20px;margin:-10px 3% 0 auto;background:linear-gradient(270deg,#6a2fc0 82%,transparent 93%)"></i><i style="width:33%;height:4px;margin:0px 9% 0 auto;background:linear-gradient(270deg,#6a2fc0 86%,transparent 94%)"></i><i style="width:54%;height:8px;margin:-4px 10% 0 auto;background:linear-gradient(270deg,#e6326e 91%,transparent 100%)"></i><i style="width:80%;height:16px;margin:-1px 2% 0 auto;background:linear-gradient(270deg,#6a2fc0 82%,transparent 92%)"></i><i style="width:69%;height:6px;margin:-1px 5% 0 auto;background:linear-gradient(270deg,#c42d8f 71%,transparent 71%)"></i><i style="width:73%;height:2px;margin:-1px 1% 0 auto;background:linear-gradient(270deg,#e6326e 74%,transparent 74%)"></i><i style="width:85%;height:5px;margin:-3px 4% 0 auto;background:linear-gradient(270deg,#6a2fc0 81%,transparent 86%)"></i><i style="width:61%;height:16px;margin:-8px 3% 0 auto;background:linear-gradient(270deg,#6a2fc0 74%,transparent 87%)"></i><i style="width:36%;height:12px;margin:-7px 5% 0 auto;background:linear-gradient(270deg,#e6326e 61%,transparent 81%)"></i><i style="width:58%;height:12px;margin:-6px 4% 0 auto;background:linear-gradient(270deg,#b04de8 91%,transparent 91%)"></i><i style="width:66%;height:26px;margin:-1px 2% 0 auto;background:linear-gradient(270deg,#b04de8 68%,transparent 84%)"></i></div>
 </section>
 
-<!-- 4 実績：BF クロストーク＋About の数字 -->
-<section class="ct" aria-labelledby="ct-h">
-<div class="w">
-<h2 class="h2" id="ct-h">実績<span class="kari">仮の文章</span></h2>
+<!-- 4 実績：BF 社員インタビュー（数字は About の大きな数字の形）＋クロストーク -->
+<section class="sec iv" aria-labelledby="iv-h">
+<div class="si">
+<h2 class="h2" id="iv-h">実績<span class="kari">仮の文章</span></h2>
 <p class="tag">WORKS</p>
 <div class="nmg">
-<p><small>参加作品</small><b>165<i>本以上</i></b><span>2023〜2025年の作品履歴より</span></p>
-<p><small>月間の対応枚数</small><b>〇〇,〇〇〇<i>枚</i></b><span>動画・仕上げの合計</span></p>
-<p><small>スタッフ</small><b>〇〇<i>名</i></b><span>国内・海外の合計</span></p>
-<p><small>拠点</small><b>2<i>拠点</i></b><span>東京・中国</span></p>
+<p class="num"><small>参加作品</small><span><b>165</b><i>本以上</i></span><span class="d">2023〜2025年の作品履歴より</span></p>
+<p class="num"><small>月間の対応枚数</small><span><b>〇〇,〇〇〇</b><i>枚</i></span><span class="d">動画・仕上げの合計</span></p>
+<p class="num"><small>スタッフ</small><span><b>〇〇</b><i>名</i></span><span class="d">国内・海外の合計</span></p>
+<p class="num"><small>拠点</small><span><b>2</b><i>拠点</i></span><span class="d">東京・中国</span></p>
 </div>
-<ul class="ctg">
-<li><a href="works.html"><span class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></span><strong>機動戦士Gundam GQuuuuuuX（ジークアクス）</strong><span class="d"><i>2025</i>担当：〇〇</span></a></li>
-<li><a href="works.html"><span class="im"><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></span><strong>TVアニメ『SAKAMOTO DAYS』</strong><span class="d"><i>2025</i>担当：〇〇</span></a></li>
-<li><a href="works.html"><span class="im"><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></span><strong>TVアニメ「チ。 ―地球の運動について―」</strong><span class="d"><i>2025</i>担当：〇〇</span></a></li>
-<li><a href="works.html"><span class="im"><img src="images/off/w057.jpg" alt="怪獣８号"></span><strong>怪獣８号</strong><span class="d"><i>2024</i>担当：〇〇</span></a></li>
-<li><a href="works.html"><span class="im"><img src="images/off/w072.jpg" alt="TVアニメ『忘却バッテリー』"></span><strong>TVアニメ『忘却バッテリー』</strong><span class="d"><i>2024</i>担当：〇〇</span></a></li>
-<li><a href="works.html"><span class="im"><img src="images/off/w110.jpg" alt="TVアニメ「ヴィンランド・サガ」"></span><strong>TVアニメ「ヴィンランド・サガ」</strong><span class="d"><i>2023</i>担当：〇〇</span></a></li>
+<ul class="ivg">
+<li><a href="works.html"><span class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></span><small>2025年</small><p class="tt"><span class="th">機動戦士Gundam GQuuuuuuX（ジークアクス）</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
+<li><a href="works.html"><span class="im"><img src="images/off/w029.jpg" alt="TVアニメ『SAKAMOTO DAYS』"></span><small>2025年</small><p class="tt"><span class="th">TVアニメ『SAKAMOTO DAYS』</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
+<li><a href="works.html"><span class="im"><img src="images/off/w031.jpg" alt="TVアニメ「チ。 ―地球の運動について―」"></span><small>2025年</small><p class="tt"><span class="th">TVアニメ「チ。 ―地球の運動について―」</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
+<li><a href="works.html"><span class="im"><img src="images/off/w057.jpg" alt="怪獣８号"></span><small>2024年</small><p class="tt"><span class="th">怪獣８号</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
+<li><a href="works.html"><span class="im"><img src="images/off/w072.jpg" alt="TVアニメ『忘却バッテリー』"></span><small>2024年</small><p class="tt"><span class="th">TVアニメ『忘却バッテリー』</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
+<li><a href="works.html"><span class="im"><img src="images/off/w110.jpg" alt="TVアニメ「ヴィンランド・サガ」"></span><small>2023年</small><p class="tt"><span class="th">TVアニメ「ヴィンランド・サガ」</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
 </ul>
-<p class="cli"><b>主な取引先</b><span>〇〇株式会社、〇〇スタジオ、株式会社〇〇 ほか（掲載許可を確認中）</span></p>
-<div class="lbr"><a class="lb" href="works.html">作品履歴をすべて見る（165作品）<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></div>
+<div class="ivm">
+<div class="jbr"><a class="lb" href="works.html"><span>作品履歴をすべて見る（165作品）</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a></div>
+<h3>主な取引先</h3>
+<p class="tag">CLIENTS</p>
+<p class="tx">〇〇株式会社、〇〇スタジオ、株式会社〇〇 ほか（掲載許可を確認中）</p>
 </div>
+</div>
+<div class="bru w1 ba" aria-hidden="true"><i style="width:66%;height:10px;margin:0px 0 0 12%;background:linear-gradient(90deg,#7ad33a 90%,transparent 98%)"></i><i style="width:60%;height:16px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#7ad33a 87%,transparent 88%)"></i><i style="width:85%;height:2px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#7ad33a 88%,transparent 88%)"></i><i style="width:7%;height:2px;margin:-1px 0 0 2%;background:linear-gradient(90deg,#9be03a 89%,transparent 91%)"></i><i style="width:53%;height:4px;margin:0px 0 0 13%;background:linear-gradient(90deg,#9be03a 75%,transparent 77%)"></i><i style="width:20%;height:6px;margin:-3px 0 0 25%;background:linear-gradient(90deg,#9be03a 81%,transparent 85%)"></i><i style="width:94%;height:12px;margin:-1px 0 0 3%;background:linear-gradient(90deg,#9be03a 77%,transparent 77%)"></i><i style="width:30%;height:12px;margin:-5px 0 0 9%;background:linear-gradient(90deg,#9be03a 74%,transparent 92%)"></i><i style="width:51%;height:26px;margin:-3px 0 0 5%;background:linear-gradient(90deg,#2fb3a0 79%,transparent 86%)"></i><i style="width:84%;height:4px;margin:0px 0 0 1%;background:linear-gradient(90deg,#2fb3a0 75%,transparent 88%)"></i><i style="width:92%;height:8px;margin:-4px 0 0 3%;background:linear-gradient(90deg,#2fb3a0 75%,transparent 80%)"></i><i style="width:14%;height:2px;margin:-1px 0 0 33%;background:linear-gradient(90deg,#2fb3a0 78%,transparent 79%)"></i><i style="width:38%;height:10px;margin:-5px 0 0 14%;background:linear-gradient(90deg,#2fb3a0 69%,transparent 78%)"></i><i style="width:97%;height:26px;margin:-11px 0 0 0%;background:linear-gradient(90deg,#3fbf2a 73%,transparent 99%)"></i><i style="width:92%;height:10px;margin:-1px 0 0 4%;background:linear-gradient(90deg,#c8e03a 68%,transparent 85%)"></i><i style="width:33%;height:4px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#3fbf2a 75%,transparent 93%)"></i><i style="width:8%;height:6px;margin:-3px 0 0 12%;background:linear-gradient(90deg,#3fbf2a 71%,transparent 71%)"></i><i style="width:22%;height:4px;margin:-2px 0 0 50%;background:linear-gradient(90deg,#3fbf2a 91%,transparent 94%)"></i><i style="width:22%;height:2px;margin:0px 0 0 77%;background:linear-gradient(90deg,#3fbf2a 92%,transparent 92%)"></i><i style="width:80%;height:3px;margin:-1px 0 0 5%;background:linear-gradient(90deg,#3fbf2a 74%,transparent 82%)"></i><i style="width:67%;height:6px;margin:0px 0 0 9%;background:linear-gradient(90deg,#7ad33a 66%,transparent 100%)"></i><i style="width:69%;height:16px;margin:-5px 0 0 1%;background:linear-gradient(90deg,#9be03a 80%,transparent 86%)"></i><i style="width:7%;height:2px;margin:0px 0 0 80%;background:linear-gradient(90deg,#3fbf2a 88%,transparent 96%)"></i><i style="width:95%;height:16px;margin:0px 0 0 1%;background:linear-gradient(90deg,#9be03a 74%,transparent 74%)"></i><i style="width:81%;height:20px;margin:-6px 0 0 12%;background:linear-gradient(90deg,#3fbf2a 75%,transparent 87%)"></i><i style="width:10%;height:6px;margin:-3px 0 0 47%;background:linear-gradient(90deg,#3fbf2a 73%,transparent 97%)"></i><i style="width:63%;height:20px;margin:-6px 0 0 6%;background:linear-gradient(90deg,#2fb3a0 79%,transparent 98%)"></i><i style="width:50%;height:2px;margin:0px 0 0 14%;background:linear-gradient(90deg,#9be03a 85%,transparent 89%)"></i><i style="width:78%;height:20px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#3fbf2a 70%,transparent 92%)"></i><i style="width:77%;height:8px;margin:0px 0 0 3%;background:linear-gradient(90deg,#3fbf2a 76%,transparent 78%)"></i><i style="width:49%;height:6px;margin:-2px 0 0 3%;background:linear-gradient(90deg,#3fbf2a 75%,transparent 94%)"></i><i style="width:81%;height:12px;margin:-2px 0 0 10%;background:linear-gradient(90deg,#7ad33a 77%,transparent 98%)"></i><i style="width:16%;height:2px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#2fb3a0 92%,transparent 92%)"></i><i style="width:14%;height:3px;margin:-1px 0 0 58%;background:linear-gradient(90deg,#9be03a 83%,transparent 83%)"></i><i style="width:85%;height:20px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#2fb3a0 72%,transparent 85%)"></i><i style="width:89%;height:20px;margin:-6px 0 0 0%;background:linear-gradient(90deg,#7ad33a 64%,transparent 69%)"></i><i style="width:20%;height:6px;margin:-2px 0 0 60%;background:linear-gradient(90deg,#9be03a 81%,transparent 85%)"></i><i style="width:68%;height:6px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#7ad33a 64%,transparent 68%)"></i><i style="width:64%;height:8px;margin:-3px 0 0 0%;background:linear-gradient(90deg,#9be03a 91%,transparent 95%)"></i><i style="width:59%;height:3px;margin:0px 0 0 4%;background:linear-gradient(90deg,#7ad33a 86%,transparent 89%)"></i><i style="width:6%;height:4px;margin:-2px 0 0 77%;background:linear-gradient(90deg,#2fb3a0 71%,transparent 71%)"></i><i style="width:50%;height:12px;margin:0px 0 0 12%;background:linear-gradient(90deg,#7ad33a 61%,transparent 78%)"></i><i style="width:98%;height:26px;margin:-14px 0 0 0%;background:linear-gradient(90deg,#7ad33a 84%,transparent 90%)"></i><i style="width:52%;height:8px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#c8e03a 84%,transparent 89%)"></i></div>
+<div class="bru r w2 bar" aria-hidden="true"><i style="width:8%;height:4px;margin:0px 10% 0 auto;background:linear-gradient(270deg,#f5c400 74%,transparent 82%)"></i><i style="width:100%;height:4px;margin:0px 0% 0 auto;background:linear-gradient(270deg,#c84a00 87%,transparent 98%)"></i><i style="width:8%;height:2px;margin:-1px 89% 0 auto;background:linear-gradient(270deg,#f39a3d 80%,transparent 99%)"></i><i style="width:69%;height:10px;margin:-5px 4% 0 auto;background:linear-gradient(270deg,#f5c400 77%,transparent 98%)"></i><i style="width:73%;height:2px;margin:-1px 1% 0 auto;background:linear-gradient(270deg,#f5c400 76%,transparent 92%)"></i><i style="width:69%;height:4px;margin:-2px 9% 0 auto;background:linear-gradient(270deg,#f9e6d7 61%,transparent 80%)"></i><i style="width:97%;height:26px;margin:-13px 0% 0 auto;background:linear-gradient(270deg,#e8b04a 82%,transparent 85%)"></i><i style="width:95%;height:5px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#f39a3d 89%,transparent 92%)"></i><i style="width:16%;height:3px;margin:0px 56% 0 auto;background:linear-gradient(270deg,#f5c400 62%,transparent 66%)"></i><i style="width:8%;height:3px;margin:0px 75% 0 auto;background:linear-gradient(270deg,#f5c400 89%,transparent 89%)"></i><i style="width:90%;height:6px;margin:-2px 1% 0 auto;background:linear-gradient(270deg,#e8b04a 82%,transparent 85%)"></i><i style="width:38%;height:8px;margin:-2px 10% 0 auto;background:linear-gradient(270deg,#f39a3d 87%,transparent 98%)"></i><i style="width:54%;height:3px;margin:0px 3% 0 auto;background:linear-gradient(270deg,#f39a3d 76%,transparent 91%)"></i><i style="width:42%;height:6px;margin:0px 3% 0 auto;background:linear-gradient(270deg,#f39a3d 85%,transparent 96%)"></i><i style="width:60%;height:2px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#e8b04a 73%,transparent 79%)"></i><i style="width:89%;height:10px;margin:-5px 1% 0 auto;background:linear-gradient(270deg,#f39a3d 77%,transparent 79%)"></i><i style="width:20%;height:3px;margin:-1px 77% 0 auto;background:linear-gradient(270deg,#f5c400 77%,transparent 78%)"></i><i style="width:57%;height:2px;margin:-1px 13% 0 auto;background:linear-gradient(270deg,#c84a00 74%,transparent 88%)"></i><i style="width:63%;height:8px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#f39a3d 84%,transparent 87%)"></i><i style="width:65%;height:8px;margin:-2px 4% 0 auto;background:linear-gradient(270deg,#e8b04a 72%,transparent 80%)"></i></div>
 </section>
 
-<!-- 5 お客様の声：BF 10の質問 -->
-<section class="qa" aria-labelledby="qa-h">
-<p class="bgq" aria-hidden="true">VOICE</p>
-<div class="w">
-<div class="qaw">
+<!-- 5 お客様の声：BF 10の質問（中央に大きな数字の見出し、左右に色の吹き出し、背景に大きな英字） -->
+<section class="sec qa" aria-labelledby="qa-h">
+<div class="si qai">
+<p class="qbg" aria-hidden="true">VOICE</p>
+<div class="qs l">
+<div class="bb bv1"><div class="bi"><span class="q">制作プロデューサー</span><strong>急ぎの話数でも、国内で検査してから上げてくれるので安心です。</strong><p>〇〇株式会社 制作プロデューサー 〇〇様（掲載許可を確認中）</p></div></div>
+<div class="bb bv2"><div class="bi"><span class="q">制作進行</span><strong>枚数の多い話数を、東京と中国で振り分けて間に合わせてくれました。</strong><p>〇〇スタジオ 制作進行 〇〇様（掲載許可を確認中）</p></div></div>
+</div>
 <div class="qac">
-<p class="ey">ご依頼いただいた制作会社さまの</p>
-<h2 class="h2" id="qa-h">お客様の声<span class="kari">仮の文章</span></h2>
-<p class="tx">プロデューサーや制作進行の方からいただいた声の一部です。社名・お名前は掲載許可を確認中のため伏せています。</p>
-<a class="lb" href="contact.html">受注窓口へ相談する<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a>
+<h2 class="qh" id="qa-h"><span class="s">制作会社さまからいただいた</span><span class="b"><span class="en">3</span><span class="no">つの</span><span class="k">声</span></span><span class="kari">仮の文章</span></h2>
+<p class="tx">rebootに動画・仕上げをご依頼いただいている、プロデューサーや制作進行の方の声の一部です。社名・お名前は掲載許可を確認中のため伏せています。</p>
+<div class="lbw"><a class="lb" href="contact.html"><span>受注窓口へ相談する</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a></div>
 </div>
-<div class="bb bv1"><div class="bi"><span class="q"><i>A</i>制作プロデューサー</span><strong>急ぎの話数でも、国内で検査してから上げてくれるので安心して任せられます。</strong><p>〇〇株式会社 制作プロデューサー 〇〇様（掲載許可を確認中）</p></div></div>
-<div class="bb bv2"><div class="bi"><span class="q"><i>B</i>制作進行</span><strong>枚数が多い話数を、東京と中国で振り分けて納期に間に合わせてもらえました。</strong><p>〇〇スタジオ 制作進行 〇〇様（掲載許可を確認中）</p></div></div>
-<div class="bb bv3"><div class="bi"><span class="q"><i>C</i>グロス担当</span><strong>動画から仕上げまで窓口がひとつなので、やりとりがとても楽です。</strong><p>株式会社〇〇 制作デスク 〇〇様（掲載許可を確認中）</p></div></div>
+<div class="qs r">
+<div class="bb bv3"><div class="bi"><span class="q">制作デスク</span><strong>動画から仕上げまで窓口がひとつなので、やりとりがとても楽です。</strong><p>株式会社〇〇 制作デスク 〇〇様（掲載許可を確認中）</p></div></div>
+<div class="bb bv4"><div class="bi"><span class="q">お客様の声について</span><strong>社名・お名前は、掲載の許可をいただいてから載せます。</strong></div></div>
 </div>
 </div>
+<div class="bru r q1 bar" aria-hidden="true"><i style="width:79%;height:4px;margin:0px 8% 0 auto;background:linear-gradient(270deg,#f5c400 77%,transparent 89%)"></i><i style="width:32%;height:5px;margin:-2px 2% 0 auto;background:linear-gradient(270deg,#c42d8f 80%,transparent 85%)"></i><i style="width:34%;height:3px;margin:-1px 13% 0 auto;background:linear-gradient(270deg,#c42d8f 73%,transparent 75%)"></i><i style="width:9%;height:3px;margin:0px 6% 0 auto;background:linear-gradient(270deg,#d2232a 77%,transparent 87%)"></i><i style="width:37%;height:10px;margin:0px 1% 0 auto;background:linear-gradient(270deg,#c42d8f 65%,transparent 91%)"></i><i style="width:7%;height:6px;margin:-2px 93% 0 auto;background:linear-gradient(270deg,#f5c400 85%,transparent 98%)"></i><i style="width:7%;height:2px;margin:-1px 92% 0 auto;background:linear-gradient(270deg,#e6326e 66%,transparent 74%)"></i><i style="width:83%;height:16px;margin:-5px 3% 0 auto;background:linear-gradient(270deg,#f9e6d7 74%,transparent 87%)"></i><i style="width:40%;height:12px;margin:-3px 8% 0 auto;background:linear-gradient(270deg,#f9e6d7 73%,transparent 94%)"></i><i style="width:78%;height:8px;margin:0px 9% 0 auto;background:linear-gradient(270deg,#f9e6d7 88%,transparent 99%)"></i><i style="width:10%;height:6px;margin:-1px 85% 0 auto;background:linear-gradient(270deg,#f9e6d7 75%,transparent 77%)"></i><i style="width:45%;height:8px;margin:-4px 11% 0 auto;background:linear-gradient(270deg,#c42d8f 67%,transparent 95%)"></i><i style="width:80%;height:12px;margin:-2px 8% 0 auto;background:linear-gradient(270deg,#d2232a 82%,transparent 82%)"></i><i style="width:96%;height:16px;margin:-8px 1% 0 auto;background:linear-gradient(270deg,#d2232a 64%,transparent 66%)"></i><i style="width:81%;height:26px;margin:-12px 4% 0 auto;background:linear-gradient(270deg,#f9e6d7 69%,transparent 85%)"></i><i style="width:83%;height:6px;margin:-3px 11% 0 auto;background:linear-gradient(270deg,#e6326e 75%,transparent 78%)"></i><i style="width:20%;height:6px;margin:0px 72% 0 auto;background:linear-gradient(270deg,#d2232a 84%,transparent 85%)"></i><i style="width:71%;height:12px;margin:0px 2% 0 auto;background:linear-gradient(270deg,#f9e6d7 87%,transparent 100%)"></i><i style="width:95%;height:20px;margin:-3px 0% 0 auto;background:linear-gradient(270deg,#f9e6d7 84%,transparent 84%)"></i><i style="width:97%;height:16px;margin:-8px 3% 0 auto;background:linear-gradient(270deg,#f08a2c 71%,transparent 72%)"></i><i style="width:53%;height:16px;margin:-5px 8% 0 auto;background:linear-gradient(270deg,#f9e6d7 62%,transparent 74%)"></i><i style="width:41%;height:12px;margin:-4px 14% 0 auto;background:linear-gradient(270deg,#f9e6d7 88%,transparent 88%)"></i><i style="width:38%;height:10px;margin:-5px 5% 0 auto;background:linear-gradient(270deg,#f9e6d7 88%,transparent 100%)"></i><i style="width:17%;height:4px;margin:-1px 20% 0 auto;background:linear-gradient(270deg,#f9e6d7 89%,transparent 91%)"></i></div>
 </section>
 
-<!-- 6 お知らせ：BF 選考について -->
-<section class="sl" aria-labelledby="sl-h">
-<div class="gl g5" aria-hidden="true"><span style="width:25%;height:10px;background:#4fba12;margin-left:24%"></span><span style="width:74%;height:6px;background:#8dee54;margin-left:4%"></span><span style="width:38%;height:12px;background:#5fdf16;margin-left:22%"></span><span style="width:41%;height:6px;background:#8dee54;margin-left:21%"></span><span style="width:31%;height:6px;background:#5fdf16;margin-left:17%"></span><span style="width:81%;height:12px;background:#ffffff;margin-left:6%"></span><span style="width:99%;height:4px;background:#4fba12;margin-left:0%"></span><span style="width:75%;height:8px;background:#5fdf16;margin-left:6%"></span><span style="width:66%;height:10px;background:#97ea2d;margin-left:19%"></span><span style="width:55%;height:6px;background:#5fdf16;margin-left:13%"></span><span style="width:98%;height:16px;background:#e9fbb4;margin-left:1%"></span><span style="width:30%;height:6px;background:#97ea2d;margin-left:4%"></span></div>
-<div class="w">
+<!-- 6 お知らせ：BF 選考について（3列、上下の線、正方形のサムネイル） -->
+<section class="sec sl" aria-labelledby="sl-h">
+<div class="si">
 <h2 class="h2" id="sl-h">お知らせ<span class="kari">仮の文章</span></h2>
 <p class="tag">NEWS</p>
 <ul class="slg">
-<li><a href="studio-japan.html"><span class="im"><img src="images/off/g018.jpg" alt="MONICHI PICTURES のスタジオ入口"></span><span class="tx"><span class="mta"><em>2026.11.12</em><span class="tag">取り組み</span></span><strong>MONICHI PICTURES で動画のトレーニングを行いました</strong></span><svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></li>
-<li><a href="studio-japan.html"><span class="im"><img src="images/off/g011.jpg" alt="専門学校での授業風景"></span><span class="tx"><span class="mta"><em>2026.10.28</em><span class="tag">国内スタジオ</span></span><strong>日本電子専門学校で、動画の授業を担当しました</strong></span><svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></li>
-<li><a href="studio-japan.html"><span class="im"><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></span><span class="tx"><span class="mta"><em>2026.10.05</em><span class="tag">イベント</span></span><strong>会社の垣根を越えたフットサル大会を開きました</strong></span><svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a></li>
+<li><a href="studio-japan.html"><span class="bh t"></span><span class="rw"><span class="im"><img src="images/off/g018.jpg" alt="MONICHI PICTURES のスタジオ入口"></span><span class="tx"><span class="mta"><em>2026.11.12</em><span class="tag">取り組み</span></span><strong>MONICHI PICTURES で動画のトレーニングを行いました</strong></span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></span><span class="bh"></span></a></li>
+<li><a href="studio-japan.html"><span class="bh t"></span><span class="rw"><span class="im"><img src="images/off/g011.jpg" alt="専門学校での授業風景"></span><span class="tx"><span class="mta"><em>2026.10.28</em><span class="tag">国内スタジオ</span></span><strong>日本電子専門学校で、動画の授業を担当しました</strong></span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></span><span class="bh"></span></a></li>
+<li><a href="studio-japan.html"><span class="bh t"></span><span class="rw"><span class="im"><img src="images/off/g019.jpg" alt="フットサル大会の集合写真"></span><span class="tx"><span class="mta"><em>2026.10.05</em><span class="tag">イベント</span></span><strong>会社の垣根を越えたフットサル大会を開きました</strong></span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></span><span class="bh"></span></a></li>
 </ul>
 </div>
+<div class="bru n1 ba" aria-hidden="true"><i style="width:100%;height:5px;margin:0px 0 0 0%;background:linear-gradient(90deg,#c42d8f 85%,transparent 99%)"></i><i style="width:76%;height:8px;margin:0px 0 0 6%;background:linear-gradient(90deg,#c42d8f 60%,transparent 67%)"></i><i style="width:74%;height:4px;margin:0px 0 0 7%;background:linear-gradient(90deg,#e6326e 72%,transparent 96%)"></i><i style="width:6%;height:2px;margin:-1px 0 0 94%;background:linear-gradient(90deg,#c42d8f 66%,transparent 77%)"></i><i style="width:55%;height:10px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#f9e6d7 91%,transparent 99%)"></i><i style="width:87%;height:8px;margin:0px 0 0 8%;background:linear-gradient(90deg,#c42d8f 88%,transparent 98%)"></i><i style="width:95%;height:12px;margin:-7px 0 0 1%;background:linear-gradient(90deg,#c42d8f 79%,transparent 96%)"></i><i style="width:41%;height:16px;margin:-4px 0 0 9%;background:linear-gradient(90deg,#e6326e 86%,transparent 94%)"></i><i style="width:22%;height:2px;margin:-1px 0 0 41%;background:linear-gradient(90deg,#c42d8f 89%,transparent 93%)"></i><i style="width:62%;height:6px;margin:-1px 0 0 8%;background:linear-gradient(90deg,#c42d8f 87%,transparent 99%)"></i><i style="width:31%;height:12px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#c42d8f 86%,transparent 97%)"></i><i style="width:86%;height:6px;margin:-1px 0 0 6%;background:linear-gradient(90deg,#c42d8f 61%,transparent 78%)"></i><i style="width:79%;height:26px;margin:-14px 0 0 9%;background:linear-gradient(90deg,#f5c400 81%,transparent 98%)"></i><i style="width:71%;height:20px;margin:-3px 0 0 0%;background:linear-gradient(90deg,#c42d8f 68%,transparent 93%)"></i><i style="width:72%;height:16px;margin:0px 0 0 4%;background:linear-gradient(90deg,#f08a2c 62%,transparent 82%)"></i><i style="width:39%;height:12px;margin:-4px 0 0 8%;background:linear-gradient(90deg,#f08a2c 69%,transparent 91%)"></i><i style="width:94%;height:12px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#f08a2c 87%,transparent 89%)"></i><i style="width:97%;height:2px;margin:0px 0 0 1%;background:linear-gradient(90deg,#f9e6d7 90%,transparent 100%)"></i><i style="width:98%;height:16px;margin:-7px 0 0 0%;background:linear-gradient(90deg,#f08a2c 63%,transparent 92%)"></i><i style="width:21%;height:2px;margin:0px 0 0 72%;background:linear-gradient(90deg,#f08a2c 72%,transparent 99%)"></i><i style="width:86%;height:5px;margin:0px 0 0 12%;background:linear-gradient(90deg,#c42d8f 91%,transparent 94%)"></i><i style="width:51%;height:5px;margin:-1px 0 0 8%;background:linear-gradient(90deg,#f5c400 74%,transparent 77%)"></i><i style="width:90%;height:12px;margin:-4px 0 0 0%;background:linear-gradient(90deg,#c42d8f 61%,transparent 82%)"></i><i style="width:97%;height:4px;margin:0px 0 0 1%;background:linear-gradient(90deg,#c42d8f 68%,transparent 68%)"></i><i style="width:22%;height:6px;margin:-3px 0 0 36%;background:linear-gradient(90deg,#c42d8f 62%,transparent 94%)"></i><i style="width:37%;height:20px;margin:-5px 0 0 0%;background:linear-gradient(90deg,#c42d8f 79%,transparent 94%)"></i></div>
 </section>
 
-<!-- 7 アニメーター募集：BF 働く環境 -->
-<section class="ev" id="recruit" aria-labelledby="ev-h">
-<div class="bp"><img src="images/off/l-m179.jpg" alt="lolroute：作業ブースで作画するスタッフ">
-<div class="gl ga" aria-hidden="true"><span style="width:72%;height:8px;background:#5fdf16;margin-left:5%"></span><span style="width:73%;height:12px;background:#78eb35;margin-left:17%"></span><span style="width:59%;height:10px;background:#3f9a10;margin-left:0%"></span><span style="width:55%;height:16px;background:#8dee54;margin-left:14%"></span><span style="width:43%;height:6px;background:#97ea2d;margin-left:5%"></span><span style="width:56%;height:16px;background:#3f9a10;margin-left:18%"></span><span style="width:31%;height:4px;background:#3f9a10;margin-left:1%"></span><span style="width:79%;height:8px;background:#5fdf16;margin-left:2%"></span><span style="width:70%;height:16px;background:#9cea2e;margin-left:4%"></span><span style="width:95%;height:16px;background:#8dee54;margin-left:3%"></span><span style="width:36%;height:6px;background:#b7ed45;margin-left:1%"></span><span style="width:58%;height:8px;background:#5fdf16;margin-left:19%"></span><span style="width:27%;height:12px;background:#3f9a10;margin-left:5%"></span><span style="width:79%;height:4px;background:#78eb35;margin-left:12%"></span></div>
-<div class="gl gb" aria-hidden="true"><span style="width:38%;height:4px;background:#78eb35;margin-left:7%"></span><span style="width:52%;height:6px;background:#4fba12;margin-left:21%"></span><span style="width:93%;height:4px;background:#3f9a10;margin-left:13%"></span><span style="width:28%;height:4px;background:#4fba12;margin-left:6%"></span><span style="width:53%;height:12px;background:#3f9a10;margin-left:0%"></span><span style="width:95%;height:6px;background:#e9fbb4;margin-left:13%"></span><span style="width:52%;height:10px;background:#3f9a10;margin-left:8%"></span><span style="width:24%;height:6px;background:#ffffff;margin-left:10%"></span><span style="width:59%;height:6px;background:#5fdf16;margin-left:30%"></span><span style="width:67%;height:4px;background:#4fba12;margin-left:12%"></span><span style="width:36%;height:8px;background:#97ea2d;margin-left:19%"></span><span style="width:57%;height:4px;background:#9cea2e;margin-left:17%"></span></div>
+<!-- 7 アニメーター募集：BF 全幅写真＋働く環境＋オフィスのスライダー -->
+<div class="band" aria-hidden="false">
+<picture><img src="images/gen/ri-band.jpg" alt="作画机と動画用紙の束が並ぶスタジオの作業フロア"></picture>
+<div class="bru b1 ba" aria-hidden="true"><i style="width:47%;height:2px;margin:0px 0 0 3%;background:linear-gradient(90deg,#f9e6d7 68%,transparent 77%)"></i><i style="width:59%;height:4px;margin:-2px 0 0 8%;background:linear-gradient(90deg,#f39a3d 86%,transparent 89%)"></i><i style="width:81%;height:2px;margin:0px 0 0 5%;background:linear-gradient(90deg,#f9e6d7 85%,transparent 96%)"></i><i style="width:83%;height:5px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#f9e6d7 63%,transparent 74%)"></i><i style="width:21%;height:6px;margin:-3px 0 0 27%;background:linear-gradient(90deg,#f9e6d7 73%,transparent 98%)"></i><i style="width:15%;height:4px;margin:-2px 0 0 42%;background:linear-gradient(90deg,#f5c400 85%,transparent 100%)"></i><i style="width:69%;height:3px;margin:0px 0 0 1%;background:linear-gradient(90deg,#c84a00 71%,transparent 77%)"></i><i style="width:81%;height:3px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#e8b04a 72%,transparent 75%)"></i><i style="width:86%;height:8px;margin:0px 0 0 0%;background:linear-gradient(90deg,#f9e6d7 67%,transparent 84%)"></i><i style="width:9%;height:6px;margin:-2px 0 0 7%;background:linear-gradient(90deg,#f39a3d 91%,transparent 100%)"></i><i style="width:34%;height:20px;margin:-4px 0 0 2%;background:linear-gradient(90deg,#e8b04a 91%,transparent 91%)"></i><i style="width:42%;height:2px;margin:0px 0 0 7%;background:linear-gradient(90deg,#f9e6d7 71%,transparent 72%)"></i><i style="width:36%;height:20px;margin:-4px 0 0 12%;background:linear-gradient(90deg,#f9e6d7 72%,transparent 98%)"></i><i style="width:97%;height:16px;margin:-9px 0 0 3%;background:linear-gradient(90deg,#e8b04a 72%,transparent 94%)"></i><i style="width:45%;height:8px;margin:-3px 0 0 11%;background:linear-gradient(90deg,#f9e6d7 72%,transparent 81%)"></i><i style="width:45%;height:26px;margin:-9px 0 0 2%;background:linear-gradient(90deg,#f5c400 75%,transparent 87%)"></i><i style="width:99%;height:6px;margin:-3px 0 0 1%;background:linear-gradient(90deg,#f5c400 62%,transparent 64%)"></i><i style="width:85%;height:5px;margin:-3px 0 0 3%;background:linear-gradient(90deg,#c84a00 85%,transparent 86%)"></i><i style="width:16%;height:4px;margin:0px 0 0 47%;background:linear-gradient(90deg,#c84a00 67%,transparent 80%)"></i><i style="width:87%;height:12px;margin:0px 0 0 4%;background:linear-gradient(90deg,#e8b04a 71%,transparent 84%)"></i><i style="width:68%;height:4px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#c84a00 77%,transparent 89%)"></i><i style="width:69%;height:5px;margin:0px 0 0 3%;background:linear-gradient(90deg,#c84a00 69%,transparent 89%)"></i><i style="width:93%;height:16px;margin:-6px 0 0 7%;background:linear-gradient(90deg,#f5c400 76%,transparent 85%)"></i><i style="width:100%;height:5px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#f5c400 86%,transparent 86%)"></i></div>
+<div class="bru r b2 bar" aria-hidden="true"><i style="width:6%;height:2px;margin:0px 41% 0 auto;background:linear-gradient(270deg,#7ad33a 92%,transparent 97%)"></i><i style="width:77%;height:12px;margin:-7px 12% 0 auto;background:linear-gradient(270deg,#2fb3a0 68%,transparent 68%)"></i><i style="width:8%;height:2px;margin:-1px 67% 0 auto;background:linear-gradient(270deg,#7ad33a 67%,transparent 77%)"></i><i style="width:34%;height:2px;margin:-1px 2% 0 auto;background:linear-gradient(270deg,#3fbf2a 89%,transparent 93%)"></i><i style="width:40%;height:6px;margin:-2px 4% 0 auto;background:linear-gradient(270deg,#3fbf2a 74%,transparent 83%)"></i><i style="width:81%;height:26px;margin:0px 6% 0 auto;background:linear-gradient(270deg,#3fbf2a 64%,transparent 94%)"></i><i style="width:13%;height:2px;margin:-1px 70% 0 auto;background:linear-gradient(270deg,#1f9a4a 79%,transparent 83%)"></i><i style="width:34%;height:20px;margin:-7px 8% 0 auto;background:linear-gradient(270deg,#1f9a4a 80%,transparent 91%)"></i><i style="width:95%;height:16px;margin:-8px 3% 0 auto;background:linear-gradient(270deg,#7ad33a 83%,transparent 89%)"></i><i style="width:74%;height:26px;margin:-15px 4% 0 auto;background:linear-gradient(270deg,#1f9a4a 75%,transparent 75%)"></i><i style="width:51%;height:2px;margin:0px 12% 0 auto;background:linear-gradient(270deg,#1f9a4a 86%,transparent 100%)"></i><i style="width:51%;height:10px;margin:-1px 1% 0 auto;background:linear-gradient(270deg,#3fbf2a 92%,transparent 95%)"></i><i style="width:76%;height:26px;margin:0px 0% 0 auto;background:linear-gradient(270deg,#2fb3a0 71%,transparent 99%)"></i><i style="width:55%;height:20px;margin:-6px 6% 0 auto;background:linear-gradient(270deg,#2fb3a0 74%,transparent 77%)"></i><i style="width:49%;height:26px;margin:0px 0% 0 auto;background:linear-gradient(270deg,#2fb3a0 88%,transparent 98%)"></i><i style="width:32%;height:6px;margin:-1px 5% 0 auto;background:linear-gradient(270deg,#2fb3a0 65%,transparent 72%)"></i><i style="width:69%;height:3px;margin:0px 8% 0 auto;background:linear-gradient(270deg,#c8e03a 64%,transparent 70%)"></i><i style="width:70%;height:5px;margin:0px 8% 0 auto;background:linear-gradient(270deg,#3fbf2a 82%,transparent 87%)"></i><i style="width:10%;height:2px;margin:-1px 11% 0 auto;background:linear-gradient(270deg,#c8e03a 74%,transparent 86%)"></i><i style="width:96%;height:26px;margin:-6px 3% 0 auto;background:linear-gradient(270deg,#c8e03a 73%,transparent 100%)"></i><i style="width:80%;height:26px;margin:-8px 1% 0 auto;background:linear-gradient(270deg,#c8e03a 88%,transparent 96%)"></i><i style="width:98%;height:6px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#2fb3a0 83%,transparent 97%)"></i><i style="width:67%;height:6px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#2fb3a0 88%,transparent 90%)"></i><i style="width:83%;height:5px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#2fb3a0 64%,transparent 82%)"></i><i style="width:92%;height:16px;margin:-4px 0% 0 auto;background:linear-gradient(270deg,#2fb3a0 91%,transparent 97%)"></i><i style="width:74%;height:8px;margin:0px 6% 0 auto;background:linear-gradient(270deg,#9be03a 72%,transparent 97%)"></i><i style="width:31%;height:8px;margin:-4px 4% 0 auto;background:linear-gradient(270deg,#2fb3a0 64%,transparent 78%)"></i><i style="width:32%;height:26px;margin:-2px 13% 0 auto;background:linear-gradient(270deg,#1f9a4a 83%,transparent 84%)"></i></div>
+<div class="bru b3 ba" aria-hidden="true"><i style="width:65%;height:5px;margin:0px 0 0 14%;background:linear-gradient(90deg,#6a4fd0 71%,transparent 91%)"></i><i style="width:97%;height:26px;margin:-13px 0 0 2%;background:linear-gradient(90deg,#6a4fd0 64%,transparent 83%)"></i><i style="width:36%;height:12px;margin:-3px 0 0 13%;background:linear-gradient(90deg,#6a4fd0 77%,transparent 87%)"></i><i style="width:70%;height:2px;margin:0px 0 0 3%;background:linear-gradient(90deg,#6a4fd0 64%,transparent 87%)"></i><i style="width:30%;height:8px;margin:-1px 0 0 8%;background:linear-gradient(90deg,#1aa3a3 85%,transparent 97%)"></i><i style="width:7%;height:2px;margin:-1px 0 0 40%;background:linear-gradient(90deg,#1e8fd6 60%,transparent 63%)"></i><i style="width:54%;height:5px;margin:-3px 0 0 7%;background:linear-gradient(90deg,#6a4fd0 90%,transparent 95%)"></i><i style="width:91%;height:2px;margin:-1px 0 0 1%;background:linear-gradient(90deg,#3456c8 75%,transparent 75%)"></i><i style="width:7%;height:4px;margin:-2px 0 0 59%;background:linear-gradient(90deg,#2fb3a0 77%,transparent 90%)"></i><i style="width:91%;height:12px;margin:-1px 0 0 5%;background:linear-gradient(90deg,#6a4fd0 80%,transparent 85%)"></i><i style="width:52%;height:6px;margin:-2px 0 0 13%;background:linear-gradient(90deg,#2fb3a0 87%,transparent 93%)"></i><i style="width:5%;height:3px;margin:0px 0 0 61%;background:linear-gradient(90deg,#3456c8 65%,transparent 82%)"></i><i style="width:5%;height:6px;margin:-1px 0 0 67%;background:linear-gradient(90deg,#1aa3a3 83%,transparent 83%)"></i><i style="width:47%;height:3px;margin:0px 0 0 0%;background:linear-gradient(90deg,#6a4fd0 73%,transparent 98%)"></i><i style="width:69%;height:12px;margin:-4px 0 0 1%;background:linear-gradient(90deg,#3456c8 60%,transparent 91%)"></i><i style="width:42%;height:8px;margin:-1px 0 0 12%;background:linear-gradient(90deg,#3456c8 88%,transparent 92%)"></i><i style="width:18%;height:3px;margin:-1px 0 0 17%;background:linear-gradient(90deg,#6a4fd0 90%,transparent 98%)"></i><i style="width:9%;height:4px;margin:0px 0 0 23%;background:linear-gradient(90deg,#2fb3a0 83%,transparent 91%)"></i><i style="width:93%;height:2px;margin:0px 0 0 6%;background:linear-gradient(90deg,#6a4fd0 78%,transparent 86%)"></i><i style="width:11%;height:6px;margin:-3px 0 0 42%;background:linear-gradient(90deg,#3456c8 75%,transparent 100%)"></i><i style="width:46%;height:5px;margin:-3px 0 0 14%;background:linear-gradient(90deg,#3456c8 84%,transparent 86%)"></i><i style="width:85%;height:5px;margin:-3px 0 0 4%;background:linear-gradient(90deg,#3456c8 84%,transparent 93%)"></i><i style="width:78%;height:26px;margin:-11px 0 0 10%;background:linear-gradient(90deg,#3456c8 85%,transparent 88%)"></i><i style="width:17%;height:4px;margin:-1px 0 0 61%;background:linear-gradient(90deg,#1aa3a3 71%,transparent 97%)"></i><i style="width:42%;height:5px;margin:-3px 0 0 6%;background:linear-gradient(90deg,#1aa3a3 69%,transparent 74%)"></i><i style="width:30%;height:10px;margin:-6px 0 0 7%;background:linear-gradient(90deg,#6a4fd0 73%,transparent 89%)"></i><i style="width:99%;height:16px;margin:-4px 0 0 1%;background:linear-gradient(90deg,#1aa3a3 75%,transparent 88%)"></i><i style="width:91%;height:4px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#1aa3a3 79%,transparent 88%)"></i><i style="width:35%;height:12px;margin:-5px 0 0 4%;background:linear-gradient(90deg,#1aa3a3 87%,transparent 100%)"></i><i style="width:15%;height:3px;margin:-1px 0 0 70%;background:linear-gradient(90deg,#1aa3a3 77%,transparent 97%)"></i><i style="width:21%;height:3px;margin:-1px 0 0 3%;background:linear-gradient(90deg,#3456c8 78%,transparent 79%)"></i><i style="width:95%;height:10px;margin:-4px 0 0 2%;background:linear-gradient(90deg,#3456c8 75%,transparent 76%)"></i><i style="width:90%;height:16px;margin:-4px 0 0 1%;background:linear-gradient(90deg,#1aa3a3 76%,transparent 90%)"></i><i style="width:72%;height:10px;margin:-5px 0 0 2%;background:linear-gradient(90deg,#1aa3a3 79%,transparent 83%)"></i><i style="width:74%;height:8px;margin:0px 0 0 4%;background:linear-gradient(90deg,#1aa3a3 80%,transparent 98%)"></i><i style="width:38%;height:20px;margin:-2px 0 0 9%;background:linear-gradient(90deg,#1aa3a3 80%,transparent 85%)"></i><i style="width:51%;height:5px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#2fb3a0 70%,transparent 83%)"></i><i style="width:22%;height:4px;margin:-2px 0 0 78%;background:linear-gradient(90deg,#30c0e0 80%,transparent 95%)"></i><i style="width:52%;height:6px;margin:-1px 0 0 1%;background:linear-gradient(90deg,#2fb3a0 64%,transparent 65%)"></i><i style="width:45%;height:16px;margin:-9px 0 0 3%;background:linear-gradient(90deg,#6a4fd0 61%,transparent 100%)"></i></div>
 </div>
-<div class="w">
+<section class="sec ev" id="recruit" aria-labelledby="ev-h">
 <div class="evf">
-<div class="evl">
-<h2 class="h2" id="ev-h">アニメーター<br>募集<span class="kari">仮の文章</span></h2>
+<div class="evl"><div>
+<h2 class="h2" id="ev-h">アニメーター募集<span class="kari">仮の文章</span></h2>
 <p class="tag">RECRUIT</p>
 <p class="tx">国内スタジオ lolroute で、アニメーターを募集しています。出社して作画しているスタッフの<b>正社員率は100%</b>。専門学校のご担当者様からのご連絡も歓迎しています。</p>
 <div class="lbs">
-<a class="lb" href="studio-japan.html#recruit">募集要項を見る<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a>
-<a class="lb" href="studio-japan.html">国内スタジオ lolroute<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a>
-<a class="lb" href="contact.html">専門学校のご担当者様へ<svg class="arw" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 1.5l8 5.5-8 5.5z" fill="currentColor"/></svg></a>
+<a class="lb" href="studio-japan.html#recruit"><span>募集要項を見る</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a>
+<a class="lb" href="studio-japan.html"><span>国内スタジオ lolroute</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a>
+<a class="lb" href="contact.html"><span>専門学校のご担当者様へ</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a>
 </div>
+</div></div>
+<div class="evr"><img src="images/off/l-m156.jpg" alt="鉛筆で動画用紙に描く手元"></div>
 </div>
-<div class="evr"><img src="images/off/g021.jpg" alt="lolroute で作画するスタッフ"></div>
-</div>
-</div>
+</section>
 <div class="gal">
 <input type="checkbox" id="gp" aria-label="スライドを一時停止">
 <div class="vp"><div class="tk">
-<img src="images/off/g017.jpg" alt="机で作画する国内スタッフ">
-<img src="images/off/g008.jpg" alt="まちゼミのアニメ教室">
-<img src="images/off/g009.jpg" alt="まちゼミで絵を描く子どもたち">
-<img src="images/off/g010.jpg" alt="懇親会の様子">
-<img src="images/off/g020.jpg" alt="会議室のぬいぐるみとサイン">
-<img src="images/off/g002.jpg" alt="lolroute の入口">
-<img src="images/off/g045.jpg" alt="rebootの木の看板">
+<span><img src="images/off/g017.jpg" alt="机で作画する国内スタッフ"></span>
+<span><img src="images/off/g008.jpg" alt="まちゼミのアニメ教室"></span>
+<span><img src="images/off/g009.jpg" alt="まちゼミで絵を描く子どもたち"></span>
+<span><img src="images/off/g010.jpg" alt="懇親会の様子"></span>
+<span><img src="images/off/g020.jpg" alt="会議室のぬいぐるみとサイン"></span>
+<span><img src="images/off/g002.jpg" alt="lolroute の入口"></span>
+<span><img src="images/off/g045.jpg" alt="rebootの木の看板"></span>
+<span><img src="images/off/g021.jpg" alt="作画中の国内スタッフ"></span>
 </div></div>
-<label for="gp"><span class="off">一時停止 ❚❚</span><span class="on">再生 ▶</span></label>
+<div class="gbw"><label for="gp" class="sb"><span class="off">一時停止</span><span class="on">再生</span></label></div>
 </div>
-</section>
 
-<!-- 8 お問い合わせ：BF JOIN OUR TEAM -->
+<!-- 8 お問い合わせ：BF JOIN OUR TEAM（白地・オレンジ文字・ちぎれた上下の縁と筆跡） -->
 <section class="jn" aria-labelledby="jn-h">
-<div class="gl ga" aria-hidden="true"><span style="width:55%;height:12px;background:#e9fbb4;margin-left:5%"></span><span style="width:55%;height:6px;background:#e9fbb4;margin-left:8%"></span><span style="width:74%;height:12px;background:#9cea2e;margin-left:23%"></span><span style="width:94%;height:12px;background:#97ea2d;margin-left:18%"></span><span style="width:70%;height:10px;background:#78eb35;margin-left:12%"></span><span style="width:24%;height:4px;background:#8dee54;margin-left:17%"></span><span style="width:57%;height:4px;background:#9cea2e;margin-left:21%"></span><span style="width:46%;height:8px;background:#3f9a10;margin-left:9%"></span><span style="width:71%;height:10px;background:#5fdf16;margin-left:24%"></span><span style="width:27%;height:10px;background:#b7ed45;margin-left:15%"></span><span style="width:25%;height:4px;background:#4fba12;margin-left:26%"></span><span style="width:99%;height:4px;background:#b7ed45;margin-left:17%"></span></div>
-<div class="gl gb" aria-hidden="true"><span style="width:58%;height:4px;background:#e9fbb4;margin-left:15%"></span><span style="width:71%;height:10px;background:#8dee54;margin-left:29%"></span><span style="width:41%;height:6px;background:#ffffff;margin-left:26%"></span><span style="width:47%;height:8px;background:#9cea2e;margin-left:20%"></span><span style="width:24%;height:4px;background:#e9fbb4;margin-left:12%"></span><span style="width:80%;height:4px;background:#5fdf16;margin-left:2%"></span><span style="width:44%;height:6px;background:#9cea2e;margin-left:7%"></span><span style="width:59%;height:10px;background:#9cea2e;margin-left:13%"></span><span style="width:39%;height:4px;background:#3f9a10;margin-left:28%"></span><span style="width:72%;height:4px;background:#3f9a10;margin-left:12%"></span><span style="width:70%;height:12px;background:#b7ed45;margin-left:4%"></span><span style="width:74%;height:12px;background:#e9fbb4;margin-left:22%"></span><span style="width:46%;height:8px;background:#4fba12;margin-left:10%"></span><span style="width:47%;height:16px;background:#ffffff;margin-left:25%"></span></div>
-<div class="gl gc" aria-hidden="true"><span style="width:51%;height:10px;background:#e9fbb4;margin-left:22%"></span><span style="width:85%;height:16px;background:#e9fbb4;margin-left:11%"></span><span style="width:82%;height:16px;background:#8dee54;margin-left:27%"></span><span style="width:28%;height:6px;background:#97ea2d;margin-left:23%"></span><span style="width:40%;height:8px;background:#8dee54;margin-left:5%"></span><span style="width:30%;height:8px;background:#5fdf16;margin-left:14%"></span><span style="width:49%;height:6px;background:#b7ed45;margin-left:4%"></span><span style="width:68%;height:12px;background:#97ea2d;margin-left:16%"></span><span style="width:75%;height:4px;background:#97ea2d;margin-left:8%"></span><span style="width:43%;height:4px;background:#e9fbb4;margin-left:13%"></span><span style="width:73%;height:10px;background:#5fdf16;margin-left:21%"></span><span style="width:43%;height:4px;background:#9cea2e;margin-left:20%"></span><span style="width:85%;height:6px;background:#97ea2d;margin-left:18%"></span><span style="width:53%;height:6px;background:#4fba12;margin-left:1%"></span><span style="width:36%;height:4px;background:#9cea2e;margin-left:29%"></span><span style="width:74%;height:12px;background:#97ea2d;margin-left:8%"></span></div>
+<div class="bru j3" aria-hidden="true"><i style="width:91%;height:6px;margin:0px 0 0 6%;background:linear-gradient(90deg,#fbd9b8 65%,transparent 69%)"></i><i style="width:69%;height:26px;margin:-7px 0 0 3%;background:linear-gradient(90deg,#ffffff 68%,transparent 89%)"></i><i style="width:33%;height:26px;margin:-11px 0 0 3%;background:linear-gradient(90deg,#ffffff 87%,transparent 93%)"></i><i style="width:34%;height:2px;margin:0px 0 0 12%;background:linear-gradient(90deg,#f9e6d7 67%,transparent 68%)"></i><i style="width:6%;height:4px;margin:-2px 0 0 54%;background:linear-gradient(90deg,#fbd9b8 64%,transparent 80%)"></i><i style="width:82%;height:5px;margin:-1px 0 0 2%;background:linear-gradient(90deg,#ffffff 62%,transparent 85%)"></i><i style="width:20%;height:2px;margin:0px 0 0 54%;background:linear-gradient(90deg,#ffffff 68%,transparent 91%)"></i><i style="width:93%;height:2px;margin:-1px 0 0 1%;background:linear-gradient(90deg,#ffffff 71%,transparent 96%)"></i><i style="width:34%;height:12px;margin:-1px 0 0 1%;background:linear-gradient(90deg,#ffffff 85%,transparent 100%)"></i><i style="width:90%;height:20px;margin:-2px 0 0 2%;background:linear-gradient(90deg,#ffffff 90%,transparent 94%)"></i><i style="width:18%;height:4px;margin:0px 0 0 22%;background:linear-gradient(90deg,#ffffff 86%,transparent 93%)"></i><i style="width:77%;height:12px;margin:-1px 0 0 7%;background:linear-gradient(90deg,#ffffff 89%,transparent 95%)"></i></div>
+<div class="bru r j1" aria-hidden="true"><i style="width:71%;height:5px;margin:0px 11% 0 auto;background:linear-gradient(270deg,#8fbf2a 61%,transparent 92%)"></i><i style="width:81%;height:3px;margin:0px 5% 0 auto;background:linear-gradient(270deg,#8fbf2a 60%,transparent 92%)"></i><i style="width:46%;height:4px;margin:-1px 14% 0 auto;background:linear-gradient(270deg,#f5c400 78%,transparent 88%)"></i><i style="width:52%;height:26px;margin:-7px 4% 0 auto;background:linear-gradient(270deg,#d45608 86%,transparent 92%)"></i><i style="width:99%;height:2px;margin:-1px 0% 0 auto;background:linear-gradient(270deg,#f5c400 84%,transparent 86%)"></i><i style="width:74%;height:12px;margin:-5px 3% 0 auto;background:linear-gradient(270deg,#8fbf2a 67%,transparent 89%)"></i><i style="width:64%;height:12px;margin:-6px 3% 0 auto;background:linear-gradient(270deg,#8fbf2a 68%,transparent 72%)"></i><i style="width:16%;height:3px;margin:-1px 47% 0 auto;background:linear-gradient(270deg,#f9e6d7 70%,transparent 96%)"></i><i style="width:5%;height:6px;margin:-3px 30% 0 auto;background:linear-gradient(270deg,#c84a00 73%,transparent 81%)"></i><i style="width:39%;height:12px;margin:-6px 2% 0 auto;background:linear-gradient(270deg,#8fbf2a 66%,transparent 76%)"></i><i style="width:9%;height:3px;margin:0px 47% 0 auto;background:linear-gradient(270deg,#f5c400 66%,transparent 74%)"></i><i style="width:59%;height:10px;margin:-6px 14% 0 auto;background:linear-gradient(270deg,#c84a00 84%,transparent 100%)"></i><i style="width:47%;height:2px;margin:0px 5% 0 auto;background:linear-gradient(270deg,#8fbf2a 91%,transparent 94%)"></i><i style="width:92%;height:2px;margin:-1px 7% 0 auto;background:linear-gradient(270deg,#d45608 80%,transparent 97%)"></i><i style="width:65%;height:4px;margin:0px 8% 0 auto;background:linear-gradient(270deg,#8fbf2a 82%,transparent 91%)"></i><i style="width:83%;height:20px;margin:-11px 4% 0 auto;background:linear-gradient(270deg,#f08a2c 69%,transparent 100%)"></i></div>
 <div class="jnb">
-<div class="w">
-<h2 class="h2" id="jn-h">まずは、枚数と納期だけでも<br>ご相談ください。<span class="kari">仮の文章</span></h2>
-<p class="tag">CONTACT</p>
+<div class="si">
+<hgroup>
+<h2 class="h2" id="jn-h">まずは、枚数と納期だけでも<br>ご相談ください。<span class="kari p">仮の文章</span></h2>
+<p class="tag p">CONTACT</p>
+</hgroup>
 <div class="jng">
 <p class="tx">作品名・話数・カット数が決まっていなくても大丈夫です。わかる範囲でお知らせいただければ、東京と中国の2スタジオから合う進め方をご提案します。</p>
-<div class="bts"><a class="bt" href="contact.html"><span>作業を依頼する</span><svg viewBox="0 0 14 8" aria-hidden="true"><path d="M0 7h12L7 2" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></a>
-<p class="jr"><a class="ul" href="plan.html">プランと料金の考え方<svg viewBox="0 0 10 12" aria-hidden="true"><path d="M1 1l8 5-8 5z" fill="currentColor"/></svg></a><span>返信の目安：〇営業日以内</span></p></div>
+<div class="r">
+<div class="bts"><a class="bt" href="contact.html"><span>作業を依頼する</span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a><a class="bt" href="plan.html"><span>プランを見る</span><svg viewBox="0 0 14 5" aria-hidden="true"><path d="M0 4.5h13L9 .5" fill="none" stroke="currentColor"/></svg></a></div>
+<a class="ar" href="contact.html"><span class="tl">返信の目安：〇営業日以内（受注窓口のフォームへ）</span><svg viewBox="0 0 12 14" aria-hidden="true"><path d="M1 1l10 6-10 6 3-6z" fill="currentColor"/></svg></a>
 </div>
-<div class="jnr"><p>お急ぎの場合はお電話で</p><div class="jtel"><a href="tel:00-0000-0000">TEL 〇〇-〇〇〇〇-〇〇〇〇</a><span>受付 〇〇:〇〇〜〇〇:〇〇（土日祝を除く）</span></div></div>
+</div>
+<dl class="jnd"><dt>お急ぎの場合はお電話で</dt><dd><a class="tel" href="tel:00-0000-0000">TEL 〇〇-〇〇〇〇-〇〇〇〇</a><span>受付 〇〇:〇〇〜〇〇:〇〇（土日祝を除く）</span></dd></dl>
 </div>
 </div>
+<div class="bru j2" aria-hidden="true"><i style="width:89%;height:5px;margin:0px 0 0 5%;background:linear-gradient(90deg,#d45608 70%,transparent 86%)"></i><i style="width:63%;height:2px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#d45608 67%,transparent 68%)"></i><i style="width:50%;height:8px;margin:-3px 0 0 1%;background:linear-gradient(90deg,#c84a00 80%,transparent 97%)"></i><i style="width:73%;height:6px;margin:-3px 0 0 0%;background:linear-gradient(90deg,#d45608 78%,transparent 97%)"></i><i style="width:5%;height:3px;margin:0px 0 0 1%;background:linear-gradient(90deg,#d45608 69%,transparent 84%)"></i><i style="width:87%;height:8px;margin:-4px 0 0 4%;background:linear-gradient(90deg,#d45608 72%,transparent 83%)"></i><i style="width:99%;height:10px;margin:-2px 0 0 1%;background:linear-gradient(90deg,#f08a2c 90%,transparent 90%)"></i><i style="width:12%;height:4px;margin:0px 0 0 43%;background:linear-gradient(90deg,#d45608 68%,transparent 94%)"></i><i style="width:75%;height:10px;margin:-3px 0 0 12%;background:linear-gradient(90deg,#f5c400 80%,transparent 81%)"></i><i style="width:63%;height:26px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#8fbf2a 70%,transparent 75%)"></i><i style="width:5%;height:3px;margin:-1px 0 0 87%;background:linear-gradient(90deg,#f5c400 79%,transparent 81%)"></i><i style="width:52%;height:2px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#f08a2c 79%,transparent 82%)"></i><i style="width:74%;height:10px;margin:-2px 0 0 2%;background:linear-gradient(90deg,#d45608 87%,transparent 95%)"></i><i style="width:32%;height:16px;margin:-6px 0 0 0%;background:linear-gradient(90deg,#f5c400 86%,transparent 88%)"></i><i style="width:78%;height:10px;margin:-4px 0 0 2%;background:linear-gradient(90deg,#f5c400 87%,transparent 95%)"></i><i style="width:95%;height:3px;margin:-1px 0 0 2%;background:linear-gradient(90deg,#d45608 74%,transparent 95%)"></i><i style="width:32%;height:16px;margin:-6px 0 0 14%;background:linear-gradient(90deg,#c84a00 72%,transparent 72%)"></i><i style="width:70%;height:2px;margin:-1px 0 0 5%;background:linear-gradient(90deg,#c84a00 61%,transparent 69%)"></i><i style="width:21%;height:3px;margin:-1px 0 0 30%;background:linear-gradient(90deg,#c84a00 66%,transparent 89%)"></i><i style="width:14%;height:6px;margin:-2px 0 0 32%;background:linear-gradient(90deg,#c84a00 85%,transparent 88%)"></i><i style="width:99%;height:6px;margin:-1px 0 0 1%;background:linear-gradient(90deg,#c84a00 75%,transparent 81%)"></i><i style="width:74%;height:8px;margin:-3px 0 0 5%;background:linear-gradient(90deg,#8fbf2a 75%,transparent 77%)"></i><i style="width:10%;height:4px;margin:-1px 0 0 65%;background:linear-gradient(90deg,#d45608 73%,transparent 100%)"></i><i style="width:33%;height:26px;margin:-10px 0 0 9%;background:linear-gradient(90deg,#8fbf2a 78%,transparent 87%)"></i></div>
+<div class="bru r j4" aria-hidden="true"><i style="width:81%;height:20px;margin:0px 0% 0 auto;background:linear-gradient(270deg,#fbd9b8 77%,transparent 99%)"></i><i style="width:18%;height:6px;margin:-3px 25% 0 auto;background:linear-gradient(270deg,#f9e6d7 61%,transparent 66%)"></i><i style="width:43%;height:4px;margin:0px 4% 0 auto;background:linear-gradient(270deg,#ffffff 74%,transparent 91%)"></i><i style="width:88%;height:2px;margin:-1px 3% 0 auto;background:linear-gradient(270deg,#fbd9b8 68%,transparent 95%)"></i><i style="width:12%;height:6px;margin:0px 20% 0 auto;background:linear-gradient(270deg,#ffffff 73%,transparent 80%)"></i><i style="width:68%;height:2px;margin:0px 7% 0 auto;background:linear-gradient(270deg,#f9e6d7 70%,transparent 79%)"></i><i style="width:61%;height:26px;margin:-14px 9% 0 auto;background:linear-gradient(270deg,#f9e6d7 76%,transparent 89%)"></i><i style="width:51%;height:8px;margin:0px 4% 0 auto;background:linear-gradient(270deg,#fbd9b8 62%,transparent 70%)"></i><i style="width:37%;height:16px;margin:-7px 8% 0 auto;background:linear-gradient(270deg,#fbd9b8 76%,transparent 89%)"></i><i style="width:70%;height:12px;margin:-5px 0% 0 auto;background:linear-gradient(270deg,#fbd9b8 63%,transparent 97%)"></i><i style="width:94%;height:3px;margin:-1px 4% 0 auto;background:linear-gradient(270deg,#f9e6d7 68%,transparent 93%)"></i><i style="width:5%;height:4px;margin:0px 84% 0 auto;background:linear-gradient(270deg,#fbd9b8 70%,transparent 82%)"></i></div>
 </section>
 
+<!-- フッター：BF .footer（見出しに下線、4列のメニュー、下に線と会社情報） -->
 <footer class="ft">
-<div class="w">
-<p class="flo">reboot</p>
+<div class="fti">
+<a class="flo" href="#top">reboot<small>動画・仕上げの依頼はrebootへ</small></a>
 <nav class="fn" aria-label="フッターメニュー">
-<div><a class="t" href="#top">トップ</a><a class="s" href="#studio">スタジオ</a><a class="s" href="#recruit">アニメーター募集</a></div>
-<div><a class="t" href="contact.html">受注窓口</a><a class="s" href="contact.html">ご依頼・ご相談</a><a class="s" href="plan.html">プラン</a></div>
-<div><a class="t" href="works.html">作品履歴</a><a class="s" href="works.html">参加作品（165作品）</a></div>
-<div><a class="t" href="studio-japan.html">スタジオ</a><a class="s" href="studio-japan.html">国内スタジオ</a><a class="s" href="studio-overseas.html">海外スタジオ</a></div>
+<div><a class="t tl" href="#top">トップ</a><ul><li><a class="th" href="#studio">スタジオ</a></li><li><a class="th" href="#recruit">アニメーター募集</a></li></ul></div>
+<div><a class="t tl" href="contact.html">受注窓口</a><ul><li><a class="th" href="contact.html">ご依頼・ご相談</a></li><li><a class="th" href="plan.html">プラン</a></li></ul></div>
+<div><a class="t tl" href="works.html">作品履歴</a><ul><li><a class="th" href="works.html">参加作品（165作品）</a></li></ul></div>
+<div><a class="t tl" href="studio-japan.html">スタジオ</a><ul><li><a class="th" href="studio-japan.html">国内スタジオ</a></li><li><a class="th" href="studio-overseas.html">海外スタジオ</a></li></ul></div>
 </nav>
 <dl class="fco">
 <dt>会社名</dt><dd>株式会社reboot</dd>
@@ -601,11 +761,12 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <dt>代表取締役</dt><dd>佐藤 光成</dd>
 </dl>
 <p class="fno">※このサイトの文章・数字はすべて仮です。正式な内容はヒアリング後に差し替えます。</p>
-<div class="cr"><span>動画・仕上げの依頼はrebootへ</span><small>&#169; reboot Inc.</small></div>
+<div class="fbt"><p>株式会社reboot<br>東京都杉並区上荻1-5-8 直長ビル6F</p><small class="en">&#169; reboot Inc.</small></div>
 </div>
 </footer>
 
 </div>
-<a href="index.html" style="position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px">← 一覧へ戻る</a>
+<style>.dc-back{position:fixed;left:16px;bottom:16px;z-index:99;background:#1a1a1a;color:#fff;padding:10px 16px;font-size:13px;font-weight:700;border-radius:999px;text-decoration:none}@media(max-width:767px){.dc-back{left:8px;bottom:8px;padding:6px 10px;font-size:11px;opacity:.85}}</style><a class="dc-back" href="index.html">← 一覧へ戻る</a>
+<script src="js/ref-11.js" defer></script>
 </body>
 </html>
