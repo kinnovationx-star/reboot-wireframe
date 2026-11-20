@@ -83,6 +83,14 @@ a:hover .hu>span{transform:translateY(-50%)}
 .mvb{margin-top:calc(var(--u) * 40);width:calc(var(--u) * 340)}
 .tel{margin-top:calc(var(--u) * 18);font-size:15px;font-weight:700;line-height:1.6;text-shadow:0 1px 0 rgba(255,255,255,.45)}
 .tel b{font-family:var(--en);font-size:calc(var(--u) * 30);letter-spacing:.04em;margin:0 .3em;vertical-align:-.08em}
+/* 緑の地・写真の上でも読めるように：白い太字＋深緑のふち、ボタンは白、TEL は白い帯 */
+.mv .mvt{color:#fff;-webkit-text-stroke:calc(var(--u) * 10) #143d24;paint-order:stroke fill;text-shadow:0 calc(var(--u) * 7) 0 #143d24}
+.mv .mvt .kari{-webkit-text-stroke:0;color:#143d24;background:#fff;border-color:#fff;opacity:1}
+.mv .btn{color:#143d24}
+.mv .btn:after{background:#fff;box-shadow:0 calc(var(--u) * 6) 0 #143d24}
+.mv .ic{background:#ffe14d;box-shadow:0 calc(var(--u) * 6) 0 #143d24}
+.mv .btn:hover .ic svg{color:#143d24}
+.mv .tel{display:inline-block;background:#fff;color:#143d24;padding:.35em 1.3em;border-radius:100px;text-shadow:none;box-shadow:0 calc(var(--u) * 6) 0 #143d24}
 
 /* SCROLL の帯（参考：.c_navi_scroll 右下の白い角丸に SCROLL↓ が流れる） */
 .nsc{position:fixed;right:20px;bottom:20px;z-index:90;width:264px;height:40px;border:2px solid var(--g2);border-radius:100px;background:#fff;overflow:hidden;transition:opacity .3s;color:var(--bk)}
@@ -304,6 +312,8 @@ a:hover .hu>span{transform:translateY(-50%)}
 .btn.sm{--bh:48px;width:240px;font-size:14px}
 .tel{font-size:14px;margin-top:14px}
 .tel b{font-size:24px;display:inline-block}
+.mv .mvt{-webkit-text-stroke:7px #143d24;text-shadow:0 4px 0 #143d24}
+.mv .tel{padding:.4em 1em;line-height:1.4}
 .ab{padding:calc(var(--u) * 108) 0 0}
 .abx{border-radius:15px;min-height:0;padding:0 20px 360px}
 .abg img{object-position:50% 85%}
