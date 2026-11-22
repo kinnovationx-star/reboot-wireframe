@@ -199,13 +199,11 @@ body{margin:0;background:#fff}
 .wc .wt{display:block;margin-top:6px;font-size:13px;line-height:1.6}
 .wc:hover .wt{text-decoration:underline;text-underline-offset:3px}
 .ov{display:flex;flex-direction:column;row-gap:50px;max-width:1000px;width:90%;margin:180px auto 0}
-.tb{width:100%;border-collapse:collapse}
-.tb th,.tb td{padding:34px 46px;border-bottom:1px solid var(--gray);text-align:left;vertical-align:middle;font-size:15px;line-height:1.8}
-.tb tr:first-child :is(th,td){border-top:1px solid var(--gray)}
-.tb th{width:24%;white-space:nowrap}
-.tb td{overflow-wrap:anywhere}
-.tb em{font-style:normal;font-family:var(--mono);font-weight:400;font-size:28px;letter-spacing:0;margin-right:4px;line-height:1}
-.tb small{display:block;font-size:12px}
+.tb{display:flex;flex-direction:column;align-items:center;gap:14px;padding:46px 24px;border-top:1px solid var(--gray);border-bottom:1px solid var(--gray);text-align:center}
+.tbl{font-size:15px;line-height:1.6}
+.tbn{font-size:18px;line-height:1}
+.tb em{font-style:normal;font-family:var(--mono);font-weight:400;font-size:96px;letter-spacing:0;margin-right:8px;line-height:1}
+.tb small{display:block;font-size:12px;line-height:1.6}
 .ov .b1{margin-top:10px}
 
 /* ===== 5 p-faq ===== */
@@ -303,8 +301,6 @@ body{margin:0;background:#fff}
 .js .ssv{width:81.25vw}
 .sv li{width:14%}
 .gi{grid-template-columns:repeat(2,min(26vw,260px));width:calc(min(26vw,260px)*2 + min(2.0833vw,30px))}
-.tb th,.tb td{padding:28px 24px}
-.tb th{width:26%}
 .rc{flex-direction:column}
 .rch,.rcp{width:100%}
 .rci{max-width:none;width:100%;padding:5.5556% 6%}
@@ -413,10 +409,10 @@ body{margin:0;background:#fff}
 .wc .wt{font-size:12px}
 .wc .mt2{font-size:11px}
 .ov{width:93%;margin-top:80px;row-gap:40px}
-.tb th,.tb td{padding:22px 10px;font-size:13px}
-.tb td{padding-left:20px}
-.tb th{width:30%;white-space:normal}
-.tb em{font-size:22px}
+.tb{padding:32px 16px;gap:10px}
+.tbl{font-size:13px}
+.tbn{font-size:15px}
+.tb em{font-size:64px;margin-right:6px}
 .vo{flex-direction:column;row-gap:30px;width:88%;margin-top:80px}
 .vo>.hd2,.vl{width:100%}
 .vl summary{column-gap:16px;padding:20px 6px}
@@ -589,13 +585,11 @@ body{margin:0;background:#fff}
 </div>
 <div class="ov">
 <h3 class="hd2 c"><span class="mn">実績の概要</span><span class="sb" aria-hidden="true">Overview</span></h3>
-<table class="tb">
-<tr><th>参加作品</th><td><em>165</em>本以上<small>公式の作品履歴（2023〜2025年）の件数</small></td></tr>
-<tr><th>月間の対応枚数</th><td><em>〇〇,〇〇〇</em>枚</td></tr>
-<tr><th>スタッフ</th><td><em>〇〇</em>名（国内・海外）</td></tr>
-<tr><th>拠点</th><td><em>2</em>拠点（東京・中国）</td></tr>
-<tr><th>主な取引先</th><td>〇〇株式会社、〇〇スタジオ ほか<small>（掲載許可を確認中）</small></td></tr>
-</table>
+<div class="tb">
+<span class="tbl">参加作品</span>
+<p class="tbn"><em>165</em>本以上</p>
+<small>公式の作品履歴（2023〜2025年）の件数</small>
+</div>
 <div class="b1 cv"><a href="works.html">作品履歴をすべて見る（165作品）</a></div>
 </div>
 </section>

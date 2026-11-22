@@ -178,11 +178,11 @@ a:hover .tl,a.tl:hover{background-position:100% 100%;background-size:0 1px}
 
 /* ===== 4 実績（社員インタビュー＋クロストーク） ===== */
 .iv{padding-top:260px}
-.nmg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 40px;margin-top:64px;padding-left:176px}
-.nmg p{display:flex;flex-direction:column;border-top:4px solid #fff;padding-top:16px}
-.nmg .num b{font-size:clamp(30px,3vw,46px)}
-.nmg .num i{font-size:18px}
-.nmg span.d{white-space:normal;margin-top:6px;font-size:13px;font-weight:500}
+.nmg{display:flex;margin-top:64px;padding-left:176px}
+.nmg p{display:flex;flex-direction:column;border-top:4px solid #fff;padding-top:16px;min-width:340px}
+.nmg .num b{font-size:clamp(56px,6vw,88px)}
+.nmg .num i{font-size:28px}
+.nmg span.d{white-space:normal;margin-top:8px;font-size:14px;font-weight:500}
 .ivg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:40px;margin-top:72px;padding-left:176px}
 .ivg a{display:block;color:var(--t);transition:color .3s}
 .ivg a:hover{color:var(--k)}
@@ -194,8 +194,6 @@ a:hover .tl,a.tl:hover{background-position:100% 100%;background-size:0 1px}
 .ivg .mt2 span:first-child{margin-right:8px;padding-right:8px;border-right:1px solid rgba(20,90,50,.45)}
 .ivm{margin-top:52px;padding-left:176px}
 .ivm .jbr{margin-top:0}
-.ivm h3{margin-top:16px;font-size:32px;font-weight:900;line-height:1.1}
-.ivm p.tx{margin-top:32px;font-size:16px;line-height:1.8;max-width:760px}
 .w1{left:0;top:-300px;width:969px}
 .w2{right:0;top:80px;width:391px}
 
@@ -425,17 +423,16 @@ a.fab svg{width:18px;height:18px}
 .s2{width:224px;top:-20px}
 /* works */
 .iv{padding-top:228px}
-.nmg{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;margin-top:40px}
-.nmg .num b{font-size:clamp(24px,7vw,34px)}
-.nmg .num small{font-size:13px}
-.nmg .num i{font-size:13px}
+.nmg{margin-top:40px}
+.nmg p{min-width:0;width:100%}
+.nmg .num b{font-size:clamp(48px,14vw,64px)}
+.nmg .num small{font-size:14px}
+.nmg .num i{font-size:20px}
 .ivg{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px;margin-top:40px}
 .ivg small{margin-top:14px;font-size:11px}
 .ivg .tt{margin-top:8px;font-size:14px}
 .ivg .mt2{justify-content:flex-start;margin-top:10px;font-size:11px}
 .ivm{margin-top:40px}
-.ivm h3{margin-top:52px;font-size:26px}
-.ivm p.tx{font-size:14px;margin-top:24px}
 .w1{width:335px;top:-50px}
 .w2{width:173px;top:120px}
 /* voice */
@@ -507,7 +504,7 @@ a.fab svg{width:18px;height:18px}
 .qs{max-width:560px}
 .qac{max-width:560px}
 .ivg{grid-template-columns:repeat(3,minmax(0,1fr))}
-.nmg{grid-template-columns:repeat(2,minmax(0,1fr))}
+
 .hin{max-width:560px}
 }
 @media(max-width:420px){
@@ -624,9 +621,6 @@ a.fab svg{width:18px;height:18px}
 <p class="tag">WORKS</p>
 <div class="nmg">
 <p class="num"><small>参加作品</small><span><b>165</b><i>本以上</i></span><span class="d">2023〜2025年の作品履歴より</span></p>
-<p class="num"><small>月間の対応枚数</small><span><b>〇〇,〇〇〇</b><i>枚</i></span><span class="d">動画・仕上げの合計</span></p>
-<p class="num"><small>スタッフ</small><span><b>〇〇</b><i>名</i></span><span class="d">国内・海外の合計</span></p>
-<p class="num"><small>拠点</small><span><b>2</b><i>拠点</i></span><span class="d">東京・中国</span></p>
 </div>
 <ul class="ivg">
 <li><a href="works.html"><span class="im"><img src="images/off/w006.jpg" alt="機動戦士Gundam GQuuuuuuX（ジークアクス）"></span><small>2025年</small><p class="tt"><span class="th">機動戦士Gundam GQuuuuuuX（ジークアクス）</span></p><p class="mt2"><span>担当：〇〇</span><span>拠点：〇〇</span></p></a></li>
@@ -638,9 +632,6 @@ a.fab svg{width:18px;height:18px}
 </ul>
 <div class="ivm">
 <div class="jbr"><a class="lb" href="works.html"><span>作品履歴をすべて見る（165作品）</span><svg viewBox="0 0 13 14" aria-hidden="true"><path d="M1 1l11 6-11 6 3-6z" fill="currentColor"/></svg></a></div>
-<h3>主な取引先</h3>
-<p class="tag">CLIENTS</p>
-<p class="tx">〇〇株式会社、〇〇スタジオ、株式会社〇〇 ほか（掲載許可を確認中）</p>
 </div>
 </div>
 <div class="bru w1 ba" aria-hidden="true"><i style="width:66%;height:10px;margin:0px 0 0 12%;background:linear-gradient(90deg,#7ad33a 90%,transparent 98%)"></i><i style="width:60%;height:16px;margin:-2px 0 0 0%;background:linear-gradient(90deg,#7ad33a 87%,transparent 88%)"></i><i style="width:85%;height:2px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#7ad33a 88%,transparent 88%)"></i><i style="width:7%;height:2px;margin:-1px 0 0 2%;background:linear-gradient(90deg,#9be03a 89%,transparent 91%)"></i><i style="width:53%;height:4px;margin:0px 0 0 13%;background:linear-gradient(90deg,#9be03a 75%,transparent 77%)"></i><i style="width:20%;height:6px;margin:-3px 0 0 25%;background:linear-gradient(90deg,#9be03a 81%,transparent 85%)"></i><i style="width:94%;height:12px;margin:-1px 0 0 3%;background:linear-gradient(90deg,#9be03a 77%,transparent 77%)"></i><i style="width:30%;height:12px;margin:-5px 0 0 9%;background:linear-gradient(90deg,#9be03a 74%,transparent 92%)"></i><i style="width:51%;height:26px;margin:-3px 0 0 5%;background:linear-gradient(90deg,#2fb3a0 79%,transparent 86%)"></i><i style="width:84%;height:4px;margin:0px 0 0 1%;background:linear-gradient(90deg,#2fb3a0 75%,transparent 88%)"></i><i style="width:92%;height:8px;margin:-4px 0 0 3%;background:linear-gradient(90deg,#2fb3a0 75%,transparent 80%)"></i><i style="width:14%;height:2px;margin:-1px 0 0 33%;background:linear-gradient(90deg,#2fb3a0 78%,transparent 79%)"></i><i style="width:38%;height:10px;margin:-5px 0 0 14%;background:linear-gradient(90deg,#2fb3a0 69%,transparent 78%)"></i><i style="width:97%;height:26px;margin:-11px 0 0 0%;background:linear-gradient(90deg,#3fbf2a 73%,transparent 99%)"></i><i style="width:92%;height:10px;margin:-1px 0 0 4%;background:linear-gradient(90deg,#c8e03a 68%,transparent 85%)"></i><i style="width:33%;height:4px;margin:-1px 0 0 10%;background:linear-gradient(90deg,#3fbf2a 75%,transparent 93%)"></i><i style="width:8%;height:6px;margin:-3px 0 0 12%;background:linear-gradient(90deg,#3fbf2a 71%,transparent 71%)"></i><i style="width:22%;height:4px;margin:-2px 0 0 50%;background:linear-gradient(90deg,#3fbf2a 91%,transparent 94%)"></i><i style="width:22%;height:2px;margin:0px 0 0 77%;background:linear-gradient(90deg,#3fbf2a 92%,transparent 92%)"></i><i style="width:80%;height:3px;margin:-1px 0 0 5%;background:linear-gradient(90deg,#3fbf2a 74%,transparent 82%)"></i><i style="width:67%;height:6px;margin:0px 0 0 9%;background:linear-gradient(90deg,#7ad33a 66%,transparent 100%)"></i><i style="width:69%;height:16px;margin:-5px 0 0 1%;background:linear-gradient(90deg,#9be03a 80%,transparent 86%)"></i><i style="width:7%;height:2px;margin:0px 0 0 80%;background:linear-gradient(90deg,#3fbf2a 88%,transparent 96%)"></i><i style="width:95%;height:16px;margin:0px 0 0 1%;background:linear-gradient(90deg,#9be03a 74%,transparent 74%)"></i><i style="width:81%;height:20px;margin:-6px 0 0 12%;background:linear-gradient(90deg,#3fbf2a 75%,transparent 87%)"></i><i style="width:10%;height:6px;margin:-3px 0 0 47%;background:linear-gradient(90deg,#3fbf2a 73%,transparent 97%)"></i><i style="width:63%;height:20px;margin:-6px 0 0 6%;background:linear-gradient(90deg,#2fb3a0 79%,transparent 98%)"></i><i style="width:50%;height:2px;margin:0px 0 0 14%;background:linear-gradient(90deg,#9be03a 85%,transparent 89%)"></i><i style="width:78%;height:20px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#3fbf2a 70%,transparent 92%)"></i><i style="width:77%;height:8px;margin:0px 0 0 3%;background:linear-gradient(90deg,#3fbf2a 76%,transparent 78%)"></i><i style="width:49%;height:6px;margin:-2px 0 0 3%;background:linear-gradient(90deg,#3fbf2a 75%,transparent 94%)"></i><i style="width:81%;height:12px;margin:-2px 0 0 10%;background:linear-gradient(90deg,#7ad33a 77%,transparent 98%)"></i><i style="width:16%;height:2px;margin:-1px 0 0 9%;background:linear-gradient(90deg,#2fb3a0 92%,transparent 92%)"></i><i style="width:14%;height:3px;margin:-1px 0 0 58%;background:linear-gradient(90deg,#9be03a 83%,transparent 83%)"></i><i style="width:85%;height:20px;margin:-6px 0 0 1%;background:linear-gradient(90deg,#2fb3a0 72%,transparent 85%)"></i><i style="width:89%;height:20px;margin:-6px 0 0 0%;background:linear-gradient(90deg,#7ad33a 64%,transparent 69%)"></i><i style="width:20%;height:6px;margin:-2px 0 0 60%;background:linear-gradient(90deg,#9be03a 81%,transparent 85%)"></i><i style="width:68%;height:6px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#7ad33a 64%,transparent 68%)"></i><i style="width:64%;height:8px;margin:-3px 0 0 0%;background:linear-gradient(90deg,#9be03a 91%,transparent 95%)"></i><i style="width:59%;height:3px;margin:0px 0 0 4%;background:linear-gradient(90deg,#7ad33a 86%,transparent 89%)"></i><i style="width:6%;height:4px;margin:-2px 0 0 77%;background:linear-gradient(90deg,#2fb3a0 71%,transparent 71%)"></i><i style="width:50%;height:12px;margin:0px 0 0 12%;background:linear-gradient(90deg,#7ad33a 61%,transparent 78%)"></i><i style="width:98%;height:26px;margin:-14px 0 0 0%;background:linear-gradient(90deg,#7ad33a 84%,transparent 90%)"></i><i style="width:52%;height:8px;margin:-1px 0 0 0%;background:linear-gradient(90deg,#c8e03a 84%,transparent 89%)"></i></div>

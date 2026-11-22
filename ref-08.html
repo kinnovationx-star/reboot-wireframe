@@ -190,11 +190,10 @@ a.mv:hover img{transform:scale(1.04)}
 /* ===== 4 実績（top-works） ===== */
 .wk{background:#fff;padding:clamp(108px,5.455rem + 6.48vw,165px) 0 150px}
 .wk .tp{margin-bottom:clamp(32px,1.818rem + .91vw,40px)}
-.nb{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--b);border-bottom:1px solid var(--b);margin-bottom:40px}
-.nb div{padding:22px 20px 24px 10px}
-.nb div+div{border-left:1px solid var(--b10)}
+.nb{border-top:1px solid var(--b);border-bottom:1px solid var(--b);margin-bottom:40px}
+.nb div{display:flex;align-items:baseline;justify-content:space-between;gap:20px;padding:26px 10px 28px}
 .nb dt{font-size:12px;letter-spacing:.06em}
-.nb dd{margin-top:14px;font-family:"Jost","Figtree",sans-serif;font-weight:500;font-size:clamp(36px,2.023rem + 1.14vw,46px);line-height:1;white-space:nowrap}
+.nb dd{font-family:"Jost","Figtree",sans-serif;font-weight:500;font-size:clamp(48px,2.5rem + 2.5vw,72px);line-height:1;white-space:nowrap}
 .nb dd small{font-family:"IBM Plex Sans JP",sans-serif;font-size:13px;margin-left:6px;letter-spacing:.04em}
 .tb{margin-bottom:20px;font-size:clamp(13px,.79rem + .11vw,14px)}
 .tb button{padding:0 3px;color:var(--b20);transition:color .3s var(--ez);min-height:32px}
@@ -209,11 +208,6 @@ a.mv:hover img{transform:scale(1.04)}
 .wc .tg{margin-top:16px;font-size:12px;line-height:1}
 .wc .tg span+span{margin-left:8px}
 .wc.hide{display:none}
-.cl{margin-top:70px;border-top:1px solid var(--b);border-bottom:1px solid var(--b)}
-.cl div{display:grid;grid-template-columns:16.66% 1fr;gap:5px;padding:32px 10px}
-.cl dt{font-size:12px;line-height:1.2;padding-top:4px}
-.cl dd{font-size:15px;line-height:1.5}
-.cl dd small{font-size:12px;margin-left:8px;opacity:.7}
 .wk .bt{display:flex;justify-content:center;margin-top:50px}
 
 /* ===== 5 お客様の声（top-service） ===== */
@@ -332,9 +326,6 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .abr{order:1}
 .abm{padding-left:0}
 .wg{grid-template-columns:repeat(2,minmax(0,1fr))}
-.nb{grid-template-columns:repeat(2,minmax(0,1fr))}
-.nb div:nth-child(3){border-left:0}
-.nb div:nth-child(n+3){border-top:1px solid var(--b10)}
 .vo .cf{grid-template-columns:minmax(0,1fr)}
 .bcg{grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px}
 .bct{grid-column:1/-1;flex-direction:row;align-items:flex-end}
@@ -352,7 +343,6 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 @media(max-width:767.98px){
 .ftw{padding:60px 40px 18px}
 .tmc figure{width:120px}
-.cl div{grid-template-columns:1fr}
 .ac .ja br{display:none}
 }
 /* ===== スマホ（〜575） ===== */
@@ -397,7 +387,7 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .abh{padding-left:4%;padding-right:4%}
 .wg{gap:30px 12px}
 .nb div{padding:18px 10px 20px}
-.nb dd{font-size:24px;white-space:normal}
+.nb dd{font-size:34px}
 .nb dd small{font-size:12px;margin-left:3px}
 .vm h3{font-size:40px;line-height:1.4;margin-bottom:12px}
 .bc{padding:30px 12px}
@@ -551,9 +541,6 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <h2 class="tp">Works<span class="kari">仮の文章</span></h2>
 <dl class="nb">
 <div><dt>参加作品（2023〜2025）</dt><dd>165<small>本以上</small></dd></div>
-<div><dt>月間の対応枚数</dt><dd>〇〇,〇〇〇<small>枚</small></dd></div>
-<div><dt>スタッフ</dt><dd>〇〇<small>名</small></dd></div>
-<div><dt>拠点</dt><dd>2<small>東京・中国</small></dd></div>
 </dl>
 <div class="tb" data-tabs><button type="button" class="on" data-y="all">All</button><button type="button" data-y="2025">2025</button><button type="button" data-y="2024">2024</button><button type="button" data-y="2023">2023</button></div>
 <ul class="wg">
@@ -566,7 +553,6 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <li class="wc" data-y="2023"><div class="ph" data-st="clip"><img src="images/off/w110.jpg" alt="TVアニメ「ヴィンランド・サガ」"></div><h3>TVアニメ「ヴィンランド・サガ」</h3><p class="tg"><span>#2023</span><span>#担当：〇〇</span></p></li>
 <li class="wc" data-y="2023"><div class="ph" data-st="clip"><img src="images/off/w119.jpg" alt="TVアニメ『東京リベンジャーズ』"></div><h3>TVアニメ『東京リベンジャーズ』</h3><p class="tg"><span>#2023</span><span>#担当：〇〇</span></p></li>
 </ul>
-<dl class="cl"><div data-st="top"><dt>主な取引先</dt><dd>〇〇株式会社、〇〇スタジオ、株式会社〇〇 ほか<small>（掲載許可を確認中）</small></dd></div></dl>
 <div class="bt"><a class="cb" href="works.html"><span class="cb-c"><span class="cb-i"><span class="cb-b">作品履歴をすべて見る（165作品）</span><span class="cb-a" aria-hidden="true"><span>View more works　👉</span><span>View more works　👉</span><span>View more works　👉</span><span>View more works　👉</span><span>View more works　👉</span></span></span><span class="cb-ar" aria-hidden="true"><svg width="8" height="8" viewBox="0 0 8 8"><path d="M4.6 0 8 4 4.6 8l-.8-.7L6.1 4.5H0v-1h6.1L3.8.7z"/></svg></span></span></a></div>
 </div>
 </section>

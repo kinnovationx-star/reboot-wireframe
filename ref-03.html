@@ -219,12 +219,14 @@ body{margin:0}
 .win{font-weight:500;font-size:clamp(15px,1.25vw,17px);line-height:2;max-width:600px;color:var(--deep)}
 .whd .en-note{max-width:600px;color:var(--green)}
 .nmw{max-width:1240px;margin:0 auto clamp(48px,6vw,88px);padding:0 24px;position:relative;z-index:1}
-.nm{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--ink)}
-.nm li{padding:24px 4px 22px;border-bottom:1px solid rgba(34,70,58,.25);display:flex;flex-direction:column;gap:4px;min-width:0}
-.nm li+li{padding-left:clamp(16px,2vw,28px);border-left:1px solid rgba(34,70,58,.25)}
+.nm{border-top:1px solid var(--ink)}
+.nm li{padding:24px 4px 22px;border-bottom:1px solid rgba(34,70,58,.25);display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:4px 24px;min-width:0}
+.nm .d-en{grid-column:1;grid-row:1}
+.nm .nl{grid-column:1;grid-row:2}
+.nm .amt{grid-column:2;grid-row:1/3}
 .nl{font-weight:700;font-size:clamp(15px,1.3vw,17px);line-height:1.5;color:var(--ink)}
 .nm small{font-size:12px;font-weight:500;color:#5d7a71}
-.amt{display:flex;align-items:flex-end;flex-wrap:wrap;gap:0 6px;font-family:var(--en);font-weight:300;font-size:clamp(40px,4vw,64px);line-height:.95;letter-spacing:-.02em;color:var(--green);margin-top:8px;white-space:nowrap}
+.amt{display:flex;align-items:flex-end;flex-wrap:wrap;gap:0 6px;font-family:var(--en);font-weight:300;font-size:clamp(56px,6.4vw,96px);line-height:.95;letter-spacing:-.02em;color:var(--green);margin-top:8px;white-space:nowrap}
 .amt em{font-style:normal;font-family:"Zen Kaku Gothic New",sans-serif;font-size:16px;font-weight:700;letter-spacing:0;padding-bottom:.2em}
 .wg{max-width:1240px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
 .wgt{display:flex;flex-direction:column;gap:2px;font-size:clamp(20px,2vw,26px);font-weight:700;color:var(--deep);margin-bottom:clamp(18px,2.2vw,28px);padding-bottom:14px;border-bottom:1px solid #cfe0d6}
@@ -242,11 +244,6 @@ body{margin:0}
 .tg{display:flex;flex-wrap:wrap;gap:6px}
 .tg li{border:1px solid #b9d3c4;border-radius:4px;padding:2px 9px;font-size:12px;font-weight:500;color:var(--green);line-height:1.7}
 .tg li.ro{border-color:#d8c332;background:#fdf9e3;color:#8a6d28;font-weight:700}
-.cli{max-width:1240px;margin:clamp(48px,6vw,88px) auto 0;padding:0 24px;position:relative;z-index:1}
-.cll{display:grid;grid-template-columns:auto 1fr;gap:0 clamp(24px,4vw,64px);font-size:clamp(14.5px,1.2vw,16px);line-height:1.9;color:var(--ink)}
-.cll dt,.cll dd{padding:14px 0;border-bottom:1px dashed rgba(48,156,89,.45)}
-.cll dt{font-weight:700;white-space:nowrap;color:var(--green)}
-.cll dd{font-weight:500}
 .wmore{max-width:1240px;margin:clamp(36px,4vw,56px) auto 0;padding:0 24px;text-align:right;position:relative;z-index:1}
 
 /* ===== 5 お客様の声（参考 .worries：白いフキダシ・左下のしっぽ／見出しは .subsidy-title） ===== */
@@ -393,8 +390,6 @@ body{margin:0}
 @media (max-width:1100px){
 .nv{gap:20px}.tel{padding-right:18px}.tt small{display:none}
 .side{display:none}
-.nm{grid-template-columns:repeat(2,minmax(0,1fr))}
-.nm li:nth-child(3){padding-left:4px;border-left:0}
 .cg{grid-template-columns:repeat(2,minmax(0,1fr))}
 .vol{grid-template-columns:repeat(2,minmax(0,1fr))}
 .vb:nth-child(3){margin-top:0}
@@ -446,7 +441,7 @@ a.fab .ti{width:44px;height:44px}
 .her{padding-top:clamp(70px,16vw,110px)}
 .tv{flex-basis:26vw}
 .trk span{font-size:clamp(40px,11vw,80px)}
-.sdw,.whd,.wg,.wmore,.nmw,.cli,.vot,.vol,.sdw2{padding-left:16px;padding-right:16px}
+.sdw,.whd,.wg,.wmore,.nmw,.vot,.vol,.sdw2{padding-left:16px;padding-right:16px}
 .sdg{grid-template-columns:minmax(0,1fr)}
 .sdi,.sdi+.sdi{padding-left:0;padding-right:0;border-left:0}
 .snd{border-radius:24px;padding:32px 20px;margin-left:12px;margin-right:12px}
@@ -457,9 +452,6 @@ a.fab .ti{width:44px;height:44px}
 .spn{flex-direction:column;align-items:flex-start}
 .wbg{writing-mode:horizontal-tb;transform:none;top:0;left:-.1em;font-size:clamp(80px,22vw,160px)}
 .cg{gap:24px 14px}
-.cll{grid-template-columns:minmax(0,1fr);gap:0}
-.cll dt{padding-bottom:0;border-bottom:0}
-.cll dd{padding-top:2px}
 .vol{grid-template-columns:minmax(0,1fr);gap:28px}
 .vb:nth-child(n){margin-top:0}
 .vq{border-radius:28px}
@@ -491,10 +483,8 @@ a.fab .ti{width:44px;height:44px}
 .lcl a span{flex-basis:8em}
 }
 @media (max-width:560px){
-.nm{grid-template-columns:minmax(0,1fr)}
-.nm li{padding-left:0 !important;border-left:0 !important;flex-direction:row;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:2px 12px}
-.nm .d-en{flex-basis:100%}
-.amt{margin-top:0;font-size:36px}
+.nm li{gap:4px 12px}
+.amt{margin-top:0;font-size:56px}
 .cg{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}
 .th{border-radius:12px;margin-bottom:10px}
 .ct{font-size:14px}
@@ -619,9 +609,6 @@ a.fab .ti{width:44px;height:44px}
 <div class="nmw">
 <ul class="nm">
 <li><span class="d-en">Works</span><span class="nl">参加作品 <small>（2023〜2025年）</small></span><span class="amt">165<em>本以上</em></span></li>
-<li><span class="d-en">Monthly</span><span class="nl">月間の対応枚数</span><span class="amt">〇〇,〇〇〇<em>枚</em></span></li>
-<li><span class="d-en">Staff</span><span class="nl">スタッフ <small>（国内・海外）</small></span><span class="amt">〇〇<em>名</em></span></li>
-<li><span class="d-en">Studios</span><span class="nl">拠点 <small>（東京・中国）</small></span><span class="amt">2<em>拠点</em></span></li>
 </ul>
 </div>
 <div class="wg">
@@ -636,12 +623,6 @@ a.fab .ti{width:44px;height:44px}
 <a class="cc" href="works.html"><div class="th"><img src="images/off/w020.jpg" alt="オリジナルアニメ『LAZARUS ラザロ』のビジュアル"></div><h4 class="ct">オリジナルアニメ『LAZARUS ラザロ』</h4><ul class="tg"><li>2025</li><li class="ro">担当：〇〇</li></ul></a>
 <a class="cc" href="works.html"><div class="th"><img src="images/off/w031.jpg" alt="TVアニメ『チ。 ―地球の運動について―』のビジュアル"></div><h4 class="ct">TVアニメ『チ。 ―地球の運動について―』</h4><ul class="tg"><li>2025</li><li class="ro">担当：〇〇</li></ul></a>
 </div>
-</div>
-<div id="clients" class="cli">
-<h3 class="wgt"><span>Clients</span>主な取引先</h3>
-<dl class="cll">
-<dt>アニメ制作会社</dt><dd>〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</dd>
-</dl>
 </div>
 <p class="wmore"><a class="more" href="works.html"><b>作品履歴をすべて見る（165作品）</b><i aria-hidden="true">→</i></a></p>
 </section>

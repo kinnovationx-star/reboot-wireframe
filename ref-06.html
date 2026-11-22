@@ -194,15 +194,12 @@ font-family:'Noto Sans JP',sans-serif;color:var(--tx);font-size:16px;line-height
 .phg img{display:block;width:100%;height:100%;object-fit:cover;transition:scale .4s cubic-bezier(.19,1,.22,1)}
 .phg figure:hover img{scale:1.04}
 .phg figcaption{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:12px;background:#fff;font-size:12px;font-weight:600;line-height:1;letter-spacing:-.02em}
-.tl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
-.tl div{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;min-height:120px;padding:12px;background:#fff;border:1px solid var(--bll);border-radius:20px;text-align:center}
+.tl{margin-top:48px}
+.tl div{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:24px 32px;background:#fff;border:1px solid var(--bll);border-radius:20px;text-align:center}
 .tl span{font-size:16px;line-height:1;letter-spacing:.05em}
-.tl b{font-size:32px;font-weight:700;line-height:1;white-space:nowrap}
+.tl b{font-size:48px;font-weight:700;line-height:1;white-space:nowrap}
 .tl b small{font-size:16px;margin-left:2px}
 .tln{margin-top:12px;font-size:11px;line-height:1.4;color:var(--gy)}
-.cli{margin-top:32px}
-.cli dt{font-size:13px;font-weight:600;color:var(--grt);line-height:1.6}
-.cli dd{font-size:14px;line-height:1.8}
 .pn .mo{margin-top:40px}
 .wg{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-content:start}
 .wk{display:block}
@@ -396,9 +393,9 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .evc .n{font-size:34px}.evc .n small{font-size:16px}
 .phg,.wg{gap:12px}
 .phg figure,.wk .im{border-radius:16px}
-.tl{gap:10px;margin-top:32px}
-.tl div{min-height:100px}
-.tl b{font-size:24px}
+.tl{margin-top:32px}
+.tl div{padding:18px 22px}
+.tl b{font-size:36px}
 .wk b{font-size:13px}
 .vch{margin-top:72px}
 .vlp{margin:32px -24px 0;padding:16px 0 40px}
@@ -446,7 +443,6 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 .cp{font-size:min(13.4vw,92px)}
 .hvc{height:min(172vw,1180px)}
 .svs{grid-template-columns:repeat(2,minmax(0,1fr))}
-.tl{grid-template-columns:repeat(4,minmax(0,1fr))}
 .nc{flex-basis:46%}
 }
 </style>
@@ -581,12 +577,8 @@ a.fab{display:inline-flex;align-items:center;gap:8px;position:fixed;right:16px;b
 <p class="tx">2023〜2025年に、165本以上の作品に参加しました。TVシリーズから劇場作品まで、動画・仕上げを中心に担当しています。</p>
 <div class="tl">
 <div><span>参加作品</span><b>165<small>本以上</small></b></div>
-<div><span>月間の対応枚数</span><b>〇〇,〇〇〇<small>枚</small></b></div>
-<div><span>スタッフ</span><b>〇〇<small>名</small></b></div>
-<div><span>拠点</span><b>2<small>拠点</small></b></div>
 </div>
 <p class="tln">※参加作品は公式の作品履歴（2023〜2025年）の件数</p>
-<dl class="cli"><dt>主な取引先</dt><dd>〇〇株式会社、〇〇スタジオ ほか（掲載許可を確認中）</dd></dl>
 <a class="mo" href="works.html"><span>作品履歴をすべて見る（165作品）</span><span class="ar"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
 </div>
 <div class="wg">

@@ -181,10 +181,10 @@ a:hover .cf:before{left:0;transition:left .3s ease-out}
 @keyframes hrot{to{transform:rotate(360deg)}}
 .wkb{padding:110px 0 160px;position:relative;z-index:2}
 .wkb .lead{font-size:16px;line-height:1.8;max-width:720px}
-.sts{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px}
-.sts>div{border-top:1px solid rgba(255,255,255,.35);padding-top:20px}
+.sts{margin-top:48px}
+.sts>div{display:flex;align-items:baseline;gap:20px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.35);padding-top:20px}
 .sts dt{font-size:14px;font-weight:800}
-.sts dd{margin-top:6px;white-space:nowrap;font-family:var(--en);font-weight:900;font-size:clamp(34px,3.6vw,56px);line-height:1.1;letter-spacing:-.01em}
+.sts dd{white-space:nowrap;font-family:var(--en);font-weight:900;font-size:clamp(48px,6vw,88px);line-height:1.1;letter-spacing:-.01em}
 .sts dd small{font-family:var(--ja);font-size:16px;font-weight:800;margin-left:4px;letter-spacing:0}
 .stn{margin-top:14px;font-size:12px;opacity:.75}
 .wcs{display:grid;grid-template-columns:repeat(4,1fr);gap:40px 24px;margin-top:80px}
@@ -194,9 +194,7 @@ a:hover .cf:before{left:0;transition:left .3s ease-out}
 .wc .yr{display:block;margin-top:14px;font-family:var(--en);font-weight:700;font-size:13px;letter-spacing:.04em;opacity:.8}
 .wc .nm{display:block;margin-top:4px;font-size:15px;font-weight:800;line-height:1.5}
 .wc .rl{display:block;margin-top:6px;font-size:12px;opacity:.75}
-.wkf{display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:72px;padding-top:32px;border-top:1px solid rgba(255,255,255,.35)}
-.wkf p{font-size:14px;line-height:1.7}
-.wkf p b{display:block;font-size:16px;font-weight:800}
+.wkf{display:flex;align-items:center;justify-content:flex-end;margin-top:56px}
 
 /* ---------- shared big heading (career) ---------- */
 .bh h2{font-family:var(--en);font-weight:900;font-size:70px;line-height:1.2;color:var(--tx)}
@@ -373,11 +371,11 @@ a.fab .co{width:36px;height:36px}
 .wkh .sub{font-size:15px}
 .cur{width:96px;height:96px;margin-top:16px}
 .wkb{padding:72px 0 100px}
-.sts{grid-template-columns:repeat(2,1fr);gap:24px 16px}
-.sts dd{font-size:30px}
+.sts>div{gap:12px}
+.sts dd{font-size:44px}
 .wcs{grid-template-columns:repeat(2,1fr);gap:28px 12px;margin-top:56px}
 .wc .nm{font-size:13px}
-.wkf{flex-direction:column;align-items:flex-start}
+.wkf{justify-content:flex-start}
 .bh h2{font-size:48px}
 .vc{padding:100px 0 80px}
 .vcg{grid-template-columns:1fr;margin-top:36px}
@@ -534,9 +532,6 @@ a.fab .co{width:36px;height:36px}
 <p class="lead">2023〜2025年に、165本以上の作品に参加しました。TVシリーズから劇場作品まで、動画・仕上げを中心に担当しています。<span class="kari">仮の文章</span></p>
 <dl class="sts">
 <div><dt>参加作品</dt><dd>165<small>本以上</small></dd></div>
-<div><dt>月間の対応枚数</dt><dd>〇〇,〇〇〇<small>枚</small></dd></div>
-<div><dt>スタッフ</dt><dd>〇〇<small>名</small></dd></div>
-<div><dt>拠点</dt><dd>2<small>拠点</small></dd></div>
 </dl>
 <p class="stn">※参加作品は公式の作品履歴（2023〜2025年）の件数</p>
 <div class="wcs">
@@ -549,7 +544,7 @@ a.fab .co{width:36px;height:36px}
 <a class="wc" href="works.html"><div class="im"><img src="images/off/w010.jpg" alt="TVアニメ『小市民シリーズ』"></div><span class="yr">2025</span><span class="nm">TVアニメ『小市民シリーズ』</span><span class="rl">担当：〇〇</span></a>
 <a class="wc" href="works.html"><div class="im"><img src="images/off/w041.jpg" alt="TVアニメ「俺だけレベルアップな件」"></div><span class="yr">2024</span><span class="nm">TVアニメ「俺だけレベルアップな件」</span><span class="rl">担当：〇〇</span></a>
 </div>
-<div class="wkf"><p><b>主な取引先</b>〇〇株式会社、〇〇スタジオ、株式会社〇〇 ほか（掲載許可を確認中）</p><a class="abt w" href="works.html"><span>作品履歴をすべて見る（165作品）</span><span class="co" aria-hidden="true"><svg class="cc" viewBox="0 0 48 48"><circle class="b" cx="24" cy="24" r="23"/><circle class="m" cx="24" cy="24" r="23"/></svg><span class="ca"><i><svg viewBox="0 0 16 10"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i><i><svg viewBox="0 0 16 10"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></span></span></a></div>
+<div class="wkf"><a class="abt w" href="works.html"><span>作品履歴をすべて見る（165作品）</span><span class="co" aria-hidden="true"><svg class="cc" viewBox="0 0 48 48"><circle class="b" cx="24" cy="24" r="23"/><circle class="m" cx="24" cy="24" r="23"/></svg><span class="ca"><i><svg viewBox="0 0 16 10"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i><i><svg viewBox="0 0 16 10"><path d="M0 5h14M10 1l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></i></span></span></a></div>
 </div></div>
 </section>
 
